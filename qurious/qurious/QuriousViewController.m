@@ -1,9 +1,9 @@
 //
 //  QuriousViewController.m
-//  qurious
+//  qurious 333
 //
-//  Created by Abhinav  Khanna on 3/29/14.
-//  Copyright (c) 2014 Abhinav Khanna. All rights reserved.
+//  Created by Qurious iOS on 3/29/14.
+//  Copyright (c) 2014 Qurious iOS Team. All rights reserved.
 //
 
 #import "QuriousViewController.h"
