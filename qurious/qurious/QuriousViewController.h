@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuriousViewController : UIViewController
+@interface QuriousViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
