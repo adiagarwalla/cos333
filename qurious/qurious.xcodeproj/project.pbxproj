@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		481E2D0D18E76B5C006484CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D0C18E76B5C006484CF /* Foundation.framework */; };
+		481E2D0F18E76B5C006484CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D0E18E76B5C006484CF /* CoreGraphics.framework */; };
+		481E2D1118E76B5C006484CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D1018E76B5C006484CF /* UIKit.framework */; };
+		481E2D1718E76B5D006484CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 481E2D1518E76B5D006484CF /* InfoPlist.strings */; };
+		481E2D1918E76B5D006484CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E2D1818E76B5D006484CF /* main.m */; };
+		481E2D1D18E76B5D006484CF /* QuriousAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E2D1C18E76B5D006484CF /* QuriousAppDelegate.m */; };
+		481E2D2018E76B5D006484CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481E2D1E18E76B5D006484CF /* Main.storyboard */; };
+		481E2D2318E76B5D006484CF /* QuriousViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E2D2218E76B5D006484CF /* QuriousViewController.m */; };
+		481E2D2518E76B5D006484CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481E2D2418E76B5D006484CF /* Images.xcassets */; };
+		481E2D2C18E76B5D006484CF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D2B18E76B5D006484CF /* XCTest.framework */; };
+		481E2D2D18E76B5D006484CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D0C18E76B5C006484CF /* Foundation.framework */; };
+		481E2D2E18E76B5D006484CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D1018E76B5C006484CF /* UIKit.framework */; };
+		481E2D3618E76B5D006484CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 481E2D3418E76B5D006484CF /* InfoPlist.strings */; };
+		481E2D3818E76B5D006484CF /* quriousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E2D3718E76B5D006484CF /* quriousTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		481E2D2F18E76B5D006484CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 481E2D0118E76B5C006484CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 481E2D0818E76B5C006484CF;
+			remoteInfo = qurious;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		481E2D0918E76B5C006484CF /* qurious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qurious.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		481E2D0C18E76B5C006484CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		481E2D0E18E76B5C006484CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		481E2D1018E76B5C006484CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		481E2D1418E76B5D006484CF /* qurious-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "qurious-Info.plist"; sourceTree = "<group>"; };
+		481E2D1618E76B5D006484CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		481E2D1818E76B5D006484CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		481E2D1A18E76B5D006484CF /* qurious-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "qurious-Prefix.pch"; sourceTree = "<group>"; };
+		481E2D1B18E76B5D006484CF /* QuriousAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuriousAppDelegate.h; sourceTree = "<group>"; };
+		481E2D1C18E76B5D006484CF /* QuriousAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuriousAppDelegate.m; sourceTree = "<group>"; };
+		481E2D1F18E76B5D006484CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		481E2D2118E76B5D006484CF /* QuriousViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuriousViewController.h; sourceTree = "<group>"; };
+		481E2D2218E76B5D006484CF /* QuriousViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuriousViewController.m; sourceTree = "<group>"; };
+		481E2D2418E76B5D006484CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		481E2D2A18E76B5D006484CF /* quriousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quriousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		481E2D2B18E76B5D006484CF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		481E2D3318E76B5D006484CF /* quriousTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "quriousTests-Info.plist"; sourceTree = "<group>"; };
+		481E2D3518E76B5D006484CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		481E2D3718E76B5D006484CF /* quriousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quriousTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		481E2D0618E76B5C006484CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481E2D0F18E76B5C006484CF /* CoreGraphics.framework in Frameworks */,
+				481E2D1118E76B5C006484CF /* UIKit.framework in Frameworks */,
+				481E2D0D18E76B5C006484CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		481E2D2718E76B5D006484CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481E2D2C18E76B5D006484CF /* XCTest.framework in Frameworks */,
+				481E2D2E18E76B5D006484CF /* UIKit.framework in Frameworks */,
+				481E2D2D18E76B5D006484CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		481E2D0018E76B5C006484CF = {
+			isa = PBXGroup;
+			children = (
+				481E2D1218E76B5D006484CF /* qurious */,
+				481E2D3118E76B5D006484CF /* quriousTests */,
+				481E2D0B18E76B5C006484CF /* Frameworks */,
+				481E2D0A18E76B5C006484CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		481E2D0A18E76B5C006484CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				481E2D0918E76B5C006484CF /* qurious.app */,
+				481E2D2A18E76B5D006484CF /* quriousTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		481E2D0B18E76B5C006484CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				481E2D0C18E76B5C006484CF /* Foundation.framework */,
+				481E2D0E18E76B5C006484CF /* CoreGraphics.framework */,
+				481E2D1018E76B5C006484CF /* UIKit.framework */,
+				481E2D2B18E76B5D006484CF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		481E2D1218E76B5D006484CF /* qurious */ = {
+			isa = PBXGroup;
+			children = (
+				481E2D1B18E76B5D006484CF /* QuriousAppDelegate.h */,
+				481E2D1C18E76B5D006484CF /* QuriousAppDelegate.m */,
+				481E2D1E18E76B5D006484CF /* Main.storyboard */,
+				481E2D2118E76B5D006484CF /* QuriousViewController.h */,
+				481E2D2218E76B5D006484CF /* QuriousViewController.m */,
+				481E2D2418E76B5D006484CF /* Images.xcassets */,
+				481E2D1318E76B5D006484CF /* Supporting Files */,
+			);
+			path = qurious;
+			sourceTree = "<group>";
+		};
+		481E2D1318E76B5D006484CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				481E2D1418E76B5D006484CF /* qurious-Info.plist */,
+				481E2D1518E76B5D006484CF /* InfoPlist.strings */,
+				481E2D1818E76B5D006484CF /* main.m */,
+				481E2D1A18E76B5D006484CF /* qurious-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		481E2D3118E76B5D006484CF /* quriousTests */ = {
+			isa = PBXGroup;
+			children = (
+				481E2D3718E76B5D006484CF /* quriousTests.m */,
+				481E2D3218E76B5D006484CF /* Supporting Files */,
+			);
+			path = quriousTests;
+			sourceTree = "<group>";
+		};
+		481E2D3218E76B5D006484CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				481E2D3318E76B5D006484CF /* quriousTests-Info.plist */,
+				481E2D3418E76B5D006484CF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		481E2D0818E76B5C006484CF /* qurious */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 481E2D3B18E76B5D006484CF /* Build configuration list for PBXNativeTarget "qurious" */;
+			buildPhases = (
+				481E2D0518E76B5C006484CF /* Sources */,
+				481E2D0618E76B5C006484CF /* Frameworks */,
+				481E2D0718E76B5C006484CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = qurious;
+			productName = qurious;
+			productReference = 481E2D0918E76B5C006484CF /* qurious.app */;
+			productType = "com.apple.product-type.application";
+		};
+		481E2D2918E76B5D006484CF /* quriousTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 481E2D3E18E76B5D006484CF /* Build configuration list for PBXNativeTarget "quriousTests" */;
+			buildPhases = (
+				481E2D2618E76B5D006484CF /* Sources */,
+				481E2D2718E76B5D006484CF /* Frameworks */,
+				481E2D2818E76B5D006484CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				481E2D3018E76B5D006484CF /* PBXTargetDependency */,
+			);
+			name = quriousTests;
+			productName = quriousTests;
+			productReference = 481E2D2A18E76B5D006484CF /* quriousTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		481E2D0118E76B5C006484CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Qurious;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Abhinav Khanna";
+				TargetAttributes = {
+					481E2D2918E76B5D006484CF = {
+						TestTargetID = 481E2D0818E76B5C006484CF;
+					};
+				};
+			};
+			buildConfigurationList = 481E2D0418E76B5C006484CF /* Build configuration list for PBXProject "qurious" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 481E2D0018E76B5C006484CF;
+			productRefGroup = 481E2D0A18E76B5C006484CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				481E2D0818E76B5C006484CF /* qurious */,
+				481E2D2918E76B5D006484CF /* quriousTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		481E2D0718E76B5C006484CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481E2D2518E76B5D006484CF /* Images.xcassets in Resources */,
+				481E2D1718E76B5D006484CF /* InfoPlist.strings in Resources */,
+				481E2D2018E76B5D006484CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		481E2D2818E76B5D006484CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481E2D3618E76B5D006484CF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		481E2D0518E76B5C006484CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481E2D2318E76B5D006484CF /* QuriousViewController.m in Sources */,
+				481E2D1918E76B5D006484CF /* main.m in Sources */,
+				481E2D1D18E76B5D006484CF /* QuriousAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		481E2D2618E76B5D006484CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				481E2D3818E76B5D006484CF /* quriousTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		481E2D3018E76B5D006484CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 481E2D0818E76B5C006484CF /* qurious */;
+			targetProxy = 481E2D2F18E76B5D006484CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		481E2D1518E76B5D006484CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				481E2D1618E76B5D006484CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		481E2D1E18E76B5D006484CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				481E2D1F18E76B5D006484CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		481E2D3418E76B5D006484CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				481E2D3518E76B5D006484CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		481E2D3918E76B5D006484CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		481E2D3A18E76B5D006484CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		481E2D3C18E76B5D006484CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qurious/qurious-Prefix.pch";
+				INFOPLIST_FILE = "qurious/qurious-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		481E2D3D18E76B5D006484CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qurious/qurious-Prefix.pch";
+				INFOPLIST_FILE = "qurious/qurious-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		481E2D3F18E76B5D006484CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/qurious.app/qurious";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qurious/qurious-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "quriousTests/quriousTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		481E2D4018E76B5D006484CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/qurious.app/qurious";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qurious/qurious-Prefix.pch";
+				INFOPLIST_FILE = "quriousTests/quriousTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		481E2D0418E76B5C006484CF /* Build configuration list for PBXProject "qurious" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				481E2D3918E76B5D006484CF /* Debug */,
+				481E2D3A18E76B5D006484CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		481E2D3B18E76B5D006484CF /* Build configuration list for PBXNativeTarget "qurious" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				481E2D3C18E76B5D006484CF /* Debug */,
+				481E2D3D18E76B5D006484CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		481E2D3E18E76B5D006484CF /* Build configuration list for PBXNativeTarget "quriousTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				481E2D3F18E76B5D006484CF /* Debug */,
+				481E2D4018E76B5D006484CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 481E2D0118E76B5C006484CF /* Project object */;
+}
