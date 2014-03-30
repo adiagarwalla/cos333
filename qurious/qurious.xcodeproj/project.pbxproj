@@ -21,6 +21,14 @@
 		481E2D2E18E76B5D006484CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E2D1018E76B5C006484CF /* UIKit.framework */; };
 		481E2D3618E76B5D006484CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 481E2D3418E76B5D006484CF /* InfoPlist.strings */; };
 		481E2D3818E76B5D006484CF /* quriousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E2D3718E76B5D006484CF /* quriousTests.m */; };
+		481E492F18E8A85700B0C64F /* dogesmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 481E492E18E8A85700B0C64F /* dogesmall.jpg */; };
+		481E493218E8AD7200B0C64F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E493118E8AD7200B0C64F /* ProfileViewController.m */; };
+		481E494718E8AF9300B0C64F /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E494118E8AF9300B0C64F /* img1.png */; };
+		481E494818E8AF9300B0C64F /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E494218E8AF9300B0C64F /* img2.png */; };
+		481E494918E8AF9300B0C64F /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E494318E8AF9300B0C64F /* img3.png */; };
+		481E494A18E8AF9300B0C64F /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E494418E8AF9300B0C64F /* img4.png */; };
+		481E494B18E8AF9300B0C64F /* img5.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E494518E8AF9300B0C64F /* img5.png */; };
+		481E494C18E8AF9300B0C64F /* img6.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E494618E8AF9300B0C64F /* img6.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,15 @@
 		481E2D3318E76B5D006484CF /* quriousTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "quriousTests-Info.plist"; sourceTree = "<group>"; };
 		481E2D3518E76B5D006484CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		481E2D3718E76B5D006484CF /* quriousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quriousTests.m; sourceTree = "<group>"; };
+		481E492E18E8A85700B0C64F /* dogesmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dogesmall.jpg; path = qurious/dogesmall.jpg; sourceTree = "<group>"; };
+		481E493018E8AD7200B0C64F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		481E493118E8AD7200B0C64F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		481E494118E8AF9300B0C64F /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
+		481E494218E8AF9300B0C64F /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
+		481E494318E8AF9300B0C64F /* img3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img3.png; sourceTree = "<group>"; };
+		481E494418E8AF9300B0C64F /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img4.png; sourceTree = "<group>"; };
+		481E494518E8AF9300B0C64F /* img5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img5.png; sourceTree = "<group>"; };
+		481E494618E8AF9300B0C64F /* img6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img6.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +99,7 @@
 		481E2D0018E76B5C006484CF = {
 			isa = PBXGroup;
 			children = (
+				481E492E18E8A85700B0C64F /* dogesmall.jpg */,
 				481E2D1218E76B5D006484CF /* qurious */,
 				481E2D3118E76B5D006484CF /* quriousTests */,
 				481E2D0B18E76B5C006484CF /* Frameworks */,
@@ -112,6 +130,7 @@
 		481E2D1218E76B5D006484CF /* qurious */ = {
 			isa = PBXGroup;
 			children = (
+				481E494018E8AF9300B0C64F /* images */,
 				481E2D1B18E76B5D006484CF /* QuriousAppDelegate.h */,
 				481E2D1C18E76B5D006484CF /* QuriousAppDelegate.m */,
 				481E2D1E18E76B5D006484CF /* Main.storyboard */,
@@ -119,6 +138,8 @@
 				481E2D2218E76B5D006484CF /* QuriousViewController.m */,
 				481E2D2418E76B5D006484CF /* Images.xcassets */,
 				481E2D1318E76B5D006484CF /* Supporting Files */,
+				481E493018E8AD7200B0C64F /* ProfileViewController.h */,
+				481E493118E8AD7200B0C64F /* ProfileViewController.m */,
 			);
 			path = qurious;
 			sourceTree = "<group>";
@@ -150,6 +171,19 @@
 				481E2D3418E76B5D006484CF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		481E494018E8AF9300B0C64F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				481E494118E8AF9300B0C64F /* img1.png */,
+				481E494218E8AF9300B0C64F /* img2.png */,
+				481E494318E8AF9300B0C64F /* img3.png */,
+				481E494418E8AF9300B0C64F /* img4.png */,
+				481E494518E8AF9300B0C64F /* img5.png */,
+				481E494618E8AF9300B0C64F /* img6.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +263,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481E492F18E8A85700B0C64F /* dogesmall.jpg in Resources */,
+				481E494718E8AF9300B0C64F /* img1.png in Resources */,
+				481E494B18E8AF9300B0C64F /* img5.png in Resources */,
+				481E494818E8AF9300B0C64F /* img2.png in Resources */,
+				481E494918E8AF9300B0C64F /* img3.png in Resources */,
+				481E494A18E8AF9300B0C64F /* img4.png in Resources */,
+				481E494C18E8AF9300B0C64F /* img6.png in Resources */,
 				481E2D2518E76B5D006484CF /* Images.xcassets in Resources */,
 				481E2D1718E76B5D006484CF /* InfoPlist.strings in Resources */,
 				481E2D2018E76B5D006484CF /* Main.storyboard in Resources */,
@@ -252,6 +293,7 @@
 			files = (
 				481E2D2318E76B5D006484CF /* QuriousViewController.m in Sources */,
 				481E2D1918E76B5D006484CF /* main.m in Sources */,
+				481E493218E8AD7200B0C64F /* ProfileViewController.m in Sources */,
 				481E2D1D18E76B5D006484CF /* QuriousAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +499,7 @@
 				481E2D3D18E76B5D006484CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		481E2D3E18E76B5D006484CF /* Build configuration list for PBXNativeTarget "quriousTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +508,7 @@
 				481E2D4018E76B5D006484CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

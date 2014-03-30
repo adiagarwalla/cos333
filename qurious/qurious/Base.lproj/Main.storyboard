@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pO4-7k-MjQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Qurious View Controller-->
+        <!--Qurious View Controller - Profile-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="QuriousViewController" sceneMemberID="viewController">
+                <viewController title="Profile" id="vXZ-lx-hvc" customClass="QuriousViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="V00-hT-Igo">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -26,7 +26,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-uL-hYE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Qurious" id="eNo-nd-tV0"/>
@@ -35,14 +35,153 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" id="Np9-aY-mAB"/>
                     <connections>
                         <outlet property="tableView" destination="V00-hT-Igo" id="swM-Nk-fSP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="903" y="610"/>
+        </scene>
+        <!--Profile View Controller - My Profile-->
+        <scene sceneID="50C-VV-oee">
+            <objects>
+                <viewController id="4w1-NC-gsI" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Irw-0b-oue"/>
+                        <viewControllerLayoutGuide type="bottom" id="SAc-ag-Wnr"/>
+                    </layoutGuides>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="qaK-Wm-544">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-Nt-mAw">
+                                <rect key="frame" x="0.0" y="62" width="320" height="888"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dogesmall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HVt-eg-ou9">
+                                        <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="cv4-JV-r4y"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public Bio:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DB-K8-0vz">
+                                        <rect key="frame" x="23" y="137" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rfe-Cy-0cK">
+                                        <rect key="frame" x="23" y="162" width="280" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="ULQ-EH-RTm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: jkwok@princeton.edu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMZ-bZ-g4D">
+                                        <rect key="frame" x="140" y="42" width="216" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="vZh-Oa-Fr6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: John Kwok" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlM-60-iAC">
+                                        <rect key="frame" x="140" y="20" width="163" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="CDP-xE-HCp"/>
+                                            <constraint firstAttribute="width" constant="163" id="dHb-op-p5T"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HVt-eg-ou9" firstAttribute="leading" secondItem="Uvg-Nt-mAw" secondAttribute="leading" constant="20" symbolic="YES" id="0W9-Mv-5ph"/>
+                                    <constraint firstAttribute="trailing" secondItem="UlM-60-iAC" secondAttribute="trailing" constant="17" id="15w-an-7mT"/>
+                                    <constraint firstItem="UlM-60-iAC" firstAttribute="trailing" secondItem="8DB-K8-0vz" secondAttribute="trailing" id="7uj-U9-KKq"/>
+                                    <constraint firstItem="HVt-eg-ou9" firstAttribute="top" secondItem="Uvg-Nt-mAw" secondAttribute="top" constant="20" symbolic="YES" id="9Jq-Xy-6fn"/>
+                                    <constraint firstItem="UlM-60-iAC" firstAttribute="leading" secondItem="YMZ-bZ-g4D" secondAttribute="leading" id="9WP-iC-k0Y"/>
+                                    <constraint firstItem="8DB-K8-0vz" firstAttribute="top" secondItem="HVt-eg-ou9" secondAttribute="bottom" constant="17" id="9mF-Bu-YGd"/>
+                                    <constraint firstAttribute="trailing" secondItem="YMZ-bZ-g4D" secondAttribute="trailing" constant="-36" id="NhY-QH-iRM"/>
+                                    <constraint firstItem="8DB-K8-0vz" firstAttribute="top" secondItem="YMZ-bZ-g4D" secondAttribute="bottom" constant="74" id="QJJ-z8-O7F"/>
+                                    <constraint firstItem="HVt-eg-ou9" firstAttribute="top" secondItem="UlM-60-iAC" secondAttribute="top" id="Yag-vf-ORF"/>
+                                    <constraint firstItem="rfe-Cy-0cK" firstAttribute="trailing" secondItem="8DB-K8-0vz" secondAttribute="trailing" id="aJw-Px-3WT"/>
+                                    <constraint firstItem="rfe-Cy-0cK" firstAttribute="top" secondItem="8DB-K8-0vz" secondAttribute="bottom" constant="4" id="jeX-31-kyi"/>
+                                    <constraint firstItem="UlM-60-iAC" firstAttribute="leading" secondItem="HVt-eg-ou9" secondAttribute="trailing" constant="20" id="obY-wz-uLe"/>
+                                    <constraint firstItem="YMZ-bZ-g4D" firstAttribute="top" secondItem="UlM-60-iAC" secondAttribute="bottom" constant="1" id="rbb-J1-2td"/>
+                                    <constraint firstItem="8DB-K8-0vz" firstAttribute="leading" secondItem="rfe-Cy-0cK" secondAttribute="leading" id="uJT-Gj-Jvg"/>
+                                    <constraint firstAttribute="bottom" secondItem="rfe-Cy-0cK" secondAttribute="bottom" constant="656" id="uxI-pJ-aCg"/>
+                                    <constraint firstItem="8DB-K8-0vz" firstAttribute="leading" secondItem="Uvg-Nt-mAw" secondAttribute="leading" constant="23" id="wFC-1E-LcU"/>
+                                </constraints>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jel-BE-AzO">
+                                <rect key="frame" x="0.0" y="18" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Hello, John" id="ZVE-YR-mGh">
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="jt8-dI-CYd">
+                                            <color key="tintColor" red="1" green="0.036720533180000001" blue="0.060301625999999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Uvg-Nt-mAw" secondAttribute="trailing" id="32z-0d-4Sd"/>
+                            <constraint firstItem="SAc-ag-Wnr" firstAttribute="top" secondItem="Uvg-Nt-mAw" secondAttribute="bottom" id="4EF-XG-13s"/>
+                            <constraint firstItem="jel-BE-AzO" firstAttribute="top" secondItem="qaK-Wm-544" secondAttribute="top" constant="19" id="6KO-hv-dfA"/>
+                            <constraint firstItem="jel-BE-AzO" firstAttribute="leading" secondItem="qaK-Wm-544" secondAttribute="leading" id="F2G-Os-Zqx"/>
+                            <constraint firstItem="jel-BE-AzO" firstAttribute="trailing" secondItem="Uvg-Nt-mAw" secondAttribute="trailing" id="GAU-9a-kO5"/>
+                            <constraint firstItem="jel-BE-AzO" firstAttribute="leading" secondItem="Uvg-Nt-mAw" secondAttribute="leading" id="TUk-jf-S2o"/>
+                            <constraint firstItem="Uvg-Nt-mAw" firstAttribute="top" secondItem="jel-BE-AzO" secondAttribute="bottom" id="tkb-Y7-Bp2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Profile" id="z8x-pV-bTT"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="navItem" destination="jel-BE-AzO" id="7if-T7-cz8"/>
+                        <outlet property="scrollView" destination="Uvg-Nt-mAw" id="qVw-Qm-flX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Xv-oa-wfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="648" y="1320"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4y8-Mf-9hq">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="pO4-7k-MjQ" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2O2-Kb-lO9">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="KVy-ML-pW8"/>
+                        <segue destination="4w1-NC-gsI" kind="relationship" relationship="viewControllers" id="Qpf-kb-4VQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2t6-wI-s0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="930"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dogesmall.jpg" width="250" height="250"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
