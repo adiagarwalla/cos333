@@ -12,5 +12,7 @@
 
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
+@synthesize email = _email;
+@synthesize bio = _bio;
 
 @end

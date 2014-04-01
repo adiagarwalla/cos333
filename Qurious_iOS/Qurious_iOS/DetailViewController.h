@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UITableViewController
 
 @property (strong, nonatomic) id detailItem;
-
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+- (IBAction)save:(UIStoryboardSegue *)sender;
+- (IBAction)cancel:(UIStoryboardSegue *)sender;
 @end

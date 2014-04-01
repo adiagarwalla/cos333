@@ -32,6 +32,13 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
+// used to reload the list, unfortunately it crashes
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UITableView *view = (UITableView *)self.view;
+    [view reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -46,6 +53,8 @@
     Person *friend = [[Person alloc] init];
     friend.firstName = @"Aditya";
     friend.lastName = @"Agarwalla";
+    friend.email = @"aa4@princeton.edu";
+    friend.bio = @"Hi, I'm Aditya! I like to code! I am a student at Princeton University. I would like to learn how to fix a bike and cook Chinese food.";
     [_objects insertObject:friend atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
@@ -91,21 +100,7 @@
     }
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {

@@ -23,6 +23,7 @@
 		66D7D8FB18EA11E400F4BF89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8F918EA11E400F4BF89 /* InfoPlist.strings */; };
 		66D7D8FD18EA11E400F4BF89 /* Qurious_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8FC18EA11E400F4BF89 /* Qurious_iOSTests.m */; };
 		66D7D90818EA12EF00F4BF89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D90718EA12EF00F4BF89 /* Person.m */; };
+		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		66D7D8FC18EA11E400F4BF89 /* Qurious_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Qurious_iOSTests.m; sourceTree = "<group>"; };
 		66D7D90618EA12EF00F4BF89 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		66D7D90718EA12EF00F4BF89 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
+				F921CB8818EA65C000121661 /* EditViewController.h */,
+				F921CB8918EA65C000121661 /* EditViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
@@ -263,6 +268,7 @@
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
 				66D7D8DB18EA11E400F4BF89 /* main.m in Sources */,
+				F921CB8A18EA65C000121661 /* EditViewController.m in Sources */,
 				66D7D8E818EA11E400F4BF89 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +474,7 @@
 				66D7D90218EA11E400F4BF89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66D7D90318EA11E400F4BF89 /* Build configuration list for PBXNativeTarget "Qurious_iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				66D7D90518EA11E400F4BF89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

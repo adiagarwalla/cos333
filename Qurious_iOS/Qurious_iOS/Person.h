@@ -12,5 +12,7 @@
 
 @property (copy, nonatomic) NSString *firstName;
 @property (copy, nonatomic) NSString *lastName;
+@property (copy, nonatomic) NSString *email;
+@property (copy, nonatomic) NSString *bio;
 
 @end
