@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditViewController : UITableViewController <UITextFieldDelegate>
+@interface EditViewController : UITableViewController
+<UITextFieldDelegate>
+{
+    UIImagePickerController *picker;
+    IBOutlet UIImageView * selectedImage;
+}
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextView *bioField;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) UIImageView * selectedImage;
+
+- (IBAction) buttonClicked;
 
 @end

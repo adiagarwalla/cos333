@@ -21,7 +21,7 @@
 @synthesize lastNameField = _lastNameField;
 @synthesize emailField = _emailField;
 @synthesize bioField = _bioField;
-@synthesize imageView = _imageView;
+@synthesize selectedImage;
 
 - (void)setDetailItem:(id)detailItem {
     if (_detailItem != detailItem) {
@@ -36,7 +36,7 @@
         self.lastNameField.text = [self.detailItem lastName];
         self.emailField.text = [self.detailItem email];
         self.bioField.text = [self.detailItem bio];
-        self.imageView.image = [self.detailItem profPic];
+        self.selectedImage.image = [self.detailItem profPic];
         
     }
 }
@@ -55,6 +55,34 @@
     [self configureView];
     skills = [self.detailItem skills];
 }
+
+-(IBAction) buttonClicked {
+    picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self; //ignore this warning
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    //[self presentModalViewController:picker animated:YES];
+    [self presentViewController:picker animated:YES completion:nil];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *) Picker {
+    //[[Picker parentViewController] dismissModalViewControllerAnimated:YES];
+    [[Picker presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    //[Picker release];
+} //uhhh does not work
+
+- (void)imagePickerController:(UIImagePickerController *) Picker
+    didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    selectedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    //[[Picker parentViewController] dismissModalViewControllerAnimated:YES];
+    [[Picker presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    //[Picker release];
+}
+
 
 #pragma mark - Table View
 
