@@ -28,7 +28,16 @@
         self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
+<<<<<<< HEAD
         self.imageView.image = [self.detailItem profPic];
+=======
+    
+        NSError *error = nil;
+        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text,@"Bio", nil];
+        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
+        
+        //self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+>>>>>>> 2c0248f3f8bba432083bc566564f53267c02817f
     }
 }
 
