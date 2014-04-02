@@ -33,7 +33,6 @@
         NSError *error = nil;
         NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text,@"Bio", nil];
         NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
-        
         self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
     }
 }
