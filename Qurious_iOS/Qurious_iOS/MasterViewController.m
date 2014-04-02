@@ -54,7 +54,7 @@
     friend.firstName = @"Aditya";
     friend.lastName = @"Agarwalla";
     friend.email = @"aa4@princeton.edu";
-    friend.bio = @"Hi, I'm Aditya! I like to code! I am a student at Princeton University. I would like to learn how to fix a bike and cook Chinese food.";
+    friend.bio = @"I like to code!";
     [_objects insertObject:friend atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
