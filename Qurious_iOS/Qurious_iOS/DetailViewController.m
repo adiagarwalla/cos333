@@ -81,6 +81,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    NSArray *buttonImg = @[@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", @"img6.png"];
     NSMutableArray *skills = [self.detailItem skills];
     int xposition = 20.0f;
     int yposition = 0;
@@ -90,15 +91,12 @@
         if (count%3 == 0) xdisplacement = 0;
         else if (count%3 == 1) xdisplacement = 100.f;
         else xdisplacement = 200.f;
-        UIColor * color;
-        if (count%2 == 0) color = [UIColor redColor];
-        if (count%2 == 1) color = [UIColor blueColor];
+
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTitle:skill forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundColor:color];
-        //UIImage* image = [UIImage imageNamed:@"img1.png"];
-        //[button setBackgroundImage:image forState:UIControlStateNormal];
+        UIImage* image = [UIImage imageNamed:buttonImg[count%6]];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         
         button.frame = CGRectMake(xposition + xdisplacement, yposition, 75.0f, 75.0f);
         if (count%3 == 2) yposition += 100.f;
