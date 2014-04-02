@@ -14,5 +14,7 @@
 @property (copy, nonatomic) NSString *lastName;
 @property (copy, nonatomic) NSString *email;
 @property (copy, nonatomic) NSString *bio;
+@property (copy, nonatomic) NSMutableArray *skills;
+@property (copy, nonatomic) UIImage *profPic; 
 
 @end

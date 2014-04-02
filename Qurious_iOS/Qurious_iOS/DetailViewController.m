@@ -18,7 +18,7 @@
 @synthesize nameLabel = _nameLabel;
 @synthesize emailLabel = _emailLabel;
 @synthesize bioLabel = _bioLabel;
-
+@synthesize imageView = _imageView;
 - (void)configureView {
     if (self.detailItem &&
         [self.detailItem isKindOfClass:[Person class]]) {
@@ -28,12 +28,16 @@
         self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
+<<<<<<< HEAD
     
         NSError *error = nil;
         NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text,@"Bio", nil];
         NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
         
         //self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+=======
+        self.imageView.image = [self.detailItem profPic];
+>>>>>>> d446f82f78195b8fc83a44b53579337351a344d1
     }
 }
 
@@ -81,6 +85,30 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    NSMutableArray *skills = [self.detailItem skills];
+    int xposition = 20.0f;
+    int yposition = 0;
+    int count = 0;
+    int xdisplacement;
+    for (NSString *skill in skills) {
+        if (count%3 == 0) xdisplacement = 0;
+        else if (count%3 == 1) xdisplacement = 100.f;
+        else xdisplacement = 200.f;
+        UIColor * color;
+        if (count%2 == 0) color = [UIColor redColor];
+        if (count%2 == 1) color = [UIColor blueColor];
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTitle:skill forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setBackgroundColor:color];
+        //UIImage* image = [UIImage imageNamed:@"img1.png"];
+        //[button setBackgroundImage:image forState:UIControlStateNormal];
+        
+        button.frame = CGRectMake(xposition + xdisplacement, yposition, 75.0f, 75.0f);
+        if (count%3 == 2) yposition += 100.f;
+        count++;
+        [self.scrollView addSubview:button];
+    }
 }
 
 - (void)didReceiveMemoryWarning

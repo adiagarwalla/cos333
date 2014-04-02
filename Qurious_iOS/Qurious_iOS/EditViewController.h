@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextView *bioField;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
