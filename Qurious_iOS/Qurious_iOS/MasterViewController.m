@@ -54,7 +54,7 @@
     friend.firstName = @"Aditya";
     friend.lastName = @"Agarwalla";
     friend.email = @"aa4@princeton.edu";
-    friend.bio = @"Hi, I'm Aditya! I like to code! I am a student at Princeton University. I would like to learn how to fix a bike and cook Chinese food. Hi, I'm Aditya! I like to code! I am a student at Princeton University. I would like to learn how to fix a bike and cook Chinese food.";
+    friend.bio = @"I code";
     NSMutableArray *skills = [NSMutableArray arrayWithObjects:@"Coding in Java", @"Coding in Python", @"Eating", @"Sleeping", @"Pooping", @"Going to class", nil];
     friend.skills = skills;
     UIImage *profPic = [UIImage imageNamed:@"dogesmall.jpg"];
