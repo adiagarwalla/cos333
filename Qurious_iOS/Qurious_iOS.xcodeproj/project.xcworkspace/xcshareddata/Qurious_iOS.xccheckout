@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>29E77184-010B-441D-928B-8DC509729C99</string>
+	<string>AB461BF0-6EF5-4439-A3A1-B266730E45BA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Qurious_iOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F3850B98-0552-45F1-BB48-0F5974AD3A85</key>
-		<string>https://github.com/adiagarwalla/cos333.git</string>
+		<key>273FCC83-86F3-47F2-A804-30330E73B894</key>
+		<string>https://github.com/adiagarwalla/cos333</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Qurious_iOS/Qurious_iOS.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F3850B98-0552-45F1-BB48-0F5974AD3A85</key>
+		<key>273FCC83-86F3-47F2-A804-30330E73B894</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/adiagarwalla/cos333.git</string>
+	<string>https://github.com/adiagarwalla/cos333</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F3850B98-0552-45F1-BB48-0F5974AD3A85</string>
+	<string>273FCC83-86F3-47F2-A804-30330E73B894</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F3850B98-0552-45F1-BB48-0F5974AD3A85</string>
+			<string>273FCC83-86F3-47F2-A804-30330E73B894</string>
 			<key>IDESourceControlWCCName</key>
 			<string>cos333</string>
 		</dict>
