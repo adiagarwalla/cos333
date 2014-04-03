@@ -13,3 +13,6 @@ class SkillEditForm(forms.Form):
     Form for editing skills
     """
     price = forms.IntegerField()
+    marketable = forms.CharField()
+    desc = forms.CharField()
+    skill_id = forms.IntegerField()

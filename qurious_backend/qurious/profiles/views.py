@@ -38,3 +38,32 @@ class profileIOSDetailView(View):
 
         data = simplejson.dumps({False})
         return HttpResponse(data, mimetype='application/json')
+
+class skillIOSView(View):
+    """
+    This is a view for a skill. It will get you the fields associated
+    with a skill (price, description, name, etc)
+    """
+    def get(self, request, *args, **kwargs):
+        
+        id = request.GET.get('id')
+        skill = Skill.objects.get(id=id)
+
+        data = serializer.serialize('json', skill)
+        return HttpResponse(data, mimetype='application/json')
+
+    def post(self, request, *args, **kwargs):
+        form = SkillEditForm(request.POST)
+
+        if form.is_valid():
+            skill_id = form.clean_data.get('skill_id')
+            skill = Skill.objects.get(id=skill_id)
+            skill.price = form.clean_data.get('price')
+            skill.desc = form.clean_data.get('desc')
+            skill.is_marketable = bool(form.clean_data.get('marketable'))
+            
+            data = simplejson.dumps({True})
+            return HttpResponse(data, mimetype='application/json')
+
+        data = simplejson.dumps({False})
+        return HttpResponse(data, mimetype='applicaton/json')
