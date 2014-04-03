@@ -96,6 +96,10 @@
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTitle:skill forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:12];
+        button.titleLabel.numberOfLines = 4;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
         UIImage* image = [UIImage imageNamed:buttonImg[count%6]];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         
