@@ -13,17 +13,17 @@ class profileIOSDetailView(View):
     the fields attached to a profile (username, email, skills, etc...)
     """
     def get(self, request, *args, **kwargs):
-        
+
         id = request.GET.get('id')
         user = User.objects.get(id=id)
-        user_profile = user.UserProfile
+        user_profile = user.userprofile
 
-        data = serializer.serialize('json', user_profile)
+        data = serializers.serialize('json', [user_profile])
         return HttpResponse(data, mimetype='application/json')
-    
+
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
-        
+
         if form.is_valid():
             username = request.user.username
             user = User.objects.get(username=username)
@@ -32,7 +32,7 @@ class profileIOSDetailView(View):
             user_prof.user_bio = form.cleaned_data.get('user_bio')
             user_prof.user_email = form.cleaned_data.get('user_email')
             user_prof.save()
-            
+
             data = simplejson.dumps({True})
             return HttpResponse(data, mimetype='application/json')
 
@@ -45,11 +45,11 @@ class skillIOSView(View):
     with a skill (price, description, name, etc)
     """
     def get(self, request, *args, **kwargs):
-        
+
         id = request.GET.get('id')
         skill = Skill.objects.get(id=id)
 
-        data = serializer.serialize('json', skill)
+        data = serializers.serialize('json', [skill])
         return HttpResponse(data, mimetype='application/json')
 
     def post(self, request, *args, **kwargs):
@@ -61,7 +61,7 @@ class skillIOSView(View):
             skill.price = form.clean_data.get('price')
             skill.desc = form.clean_data.get('desc')
             skill.is_marketable = bool(form.clean_data.get('marketable'))
-            
+
             data = simplejson.dumps({True})
             return HttpResponse(data, mimetype='application/json')
 
