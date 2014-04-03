@@ -72,3 +72,19 @@ class ProfileViewTest(TestCase):
         self.assertTrue(cheng.userprofile.user_bio == 'Hi')
         self.assertTrue(cheng.userprofile.user_email == 'xxx-xxxx.onion.cheng')
 
+    def test_skill_get(self):
+        """
+        This method will test getting a skill
+        """
+        self.test_get_profile()
+        c = Client()
+        response = c.get(reverse('skill-view')+'?id=1')
+        
+        self.assertTrue(response.content != '[]')
+        self.assertTrue(r.search('learning'))
+        
+    def test_skill_null(self):
+        c = Client()
+        response = c.get(reverse('skill-view')+'?id=1')
+        
+        self.assertTrue(response.content == '[]')
