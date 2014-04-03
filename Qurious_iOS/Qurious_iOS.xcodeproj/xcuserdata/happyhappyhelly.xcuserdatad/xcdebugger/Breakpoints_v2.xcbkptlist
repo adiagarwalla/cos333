@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Qurious_iOS/DetailViewController.m"
-            timestampString = "418016894.356823"
+            filePath = "Qurious_iOS/EditViewController.h"
+            timestampString = "418168420.890439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "@interface DetailViewController()"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "@interface EditViewController"
             landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>

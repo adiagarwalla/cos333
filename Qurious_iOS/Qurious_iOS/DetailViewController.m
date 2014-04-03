@@ -65,6 +65,7 @@
         [self.detailItem setLastName:editController.lastNameField.text];
         [self.detailItem setEmail:editController.emailField.text];
         [self.detailItem setBio:editController.bioField.text];
+        [self.detailItem setProfPic:editController.selectedImage.image];
         [self configureView];
     }
 }
