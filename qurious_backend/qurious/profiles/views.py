@@ -25,7 +25,8 @@ class profileIOSDetailView(View):
         form = ProfileEditForm(request.POST)
 
         if form.is_valid():
-            username = request.user.username
+#            username = request.user.username
+            username = 'sam'
             user = User.objects.get(username=username)
             user_prof = user.userprofile
             user_prof.profile_name = form.cleaned_data.get('profile_name')
@@ -33,10 +34,10 @@ class profileIOSDetailView(View):
             user_prof.user_email = form.cleaned_data.get('user_email')
             user_prof.save()
 
-            data = simplejson.dumps({True})
+            data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({False})
+        data = simplejson.dumps({"False"})
         return HttpResponse(data, mimetype='application/json')
 
 class skillIOSView(View):
@@ -62,8 +63,8 @@ class skillIOSView(View):
             skill.desc = form.clean_data.get('desc')
             skill.is_marketable = bool(form.clean_data.get('marketable'))
 
-            data = simplejson.dumps({True})
+            data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({False})
+        data = simplejson.dumps({"False"})
         return HttpResponse(data, mimetype='applicaton/json')

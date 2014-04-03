@@ -7,6 +7,7 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 from django.test.client import Client
+from django.contrib.auth import authenticate, login
 
 from django.contrib.auth.models import User
 from qurious.profiles.models import UserProfile, Skill
@@ -44,4 +45,30 @@ class ProfileViewTest(TestCase):
 
         response = client.get(reverse('profile-detail') + '?id=1')
         self.assertTrue(response.content != '[]')
+
+    def test_empty_profiles(self):
+        """
+        Null case, test for test cases
+        """
+        client = Client()
+        response = client.get(reverse('profile-detail') + '?id=1')
+        self.assertTrue(response.content == '[]')
+
+    def test_simple_post_profile_changes(self):
+        """
+        This method will test our post profile endpoint that allows you to edit a profile in the system via a post!
+        """
+        self.test_get_profile()
+        c = Client()
+
+        # This function assumes that every single thing is passed in that is needed by the function
+        response = c.post(reverse('profile-detail'), {'user':{'username':'sam'},'profile_name':'cheng_dynasties', 'user_bio':'Hi', 'user_email':'xxx-xxxx.onion.cheng'})
+        self.assertTrue(response.status_code == 200)
+        self.assertTrue(bool(response.content) == True)
+
+        # check that the individual fields were actually changed.
+        cheng = User.objects.get(username='sam')
+        self.assertTrue(cheng.userprofile.profile_name == 'cheng_dynasties')
+        self.assertTrue(cheng.userprofile.user_bio == 'Hi')
+        self.assertTrue(cheng.userprofile.user_email == 'xxx-xxxx.onion.cheng')
 
