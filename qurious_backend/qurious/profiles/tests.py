@@ -5,6 +5,7 @@ when you run "manage.py test".
 Replace this with more appropriate tests for your application.
 """
 
+import re
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth import authenticate, login
@@ -81,7 +82,7 @@ class ProfileViewTest(TestCase):
         response = c.get(reverse('skill-view')+'?id=1')
         
         self.assertTrue(response.content != '[]')
-        self.assertTrue(r.search('learning'))
+        self.assertTrue(re.search('learning', response.content))
         
     def test_skill_null(self):
         c = Client()

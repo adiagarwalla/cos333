@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.core import serializers
 from qurious.profiles.forms import ProfileEditForm
 
+from qurious.profiles.models import Skill
+
 class profileIOSDetailView(View):
     """
     This is the view for a profile. This will get you all of
