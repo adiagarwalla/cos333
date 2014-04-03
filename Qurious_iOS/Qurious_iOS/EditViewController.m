@@ -54,6 +54,16 @@
     [super viewDidLoad];
     [self configureView];
     skills = [self.detailItem skills];
+//    int xposition = 20;
+//    int yposition = 20;
+//    for (NSString *skill in skills) {
+//        UILabel *label = [[UILabel alloc] init];
+//        label.frame = CGRectMake(xposition, yposition, 200.0f, 21.0f);
+//        label.text = skill;
+//        // Do some stuff
+//        [self.scrollView addSubview:label];
+//        yposition += 30;
+//    }
 }
 
 -(IBAction) buttonClicked {
