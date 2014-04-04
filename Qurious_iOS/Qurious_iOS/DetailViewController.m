@@ -9,8 +9,10 @@
 #import "DetailViewController.h"
 #import "Person.h"
 #import "EditViewController.h"
+#import "SkillViewController.h"
 @interface DetailViewController ()
 - (void)configureView;
+- (void)loadButtons;
 @end
 
 @implementation DetailViewController
@@ -19,6 +21,7 @@
 @synthesize emailLabel = _emailLabel;
 @synthesize bioLabel = _bioLabel;
 @synthesize imageView = _imageView;
+
 - (void)configureView {
     if (self.detailItem &&
         [self.detailItem isKindOfClass:[Person class]]) {
@@ -68,6 +71,12 @@
         EditViewController *editViewController = [navigationControllers objectAtIndex:0];
         [editViewController setDetailItem:self.detailItem];
     }
+    if ([[segue identifier] isEqualToString:@"editSkills"]) {
+        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
+        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
+        [skillViewController setDetailItem:self.detailItem];
+    }
+    
 }
 
 - (IBAction)save:(UIStoryboardSegue *)segue {
@@ -79,21 +88,31 @@
         [self.detailItem setBio:editController.bioField.text];
         [self.detailItem setProfPic:editController.selectedImage.image];
         [self configureView];
+        [self viewDidLoad];
     }
+    if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
+        SkillViewController *skillController = [segue sourceViewController];
+        [self.detailItem setSkills: skillController.skills];
+        [self configureView];
+        [self loadButtons];
+    }
+    
 }
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"cancelInput"]) {
-        // Custom cancel handling can go here.
-    }
+    
 }
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+-(void) loadButtons {
+    for(UIView *view in self.scrollView.subviews)
+    {
+        if ([view isKindOfClass:[UIButton class]])
+        {
+            [view  removeFromSuperview];
+        }
+    }
+    
     NSArray *buttonImg = @[@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", @"img6.png"];
     NSMutableArray *skills = [self.detailItem skills];
     int xposition = 20.0f;
@@ -104,7 +123,7 @@
         if (count%3 == 0) xdisplacement = 0;
         else if (count%3 == 1) xdisplacement = 100.f;
         else xdisplacement = 200.f;
-
+        
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTitle:skill forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -120,6 +139,15 @@
         count++;
         [self.scrollView addSubview:button];
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    [self configureView];
+    [self loadButtons];
+
 }
 
 - (void)didReceiveMemoryWarning

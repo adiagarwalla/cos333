@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextView *bioField;
 @property (nonatomic, retain) UIImageView * selectedImage;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction) buttonClicked;
 

@@ -31,6 +31,7 @@
 		F9C17F5718EC8E8E0095F92E /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5118EC8E8E0095F92E /* img4.png */; };
 		F9C17F5818EC8E8E0095F92E /* img5.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5218EC8E8E0095F92E /* img5.png */; };
 		F9C17F5918EC8E8E0095F92E /* img6.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5318EC8E8E0095F92E /* img6.png */; };
+		F9D344D018EE8780008A4B35 /* SkillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D344CF18EE8780008A4B35 /* SkillViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		F9C17F5118EC8E8E0095F92E /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img4.png; sourceTree = "<group>"; };
 		F9C17F5218EC8E8E0095F92E /* img5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img5.png; sourceTree = "<group>"; };
 		F9C17F5318EC8E8E0095F92E /* img6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img6.png; sourceTree = "<group>"; };
+		F9D344CE18EE8780008A4B35 /* SkillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillViewController.h; sourceTree = "<group>"; };
+		F9D344CF18EE8780008A4B35 /* SkillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
+				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
+				F9D344CF18EE8780008A4B35 /* SkillViewController.m */,
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
@@ -296,6 +301,7 @@
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
 				66D7D8DB18EA11E400F4BF89 /* main.m in Sources */,
+				F9D344D018EE8780008A4B35 /* SkillViewController.m in Sources */,
 				F921CB8A18EA65C000121661 /* EditViewController.m in Sources */,
 				66D7D8E818EA11E400F4BF89 /* DetailViewController.m in Sources */,
 			);
