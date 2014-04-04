@@ -5,7 +5,6 @@
 //  Created by Helen Yu on 3/31/14.
 //  Copyright (c) 2014 Qurious. All rights reserved.
 //
-
 #import "EditViewController.h"
 #import "Person.h"
 
