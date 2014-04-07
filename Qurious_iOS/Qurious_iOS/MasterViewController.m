@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "Person.h"
 #import "DetailViewController.h"
+#import "QApiRequests.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -22,6 +23,12 @@
     [super awakeFromNib];
 }
 
+void callback(id arg) {
+    // do nothing valuable
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Hi");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,6 +37,10 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    // test the server requests right here
+    // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
+    [QApiRequests getProfiles:2 andCallback:&callback];
 }
 
 // used to reload the list, unfortunately it crashes

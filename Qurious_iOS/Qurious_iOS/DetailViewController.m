@@ -36,20 +36,7 @@
         NSError *error = nil;
         NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text, @"Bio",[self.detailItem skills], @"Skills", nil];
         NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
-//        NSString *post = [NSString stringWithFormat:[[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding]];
-//        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//        [request setURL:[NSURL URLWithString:@"http://fakeurl.fakeurl"]];
-//        [request setHTTPMethod:@"POST"];
-//        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//        [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-//        [request setHTTPBody:postData];
-//        NSURLResponse *response;
-//        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-//        NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding:NSASCIIStringEncoding];
-//        NSLog(@"Reply: %@", theReply);
-          self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+        self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
     }
 }
 
