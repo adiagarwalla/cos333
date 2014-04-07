@@ -8,6 +8,7 @@ from django.core import serializers
 from qurious.profiles.forms import ProfileEditForm
 
 from qurious.profiles.models import Skill
+from qurious.profiles.models import UserProfile
 
 class profileIOSDetailView(View):
     """
@@ -40,6 +41,16 @@ class profileIOSDetailView(View):
             return HttpResponse(data, mimetype='application/json')
 
         data = simplejson.dumps({"False"})
+        return HttpResponse(data, mimetype='application/json')
+
+class ProfileIOSAllView(View):
+    """
+    This view returns all of the profiles in the db
+    """
+    def get(self, request, *args, **kwargs):
+        profiles = UserProfile.objects.filter()
+
+        data = serializers.serialize('json', profiles)
         return HttpResponse(data, mimetype='application/json')
 
 class skillIOSView(View):
