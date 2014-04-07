@@ -8,9 +8,10 @@
 
 #import "SkillViewController.h"
 #import "Person.h"
+#import "Skill.h"
 
 @interface SkillViewController () {
-    UITextField * newSkill;
+    UITextField * skillField;
 }
 
 @end
@@ -85,13 +86,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"skillCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    if (indexPath.row < [_skills count]) cell.textLabel.text = [_skills objectAtIndex:indexPath.row];
+
+    if (indexPath.row < [_skills count]) {
+        Skill *currentSkill =[_skills objectAtIndex:indexPath.row];
+        cell.textLabel.text = currentSkill.desc;
+    }
     else {
         CGRect frame = CGRectMake (15, 7, 200, 30);
-        newSkill = [[UITextField alloc] initWithFrame:frame];
-        newSkill.delegate = self;
-        [cell.contentView addSubview: newSkill];
-        newSkill.placeholder = @"add new skill";
+        skillField = [[UITextField alloc] initWithFrame:frame];
+        skillField.delegate = self;
+        [cell.contentView addSubview: skillField];
+        skillField.placeholder = @"add new skill";
     }
 
     return cell;
@@ -139,8 +144,10 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        [_skills addObject: newSkill.text];
-        newSkill.text = @"";
+        Skill *skill = [[Skill alloc] init];
+        skill.desc = skillField.text;
+        [_skills addObject: skill];
+        skillField.text = @"";
         [tableView insertRowsAtIndexPaths: @[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
 }

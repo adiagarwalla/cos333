@@ -10,6 +10,7 @@
 #import "Person.h"
 #import "EditViewController.h"
 #import "SkillViewController.h"
+#import "Skill.h"
 @interface DetailViewController ()
 - (void)configureView;
 - (void)loadButtons;
@@ -33,10 +34,11 @@
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
         
-        NSError *error = nil;
-        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text, @"Bio",[self.detailItem skills], @"Skills", nil];
-        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
-        self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+//        NSError *error = nil;
+//        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text, @"Bio",[self.detailItem skills], @"Skills", nil];
+//        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
+//        self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+        self.bioLabel.text = @"Hello";
     }
 }
 
@@ -107,13 +109,13 @@
     int yposition = 0;
     int count = 0;
     int xdisplacement;
-    for (NSString *skill in skills) {
+    for (Skill *skill in skills) {
         if (count%3 == 0) xdisplacement = 0;
         else if (count%3 == 1) xdisplacement = 100.f;
         else xdisplacement = 200.f;
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill forState:UIControlStateNormal];
+        [button setTitle:skill.desc forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:12];
         button.titleLabel.numberOfLines = 4;

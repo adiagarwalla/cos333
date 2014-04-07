@@ -10,6 +10,7 @@
 #import "Person.h"
 #import "DetailViewController.h"
 #import "QApiRequests.h"
+#import "Skill.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -24,26 +25,52 @@
 }
 
 void callback(id arg) {
+    
     // do nothing valuable
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
+    
+//    NSDictionary * results = arg;
+//    for (NSDictionary *person in results) {
+//        Person *friend = [[Person alloc] init];
+//        friend.firstName = person[@"firstName"];
+//        friend.lastName = person[@"lastName"];
+//        friend.email = person[@"email"];
+//        friend.bio = person[@"bio"];
+//    }
+    
+//    Person *friend = [[Person alloc] init];
+//    friend.firstName = @"Aditya";
+//    friend.lastName = @"Agarwalla";
+//    friend.email = @"aa4@princeton.edu";
+//    friend.bio = @"I code";
+//    NSMutableArray *skills = [NSMutableArray arrayWithObjects:@"Coding in Java", @"Coding in Python", @"Eating", @"Sleeping", @"Pooping", @"Going to class", nil];
+//    friend.skills = skills;
+//    UIImage *profPic = [UIImage imageNamed:@"dogesmall.jpg"];
+//    friend.profPic = profPic;
+//    [_objects insertObject:friend atIndex:0];
+//    
+//    
+//    UITableView *view = (UITableView *)self.view;
+//    [view reloadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     // test the server requests right here
     // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
-    [QApiRequests getProfiles:2 andCallback:&callback];
+    //[QApiRequests getProfiles:2 andCallback:&callback];
+    //_objects = [[NSMutableArray alloc] init];
+    //[QApiRequests getProfiles:2 andCallback:&callback]; // edit this when you get all profiles!!!
 }
 
-// used to reload the list, unfortunately it crashes
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     UITableView *view = (UITableView *)self.view;
@@ -66,7 +93,12 @@ void callback(id arg) {
     friend.lastName = @"Agarwalla";
     friend.email = @"aa4@princeton.edu";
     friend.bio = @"I code";
-    NSMutableArray *skills = [NSMutableArray arrayWithObjects:@"Coding in Java", @"Coding in Python", @"Eating", @"Sleeping", @"Pooping", @"Going to class", nil];
+    Skill *skill = [[Skill alloc] init];
+    skill.desc = @"testing";
+    skill.price = [NSNumber numberWithDouble: 10.09];
+    skill.isMarketable = YES;
+    
+    NSMutableArray *skills = [NSMutableArray arrayWithObjects:skill, skill, skill, nil];
     friend.skills = skills;
     UIImage *profPic = [UIImage imageNamed:@"dogesmall.jpg"];
     friend.profPic = profPic;
@@ -102,7 +134,7 @@ void callback(id arg) {
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return YES; // set to no later
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

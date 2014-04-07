@@ -49,6 +49,7 @@
 		66D7D90818EA12EF00F4BF89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D90718EA12EF00F4BF89 /* Person.m */; };
 		66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D90918EBC21600F4BF89 /* dogesmall.jpg */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
+		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
 		F9C17F5518EC8E8E0095F92E /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4F18EC8E8E0095F92E /* img2.png */; };
 		F9C17F5618EC8E8E0095F92E /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5018EC8E8E0095F92E /* img3.png */; };
@@ -141,6 +142,8 @@
 		66D7D90918EBC21600F4BF89 /* dogesmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogesmall.jpg; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		F942A07318F353EF00B8A2E4 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		F9C17F4E18EC8E8E0095F92E /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		F9C17F4F18EC8E8E0095F92E /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
 		F9C17F5018EC8E8E0095F92E /* img3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img3.png; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
 				66D7D90718EA12EF00F4BF89 /* Person.m */,
+				F942A07218F353EF00B8A2E4 /* Skill.h */,
+				F942A07318F353EF00B8A2E4 /* Skill.m */,
 				66D7D8E618EA11E400F4BF89 /* DetailViewController.h */,
 				66D7D8E718EA11E400F4BF89 /* DetailViewController.m */,
 				F9C17F4E18EC8E8E0095F92E /* img1.png */,
@@ -443,6 +448,7 @@
 				483000A418F2F94D00A92467 /* AFURLConnectionOperation.m in Sources */,
 				483000A918F2F94D00A92467 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				483000AF18F2F94D00A92467 /* UIWebView+AFNetworking.m in Sources */,
+				F942A07418F353EF00B8A2E4 /* Skill.m in Sources */,
 				4830009F18F2F94D00A92467 /* AFHTTPRequestOperation.m in Sources */,
 				483000A118F2F94D00A92467 /* AFHTTPSessionManager.m in Sources */,
 				483000AA18F2F94D00A92467 /* UIAlertView+AFNetworking.m in Sources */,
