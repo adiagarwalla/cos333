@@ -43,7 +43,7 @@ char* baseURL = "http://localhost:8000";
 
 + (void) getAllProfiles:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
-    NSString* url = [NSString stringWithFormat:@"%s/api-profile/allprofile", baseURL];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/allprofiles", baseURL];
     [request startAsync:callback andUrl:url];
 }
 
