@@ -24,6 +24,22 @@ class SimpleTest(TestCase):
 
 class ProfileViewTest(TestCase):
 
+    def test_character_id(self):
+        """
+        This method tests the case where you receive an invalid input in the form of a charactert
+        """
+        client = Client()
+        response = client.get(reverse('profile-detail') + '?id=a')
+        self.assertTrue(response.content == '')
+
+    def test_out_of_bounds_id(self):
+        """
+        This method tests the case where the given id goes out of the bounds of the current id's
+        """
+        client = Client()
+        response = client.get(reverse('profile-detail') + '?id=5')
+        self.assertTrue(response.content == '')
+
     def test_get_profile(self):
         """
         This method tests for getting back a complete profile for a 

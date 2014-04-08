@@ -15,9 +15,15 @@ class profileIOSDetailView(View):
     the fields attached to a profile (username, email, skills, etc...)
     """
     def get(self, request, *args, **kwargs):
-
+        """
+        get a profile; returns an empty string if id is invalid
+        """
         id = request.GET.get('id')
-        user = User.objects.get(id=id)
+        try:
+            user = User.objects.get(id=id)
+        except:
+            return HttpResponse('', mimetype='application/json')
+
         user_profile = user.userprofile
 
         data = serializers.serialize('json', [user_profile])
@@ -49,7 +55,11 @@ class skillIOSView(View):
     """
     def get(self, request, *args, **kwargs):
 
-        id = request.GET.get('id')
+        try:
+            id = request.GET.get('id')
+        except:
+            return HttpResponse('', mimetype='application/json')
+
         skill = Skill.objects.get(id=id)
 
         data = serializers.serialize('json', [skill])

@@ -14,5 +14,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include('qurious.profiles.urls')),
+    url(r'^api-profile/', include('qurious.profiles.urls')),
+    url(r'^api-auth/', include('qurious.auth.urls')),
 )
