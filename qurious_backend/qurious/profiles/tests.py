@@ -63,7 +63,7 @@ class ProfileViewTest(TestCase):
         """
         client = Client()
         response = client.get(reverse('profile-detail') + '?id=1')
-        self.assertTrue(response.content == '[]')
+        self.assertTrue(response.content == '')
 
     def test_simple_post_profile_changes(self):
         """
@@ -98,4 +98,4 @@ class ProfileViewTest(TestCase):
         c = Client()
         response = c.get(reverse('skill-view')+'?id=1')
         
-        self.assertTrue(response.content == '[]')
+        self.assertTrue(response.content == '')

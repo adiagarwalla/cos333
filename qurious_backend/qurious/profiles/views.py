@@ -17,12 +17,15 @@ class profileIOSDetailView(View):
     """
     def get(self, request, *args, **kwargs):
 
-        id = request.GET.get('id')
-        user = User.objects.get(id=id)
-        user_profile = user.userprofile
+        try:
+            id = request.GET.get('id')
+            user = User.objects.get(id=id)
+            user_profile = user.userprofile
 
-        data = serializers.serialize('json', [user_profile])
-        return HttpResponse(data, mimetype='application/json')
+            data = serializers.serialize('json', [user_profile])
+            return HttpResponse(data, mimetype='application/json')
+        except:
+            return HttpResponse('', mimetype='application/json')
 
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
@@ -60,11 +63,14 @@ class skillIOSView(View):
     """
     def get(self, request, *args, **kwargs):
 
-        id = request.GET.get('id')
-        skill = Skill.objects.get(id=id)
+        try:
+            id = request.GET.get('id')
+            skill = Skill.objects.get(id=id)
 
-        data = serializers.serialize('json', [skill])
-        return HttpResponse(data, mimetype='application/json')
+            data = serializers.serialize('json', [skill])
+            return HttpResponse(data, mimetype='application/json')
+        except:
+            return HttpResponse('', mimetype='application/json')
 
     def post(self, request, *args, **kwargs):
         form = SkillEditForm(request.POST)
