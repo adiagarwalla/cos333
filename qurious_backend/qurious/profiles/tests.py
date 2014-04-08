@@ -14,7 +14,6 @@ from django.contrib.auth.models import User
 from qurious.profiles.models import UserProfile, Skill
 from django.core.urlresolvers import reverse
 
-
 class SimpleTest(TestCase):
     def test_basic_addition(self):
         """
@@ -63,13 +62,24 @@ class ProfileViewTest(TestCase):
         response = client.get(reverse('profile-detail') + '?id=1')
         self.assertTrue(response.content != '[]')
 
+    def test_all_profiles(self):
+        """
+        This tests the all profiles endpoint with basic functionality
+        """
+        client = Client()
+        self.test_get_profile()
+
+        response = client.get(reverse('all-profile'))
+        self.assertTrue(response.content != '[]')
+
+
     def test_empty_profiles(self):
         """
         Null case, test for test cases
         """
         client = Client()
         response = client.get(reverse('profile-detail') + '?id=1')
-        self.assertTrue(response.content == '[]')
+        self.assertTrue(response.content == '')
 
     def test_simple_post_profile_changes(self):
         """
@@ -104,4 +114,4 @@ class ProfileViewTest(TestCase):
         c = Client()
         response = c.get(reverse('skill-view')+'?id=1')
         
-        self.assertTrue(response.content == '[]')
+        self.assertTrue(response.content == '')

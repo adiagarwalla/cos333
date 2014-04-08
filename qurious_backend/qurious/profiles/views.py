@@ -8,6 +8,7 @@ from django.core import serializers
 from qurious.profiles.forms import ProfileEditForm
 
 from qurious.profiles.models import Skill
+from qurious.profiles.models import UserProfile
 
 class profileIOSDetailView(View):
     """
@@ -26,8 +27,10 @@ class profileIOSDetailView(View):
 
         user_profile = user.userprofile
 
-        data = serializers.serialize('json', [user_profile])
-        return HttpResponse(data, mimetype='application/json')
+            data = serializers.serialize('json', [user_profile])
+            return HttpResponse(data, mimetype='application/json')
+        except:
+            return HttpResponse('', mimetype='application/json')
 
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
@@ -48,6 +51,16 @@ class profileIOSDetailView(View):
         data = simplejson.dumps({"False"})
         return HttpResponse(data, mimetype='application/json')
 
+class ProfileIOSAllView(View):
+    """
+    This view returns all of the profiles in the db
+    """
+    def get(self, request, *args, **kwargs):
+        profiles = UserProfile.objects.filter()
+
+        data = serializers.serialize('json', profiles)
+        return HttpResponse(data, mimetype='application/json')
+
 class skillIOSView(View):
     """
     This is a view for a skill. It will get you the fields associated
@@ -57,13 +70,12 @@ class skillIOSView(View):
 
         try:
             id = request.GET.get('id')
+            skill = Skill.objects.get(id=id)
+
+            data = serializers.serialize('json', [skill])
+            return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
-
-        skill = Skill.objects.get(id=id)
-
-        data = serializers.serialize('json', [skill])
-        return HttpResponse(data, mimetype='application/json')
 
     def post(self, request, *args, **kwargs):
         form = SkillEditForm(request.POST)
