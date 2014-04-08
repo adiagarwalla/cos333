@@ -60,7 +60,7 @@ class ProfileViewTest(TestCase):
         # now that the dummy profile has been created, we need to test the item can be called back
 
         response = client.get(reverse('profile-detail') + '?id=1')
-        self.assertTrue(response.content != '[]')
+        self.assertTrue(response.content != '')
 
     def test_all_profiles(self):
         """
@@ -70,7 +70,7 @@ class ProfileViewTest(TestCase):
         self.test_get_profile()
 
         response = client.get(reverse('all-profile'))
-        self.assertTrue(response.content != '[]')
+        self.assertTrue(response.content != '')
 
 
     def test_empty_profiles(self):
@@ -107,7 +107,7 @@ class ProfileViewTest(TestCase):
         c = Client()
         response = c.get(reverse('skill-view')+'?id=1')
         
-        self.assertTrue(response.content != '[]')
+        self.assertTrue(response.content != '')
         self.assertTrue(re.search('learning', response.content))
         
     def test_skill_null(self):

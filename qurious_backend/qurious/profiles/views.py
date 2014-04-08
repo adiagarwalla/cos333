@@ -22,12 +22,7 @@ class profileIOSDetailView(View):
         id = request.GET.get('id')
         try:
             user = User.objects.get(id=id)
-        except:
-            return HttpResponse('', mimetype='application/json')
-
-        user_profile = user.userprofile
-
-            data = serializers.serialize('json', [user_profile])
+            data = serializers.serialize('json', [user.userprofile])
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
