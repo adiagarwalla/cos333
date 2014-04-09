@@ -99,3 +99,9 @@ class ProfileViewTest(TestCase):
         response = c.get(reverse('skill-view')+'?id=1')
         
         self.assertTrue(response.content == '')
+
+    def test_skill_get_all(self):
+        self.test_get_profile()
+        c = Client()
+        response = c.get(reverse('all-skills'))
+        self.assertTrue(response.content != '')
