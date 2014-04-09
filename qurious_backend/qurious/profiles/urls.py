@@ -7,4 +7,5 @@ urlpatterns = patterns('',
         url(r'^skills/$', views.skillIOSView.as_view(), name='skill-view'),
         url(r'^allprofiles/$', views.ProfileIOSAllView.as_view(), name='all-profile'),
         url(r'^allskills/$', views.SkillIOSAllView.as_view(), name='all-skills'),
+        url(r'^delete/$', views.DeleteSkillIOSView.as_view(), name='delete-skill'),
         )
