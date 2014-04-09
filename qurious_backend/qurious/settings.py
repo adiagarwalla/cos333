@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'qurious.profiles',
+    'qurious.auth',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -155,3 +156,7 @@ LOGGING = {
         },
     }
 }
+
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )

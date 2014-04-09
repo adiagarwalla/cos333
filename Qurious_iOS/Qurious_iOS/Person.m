@@ -12,8 +12,23 @@
 
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
+@synthesize username = _username;
 @synthesize email = _email;
 @synthesize bio = _bio;
 @synthesize skills = _skills;
 @synthesize profPic = _profPic;
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.skills = [[NSMutableArray alloc] init];
+        self.profPic = [UIImage imageNamed:@"dogesmall.jpg"];
+    }
+    return self;
+}
+
 @end
+
+

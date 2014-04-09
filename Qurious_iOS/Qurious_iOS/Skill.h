@@ -12,5 +12,5 @@
 @property (copy, nonatomic) NSString *desc;
 @property (copy, nonatomic) NSNumber *price;
 @property (nonatomic) BOOL isMarketable;
-
+@property (nonatomic) int skillID;
 @end

@@ -12,7 +12,7 @@
 @synthesize desc = _desc;
 @synthesize price = _price;
 @synthesize isMarketable = _isMarketable;
-
+@synthesize skillID = _skillID;
 
 
 - (id)init

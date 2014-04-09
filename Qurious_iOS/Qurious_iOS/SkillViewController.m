@@ -113,8 +113,10 @@
 {
     [super setEditing:editing animated:animated];
     
+    int index = 0;
+    if ([self.tableView numberOfRowsInSection:0] > 0) index = [self.tableView numberOfRowsInSection:0] - 1;
     NSArray *paths = [NSArray arrayWithObject:
-                      [NSIndexPath indexPathForRow: ([self.tableView numberOfRowsInSection:0] - 1) inSection:0]];
+                      [NSIndexPath indexPathForRow: index inSection:0]];
     if (editing)
     {
         [[self tableView] insertRowsAtIndexPaths:paths
