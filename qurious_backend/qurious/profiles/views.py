@@ -87,3 +87,18 @@ class skillIOSView(View):
 
         data = simplejson.dumps({"False"})
         return HttpResponse(data, mimetype='applicaton/json')
+
+class SkillIOSAllView(View):
+    """
+    The view for all the skills coming back
+    """
+    def get(self, request, *args, **kwargs):
+        try:
+            username = 'sam'
+            user = User.objects.get(username=username)
+            skills = user.userprofile.skills.all()
+
+            data = serializers.serialize('json', skills)
+            return HttpResponse(data, mimetype='application/json')
+        except:
+            return HttpResponse('', mimetype='application/json')
