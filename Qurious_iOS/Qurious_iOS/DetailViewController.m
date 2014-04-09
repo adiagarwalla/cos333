@@ -88,8 +88,7 @@ void saveSkillCallback (id arg) {
         [self.detailItem setBio:editController.bioField.text];
         [self.detailItem setProfPic:editController.selectedImage.image];
         
-// broken!!!!!
-        [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andCallback: saveCallback];
+        [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
         [self configureView];
         [self viewDidLoad];
@@ -98,7 +97,8 @@ void saveSkillCallback (id arg) {
         SkillViewController *skillController = [segue sourceViewController];
         [self.detailItem setSkills: skillController.skills];
         
-// broken!!!!!!
+// broken!!!!!! This is going to require a more complex fix, we need to support adding and deleting API endpoints, I'll just have to do that tomorrow sometime, can't do that tonight.
+        // TODO
         for (Skill *skill in skillController.skills) {
             [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
         }

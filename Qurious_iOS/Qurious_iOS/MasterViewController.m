@@ -47,7 +47,7 @@ void callback(id arg) {
         friend.lastName = fields[@"profile_last"];
         friend.email = fields[@"user_email"];
         friend.bio = fields[@"user_bio"];
-        friend.userID = (int) fields[@"user"];
+        friend.userID = [fields[@"user"] intValue];
         
         // broken: returning (null) JSON
         [QApiRequests getAllSkills: friend.userID andCallback: &skillCallback];

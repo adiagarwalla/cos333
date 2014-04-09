@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.core import serializers
 from qurious.profiles.forms import ProfileEditForm
+from qurious.profiles.forms import SkillEditForm
 
 from qurious.profiles.models import Skill
 from qurious.profiles.models import UserProfile
@@ -29,7 +30,7 @@ class profileIOSDetailView(View):
 
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
-
+        import pdb; pdb.set_trace()
         if form.is_valid():
 #            username = request.user.username
             username = 'sam'
@@ -64,7 +65,6 @@ class skillIOSView(View):
     with a skill (price, description, name, etc)
     """
     def get(self, request, *args, **kwargs):
-        import pdb; pdb.set_trace()
         try:
             id = request.GET.get('id')
             skill = Skill.objects.get(id=id)
