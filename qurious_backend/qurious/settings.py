@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'qurious.profiles',
     'qurious.auth',
+    'django_coverage',
 )
 
 # A sample logging configuration. The only tangible logging
