@@ -123,3 +123,15 @@ class ProfileViewTest(TestCase):
         c = Client()
         response = c.get(reverse('all-skills') + '?id=1')
         self.assertTrue(response.content != '')
+
+    def test_skill_edit(self):
+        c = Client()
+        response = c.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
+        self.assertTrue(response.status_code == 200)
+        self.assertTrue(bool(response.content) == True)
+
+        skill = Skill.objects.get(name='abhi is awesome')
+        self.assertTrue(skill.id != 0)
+        self.assertTrue(skill.price == 1)
+        self.assertTrue(skill.is_marketable == True)
+        self.assertTrue(skill.desc == 'I am awesome')

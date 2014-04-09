@@ -30,7 +30,6 @@ class profileIOSDetailView(View):
 
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
-        import pdb; pdb.set_trace()
         if form.is_valid():
 #            username = request.user.username
             username = 'sam'
@@ -78,11 +77,15 @@ class skillIOSView(View):
         form = SkillEditForm(request.POST)
 
         if form.is_valid():
-            skill_id = form.clean_data.get('skill_id')
-            skill = Skill.objects.get(id=skill_id)
-            skill.price = form.clean_data.get('price')
-            skill.desc = form.clean_data.get('desc')
-            skill.is_marketable = bool(form.clean_data.get('marketable'))
+            skill_id = form.cleaned_data.get('skill_id')
+            if skill_id == 0:
+                skill = Skill(name=form.cleaned_data.get('name'), price=form.cleaned_data.get('price'), desc=form.cleaned_data.get('desc'), is_marketable=bool(form.cleaned_data.get('marketable')))
+                skill.save()
+            else:
+                skill = Skill.objects.get(id=skill_id)
+                skill.price = form.cleaned_data.get('price')
+                skill.desc = form.cleaned_data.get('desc')
+                skill.is_marketable = bool(form.cleaned_data.get('marketable'))
 
             data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
