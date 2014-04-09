@@ -89,7 +89,7 @@ class ProfileViewTest(TestCase):
         c = Client()
 
         # This function assumes that every single thing is passed in that is needed by the function
-        response = c.post(reverse('profile-detail'), {'user':{'username':'sam'},'profile_name':'cheng_dynasties', 'user_bio':'Hi', 'user_email':'xxx-xxxx.onion.cheng'})
+        response = c.post(reverse('profile-detail'), {'user':{'username':'sam'},'profile_name':'cheng_dynasties', 'user_bio':'Hi', 'user_email':'xxx-xxxx.onion.cheng', 'profile_first': 'sam', 'profile_last': 'cheng'})
         self.assertTrue(response.status_code == 200)
         self.assertTrue(bool(response.content) == True)
 
@@ -98,6 +98,8 @@ class ProfileViewTest(TestCase):
         self.assertTrue(cheng.userprofile.profile_name == 'cheng_dynasties')
         self.assertTrue(cheng.userprofile.user_bio == 'Hi')
         self.assertTrue(cheng.userprofile.user_email == 'xxx-xxxx.onion.cheng')
+        self.assertTrue(cheng.userprofile.profile_last == 'cheng')
+        self.assertTrue(cheng.userprofile.profile_first == 'sam')
 
     def test_skill_get(self):
         """

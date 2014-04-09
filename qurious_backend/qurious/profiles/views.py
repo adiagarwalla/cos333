@@ -38,6 +38,8 @@ class profileIOSDetailView(View):
             user_prof.profile_name = form.cleaned_data.get('profile_name')
             user_prof.user_bio = form.cleaned_data.get('user_bio')
             user_prof.user_email = form.cleaned_data.get('user_email')
+            user_prof.profile_first = form.cleaned_data.get('profile_first')
+            user_prof.profile_last = form.cleaned_data.get('profile_last')
             user_prof.save()
 
             data = simplejson.dumps({'return': True})
