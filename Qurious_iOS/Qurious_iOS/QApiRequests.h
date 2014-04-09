@@ -11,6 +11,7 @@
 @interface QApiRequests : NSObject
 
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback;
++ (void) getAllSkills:(int)user_id andCallback:(void(*)(id))callback;
 + (void) getSkillDetails:(int)skill_id andCallback:(void(*)(id))callback;
 + (void) editProfile:(NSString*)profile_name andBio:(NSString*)bio andEmail:(NSString*)email andCallback:(void(*)(id))callback;
 + (void) editSkill:(int)skill_id andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback;

@@ -24,6 +24,10 @@ static UITableView *view;
     [super awakeFromNib];
 }
 
+void skillCallback(id arg) {
+
+}
+
 void callback(id arg) {
     
     // do nothing valuable
@@ -36,11 +40,17 @@ void callback(id arg) {
     for (NSDictionary *jsonobject in results) {
         NSDictionary *fields = jsonobject[@"fields"];
         Person *friend = [[Person alloc] init];
-        friend.username = fields[@"profile_name"];
+        friend.firstName = fields[@"profile_first"];
+        friend.lastName = fields[@"profile_last"];
         friend.email = fields[@"user_email"];
         friend.bio = fields[@"user_bio"];
+        friend.userID = (int) fields[@"user"];
+        [QApiRequests getAllSkills: friend.userID andCallback: &skillCallback];
+        
         [_objects insertObject:friend atIndex:0];
         printf("%s", "Hi");
+        
+        
     }
 
     [view reloadData];

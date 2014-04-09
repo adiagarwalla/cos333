@@ -47,4 +47,12 @@ char* baseURL = "http://localhost:8000";
     [request startAsync:callback andUrl:url];
 }
 
++ (void) getAllSkills:(int)user_id andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/allskills?id=%i", baseURL, user_id];
+    [request startAsync:callback andUrl:url];
+}
+
+
+
 @end

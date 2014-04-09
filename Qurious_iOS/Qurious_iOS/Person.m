@@ -10,6 +10,7 @@
 
 @implementation Person
 
+@synthesize userID = _userID;
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
 @synthesize username = _username;
