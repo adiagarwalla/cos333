@@ -25,7 +25,10 @@ static UITableView *view;
 }
 
 void skillCallback(id arg) {
-
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Hi");
+    
+    // to edit to create NSMutableArray of Skills
 }
 
 void callback(id arg) {
@@ -45,8 +48,9 @@ void callback(id arg) {
         friend.email = fields[@"user_email"];
         friend.bio = fields[@"user_bio"];
         friend.userID = (int) fields[@"user"];
-        [QApiRequests getAllSkills: friend.userID andCallback: &skillCallback];
         
+        // broken: returning (null) JSON
+        [QApiRequests getAllSkills: friend.userID andCallback: &skillCallback];
         [_objects insertObject:friend atIndex:0];
         printf("%s", "Hi");
         
@@ -102,8 +106,8 @@ void callback(id arg) {
                              dequeueReusableCellWithIdentifier:@"Cell"
                              forIndexPath:indexPath];
     Person *friend = _objects[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ (%@)",
-                           friend.firstName, friend.lastName, friend.username];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
+                           friend.firstName, friend.lastName];
     return cell;
 }
 

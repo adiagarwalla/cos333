@@ -88,8 +88,8 @@ void saveSkillCallback (id arg) {
         [self.detailItem setBio:editController.bioField.text];
         [self.detailItem setProfPic:editController.selectedImage.image];
         
-        
-        [QApiRequests editProfile: [self.detailItem username] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andCallback: saveCallback];
+// broken!!!!!
+        [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andCallback: saveCallback];
         
         [self configureView];
         [self viewDidLoad];
@@ -98,6 +98,7 @@ void saveSkillCallback (id arg) {
         SkillViewController *skillController = [segue sourceViewController];
         [self.detailItem setSkills: skillController.skills];
         
+// broken!!!!!!
         for (Skill *skill in skillController.skills) {
             [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
         }

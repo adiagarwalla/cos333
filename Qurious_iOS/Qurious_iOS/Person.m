@@ -13,7 +13,6 @@
 @synthesize userID = _userID;
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
-@synthesize username = _username;
 @synthesize email = _email;
 @synthesize bio = _bio;
 @synthesize skills = _skills;
