@@ -11,6 +11,8 @@
 #import "EditViewController.h"
 #import "SkillViewController.h"
 #import "Skill.h"
+#import "QApiRequests.h"
+
 @interface DetailViewController ()
 - (void)configureView;
 - (void)loadButtons;
@@ -34,10 +36,7 @@
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
         
-//        NSError *error = nil;
-//        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: self.nameLabel.text, @"Name",self.emailLabel.text, @"Email",self.bioLabel.text, @"Bio",[self.detailItem skills], @"Skills", nil];
-//        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
-//        self.bioLabel.text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+
 
     }
 }
@@ -69,6 +68,11 @@
     
 }
 
+void saveCallback (id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Saved a profile");
+}
+
 - (IBAction)save:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"saveInput"]) {
         EditViewController *editController = [segue sourceViewController];
@@ -77,6 +81,10 @@
         [self.detailItem setEmail:editController.emailField.text];
         [self.detailItem setBio:editController.bioField.text];
         [self.detailItem setProfPic:editController.selectedImage.image];
+        
+        
+        [QApiRequests editProfile: [self.detailItem username] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andCallback: saveCallback];
+        
         [self configureView];
         [self viewDidLoad];
     }

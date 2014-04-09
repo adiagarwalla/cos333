@@ -32,7 +32,7 @@ class profileIOSDetailView(View):
 
         if form.is_valid():
 #            username = request.user.username
-            username = 'cheng'
+            username = 'sam'
             user = User.objects.get(username=username)
             user_prof = user.userprofile
             user_prof.profile_name = form.cleaned_data.get('profile_name')

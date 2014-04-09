@@ -28,7 +28,7 @@ char* baseURL = "http://localhost:8000";
 
 + (void) editProfile:(NSString*)profile_name andBio:(NSString*)bio andEmail:(NSString*)email andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
-    NSString* url = [NSString stringWithFormat:@"%s/api-profile/profile", baseURL];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/profile/", baseURL];
     NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:profile_name,@"profile_name", bio, @"user_bio", email, @"user_email", nil];
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
