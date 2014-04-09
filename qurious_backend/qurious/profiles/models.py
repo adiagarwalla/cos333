@@ -13,10 +13,11 @@ class Skill(models.Model):
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User)
+    profile_first = models.CharField(max_length=256)
+    profile_last = models.CharField(max_length=256)
     profile_name = models.CharField(max_length=256)
     user_email = models.CharField(max_length=256)
     user_bio = models.CharField(max_length=200)
-    # user_pic = 
     skills = models.ManyToManyField(Skill, null=True)
 
 

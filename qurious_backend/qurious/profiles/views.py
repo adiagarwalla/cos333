@@ -32,7 +32,7 @@ class profileIOSDetailView(View):
 
         if form.is_valid():
 #            username = request.user.username
-            username = 'cheng'
+            username = 'sam'
             user = User.objects.get(username=username)
             user_prof = user.userprofile
             user_prof.profile_name = form.cleaned_data.get('profile_name')
@@ -94,8 +94,8 @@ class SkillIOSAllView(View):
     """
     def get(self, request, *args, **kwargs):
         try:
-            username = 'sam'
-            user = User.objects.get(username=username)
+            user_id = request.GET.get('id')
+            user = User.objects.get(id=user_id)
             skills = user.userprofile.skills.all()
 
             data = serializers.serialize('json', skills)
