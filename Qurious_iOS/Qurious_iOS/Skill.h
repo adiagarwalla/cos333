@@ -10,7 +10,7 @@
 
 @interface Skill : NSObject
 @property (copy, nonatomic) NSString *desc;
-@property (copy, nonatomic) NSNumber *price;
+@property (copy, nonatomic) NSString *price;
 @property (nonatomic) BOOL isMarketable;
 @property (nonatomic) int skillID;
 @end

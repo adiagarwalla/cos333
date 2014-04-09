@@ -73,6 +73,12 @@ void saveCallback (id arg) {
     printf("%s", "Saved a profile");
 }
 
+
+void saveSkillCallback (id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Saved a skill");
+}
+
 - (IBAction)save:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"saveInput"]) {
         EditViewController *editController = [segue sourceViewController];
@@ -91,6 +97,11 @@ void saveCallback (id arg) {
     if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
         SkillViewController *skillController = [segue sourceViewController];
         [self.detailItem setSkills: skillController.skills];
+        
+        for (Skill *skill in skillController.skills) {
+            [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
+        }
+        
         [self configureView];
         [self loadButtons];
     }

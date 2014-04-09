@@ -21,7 +21,7 @@
     if (self)
     {
         self.desc = @"";
-        self.price = [NSNumber numberWithDouble: 0];
+        self.price = @"0";
         self.isMarketable = NO;
         // superclass successfully initialized, further
         // initialization happens here ...
