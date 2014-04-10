@@ -18,7 +18,7 @@
 @implementation MasterViewController
 
 static NSMutableArray *_objects;
-
+static NSMutableArray *_skills;
 static UITableView *view;
 - (void)awakeFromNib
 {
@@ -51,6 +51,22 @@ void callback(id arg) {
     [view reloadData];
 }
 
+void skillCallback(id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Hi");
+    
+    for (NSDictionary * object in arg)
+    {
+        Skill * skill = [[Skill alloc] init];
+        NSDictionary *fields = object[@"fields"];
+        skill.desc = fields[@"name"];
+        if ([fields[@"is_marketable"]  isEqual: @"1"]) skill.isMarketable = YES;
+        skill.price = fields[@"price"];
+        skill.skillID = [object[@"pk"] intValue];
+        [_skills addObject: skill];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,7 +79,6 @@ void callback(id arg) {
     
     view = (UITableView *)self.view;
     
-
     [QApiRequests getAllProfiles:&callback];
     
 }
@@ -116,6 +131,9 @@ void callback(id arg) {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Person *friend = _objects[indexPath.row];
+        _skills = [[NSMutableArray alloc] init];
+        [friend setSkills: _skills];
+        [QApiRequests getAllSkills: [friend userID] andCallback: &skillCallback];
         [[segue destinationViewController] setDetailItem:friend];
     }
 }
