@@ -37,7 +37,7 @@ char* baseURL = "http://localhost:8000";
     
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/skills/", baseURL];
-    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:price,@"price", desc, @"desc", isMarketable, @"marketable", skill_id, @"skill_id", nil];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:price,@"price", desc, @"name",[NSString stringWithFormat:@"%i", isMarketable], @"marketable", [NSString stringWithFormat:@"%i", skill_id], @"skill_id", nil];
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
