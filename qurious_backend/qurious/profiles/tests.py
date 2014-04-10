@@ -124,7 +124,8 @@ class ProfileViewTest(TestCase):
         response = c.get(reverse('all-skills') + '?id=1')
         self.assertTrue(response.content != '')
 
-    def test_skill_edit(self):
+    def test_skill_edit_add(self):
+        self.test_get_profile()
         c = Client()
         response = c.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
         self.assertTrue(response.status_code == 200)
@@ -135,3 +136,21 @@ class ProfileViewTest(TestCase):
         self.assertTrue(skill.price == 1)
         self.assertTrue(skill.is_marketable == True)
         self.assertTrue(skill.desc == 'I am awesome')
+
+    def test_delete_skill(self):
+        """
+        This function tests deleting a skill
+        """
+        self.test_get_profile()
+        c = Client()
+        response = c.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
+        skill = Skill.objects.filter()
+        length = len(skill)
+
+        response = c.get(reverse('delete-skill') + '?id=1')
+        self.assertTrue(response.status_code == 200)
+        self.assertTrue(bool(response.content) == True)
+
+        skill = Skill.objects.filter()
+        self.assertTrue(len(skill) == length - 1)
+

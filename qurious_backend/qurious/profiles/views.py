@@ -81,6 +81,9 @@ class skillIOSView(View):
             if skill_id == 0:
                 skill = Skill(name=form.cleaned_data.get('name'), price=form.cleaned_data.get('price'), desc=form.cleaned_data.get('desc'), is_marketable=bool(form.cleaned_data.get('marketable')))
                 skill.save()
+                username = 'sam'
+                user = User.objects.get(username=username)
+                user.userprofile.skills.add(skill)
             else:
                 skill = Skill.objects.get(id=skill_id)
                 skill.price = form.cleaned_data.get('price')
@@ -90,8 +93,21 @@ class skillIOSView(View):
             data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({"False"})
-        return HttpResponse(data, mimetype='applicaton/json')
+        return HttpResponse('', mimetype='applicaton/json')
+
+class DeleteSkillIOSView(View):
+    """
+    This is the view that deals with deleting skills
+    """
+    def get(self, request, *args, **kwargs):
+        id = request.GET.get('id')
+        try:
+            skill = Skill.objects.get(id=id)
+            skill.delete()
+            data = simplejson.dumps({'return': True})
+            return HttpResponse(data, mimetype='application/json')
+        except:
+            return HttpResponse('', mimetype='application/json')
 
 class SkillIOSAllView(View):
     """
