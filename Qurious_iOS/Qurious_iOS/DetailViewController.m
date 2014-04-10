@@ -16,6 +16,7 @@
 @interface DetailViewController ()
 - (void)configureView;
 - (void)loadButtons;
+
 @end
 
 @implementation DetailViewController
@@ -24,6 +25,8 @@
 @synthesize emailLabel = _emailLabel;
 @synthesize bioLabel = _bioLabel;
 @synthesize imageView = _imageView;
+
+
 
 - (void)configureView {
     if (self.detailItem &&
@@ -35,11 +38,11 @@
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
-        
-
 
     }
+    
 }
+
 
 
 #pragma mark - Managing the detail item
@@ -96,11 +99,11 @@ void saveSkillCallback (id arg) {
     if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
         SkillViewController *skillController = [segue sourceViewController];
         [self.detailItem setSkills: skillController.skills];
-        
-// broken!!!!!! This is going to require a more complex fix, we need to support adding and deleting API endpoints, I'll just have to do that tomorrow sometime, can't do that tonight.
-        // TODO
+
+
         for (Skill *skill in skillController.skills) {
-            [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
+            if (skill.skillID == 0)
+                [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
         }
         
         [self configureView];
