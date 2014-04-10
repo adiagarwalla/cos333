@@ -20,6 +20,7 @@
     self = [super init];
     if (self)
     {
+        self.skillID = 0;
         self.desc = @"";
         self.price = @"0";
         self.isMarketable = NO;

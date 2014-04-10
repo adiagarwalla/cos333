@@ -16,6 +16,7 @@
 @interface DetailViewController ()
 - (void)configureView;
 - (void)loadButtons;
+
 @end
 
 @implementation DetailViewController
@@ -24,10 +25,14 @@
 @synthesize emailLabel = _emailLabel;
 @synthesize bioLabel = _bioLabel;
 @synthesize imageView = _imageView;
+static NSMutableArray * _skills;
+static DetailViewController * dvc;
+
 
 - (void)configureView {
     if (self.detailItem &&
         [self.detailItem isKindOfClass:[Person class]]) {
+        dvc = self;
         NSString *name = [NSString stringWithFormat:@"%@ %@",
                           [self.detailItem firstName],
                           [self.detailItem lastName]];
@@ -35,10 +40,31 @@
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
-        
 
-
+        _skills = [[NSMutableArray alloc] init];
+        [self.detailItem setSkills: _skills];
+        [QApiRequests getAllSkills: [self.detailItem userID] andCallback: &skillCallback];
     }
+    
+}
+
+void skillCallback(id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Hi");
+    
+    for (NSDictionary * object in arg)
+    {
+        Skill * skill = [[Skill alloc] init];
+        NSDictionary *fields = object[@"fields"];
+        skill.desc = fields[@"name"];
+        if ([fields[@"is_marketable"]  isEqual: @"1"]) skill.isMarketable = YES;
+        skill.price = fields[@"price"];
+        skill.skillID = [object[@"pk"] intValue];
+        [_skills addObject: skill];
+        printf("skill added");
+    }
+    
+    [dvc loadButtons];
 }
 
 
@@ -99,9 +125,9 @@ void saveSkillCallback (id arg) {
         
 // broken!!!!!! This is going to require a more complex fix, we need to support adding and deleting API endpoints, I'll just have to do that tomorrow sometime, can't do that tonight.
         // TODO
-        for (Skill *skill in skillController.skills) {
-            [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
-        }
+//        for (Skill *skill in skillController.skills) {
+//            [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
+//        }
         
         [self configureView];
         [self loadButtons];

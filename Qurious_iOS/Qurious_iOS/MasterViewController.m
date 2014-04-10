@@ -18,18 +18,14 @@
 @implementation MasterViewController
 
 static NSMutableArray *_objects;
+
 static UITableView *view;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 }
 
-void skillCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
-    
-    // to edit to create NSMutableArray of Skills
-}
+
 
 void callback(id arg) {
     
@@ -48,12 +44,7 @@ void callback(id arg) {
         friend.email = fields[@"user_email"];
         friend.bio = fields[@"user_bio"];
         friend.userID = [fields[@"user"] intValue];
-        
-        // broken: returning (null) JSON
-        [QApiRequests getAllSkills: friend.userID andCallback: &skillCallback];
         [_objects insertObject:friend atIndex:0];
-        printf("%s", "Hi");
-        
         
     }
 
@@ -72,7 +63,9 @@ void callback(id arg) {
     
     view = (UITableView *)self.view;
     
+
     [QApiRequests getAllProfiles:&callback];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
