@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "QApiRequests.h"
 
 @implementation ViewController {
     OTSession* _session;
@@ -17,9 +18,26 @@
 // Take care of this later
 static double widgetHeight = 240;
 static double widgetWidth = 320;
-static NSString* const kApiKey = @"";    // Replace with your OpenTok API key
-static NSString* const kSessionId = @""; // Replace with your generated session ID
-static NSString* const kToken = @"";     // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
+static NSString* kApiKey = @"";    // Replace with your OpenTok API key
+static NSString* kSessionId = @""; // Replace with your generated session ID
+static NSString* kToken = @"";     // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
+
+void callback(id arg) {
+    
+    // do nothing valuable
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Hi");
+    
+    NSDictionary * results = arg;
+    for (NSDictionary *jsonobject in results) {
+        NSDictionary *fields = jsonobject[@"fields"];
+        kApiKey = fields[@"api"];
+        kSessionId = fields[@"session"];
+        kToken = fields[@"token"];
+    }
+}
+
+
 static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other than your own.
 
 #pragma mark - View lifecycle
@@ -29,6 +47,8 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     [super viewDidLoad];
     _session = [[OTSession alloc] initWithSessionId:kSessionId
                                            delegate:self];
+    [QApiRequests getVideo:&callback];
+
     [self doConnect];
 }
 
