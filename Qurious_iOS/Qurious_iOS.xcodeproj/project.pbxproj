@@ -67,6 +67,7 @@
 		66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94A18F7B09A00F4BF89 /* UIKit.framework */; };
 		66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94B18F7B09A00F4BF89 /* Foundation.framework */; };
 		66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */; };
+		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
@@ -178,6 +179,8 @@
 		66D7D94A18F7B09A00F4BF89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		66D7D94B18F7B09A00F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		66D7D95E18F7B0C500F4BF89 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
@@ -352,11 +355,13 @@
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
 				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
+				66D7D95E18F7B0C500F4BF89 /* ViewController.m */,
 				F9D344CF18EE8780008A4B35 /* SkillViewController.m */,
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
+				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D93A18F7AFED00F4BF89 /* opentok.bundle */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
@@ -529,6 +534,7 @@
 				483000A118F2F94D00A92467 /* AFHTTPSessionManager.m in Sources */,
 				483000AA18F2F94D00A92467 /* UIAlertView+AFNetworking.m in Sources */,
 				483000A518F2F94D00A92467 /* AFURLRequestSerialization.m in Sources */,
+				66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */,
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
 				483000A718F2F94D00A92467 /* AFURLSessionManager.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
