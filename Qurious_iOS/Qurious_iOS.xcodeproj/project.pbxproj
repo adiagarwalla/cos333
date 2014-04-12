@@ -462,6 +462,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Qurious;
 				TargetAttributes = {
+					66D7D8CA18EA11E400F4BF89 = {
+						DevelopmentTeam = WKRZ8G7B5R;
+					};
 					66D7D8EE18EA11E400F4BF89 = {
 						TestTargetID = 66D7D8CA18EA11E400F4BF89;
 					};
