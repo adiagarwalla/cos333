@@ -47,7 +47,7 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     [super viewDidLoad];
     _session = [[OTSession alloc] initWithSessionId:kSessionId
                                            delegate:self];
-    [QApiRequests getVideo:&callback];
+    //[QApiRequests getVideo:&callback];
 
     [self doConnect];
 }
