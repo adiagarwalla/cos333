@@ -48,6 +48,26 @@
 		66D7D8FD18EA11E400F4BF89 /* Qurious_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8FC18EA11E400F4BF89 /* Qurious_iOSTests.m */; };
 		66D7D90818EA12EF00F4BF89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D90718EA12EF00F4BF89 /* Person.m */; };
 		66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D90918EBC21600F4BF89 /* dogesmall.jpg */; };
+		66D7D93918F7AF9A00F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93818F7AF9A00F4BF89 /* Opentok.framework */; };
+		66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D93A18F7AFED00F4BF89 /* opentok.bundle */; };
+		66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */; };
+		66D7D94E18F7B09A00F4BF89 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */; };
+		66D7D94F18F7B09A00F4BF89 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */; };
+		66D7D95018F7B09A00F4BF89 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93F18F7B09A00F4BF89 /* SystemConfiguration.framework */; };
+		66D7D95118F7B09A00F4BF89 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94018F7B09A00F4BF89 /* CoreMedia.framework */; };
+		66D7D95218F7B09A00F4BF89 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94118F7B09A00F4BF89 /* Security.framework */; };
+		66D7D95318F7B09A00F4BF89 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94218F7B09A00F4BF89 /* AudioToolbox.framework */; };
+		66D7D95418F7B09A00F4BF89 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94318F7B09A00F4BF89 /* CoreAudio.framework */; };
+		66D7D95518F7B09A00F4BF89 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94418F7B09A00F4BF89 /* CoreVideo.framework */; };
+		66D7D95618F7B09A00F4BF89 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94518F7B09A00F4BF89 /* OpenGLES.framework */; };
+		66D7D95718F7B09A00F4BF89 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94618F7B09A00F4BF89 /* libz.dylib */; };
+		66D7D95818F7B09A00F4BF89 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94718F7B09A00F4BF89 /* libstdc++.dylib */; };
+		66D7D95918F7B09A00F4BF89 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94818F7B09A00F4BF89 /* QuartzCore.framework */; };
+		66D7D95A18F7B09A00F4BF89 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94918F7B09A00F4BF89 /* AVFoundation.framework */; };
+		66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94A18F7B09A00F4BF89 /* UIKit.framework */; };
+		66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94B18F7B09A00F4BF89 /* Foundation.framework */; };
+		66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */; };
+		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
@@ -140,6 +160,27 @@
 		66D7D90618EA12EF00F4BF89 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		66D7D90718EA12EF00F4BF89 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		66D7D90918EBC21600F4BF89 /* dogesmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogesmall.jpg; sourceTree = "<group>"; };
+		66D7D93818F7AF9A00F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk-webrtc/Opentok.framework"; sourceTree = "<group>"; };
+		66D7D93A18F7AFED00F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
+		66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		66D7D93F18F7B09A00F4BF89 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66D7D94018F7B09A00F4BF89 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		66D7D94118F7B09A00F4BF89 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		66D7D94218F7B09A00F4BF89 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		66D7D94318F7B09A00F4BF89 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		66D7D94418F7B09A00F4BF89 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		66D7D94518F7B09A00F4BF89 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		66D7D94618F7B09A00F4BF89 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		66D7D94718F7B09A00F4BF89 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		66D7D94818F7B09A00F4BF89 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		66D7D94918F7B09A00F4BF89 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		66D7D94A18F7B09A00F4BF89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		66D7D94B18F7B09A00F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		66D7D95E18F7B0C500F4BF89 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
@@ -159,13 +200,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */,
 				4830007818F2F03A00A92467 /* GHUnitIOS.framework in Frameworks */,
+				66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */,
+				66D7D95718F7B09A00F4BF89 /* libz.dylib in Frameworks */,
+				66D7D95218F7B09A00F4BF89 /* Security.framework in Frameworks */,
 				48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */,
+				66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */,
+				66D7D95418F7B09A00F4BF89 /* CoreAudio.framework in Frameworks */,
+				66D7D95518F7B09A00F4BF89 /* CoreVideo.framework in Frameworks */,
+				66D7D95618F7B09A00F4BF89 /* OpenGLES.framework in Frameworks */,
 				48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */,
 				48512E1118F1D9DC0076D03E /* SystemConfiguration.framework in Frameworks */,
+				66D7D95A18F7B09A00F4BF89 /* AVFoundation.framework in Frameworks */,
+				66D7D95018F7B09A00F4BF89 /* SystemConfiguration.framework in Frameworks */,
+				66D7D95118F7B09A00F4BF89 /* CoreMedia.framework in Frameworks */,
+				66D7D93918F7AF9A00F4BF89 /* Opentok.framework in Frameworks */,
+				66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */,
+				66D7D94F18F7B09A00F4BF89 /* CFNetwork.framework in Frameworks */,
+				66D7D95918F7B09A00F4BF89 /* QuartzCore.framework in Frameworks */,
+				66D7D95818F7B09A00F4BF89 /* libstdc++.dylib in Frameworks */,
 				48512E0F18F1D9CE0076D03E /* CFNetwork.framework in Frameworks */,
+				66D7D95318F7B09A00F4BF89 /* AudioToolbox.framework in Frameworks */,
 				66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */,
 				66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */,
+				66D7D94E18F7B09A00F4BF89 /* MobileCoreServices.framework in Frameworks */,
 				66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +318,24 @@
 			children = (
 				4830007718F2F03A00A92467 /* GHUnitIOS.framework */,
 				4830007518F2EFE700A92467 /* GHUnitIOS.framework */,
+				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
+				66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */,
+				66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */,
+				66D7D93F18F7B09A00F4BF89 /* SystemConfiguration.framework */,
+				66D7D94018F7B09A00F4BF89 /* CoreMedia.framework */,
+				66D7D94118F7B09A00F4BF89 /* Security.framework */,
+				66D7D94218F7B09A00F4BF89 /* AudioToolbox.framework */,
+				66D7D94318F7B09A00F4BF89 /* CoreAudio.framework */,
+				66D7D94418F7B09A00F4BF89 /* CoreVideo.framework */,
+				66D7D94518F7B09A00F4BF89 /* OpenGLES.framework */,
+				66D7D94618F7B09A00F4BF89 /* libz.dylib */,
+				66D7D94718F7B09A00F4BF89 /* libstdc++.dylib */,
+				66D7D94818F7B09A00F4BF89 /* QuartzCore.framework */,
+				66D7D94918F7B09A00F4BF89 /* AVFoundation.framework */,
+				66D7D94A18F7B09A00F4BF89 /* UIKit.framework */,
+				66D7D94B18F7B09A00F4BF89 /* Foundation.framework */,
+				66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */,
+				66D7D93818F7AF9A00F4BF89 /* Opentok.framework */,
 				48512E1418F1D9F30076D03E /* libz.dylib */,
 				48512E1218F1D9E40076D03E /* MobileCoreServices.framework */,
 				48512E1018F1D9DC0076D03E /* SystemConfiguration.framework */,
@@ -278,12 +355,15 @@
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
 				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
+				66D7D95E18F7B0C500F4BF89 /* ViewController.m */,
 				F9D344CF18EE8780008A4B35 /* SkillViewController.m */,
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
+				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
+				66D7D93A18F7AFED00F4BF89 /* opentok.bundle */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
 				66D7D90718EA12EF00F4BF89 /* Person.m */,
 				F942A07218F353EF00B8A2E4 /* Skill.h */,
@@ -382,6 +462,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Qurious;
 				TargetAttributes = {
+					66D7D8CA18EA11E400F4BF89 = {
+						DevelopmentTeam = WKRZ8G7B5R;
+					};
 					66D7D8EE18EA11E400F4BF89 = {
 						TestTargetID = 66D7D8CA18EA11E400F4BF89;
 					};
@@ -417,6 +500,7 @@
 				F9C17F5518EC8E8E0095F92E /* img2.png in Resources */,
 				F9C17F5618EC8E8E0095F92E /* img3.png in Resources */,
 				F9C17F5718EC8E8E0095F92E /* img4.png in Resources */,
+				66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */,
 				F9C17F5918EC8E8E0095F92E /* img6.png in Resources */,
 				66D7D8D918EA11E400F4BF89 /* InfoPlist.strings in Resources */,
 				66D7D8E218EA11E400F4BF89 /* Main.storyboard in Resources */,
@@ -453,6 +537,7 @@
 				483000A118F2F94D00A92467 /* AFHTTPSessionManager.m in Sources */,
 				483000AA18F2F94D00A92467 /* UIAlertView+AFNetworking.m in Sources */,
 				483000A518F2F94D00A92467 /* AFURLRequestSerialization.m in Sources */,
+				66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */,
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
 				483000A718F2F94D00A92467 /* AFURLSessionManager.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
@@ -590,14 +675,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
 				INFOPLIST_FILE = "Qurious_iOS/Qurious_iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -608,14 +696,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
 				INFOPLIST_FILE = "Qurious_iOS/Qurious_iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

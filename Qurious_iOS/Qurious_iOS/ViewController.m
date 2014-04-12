@@ -7,20 +7,36 @@
 //
 
 #import "ViewController.h"
+#import "QApiRequests.h"
 
 @implementation ViewController {
     OTSession* _session;
     OTPublisher* _publisher;
     OTSubscriber* _subscriber;
 }
-
-// Take care of this later
 static double widgetHeight = 240;
 static double widgetWidth = 320;
-static NSString* const kApiKey = @"";    // Replace with your OpenTok API key
-static NSString* const kSessionId = @""; // Replace with your generated session ID
-static NSString* const kToken = @"";     // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
-static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other than your own.
+
+static NSString* const kApiKey = @"44722692";    // Replace with your OpenTok API key
+static NSString* const kSessionId = @"2_MX40NDcyMjY5Mn5-U2F0IEFwciAxMiAxMzoyODowMSBQRFQgMjAxNH4wLjQ5OTkzMjl-fg"; // Replace with your generated session ID
+static NSString* const kToken = @"T1==cGFydG5lcl9pZD00NDcyMjY5MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz1jNjFhNTdiMmVmZGFmMWUwMTllM2IxYjdlMjUyZDE0NjVhYTZlOWI3OnJvbGU9c3Vic2NyaWJlciZzZXNzaW9uX2lkPTJfTVg0ME5EY3lNalk1TW41LVUyRjBJRUZ3Y2lBeE1pQXhNem95T0Rvd01TQlFSRlFnTWpBeE5INHdMalE1T1Rrek1qbC1mZyZjcmVhdGVfdGltZT0xMzk3MzM0NTAxJm5vbmNlPTAuNjU2MTg4OTc5MjI0NDk0JmV4cGlyZV90aW1lPTEzOTczMzgwNzcmY29ubmVjdGlvbl9kYXRhPQ==";     // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
+
+//void callback(id arg) {
+//    
+//    // do nothing valuable
+//    NSLog(@"JSON: %@", arg);
+//    printf("%s", "Hi");
+//    
+//    NSDictionary * results = arg;
+//    for (NSDictionary *jsonobject in results) {
+//        NSDictionary *fields = jsonobject[@"fields"];
+//        kApiKey = fields[@"api"];
+//        kSessionId = fields[@"session"];
+//        kToken = fields[@"token"];
+//    }
+//}
+
+static bool subscribeToSelf = YES; // Change to NO to subscribe to streams other than your own.
 
 #pragma mark - View lifecycle
 
@@ -29,7 +45,34 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     [super viewDidLoad];
     _session = [[OTSession alloc] initWithSessionId:kSessionId
                                            delegate:self];
+    //[QApiRequests getVideo:&callback];
+
     [self doConnect];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+- (void)updateSubscriber {
+    for (NSString* streamId in _session.streams) {
+        OTStream* stream = [_session.streams valueForKey:streamId];
+        if (![stream.connection.connectionId isEqualToString: _session.connection.connectionId]) {
+            _subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
+            break;
+        }
+    }
 }
 
 #pragma mark - OpenTok methods
@@ -37,12 +80,6 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
 - (void)doConnect
 {
     [_session connectWithApiKey:kApiKey token:kToken];
-}
-
-- (void)sessionDidConnect:(OTSession*)session
-{
-    NSLog(@"sessionDidConnect (%@)", session.sessionId);
-    [self doPublish];
 }
 
 - (void)doPublish
@@ -53,6 +90,20 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     [self.view addSubview:_publisher.view];
     [_publisher.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight)];
 }
+
+- (void)sessionDidConnect:(OTSession*)session
+{
+    NSLog(@"sessionDidConnect (%@)", session.sessionId);
+    [self doPublish];
+}
+
+- (void)sessionDidDisconnect:(OTSession*)session
+{
+    NSString* alertMessage = [NSString stringWithFormat:@"Session disconnected: (%@)", session.sessionId];
+    NSLog(@"sessionDidDisconnect (%@)", alertMessage);
+    [self showAlert:alertMessage];
+}
+
 
 - (void)session:(OTSession*)mySession didReceiveStream:(OTStream*)stream
 {
@@ -69,13 +120,6 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     }
 }
 
-- (void)subscriberDidConnectToStream:(OTSubscriber*)subscriber
-{
-    NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
-    [subscriber.view setFrame:CGRectMake(0, widgetHeight, widgetWidth, widgetHeight)];
-    [self.view addSubview:subscriber.view];
-}
-
 - (void)session:(OTSession*)session didDropStream:(OTStream*)stream{
     NSLog(@"session didDropStream (%@)", stream.streamId);
     NSLog(@"_subscriber.stream.streamId (%@)", _subscriber.stream.streamId);
@@ -88,26 +132,45 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     }
 }
 
-- (void)updateSubscriber {
-    for (NSString* streamId in _session.streams) {
-        OTStream* stream = [_session.streams valueForKey:streamId];
-        if (![stream.connection.connectionId isEqualToString: _session.connection.connectionId]) {
-            _subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
-            break;
-        }
-    }
+- (void)session:(OTSession *)session didCreateConnection:(OTConnection *)connection {
+    NSLog(@"session didCreateConnection (%@)", connection.connectionId);
 }
 
-- (void)sessionDidDisconnect:(OTSession*)session
+- (void) session:(OTSession *)session didDropConnection:(OTConnection *)connection {
+    NSLog(@"session didDropConnection (%@)", connection.connectionId);
+}
+
+- (void)subscriberDidConnectToStream:(OTSubscriber*)subscriber
 {
-    NSString* alertMessage = [NSString stringWithFormat:@"Session disconnected: (%@)", session.sessionId];
-    NSLog(@"sessionDidDisconnect (%@)", alertMessage);
-    [self showAlert:alertMessage];
+    NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
+    [subscriber.view setFrame:CGRectMake(0, widgetHeight, widgetWidth, widgetHeight)];
+    [self.view addSubview:subscriber.view];
+}
+
+- (void)publisher:(OTPublisher*)publisher didFailWithError:(OTError*) error {
+    NSLog(@"publisher didFailWithError %@", error);
+    [self showAlert:[NSString stringWithFormat:@"There was an error publishing."]];
+}
+
+- (void)subscriber:(OTSubscriber*)subscriber didFailWithError:(OTError*)error
+{
+    NSLog(@"subscriber %@ didFailWithError %@", subscriber.stream.streamId, error);
+    [self showAlert:[NSString stringWithFormat:@"There was an error subscribing to stream %@", subscriber.stream.streamId]];
 }
 
 - (void)session:(OTSession*)session didFailWithError:(OTError*)error {
     NSLog(@"sessionDidFail");
     [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
+}
+
+
+- (void)showAlert:(NSString*)string {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message from video session"
+                                                    message:string
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
