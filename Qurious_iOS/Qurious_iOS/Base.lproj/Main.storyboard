@@ -305,7 +305,7 @@
         <!--View Controller-->
         <scene sceneID="MBc-gM-VpA">
             <objects>
-                <viewController id="1MK-41-C6g" sceneMemberID="viewController">
+                <viewController id="1MK-41-C6g" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZVc-mB-t9A"/>
                         <viewControllerLayoutGuide type="bottom" id="gB1-Ij-I6b"/>

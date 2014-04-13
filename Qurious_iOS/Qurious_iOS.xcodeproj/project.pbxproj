@@ -31,13 +31,26 @@
 		48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48512E1218F1D9E40076D03E /* MobileCoreServices.framework */; };
 		48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48512E1418F1D9F30076D03E /* libz.dylib */; };
 		48512E1818F1DAC00076D03E /* AsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48512E1718F1DAC00076D03E /* AsyncRequest.m */; };
+		4880DB8318FA37E0002BF93A /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DB8218FA37E0002BF93A /* Opentok.framework */; };
+		4880DB8518FA3966002BF93A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
+		4880DBB718FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DB9018FA3B98002BF93A /* Opentok */; };
+		4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4880DB9218FA3B98002BF93A /* InfoPlist.strings */; };
+		4880DBB918FA3B98002BF93A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4880DB9418FA3B98002BF93A /* Info.plist */; };
+		4880DBBA18FA3B98002BF93A /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4880DB9518FA3B98002BF93A /* opentok.bundle */; };
+		4880DBBB18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBA118FA3B98002BF93A /* Opentok */; };
+		4880DBBC18FA3B98002BF93A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBA318FA3B98002BF93A /* InfoPlist.strings */; };
+		4880DBBD18FA3B98002BF93A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBA518FA3B98002BF93A /* Info.plist */; };
+		4880DBBE18FA3B98002BF93A /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBA618FA3B98002BF93A /* opentok.bundle */; };
+		4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBB118FA3B98002BF93A /* Opentok */; };
+		4880DBC018FA3B98002BF93A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBB318FA3B98002BF93A /* InfoPlist.strings */; };
+		4880DBC118FA3B98002BF93A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBB518FA3B98002BF93A /* Info.plist */; };
+		4880DBC218FA3B98002BF93A /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBB618FA3B98002BF93A /* opentok.bundle */; };
 		66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8CE18EA11E400F4BF89 /* Foundation.framework */; };
 		66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */; };
 		66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D218EA11E400F4BF89 /* UIKit.framework */; };
 		66D7D8D918EA11E400F4BF89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8D718EA11E400F4BF89 /* InfoPlist.strings */; };
 		66D7D8DB18EA11E400F4BF89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8DA18EA11E400F4BF89 /* main.m */; };
 		66D7D8DF18EA11E400F4BF89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */; };
-		66D7D8E218EA11E400F4BF89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
 		66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8E418EA11E400F4BF89 /* MasterViewController.m */; };
 		66D7D8E818EA11E400F4BF89 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8E718EA11E400F4BF89 /* DetailViewController.m */; };
 		66D7D8EA18EA11E400F4BF89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E918EA11E400F4BF89 /* Images.xcassets */; };
@@ -48,7 +61,6 @@
 		66D7D8FD18EA11E400F4BF89 /* Qurious_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8FC18EA11E400F4BF89 /* Qurious_iOSTests.m */; };
 		66D7D90818EA12EF00F4BF89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D90718EA12EF00F4BF89 /* Person.m */; };
 		66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D90918EBC21600F4BF89 /* dogesmall.jpg */; };
-		66D7D93918F7AF9A00F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93818F7AF9A00F4BF89 /* Opentok.framework */; };
 		66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D93A18F7AFED00F4BF89 /* opentok.bundle */; };
 		66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */; };
 		66D7D94E18F7B09A00F4BF89 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */; };
@@ -136,6 +148,43 @@
 		48512E1418F1D9F30076D03E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		48512E1618F1DAC00076D03E /* AsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncRequest.h; sourceTree = "<group>"; };
 		48512E1718F1DAC00076D03E /* AsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncRequest.m; sourceTree = "<group>"; };
+		4880DB8218FA37E0002BF93A /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
+		4880DB8818FA3B98002BF93A /* Opentok.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opentok.h; sourceTree = "<group>"; };
+		4880DB8918FA3B98002BF93A /* OTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTConnection.h; sourceTree = "<group>"; };
+		4880DB8A18FA3B98002BF93A /* OTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTError.h; sourceTree = "<group>"; };
+		4880DB8B18FA3B98002BF93A /* OTPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTPublisher.h; sourceTree = "<group>"; };
+		4880DB8C18FA3B98002BF93A /* OTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSession.h; sourceTree = "<group>"; };
+		4880DB8D18FA3B98002BF93A /* OTStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTStream.h; sourceTree = "<group>"; };
+		4880DB8E18FA3B98002BF93A /* OTSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSubscriber.h; sourceTree = "<group>"; };
+		4880DB8F18FA3B98002BF93A /* OTVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTVideoView.h; sourceTree = "<group>"; };
+		4880DB9018FA3B98002BF93A /* Opentok */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Opentok; path = Opentok.framework/Opentok; sourceTree = "<group>"; };
+		4880DB9318FA3B98002BF93A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4880DB9418FA3B98002BF93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Info.plist; sourceTree = "<group>"; };
+		4880DB9518FA3B98002BF93A /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
+		4880DB9918FA3B98002BF93A /* Opentok.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opentok.h; sourceTree = "<group>"; };
+		4880DB9A18FA3B98002BF93A /* OTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTConnection.h; sourceTree = "<group>"; };
+		4880DB9B18FA3B98002BF93A /* OTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTError.h; sourceTree = "<group>"; };
+		4880DB9C18FA3B98002BF93A /* OTPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTPublisher.h; sourceTree = "<group>"; };
+		4880DB9D18FA3B98002BF93A /* OTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSession.h; sourceTree = "<group>"; };
+		4880DB9E18FA3B98002BF93A /* OTStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTStream.h; sourceTree = "<group>"; };
+		4880DB9F18FA3B98002BF93A /* OTSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSubscriber.h; sourceTree = "<group>"; };
+		4880DBA018FA3B98002BF93A /* OTVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTVideoView.h; sourceTree = "<group>"; };
+		4880DBA118FA3B98002BF93A /* Opentok */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = Opentok; sourceTree = "<group>"; };
+		4880DBA418FA3B98002BF93A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4880DBA518FA3B98002BF93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Info.plist; sourceTree = "<group>"; };
+		4880DBA618FA3B98002BF93A /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
+		4880DBA918FA3B98002BF93A /* Opentok.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opentok.h; sourceTree = "<group>"; };
+		4880DBAA18FA3B98002BF93A /* OTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTConnection.h; sourceTree = "<group>"; };
+		4880DBAB18FA3B98002BF93A /* OTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTError.h; sourceTree = "<group>"; };
+		4880DBAC18FA3B98002BF93A /* OTPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTPublisher.h; sourceTree = "<group>"; };
+		4880DBAD18FA3B98002BF93A /* OTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSession.h; sourceTree = "<group>"; };
+		4880DBAE18FA3B98002BF93A /* OTStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTStream.h; sourceTree = "<group>"; };
+		4880DBAF18FA3B98002BF93A /* OTSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSubscriber.h; sourceTree = "<group>"; };
+		4880DBB018FA3B98002BF93A /* OTVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTVideoView.h; sourceTree = "<group>"; };
+		4880DBB118FA3B98002BF93A /* Opentok */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = Opentok; sourceTree = "<group>"; };
+		4880DBB418FA3B98002BF93A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4880DBB518FA3B98002BF93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Info.plist; sourceTree = "<group>"; };
+		4880DBB618FA3B98002BF93A /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		66D7D8CB18EA11E400F4BF89 /* Qurious_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qurious_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D7D8CE18EA11E400F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -200,8 +249,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4880DB8318FA37E0002BF93A /* Opentok.framework in Frameworks */,
 				66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */,
 				4830007818F2F03A00A92467 /* GHUnitIOS.framework in Frameworks */,
+				4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */,
 				66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */,
 				66D7D95718F7B09A00F4BF89 /* libz.dylib in Frameworks */,
 				66D7D95218F7B09A00F4BF89 /* Security.framework in Frameworks */,
@@ -215,17 +266,18 @@
 				66D7D95A18F7B09A00F4BF89 /* AVFoundation.framework in Frameworks */,
 				66D7D95018F7B09A00F4BF89 /* SystemConfiguration.framework in Frameworks */,
 				66D7D95118F7B09A00F4BF89 /* CoreMedia.framework in Frameworks */,
-				66D7D93918F7AF9A00F4BF89 /* Opentok.framework in Frameworks */,
 				66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */,
 				66D7D94F18F7B09A00F4BF89 /* CFNetwork.framework in Frameworks */,
 				66D7D95918F7B09A00F4BF89 /* QuartzCore.framework in Frameworks */,
 				66D7D95818F7B09A00F4BF89 /* libstdc++.dylib in Frameworks */,
 				48512E0F18F1D9CE0076D03E /* CFNetwork.framework in Frameworks */,
+				4880DBB718FA3B98002BF93A /* Opentok in Frameworks */,
 				66D7D95318F7B09A00F4BF89 /* AudioToolbox.framework in Frameworks */,
 				66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */,
 				66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */,
 				66D7D94E18F7B09A00F4BF89 /* MobileCoreServices.framework in Frameworks */,
 				66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */,
+				4880DBBB18FA3B98002BF93A /* Opentok in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,9 +344,120 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		4880DB8718FA3B98002BF93A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4880DB8818FA3B98002BF93A /* Opentok.h */,
+				4880DB8918FA3B98002BF93A /* OTConnection.h */,
+				4880DB8A18FA3B98002BF93A /* OTError.h */,
+				4880DB8B18FA3B98002BF93A /* OTPublisher.h */,
+				4880DB8C18FA3B98002BF93A /* OTSession.h */,
+				4880DB8D18FA3B98002BF93A /* OTStream.h */,
+				4880DB8E18FA3B98002BF93A /* OTSubscriber.h */,
+				4880DB8F18FA3B98002BF93A /* OTVideoView.h */,
+			);
+			name = Headers;
+			path = Opentok.framework/Headers;
+			sourceTree = "<group>";
+		};
+		4880DB9118FA3B98002BF93A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4880DB9218FA3B98002BF93A /* InfoPlist.strings */,
+				4880DB9418FA3B98002BF93A /* Info.plist */,
+				4880DB9518FA3B98002BF93A /* opentok.bundle */,
+			);
+			name = Resources;
+			path = Opentok.framework/Resources;
+			sourceTree = "<group>";
+		};
+		4880DB9618FA3B98002BF93A /* Versions */ = {
+			isa = PBXGroup;
+			children = (
+				4880DB9718FA3B98002BF93A /* A */,
+				4880DBA718FA3B98002BF93A /* Current */,
+			);
+			name = Versions;
+			path = Opentok.framework/Versions;
+			sourceTree = "<group>";
+		};
+		4880DB9718FA3B98002BF93A /* A */ = {
+			isa = PBXGroup;
+			children = (
+				4880DB9818FA3B98002BF93A /* Headers */,
+				4880DBA118FA3B98002BF93A /* Opentok */,
+				4880DBA218FA3B98002BF93A /* Resources */,
+			);
+			path = A;
+			sourceTree = "<group>";
+		};
+		4880DB9818FA3B98002BF93A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4880DB9918FA3B98002BF93A /* Opentok.h */,
+				4880DB9A18FA3B98002BF93A /* OTConnection.h */,
+				4880DB9B18FA3B98002BF93A /* OTError.h */,
+				4880DB9C18FA3B98002BF93A /* OTPublisher.h */,
+				4880DB9D18FA3B98002BF93A /* OTSession.h */,
+				4880DB9E18FA3B98002BF93A /* OTStream.h */,
+				4880DB9F18FA3B98002BF93A /* OTSubscriber.h */,
+				4880DBA018FA3B98002BF93A /* OTVideoView.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4880DBA218FA3B98002BF93A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4880DBA318FA3B98002BF93A /* InfoPlist.strings */,
+				4880DBA518FA3B98002BF93A /* Info.plist */,
+				4880DBA618FA3B98002BF93A /* opentok.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4880DBA718FA3B98002BF93A /* Current */ = {
+			isa = PBXGroup;
+			children = (
+				4880DBA818FA3B98002BF93A /* Headers */,
+				4880DBB118FA3B98002BF93A /* Opentok */,
+				4880DBB218FA3B98002BF93A /* Resources */,
+			);
+			path = Current;
+			sourceTree = "<group>";
+		};
+		4880DBA818FA3B98002BF93A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4880DBA918FA3B98002BF93A /* Opentok.h */,
+				4880DBAA18FA3B98002BF93A /* OTConnection.h */,
+				4880DBAB18FA3B98002BF93A /* OTError.h */,
+				4880DBAC18FA3B98002BF93A /* OTPublisher.h */,
+				4880DBAD18FA3B98002BF93A /* OTSession.h */,
+				4880DBAE18FA3B98002BF93A /* OTStream.h */,
+				4880DBAF18FA3B98002BF93A /* OTSubscriber.h */,
+				4880DBB018FA3B98002BF93A /* OTVideoView.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4880DBB218FA3B98002BF93A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4880DBB318FA3B98002BF93A /* InfoPlist.strings */,
+				4880DBB518FA3B98002BF93A /* Info.plist */,
+				4880DBB618FA3B98002BF93A /* opentok.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		66D7D8C218EA11E400F4BF89 = {
 			isa = PBXGroup;
 			children = (
+				4880DB8718FA3B98002BF93A /* Headers */,
+				4880DB9018FA3B98002BF93A /* Opentok */,
+				4880DB9118FA3B98002BF93A /* Resources */,
+				4880DB9618FA3B98002BF93A /* Versions */,
 				4830007918F2F94D00A92467 /* AFNetworking */,
 				4830008D18F2F94D00A92467 /* UIKit+AFNetworking */,
 				66D7D8D418EA11E400F4BF89 /* Qurious_iOS */,
@@ -316,6 +479,7 @@
 		66D7D8CD18EA11E400F4BF89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4880DB8218FA37E0002BF93A /* Opentok.framework */,
 				4830007718F2F03A00A92467 /* GHUnitIOS.framework */,
 				4830007518F2EFE700A92467 /* GHUnitIOS.framework */,
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
@@ -355,13 +519,13 @@
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
 				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
+				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D95E18F7B0C500F4BF89 /* ViewController.m */,
 				F9D344CF18EE8780008A4B35 /* SkillViewController.m */,
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
-				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D93A18F7AFED00F4BF89 /* opentok.bundle */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
@@ -494,17 +658,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4880DBBD18FA3B98002BF93A /* Info.plist in Resources */,
+				4880DB8518FA3966002BF93A /* Main.storyboard in Resources */,
+				4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				66D7D8EA18EA11E400F4BF89 /* Images.xcassets in Resources */,
+				4880DBBE18FA3B98002BF93A /* opentok.bundle in Resources */,
 				F9C17F5418EC8E8E0095F92E /* img1.png in Resources */,
+				4880DBBC18FA3B98002BF93A /* InfoPlist.strings in Resources */,
+				4880DBC018FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				F9C17F5818EC8E8E0095F92E /* img5.png in Resources */,
+				4880DBC118FA3B98002BF93A /* Info.plist in Resources */,
+				4880DBC218FA3B98002BF93A /* opentok.bundle in Resources */,
 				F9C17F5518EC8E8E0095F92E /* img2.png in Resources */,
 				F9C17F5618EC8E8E0095F92E /* img3.png in Resources */,
 				F9C17F5718EC8E8E0095F92E /* img4.png in Resources */,
 				66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */,
 				F9C17F5918EC8E8E0095F92E /* img6.png in Resources */,
+				4880DBBA18FA3B98002BF93A /* opentok.bundle in Resources */,
 				66D7D8D918EA11E400F4BF89 /* InfoPlist.strings in Resources */,
-				66D7D8E218EA11E400F4BF89 /* Main.storyboard in Resources */,
 				66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */,
+				4880DBB918FA3B98002BF93A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +746,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4880DB9218FA3B98002BF93A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4880DB9318FA3B98002BF93A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4880DBA318FA3B98002BF93A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4880DBA418FA3B98002BF93A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4880DBB318FA3B98002BF93A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4880DBB418FA3B98002BF93A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		66D7D8D718EA11E400F4BF89 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -686,6 +883,12 @@
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
 				INFOPLIST_FILE = "Qurious_iOS/Qurious_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Opentok.framework",
+					"$(PROJECT_DIR)/Opentok.framework/Versions/A",
+					"$(PROJECT_DIR)/Opentok.framework/Versions/Current",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -707,6 +910,12 @@
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
 				INFOPLIST_FILE = "Qurious_iOS/Qurious_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Opentok.framework",
+					"$(PROJECT_DIR)/Opentok.framework/Versions/A",
+					"$(PROJECT_DIR)/Opentok.framework/Versions/Current",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

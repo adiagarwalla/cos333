@@ -16,6 +16,9 @@
 + (void) editProfile: (NSString*)first andLastName:(NSString*)last andBio:(NSString*)bio andEmail:(NSString*)email andProfile:(NSString*)profile_name  andCallback:(void(*)(id))callback;
 + (void) editSkill:(int)skill_id andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback;
 + (void) getAllProfiles:(void(*)(id))callback;
++ (void) login:(NSString*)username andPassword:(NSString*)password andCallback:(void(*)(id))callback;
++ (void) logout:(void(*)(id))callback;
++ (void) signUp:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)userEmail andCallback:(void(*)(id))callback;
 
 
 @end

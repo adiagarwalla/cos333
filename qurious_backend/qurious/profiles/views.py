@@ -45,8 +45,7 @@ class profileIOSDetailView(View):
             data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({"False"})
-        return HttpResponse(data, mimetype='application/json')
+        return HttpResponse('', mimetype='application/json')
 
 class ProfileIOSAllView(View):
     """

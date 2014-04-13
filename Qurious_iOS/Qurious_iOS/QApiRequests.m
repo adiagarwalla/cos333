@@ -9,10 +9,12 @@
 
 #import "QApiRequests.h"
 #import "AsyncRequest.h"
+#import "AFNetworking.h"
+
 
 @implementation QApiRequests
 
-char* baseURL = "http://localhost:8000";
+char* baseURL = "http://qurious.info:8080";
 
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
@@ -53,6 +55,34 @@ char* baseURL = "http://localhost:8000";
     [request startAsync:callback andUrl:url];
 }
 
++ (void) login:(NSString*)username andPassword:(NSString*)password andCallback:(void(*)(id))callback {
+    // calls the login endpoint
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:@"http://qurious.info:8080/"]];
+    for (NSHTTPCookie *cookie in cookies)
+    {
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+    }
+    
+    // once all the cookies are deleted, you need to actually fire off the request to the server to initiate the login.
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-auth/login/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:username,@"username", password, @"password", nil];
+    [request startAsyncPost:callback andUrl:url andDict:dict];
+}
+
++ (void) logout:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-auth/logout/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:nil];
+    [request startAsyncPost:callback andUrl:url andDict:dict];
+}
+
++ (void) signUp:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)userEmail andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-auth/signup/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", userEmail, @"user_email", nil];
+    [request startAsyncPost:callback andUrl:url andDict:dict];
+}
 
 
 @end
