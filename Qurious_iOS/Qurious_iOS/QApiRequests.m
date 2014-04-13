@@ -12,7 +12,7 @@
 
 @implementation QApiRequests
 
-char* baseURL = "http://localhost:8000";
+char* baseURL = "http://qurious.info:8080";
 
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
