@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4830007818F2F03A00A92467 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4830007718F2F03A00A92467 /* GHUnitIOS.framework */; };
 		4830009F18F2F94D00A92467 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4830007B18F2F94D00A92467 /* AFHTTPRequestOperation.m */; };
 		483000A018F2F94D00A92467 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4830007D18F2F94D00A92467 /* AFHTTPRequestOperationManager.m */; };
 		483000A118F2F94D00A92467 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4830007F18F2F94D00A92467 /* AFHTTPSessionManager.m */; };
@@ -31,20 +30,10 @@
 		48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48512E1218F1D9E40076D03E /* MobileCoreServices.framework */; };
 		48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48512E1418F1D9F30076D03E /* libz.dylib */; };
 		48512E1818F1DAC00076D03E /* AsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48512E1718F1DAC00076D03E /* AsyncRequest.m */; };
-		4880DB8318FA37E0002BF93A /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DB8218FA37E0002BF93A /* Opentok.framework */; };
-		4880DB8518FA3966002BF93A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
 		4880DBB718FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DB9018FA3B98002BF93A /* Opentok */; };
 		4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4880DB9218FA3B98002BF93A /* InfoPlist.strings */; };
-		4880DBB918FA3B98002BF93A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4880DB9418FA3B98002BF93A /* Info.plist */; };
-		4880DBBA18FA3B98002BF93A /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4880DB9518FA3B98002BF93A /* opentok.bundle */; };
 		4880DBBB18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBA118FA3B98002BF93A /* Opentok */; };
-		4880DBBC18FA3B98002BF93A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBA318FA3B98002BF93A /* InfoPlist.strings */; };
-		4880DBBD18FA3B98002BF93A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBA518FA3B98002BF93A /* Info.plist */; };
-		4880DBBE18FA3B98002BF93A /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBA618FA3B98002BF93A /* opentok.bundle */; };
 		4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBB118FA3B98002BF93A /* Opentok */; };
-		4880DBC018FA3B98002BF93A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBB318FA3B98002BF93A /* InfoPlist.strings */; };
-		4880DBC118FA3B98002BF93A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBB518FA3B98002BF93A /* Info.plist */; };
-		4880DBC218FA3B98002BF93A /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4880DBB618FA3B98002BF93A /* opentok.bundle */; };
 		66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8CE18EA11E400F4BF89 /* Foundation.framework */; };
 		66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */; };
 		66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D218EA11E400F4BF89 /* UIKit.framework */; };
@@ -61,7 +50,6 @@
 		66D7D8FD18EA11E400F4BF89 /* Qurious_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8FC18EA11E400F4BF89 /* Qurious_iOSTests.m */; };
 		66D7D90818EA12EF00F4BF89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D90718EA12EF00F4BF89 /* Person.m */; };
 		66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D90918EBC21600F4BF89 /* dogesmall.jpg */; };
-		66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D93A18F7AFED00F4BF89 /* opentok.bundle */; };
 		66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */; };
 		66D7D94E18F7B09A00F4BF89 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */; };
 		66D7D94F18F7B09A00F4BF89 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */; };
@@ -80,6 +68,8 @@
 		66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94B18F7B09A00F4BF89 /* Foundation.framework */; };
 		66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */; };
 		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
+		66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D96918FB234300F4BF89 /* Opentok.framework */; };
+		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
@@ -102,8 +92,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4830007518F2EFE700A92467 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ../../../../../../Downloads/GHUnitIOS.framework; sourceTree = "<group>"; };
-		4830007718F2F03A00A92467 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		4830007A18F2F94D00A92467 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		4830007B18F2F94D00A92467 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		4830007C18F2F94D00A92467 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -148,7 +136,6 @@
 		48512E1418F1D9F30076D03E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		48512E1618F1DAC00076D03E /* AsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncRequest.h; sourceTree = "<group>"; };
 		48512E1718F1DAC00076D03E /* AsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncRequest.m; sourceTree = "<group>"; };
-		4880DB8218FA37E0002BF93A /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		4880DB8818FA3B98002BF93A /* Opentok.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opentok.h; sourceTree = "<group>"; };
 		4880DB8918FA3B98002BF93A /* OTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTConnection.h; sourceTree = "<group>"; };
 		4880DB8A18FA3B98002BF93A /* OTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTError.h; sourceTree = "<group>"; };
@@ -209,8 +196,6 @@
 		66D7D90618EA12EF00F4BF89 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		66D7D90718EA12EF00F4BF89 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		66D7D90918EBC21600F4BF89 /* dogesmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogesmall.jpg; sourceTree = "<group>"; };
-		66D7D93818F7AF9A00F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk-webrtc/Opentok.framework"; sourceTree = "<group>"; };
-		66D7D93A18F7AFED00F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -230,6 +215,8 @@
 		66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66D7D95E18F7B0C500F4BF89 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		66D7D96918FB234300F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
+		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
@@ -249,9 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4880DB8318FA37E0002BF93A /* Opentok.framework in Frameworks */,
 				66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */,
-				4830007818F2F03A00A92467 /* GHUnitIOS.framework in Frameworks */,
 				4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */,
 				66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */,
 				66D7D95718F7B09A00F4BF89 /* libz.dylib in Frameworks */,
@@ -259,6 +244,7 @@
 				48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */,
 				66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */,
 				66D7D95418F7B09A00F4BF89 /* CoreAudio.framework in Frameworks */,
+				66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */,
 				66D7D95518F7B09A00F4BF89 /* CoreVideo.framework in Frameworks */,
 				66D7D95618F7B09A00F4BF89 /* OpenGLES.framework in Frameworks */,
 				48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */,
@@ -479,9 +465,7 @@
 		66D7D8CD18EA11E400F4BF89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4880DB8218FA37E0002BF93A /* Opentok.framework */,
-				4830007718F2F03A00A92467 /* GHUnitIOS.framework */,
-				4830007518F2EFE700A92467 /* GHUnitIOS.framework */,
+				66D7D96918FB234300F4BF89 /* Opentok.framework */,
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
 				66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */,
 				66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */,
@@ -499,7 +483,6 @@
 				66D7D94A18F7B09A00F4BF89 /* UIKit.framework */,
 				66D7D94B18F7B09A00F4BF89 /* Foundation.framework */,
 				66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */,
-				66D7D93818F7AF9A00F4BF89 /* Opentok.framework */,
 				48512E1418F1D9F30076D03E /* libz.dylib */,
 				48512E1218F1D9E40076D03E /* MobileCoreServices.framework */,
 				48512E1018F1D9DC0076D03E /* SystemConfiguration.framework */,
@@ -527,8 +510,8 @@
 				F921CB8918EA65C000121661 /* EditViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
-				66D7D93A18F7AFED00F4BF89 /* opentok.bundle */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
+				66D7D96B18FB23A100F4BF89 /* opentok.bundle */,
 				66D7D90718EA12EF00F4BF89 /* Person.m */,
 				F942A07218F353EF00B8A2E4 /* Skill.h */,
 				F942A07318F353EF00B8A2E4 /* Skill.m */,
@@ -658,26 +641,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4880DBBD18FA3B98002BF93A /* Info.plist in Resources */,
-				4880DB8518FA3966002BF93A /* Main.storyboard in Resources */,
 				4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				66D7D8EA18EA11E400F4BF89 /* Images.xcassets in Resources */,
-				4880DBBE18FA3B98002BF93A /* opentok.bundle in Resources */,
 				F9C17F5418EC8E8E0095F92E /* img1.png in Resources */,
-				4880DBBC18FA3B98002BF93A /* InfoPlist.strings in Resources */,
-				4880DBC018FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				F9C17F5818EC8E8E0095F92E /* img5.png in Resources */,
-				4880DBC118FA3B98002BF93A /* Info.plist in Resources */,
-				4880DBC218FA3B98002BF93A /* opentok.bundle in Resources */,
+				66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */,
 				F9C17F5518EC8E8E0095F92E /* img2.png in Resources */,
 				F9C17F5618EC8E8E0095F92E /* img3.png in Resources */,
 				F9C17F5718EC8E8E0095F92E /* img4.png in Resources */,
-				66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */,
 				F9C17F5918EC8E8E0095F92E /* img6.png in Resources */,
-				4880DBBA18FA3B98002BF93A /* opentok.bundle in Resources */,
 				66D7D8D918EA11E400F4BF89 /* InfoPlist.strings in Resources */,
 				66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */,
-				4880DBB918FA3B98002BF93A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,6 +852,7 @@
 					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
+					"$(PROJECT_DIR)/opentok-ios-sdk",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
@@ -905,6 +880,7 @@
 					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
+					"$(PROJECT_DIR)/opentok-ios-sdk",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
