@@ -31,6 +31,7 @@
 		48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48512E1218F1D9E40076D03E /* MobileCoreServices.framework */; };
 		48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48512E1418F1D9F30076D03E /* libz.dylib */; };
 		48512E1818F1DAC00076D03E /* AsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48512E1718F1DAC00076D03E /* AsyncRequest.m */; };
+		4880DB8318FA37E0002BF93A /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DB8218FA37E0002BF93A /* Opentok.framework */; };
 		66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8CE18EA11E400F4BF89 /* Foundation.framework */; };
 		66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */; };
 		66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D218EA11E400F4BF89 /* UIKit.framework */; };
@@ -48,7 +49,6 @@
 		66D7D8FD18EA11E400F4BF89 /* Qurious_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D8FC18EA11E400F4BF89 /* Qurious_iOSTests.m */; };
 		66D7D90818EA12EF00F4BF89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D90718EA12EF00F4BF89 /* Person.m */; };
 		66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D90918EBC21600F4BF89 /* dogesmall.jpg */; };
-		66D7D93918F7AF9A00F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93818F7AF9A00F4BF89 /* Opentok.framework */; };
 		66D7D93B18F7AFED00F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D93A18F7AFED00F4BF89 /* opentok.bundle */; };
 		66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */; };
 		66D7D94E18F7B09A00F4BF89 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */; };
@@ -136,6 +136,7 @@
 		48512E1418F1D9F30076D03E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		48512E1618F1DAC00076D03E /* AsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncRequest.h; sourceTree = "<group>"; };
 		48512E1718F1DAC00076D03E /* AsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncRequest.m; sourceTree = "<group>"; };
+		4880DB8218FA37E0002BF93A /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		66D7D8CB18EA11E400F4BF89 /* Qurious_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qurious_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D7D8CE18EA11E400F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -200,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4880DB8318FA37E0002BF93A /* Opentok.framework in Frameworks */,
 				66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */,
 				4830007818F2F03A00A92467 /* GHUnitIOS.framework in Frameworks */,
 				66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */,
@@ -215,7 +217,6 @@
 				66D7D95A18F7B09A00F4BF89 /* AVFoundation.framework in Frameworks */,
 				66D7D95018F7B09A00F4BF89 /* SystemConfiguration.framework in Frameworks */,
 				66D7D95118F7B09A00F4BF89 /* CoreMedia.framework in Frameworks */,
-				66D7D93918F7AF9A00F4BF89 /* Opentok.framework in Frameworks */,
 				66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */,
 				66D7D94F18F7B09A00F4BF89 /* CFNetwork.framework in Frameworks */,
 				66D7D95918F7B09A00F4BF89 /* QuartzCore.framework in Frameworks */,
@@ -316,6 +317,7 @@
 		66D7D8CD18EA11E400F4BF89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4880DB8218FA37E0002BF93A /* Opentok.framework */,
 				4830007718F2F03A00A92467 /* GHUnitIOS.framework */,
 				4830007518F2EFE700A92467 /* GHUnitIOS.framework */,
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
