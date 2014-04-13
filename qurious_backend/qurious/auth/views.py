@@ -28,7 +28,6 @@ class QuriousLogoutView(View):
     """
     def post(self, request, *args, **kwargs):
         logout(request)
-        
 
 class QuriousSignUpView(View):
     """
