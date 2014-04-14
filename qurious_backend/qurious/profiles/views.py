@@ -122,3 +122,17 @@ class SkillIOSAllView(View):
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
+
+class WhoAmIView(View):
+    """
+    Check who you are at any given time
+    """
+    def get(self, request, *args, **kwargs):
+        try:
+            username = request.user.username
+            user_id = User.objects.get(username=username).id
+
+            data = serializers.serialize('json', {'user_id':user_id})
+            return HttpResponse(data, mimetype='application/json')
+        except:
+            return HttpResponse('', mimetype='application/json')
