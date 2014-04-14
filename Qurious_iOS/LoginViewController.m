@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "QApiRequests.h"
+#import "SignupViewController.h"
 @interface LoginViewController ()
 @end
 
@@ -65,6 +66,44 @@ void loginCallback (id arg) {
     [QApiRequests login: username andPassword: pw andCallback: &loginCallback];
     
 }
+
+
+- (IBAction)cancel:(UIStoryboardSegue *)segue {
+    
+}
+
+void signupCallback(id arg) {
+    if ([(NSString*) arg isEqualToString:@"0"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
+                                                        message:@"Please try again with a different username"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else if ([(NSString*) arg isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
+                                                        message:@"Sorry there is something wrong with our system! Please try again"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+}
+
+- (IBAction)save:(UIStoryboardSegue *)segue
+{
+    SignupViewController *signupController = [segue sourceViewController];
+    NSString * username = signupController.usernameField.text;
+    NSString * pw = signupController.pwField.text;
+    [QApiRequests signUp: username andPassword: pw andEmail: @"" andCallback: &signupCallback];
+    
+}
+
+
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

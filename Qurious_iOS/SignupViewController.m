@@ -51,38 +51,47 @@ static UIViewController * me;
     return YES;
 }
 
-void signupCallback(id arg) {
-    [me performSegueWithIdentifier:@"signupSuccess" sender:me];
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString: @"signup"]) {
+        NSString *username = _usernameField.text;
+        NSString *pw = _pwField.text;
+        NSString *pwConfirm = _pw2Field.text;
+        if ([username isEqualToString: @""])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Username"
+                                                            message:@"Please enter a valid nonempty username and confirm."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+        else if ([pw isEqualToString: @""])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Password"
+                                                            message:@"Please enter a valid nonempty password and confirm."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+        else if (![pw isEqualToString:pwConfirm])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Passwords Do Not Match"
+                                                            message:@"Please enter a valid nonempty password and confirm."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+    return YES;
+
 }
 
-- (IBAction) signupButtonClicked
-{
-    NSString * username = _usernameField.text;
-    NSString * pw = _pwField.text;
-    NSString *pwConfirm = _pw2Field.text;
-    if ([pw isEqualToString: @""])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Password"
-                                                        message:@"Please enter a valid password and confirm."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else if (![pw isEqualToString:pwConfirm])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Passwords Do Not Match"
-                                                        message:@"Please enter a valid password and confirm."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else {
-        [QApiRequests signUp: username andPassword: pw andEmail: @"" andCallback: &signupCallback];
-    }
-    
-}
 
 /*
 #pragma mark - Navigation
