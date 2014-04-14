@@ -89,6 +89,14 @@ void signupCallback(id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
+                                                        message:@"Sign up was a success! Please sign in!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     
 }
 
