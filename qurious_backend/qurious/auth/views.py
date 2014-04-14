@@ -18,10 +18,10 @@ class QuriousLoginView(View):
         user = authenticate(username=username, password=password)
 
         if user is not None:
-            id = login(request, user)
-            return HttpResponse(request.user.id, mimetype='application/json')
+            login(request, user)
+            return HttpResponse({'userid':user.id}, mimetype='application/json')
         else:
-            return HttpResponse('fail', mimetype='application/json')
+            return HttpResponse('', mimetype='application/json')
 
 class QuriousLogoutView(View):
     """
@@ -29,7 +29,7 @@ class QuriousLogoutView(View):
     """
     def post(self, request, *args, **kwargs):
         logout(request)
-        HttpResponse('1', mimetype='application/json')
+        return HttpResponse('1', mimetype='application/json')
         
 
 class QuriousSignUpView(View):
