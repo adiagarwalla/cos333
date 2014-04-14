@@ -28,6 +28,8 @@ class QuriousLogoutView(View):
     """
     def post(self, request, *args, **kwargs):
         logout(request)
+        HttpResponse('1', mimetype='application/json')
+        
 
 class QuriousSignUpView(View):
     """
