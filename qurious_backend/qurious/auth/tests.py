@@ -34,8 +34,14 @@ class TestRegistrationFeatures(TestCase):
         user_dummy_profile.save()
 
         response = client.post(reverse('login'), {'username':{'xxxchengexterminator'}, 'password':'123'})
-
         self.assertTrue(response.content == '1')
+
+        response = client.post(reverse('login'), {'username':{'xxxchengexterminator'}, 'password':'wrong'})
+        self.assertTrue(response.content == 'fail')
+
+       # response = client.post(reverse('logout'))
+       # self.assertTrue(response.content == '1')
+        
 
     def test_signup(self):
         client = Client()
@@ -45,3 +51,10 @@ class TestRegistrationFeatures(TestCase):
         
         response = client.get(reverse('profile-detail') + '?id=1')
         self.assertTrue(response.content != '')
+
+    def test_signup_fail(self):
+        client = Client()
+        
+        response = client.post(reverse('signup'), {'this should fail':{'fail'}})
+
+        self.assertTrue(response.content == '')
