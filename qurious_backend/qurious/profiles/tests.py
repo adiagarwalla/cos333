@@ -101,6 +101,12 @@ class ProfileViewTest(TestCase):
         self.assertTrue(cheng.userprofile.profile_last == 'cheng')
         self.assertTrue(cheng.userprofile.profile_first == 'sam')
 
+    def test_failure_post_changes(self):
+        self.test_get_profile()
+        c = Client()
+        response = c.post(reverse('profile-detail'), {'user':{'failure':'fake post'}})
+        self.assertTrue(response == '')
+
     def test_skill_get(self):
         """
         This method will test getting a skill
@@ -124,6 +130,11 @@ class ProfileViewTest(TestCase):
         response = c.get(reverse('all-skills') + '?id=1')
         self.assertTrue(response.content != '')
 
+    def test_skill_get_all(self):
+        c = Client()
+        response = c.get(reverse('all-skills') + '?id=5')
+        self.assertTrue(response == '')
+
     def test_skill_edit_add(self):
         self.test_get_profile()
         c = Client()
@@ -136,6 +147,12 @@ class ProfileViewTest(TestCase):
         self.assertTrue(skill.price == 1)
         self.assertTrue(skill.is_marketable == True)
         self.assertTrue(skill.desc == 'I am awesome')
+
+    def test_skill_edit_failure(self):
+        self.test_get_profile()
+        c = Client()
+        response = c.post(reverse('skill-view'), {'skill_id': 10, 'failure':'fake'})
+        self.assertTrue(response == '')
 
     def test_delete_skill(self):
         """
@@ -154,3 +171,8 @@ class ProfileViewTest(TestCase):
         skill = Skill.objects.filter()
         self.assertTrue(len(skill) == length - 1)
 
+    def test_delete_skill_fail(self):
+        self.test_get_profile()
+        c = Client()
+        response = c.get(reverse('delete-skill') + '?id=-1')
+        self.assertTrue(response == '')
