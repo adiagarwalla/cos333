@@ -72,6 +72,9 @@
 		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
+		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
+		F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
+		F95E0FCD18FB6F1900CC16E0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
 		F9C17F5518EC8E8E0095F92E /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4F18EC8E8E0095F92E /* img2.png */; };
 		F9C17F5618EC8E8E0095F92E /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5018EC8E8E0095F92E /* img3.png */; };
@@ -221,6 +224,10 @@
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
 		F942A07318F353EF00B8A2E4 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		F95E0FC418FB316200CC16E0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		F95E0FC518FB316200CC16E0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = ../SignupViewController.h; sourceTree = "<group>"; };
+		F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = ../SignupViewController.m; sourceTree = "<group>"; };
 		F9C17F4E18EC8E8E0095F92E /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		F9C17F4F18EC8E8E0095F92E /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
 		F9C17F5018EC8E8E0095F92E /* img3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img3.png; sourceTree = "<group>"; };
@@ -498,12 +505,16 @@
 		66D7D8D418EA11E400F4BF89 /* Qurious_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */,
+				F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */,
+				F95E0FC418FB316200CC16E0 /* LoginViewController.h */,
+				F95E0FC518FB316200CC16E0 /* LoginViewController.m */,
 				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
-				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
 				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D95E18F7B0C500F4BF89 /* ViewController.m */,
+				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
 				F9D344CF18EE8780008A4B35 /* SkillViewController.m */,
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
@@ -641,6 +652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */,
 				4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				66D7D8EA18EA11E400F4BF89 /* Images.xcassets in Resources */,
 				F9C17F5418EC8E8E0095F92E /* img1.png in Resources */,
@@ -670,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */,
 				483000A318F2F94D00A92467 /* AFSecurityPolicy.m in Sources */,
 				48512D9518F1D3CC0076D03E /* QApiRequests.m in Sources */,
 				483000A218F2F94D00A92467 /* AFNetworkReachabilityManager.m in Sources */,
@@ -693,6 +706,7 @@
 				66D7D8DB18EA11E400F4BF89 /* main.m in Sources */,
 				483000AB18F2F94D00A92467 /* UIButton+AFNetworking.m in Sources */,
 				483000A618F2F94D00A92467 /* AFURLResponseSerialization.m in Sources */,
+				F95E0FCD18FB6F1900CC16E0 /* SignupViewController.m in Sources */,
 				F9D344D018EE8780008A4B35 /* SkillViewController.m in Sources */,
 				48512E1818F1DAC00076D03E /* AsyncRequest.m in Sources */,
 				483000AE18F2F94D00A92467 /* UIRefreshControl+AFNetworking.m in Sources */,
