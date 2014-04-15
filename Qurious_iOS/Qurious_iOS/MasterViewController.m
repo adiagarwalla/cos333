@@ -14,6 +14,7 @@
 #import "SWRevealViewController.h"
 
 @interface MasterViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 @end
 
 @implementation MasterViewController
@@ -61,11 +62,11 @@ void callback(id arg) {
     [super viewDidLoad];
     
     // Change button color
-    _sidebarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    _sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
