@@ -183,16 +183,12 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
                     <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz">
-<<<<<<< HEAD
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Jsf-1m-K5e"/>
-                        <barButtonItem key="rightBarButtonItem" title="My Profile" id="cGG-OG-xPB"/>
-=======
                         <barButtonItem key="rightBarButtonItem" title="My Profile" id="cGG-OG-xPB">
                             <connections>
                                 <segue destination="aLW-EU-oU2" kind="push" identifier="showProfile" id="fhH-F7-sUn"/>
                             </connections>
                         </barButtonItem>
->>>>>>> 06dee61c5cdc3917150711ba88ba60478c235a79
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
