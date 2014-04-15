@@ -32,7 +32,8 @@
         NSString *name = [NSString stringWithFormat:@"%@ %@",
                           [self.detailItem firstName],
                           [self.detailItem lastName]];
-        self.nameLabel.text = name;
+        if ([name isEqualToString: @" "]) self.nameLabel.text = [self.detailItem username];
+        else self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];

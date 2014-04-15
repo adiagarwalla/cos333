@@ -33,37 +33,42 @@ void callback(id arg) {
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
     
-    _objects = [[NSMutableArray alloc] init];
-    
-    NSDictionary * results = arg;
-    for (NSDictionary *jsonobject in results) {
-        NSDictionary *fields = jsonobject[@"fields"];
-        Person *friend = [[Person alloc] init];
-        friend.firstName = fields[@"profile_first"];
-        friend.lastName = fields[@"profile_last"];
-        friend.email = fields[@"user_email"];
-        friend.bio = fields[@"user_bio"];
-        friend.userID = [fields[@"user"] intValue];
-        [_objects insertObject:friend atIndex:0];
+    if (arg != NULL) {
+        _objects = [[NSMutableArray alloc] init];
         
+        NSDictionary * results = arg;
+        for (NSDictionary *jsonobject in results) {
+            NSDictionary *fields = jsonobject[@"fields"];
+            Person *friend = [[Person alloc] init];
+            friend.firstName = fields[@"profile_first"];
+            friend.lastName = fields[@"profile_last"];
+            friend.email = fields[@"user_email"];
+            friend.bio = fields[@"user_bio"];
+            friend.username = fields[@"profile_name"];
+            friend.userID = [fields[@"user"] intValue];
+            [_objects insertObject:friend atIndex:0];
+            
+        }
+        
+        [view reloadData];
     }
-
-    [view reloadData];
 }
 
 void skillCallback(id arg) {
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
     
-    for (NSDictionary * object in arg)
-    {
-        Skill * skill = [[Skill alloc] init];
-        NSDictionary *fields = object[@"fields"];
-        skill.desc = fields[@"name"];
-        if ([fields[@"is_marketable"]  isEqual: @"1"]) skill.isMarketable = YES;
-        skill.price = fields[@"price"];
-        skill.skillID = [object[@"pk"] intValue];
-        [_skills addObject: skill];
+    if (arg != NULL) {
+        for (NSDictionary * object in arg)
+        {
+            Skill * skill = [[Skill alloc] init];
+            NSDictionary *fields = object[@"fields"];
+            skill.desc = fields[@"name"];
+            if ([fields[@"is_marketable"]  isEqual: @"1"]) skill.isMarketable = YES;
+            skill.price = fields[@"price"];
+            skill.skillID = [object[@"pk"] intValue];
+            [_skills addObject: skill];
+        }
     }
 }
 
@@ -114,8 +119,13 @@ void skillCallback(id arg) {
                              dequeueReusableCellWithIdentifier:@"Cell"
                              forIndexPath:indexPath];
     Person *friend = _objects[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
+    if ([friend.firstName isEqualToString: @""] && [friend.lastName isEqualToString: @""]) {
+        cell.textLabel.text = friend.username;
+    }
+    else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
                            friend.firstName, friend.lastName];
+    }
     return cell;
 }
 
