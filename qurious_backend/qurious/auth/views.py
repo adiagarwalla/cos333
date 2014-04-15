@@ -30,7 +30,8 @@ class QuriousLogoutView(View):
     """
     def post(self, request, *args, **kwargs):
         logout(request)
-        return HttpResponse('1', mimetype='application/json')
+        data = simplejson.dumps({'return':'1'})
+        return HttpResponse(data, mimetype='application/json')
         
 
 class QuriousSignUpView(View):
@@ -43,7 +44,8 @@ class QuriousSignUpView(View):
         if form.is_valid():
             try:
                 user = User.objects.get(username=form.cleaned_data.get('username'))
-                return HttpResponse('0', mimetype='application/json')
+                data = simplejson.dumps({'return':'0'})
+                return HttpResponse(data, mimetype='application/json')
             except:
                 user_dummy = User(username=form.cleaned_data.get('username'), email=form.cleaned_data.get('user_email'))
                 user_dummy.set_password(form.cleaned_data.get('password'))
@@ -55,7 +57,8 @@ class QuriousSignUpView(View):
                 s.save()
                 user_dummy_profile.skills.add(s)
                 user_dummy_profile.save()
-            
-                return HttpResponse('1', mimetype='application/json')
+                
+                data = simplejson.dumps({'return':'1'})
+                return HttpResponse(data, mimetype='application/json')
         else:
             return HttpResponse('', mimetype='application/json')
