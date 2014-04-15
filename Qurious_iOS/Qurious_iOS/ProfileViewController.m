@@ -55,7 +55,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"editDetail"]) {
+    if ([[segue identifier] isEqualToString:@"editProfile"]) {
         NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
         EditViewController *editViewController = [navigationControllers objectAtIndex:0];
         [editViewController setDetailItem:self.detailItem];
