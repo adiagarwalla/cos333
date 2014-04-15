@@ -41,7 +41,7 @@ class QuriousSignUpView(View):
         if form.is_valid():
             try:
                 user = User.objects.get(username=form.cleaned_data.get('username'))
-                return HttpResponse('', mimetype='application/json')
+                return HttpResponse('0', mimetype='application/json')
             except:
                 user_dummy = User(username=form.cleaned_data.get('username'), email=form.cleaned_data.get('user_email'))
                 user_dummy.set_password(form.cleaned_data.get('password'))
