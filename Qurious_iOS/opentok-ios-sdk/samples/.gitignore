@@ -1,0 +1,3 @@
+# Ignore user config folders named
+xcuserdata/
+.DS_Store

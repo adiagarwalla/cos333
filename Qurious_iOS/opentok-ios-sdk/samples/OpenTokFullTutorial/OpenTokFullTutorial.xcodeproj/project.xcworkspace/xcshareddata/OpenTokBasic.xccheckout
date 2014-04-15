@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DAFF2F2A-B603-42D5-90DC-0339BB230F1E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OpenTokFullTutorial</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>46056DFA-71CE-4136-A199-EACF45BA4F35</key>
+		<string>ssh://github.com/opentok/OpenTok-iOS-Basic-Tutorial</string>
+		<key>49AF429F-0F2B-4DF4-9435-0850D93079F6</key>
+		<string>ssh://github.com/opentok/opentok-ios-sdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OpenTokFullTutorial.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>46056DFA-71CE-4136-A199-EACF45BA4F35</key>
+		<string>../..</string>
+		<key>49AF429F-0F2B-4DF4-9435-0850D93079F6</key>
+		<string>../../opentok-ios-sdk</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/opentok/OpenTok-iOS-Basic-Tutorial</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>46056DFA-71CE-4136-A199-EACF45BA4F35</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>46056DFA-71CE-4136-A199-EACF45BA4F35</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OpenTok-iOS-Basic-Tutorial</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49AF429F-0F2B-4DF4-9435-0850D93079F6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>opentok-ios-sdk</string>
+		</dict>
+	</array>
+</dict>
+</plist>

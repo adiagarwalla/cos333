@@ -72,17 +72,19 @@ void loginCallback (id arg) {
 }
 
 void signupCallback(id arg) {
-    if ([(NSString*) arg isEqualToString:@"0"]) {
+    
+
+    if (arg == NULL) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
-                                                        message:@"Please try again with a different username"
+                                                        message:@"Sorry there is something wrong with our system! Please try again"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if ([(NSString*) arg isEqualToString:@""]) {
+    else if ([((NSDictionary*) arg)[@"return"] isEqualToString:@"0"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
-                                                        message:@"Sorry there is something wrong with our system! Please try again"
+                                                        message:@"Please try again with a different username"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

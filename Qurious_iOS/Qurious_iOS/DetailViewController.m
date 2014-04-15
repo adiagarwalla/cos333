@@ -8,8 +8,6 @@
 
 #import "DetailViewController.h"
 #import "Person.h"
-#import "EditViewController.h"
-#import "SkillViewController.h"
 #import "Skill.h"
 #import "QApiRequests.h"
 
@@ -57,64 +55,6 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"editDetail"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        EditViewController *editViewController = [navigationControllers objectAtIndex:0];
-        [editViewController setDetailItem:self.detailItem];
-    }
-    if ([[segue identifier] isEqualToString:@"editSkills"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
-        [skillViewController setDetailItem:self.detailItem];
-    }
-    
-}
-
-void saveCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a profile");
-}
-
-
-void saveSkillCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill");
-}
-
-- (IBAction)save:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"saveInput"]) {
-        EditViewController *editController = [segue sourceViewController];
-        [self.detailItem setFirstName:editController.firstNameField.text];
-        [self.detailItem setLastName:editController.lastNameField.text];
-        [self.detailItem setEmail:editController.emailField.text];
-        [self.detailItem setBio:editController.bioField.text];
-        [self.detailItem setProfPic:editController.selectedImage.image];
-        
-        [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
-        
-        [self configureView];
-        [self viewDidLoad];
-    }
-    if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
-        SkillViewController *skillController = [segue sourceViewController];
-        [self.detailItem setSkills: skillController.skills];
-
-
-        for (Skill *skill in skillController.skills) {
-            if (skill.skillID == 0)
-                [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
-        }
-        
-        [self configureView];
-        [self loadButtons];
-    }
-    
-}
-
-- (IBAction)cancel:(UIStoryboardSegue *)segue {
-    
-}
 
 
 -(void) loadButtons {
