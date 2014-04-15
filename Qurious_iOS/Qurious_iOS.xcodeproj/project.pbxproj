@@ -70,7 +70,12 @@
 		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
 		66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D96918FB234300F4BF89 /* Opentok.framework */; };
 		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
+<<<<<<< HEAD
 		F918E4DF18FCCC4600BBB508 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E4DE18FCCC4600BBB508 /* ProfileViewController.m */; };
+=======
+		66D7D97718FCDC6500F4BF89 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D97618FCDC6500F4BF89 /* MainViewController.m */; };
+		66D7D97A18FCDDA100F4BF89 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D97918FCDDA100F4BF89 /* CenterViewController.m */; };
+>>>>>>> 3f5c1757a71ab0b10e97281d79b64fbad1c4b912
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
@@ -221,8 +226,15 @@
 		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		66D7D96918FB234300F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
 		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		F918E4DD18FCCC4600BBB508 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F918E4DE18FCCC4600BBB508 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+=======
+		66D7D97518FCDC6500F4BF89 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		66D7D97618FCDC6500F4BF89 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		66D7D97818FCDDA100F4BF89 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
+		66D7D97918FCDDA100F4BF89 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
+>>>>>>> 3f5c1757a71ab0b10e97281d79b64fbad1c4b912
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
@@ -514,6 +526,10 @@
 				F95E0FC518FB316200CC16E0 /* LoginViewController.m */,
 				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
+				66D7D97518FCDC6500F4BF89 /* MainViewController.h */,
+				66D7D97618FCDC6500F4BF89 /* MainViewController.m */,
+				66D7D97818FCDDA100F4BF89 /* CenterViewController.h */,
+				66D7D97918FCDDA100F4BF89 /* CenterViewController.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
 				F918E4DD18FCCC4600BBB508 /* ProfileViewController.h */,
 				F918E4DE18FCCC4600BBB508 /* ProfileViewController.m */,
@@ -704,6 +720,7 @@
 				483000A518F2F94D00A92467 /* AFURLRequestSerialization.m in Sources */,
 				66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */,
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
+				66D7D97A18FCDDA100F4BF89 /* CenterViewController.m in Sources */,
 				483000A718F2F94D00A92467 /* AFURLSessionManager.m in Sources */,
 				F918E4DF18FCCC4600BBB508 /* ProfileViewController.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
@@ -711,6 +728,7 @@
 				483000AD18F2F94D00A92467 /* UIProgressView+AFNetworking.m in Sources */,
 				66D7D8DB18EA11E400F4BF89 /* main.m in Sources */,
 				483000AB18F2F94D00A92467 /* UIButton+AFNetworking.m in Sources */,
+				66D7D97718FCDC6500F4BF89 /* MainViewController.m in Sources */,
 				483000A618F2F94D00A92467 /* AFURLResponseSerialization.m in Sources */,
 				F95E0FCD18FB6F1900CC16E0 /* SignupViewController.m in Sources */,
 				F9D344D018EE8780008A4B35 /* SkillViewController.m in Sources */,

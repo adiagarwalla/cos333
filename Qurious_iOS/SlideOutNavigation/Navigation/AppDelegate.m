@@ -1,23 +1,23 @@
 //
 //  AppDelegate.m
-//  Qurious_iOS
+//  Navigation
 //
-//  Created by Aditya Agarwalla on 3/31/14.
-//  Copyright (c) 2014 Qurious. All rights reserved.
+//  Created by Tammy Coron on 1/19/13.
+//  Copyright (c) 2013 Tammy L Coron. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
+
 #import "MainViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window.rootViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    self.viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
