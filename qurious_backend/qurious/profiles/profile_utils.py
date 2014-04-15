@@ -4,7 +4,7 @@ from qurious.profiles.models import UserProfile, Skill
 
 def install_test_user():
 
-    user_dummy = User(username='sam', email='sam@sam.com')
+    user_dummy = User(username='sam1', email='sam@sam.com')
     user_dummy.set_password('123')
     user_dummy.save()
     user_dummy_profile = UserProfile(user=user_dummy, profile_name='cheng', user_email=user_dummy.email, user_bio='1234i love cheng')

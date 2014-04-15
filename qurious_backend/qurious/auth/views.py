@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from qurious.profiles.models import UserProfile, Skill
 from qurious.auth.forms import ProfileSignUpForm
+from django.utils import simplejson
 
 class QuriousLoginView(View):
     """
@@ -18,7 +19,8 @@ class QuriousLoginView(View):
 
         if user is not None:
             login(request, user)
-            return HttpResponse({'userid':user.id}, mimetype='application/json')
+	    data = simplejson.dumps({'userid': user.id})
+            return HttpResponse(data, mimetype='application/json')
         else:
             return HttpResponse('', mimetype='application/json')
 

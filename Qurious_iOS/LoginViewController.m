@@ -45,8 +45,7 @@ static UIViewController * me;
 }
 
 void loginCallback (id arg) {
-    
-    if ([(NSString *)arg isEqualToString:@""]) {
+    if (arg == NULL) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Login"
                                                         message:@"Please enter a valid username and password combination."
                                                        delegate:nil
