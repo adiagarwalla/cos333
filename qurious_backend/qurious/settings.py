@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'qurious.profiles',
     'qurious.auth',
+    'qurious.sessions',
     'django_coverage',
 )
 

@@ -12,7 +12,6 @@ class QuriousLoginView(View):
     This is the view to log in a user
     """
     def post(self, request, *args, **kwargs):
-        import pdb; pdb.set_trace()
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)

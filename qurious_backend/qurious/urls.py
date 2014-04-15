@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^api-profile/', include('qurious.profiles.urls')),
     url(r'^api-auth/', include('qurious.auth.urls')),
+    url(r'^api-session/', include('qurious.sessions.urls')),
 )
