@@ -6,5 +6,5 @@ class ProfileSignUpForm(forms.Form):
     """
     username = forms.CharField()
     password = forms.CharField()
-    user_email = forms.CharField()
+    user_email = forms.CharField(required=False)
     

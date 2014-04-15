@@ -17,6 +17,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-- (IBAction)save:(UIStoryboardSegue *)sender;
-- (IBAction)cancel:(UIStoryboardSegue *)sender;
 @end
