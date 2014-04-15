@@ -105,7 +105,7 @@ class ProfileViewTest(TestCase):
         self.test_get_profile()
         c = Client()
         response = c.post(reverse('profile-detail'), {'user':{'failure':'fake post'}})
-        self.assertTrue(response == '')
+        self.assertTrue(response.content == '')
 
     def test_skill_get(self):
         """
@@ -133,7 +133,7 @@ class ProfileViewTest(TestCase):
     def test_skill_get_all(self):
         c = Client()
         response = c.get(reverse('all-skills') + '?id=5')
-        self.assertTrue(response == '')
+        self.assertTrue(response.content == '')
 
     def test_skill_edit_add(self):
         self.test_get_profile()
@@ -152,7 +152,7 @@ class ProfileViewTest(TestCase):
         self.test_get_profile()
         c = Client()
         response = c.post(reverse('skill-view'), {'skill_id': 10, 'failure':'fake'})
-        self.assertTrue(response == '')
+        self.assertTrue(response.content == '')
 
     def test_delete_skill(self):
         """
@@ -175,4 +175,4 @@ class ProfileViewTest(TestCase):
         self.test_get_profile()
         c = Client()
         response = c.get(reverse('delete-skill') + '?id=-1')
-        self.assertTrue(response == '')
+        self.assertTrue(response.content == '')
