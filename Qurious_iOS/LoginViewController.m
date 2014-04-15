@@ -38,8 +38,9 @@ static UIActivityIndicatorView* spinner;
     self.pwField.delegate = self;
     me = self;
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spinner setCenter:CGPointMake(160.0f, 160.0f)];
+    [spinner setCenter:CGPointMake(160.0f, 188.0f)];
     [self.view addSubview:spinner]; // spinner is not visible until started
+
 }
 
 
