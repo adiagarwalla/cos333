@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-
+@property (strong, nonatomic) id userID;
 
 @end

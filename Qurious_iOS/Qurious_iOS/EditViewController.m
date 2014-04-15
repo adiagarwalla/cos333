@@ -7,6 +7,7 @@
 //
 #import "EditViewController.h"
 #import "Person.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EditViewController ()
 @end
@@ -51,6 +52,10 @@
     [super viewDidLoad];
     [self configureView];
     
+    [_bioField.layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [_bioField.layer setBorderWidth:1.0];
+    _bioField.layer.cornerRadius = 5;
+    _bioField.clipsToBounds = YES;
 
 }
 

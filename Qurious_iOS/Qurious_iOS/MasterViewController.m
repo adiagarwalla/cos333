@@ -19,8 +19,8 @@
 @implementation MasterViewController
 
 static NSMutableArray *_objects;
-static NSMutableArray *_skills;
 static UITableView *view;
+static Person * me;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -55,23 +55,6 @@ void callback(id arg) {
     }
 }
 
-void skillCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
-    
-    if (arg != NULL) {
-        for (NSDictionary * object in arg)
-        {
-            Skill * skill = [[Skill alloc] init];
-            NSDictionary *fields = object[@"fields"];
-            skill.desc = fields[@"name"];
-            if ([fields[@"is_marketable"]  isEqual: @"1"]) skill.isMarketable = YES;
-            skill.price = fields[@"price"];
-            skill.skillID = [object[@"pk"] intValue];
-            [_skills addObject: skill];
-        }
-    }
-}
 
 - (void)viewDidLoad
 {
@@ -147,32 +130,24 @@ void skillCallback(id arg) {
 }
 
 
-void profileCallback(id arg) {
-    
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Person *friend = _objects[indexPath.row];
-        _skills = [[NSMutableArray alloc] init];
-        [friend setSkills: _skills];
-        [QApiRequests getAllSkills: [friend userID] andCallback: &skillCallback];
         [[segue destinationViewController] setDetailItem:friend];
     }
-//    if ([[segue identifier] isEqualToString:@"showProfile"]) {
-//        
-//        int myID;
-//        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        [QApiRequests getProfiles: myID andCallback:&profileCallback];
-//        Person *me =;
-//        _skills = [[NSMutableArray alloc] init];
-//        [me setSkills: _skills];
-//        [QApiRequests getAllSkills: myID andCallback: &skillCallback];
-//        [[segue destinationViewController] setDetailItem:me];
-//    }
+    if ([[segue identifier] isEqualToString:@"showProfile"]) {
+        Person * me;
+        for (Person * person in _objects) {
+            if (person.userID == [self.userID intValue]) {
+                NSLog(@"Found me!");
+                me = person;
+                break;
+            }
+        }
+        [[segue destinationViewController] setDetailItem:me];
+    }
 }
 
 @end
