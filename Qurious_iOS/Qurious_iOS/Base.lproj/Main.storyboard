@@ -183,7 +183,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
                     <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz">
-                        <barButtonItem key="rightBarButtonItem" title="My Profile" id="cGG-OG-xPB"/>
+                        <barButtonItem key="rightBarButtonItem" title="My Profile" id="cGG-OG-xPB">
+                            <connections>
+                                <segue destination="aLW-EU-oU2" kind="push" id="fhH-F7-sUn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
@@ -325,7 +329,7 @@
                         <sections>
                             <tableViewSection id="O7G-D4-qNb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="140" id="Zkb-pB-gsd">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="140" id="Zkb-pB-gsd">
                                         <rect key="frame" x="0.0" y="64" width="320" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zkb-pB-gsd" id="VME-H0-cwg">
@@ -352,7 +356,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="129" id="Ucl-kt-X9c">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="129" id="Ucl-kt-X9c">
                                         <rect key="frame" x="0.0" y="204" width="320" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ucl-kt-X9c" id="gRI-Cj-Opq">
@@ -641,24 +645,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeY-TO-y1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1369" y="140"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zGg-oT-MWM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UKA-ul-sLt" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Vo-NN-BS5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aLW-EU-oU2" kind="relationship" relationship="rootViewController" id="Mqy-1o-Qgm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3g7-c9-9II" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1449" y="-574"/>
         </scene>
     </scenes>
     <resources>

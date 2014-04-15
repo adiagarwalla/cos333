@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "QApiRequests.h"
 #import "SignupViewController.h"
+#import "MasterViewController.h"
 @interface LoginViewController ()
 @end
 
@@ -17,6 +18,7 @@
 @synthesize pwField = _pwField;
 
 static UIViewController * me;
+static id myID;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,10 +56,22 @@ void loginCallback (id arg) {
         [alert show];
     }
     else {
+        myID = ((NSDictionary*) arg)[@"userid"];
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
         
     }
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepareForSegue: %@", segue.identifier);
+    
+    if ([segue.identifier isEqualToString:@"loginSuccess"]) {
+        [[segue destinationViewController] setDetailItem:myID];
+    }
+}
+
 
 - (IBAction) loginButtonClicked {
     NSString *username = self.usernameField.text;
