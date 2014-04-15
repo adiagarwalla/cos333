@@ -33,31 +33,30 @@ class TestRegistrationFeatures(TestCase):
         user_dummy_profile.skills.add(s)
         user_dummy_profile.save()
 
-        response = client.post(reverse('login'), {'username':{'xxxchengexterminator'}, 'password':'123'})
+        response = client.post(reverse('login'), {'username':'xxxchengexterminator', 'password':'123'})
         self.assertTrue(response.content != '')
 
-        response = client.post(reverse('login'), {'username':{'xxxchengexterminator'}, 'password':'wrong'})
+        response = client.post(reverse('login'), {'username':'xxxchengexterminator', 'password':'wrong'})
         self.assertTrue(response.content == '')
 
         response = client.post(reverse('logout'))
         self.assertTrue(response.content != '')
         
-
+        
     def test_signup(self):
         client = Client()
-        
-        response = client.post(reverse('signup'), {'username':{'cheng'}, 'password':'123', 'user_email':'sam@cd'})
-        self.assertTrue(response.content == '1')
+        response = client.post(reverse('signup'), {'username':'cheng', 'password':'123', 'user_email':'sam@cd'})
+        self.assertTrue(response.content == '{"return": "1"}')
         
         response = client.get(reverse('profile-detail') + '?id=1')
         self.assertTrue(response.content != '')
 
-        response = client.post(reverse('signup'), {'username':{'cheng'}, 'password':'123', 'user_email':'sam@cd'})
-        self.assertTrue(response.content == '0')
+        response = client.post(reverse('signup'), {'username':'cheng', 'password':'123', 'user_email':'sam@cd'})
+        self.assertTrue(response.content == '{"return": "0"}')
 
     def test_signup_fail(self):
         client = Client()
         
-        response = client.post(reverse('signup'), {'this should fail':{'fail'}})
+        response = client.post(reverse('signup'), {'this should fail':'fail'})
 
         self.assertTrue(response.content == '')
