@@ -19,6 +19,7 @@
 
 static NSMutableArray *_objects;
 static UITableView *view;
+static Person * me;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -127,7 +128,7 @@ void callback(id arg) {
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
         Person * me;
         for (Person * person in _objects) {
-            if (person.userID == (int) self.userID) {
+            if (person.userID == [self.userID intValue]) {
                 NSLog(@"Found me!");
                 me = person;
                 break;

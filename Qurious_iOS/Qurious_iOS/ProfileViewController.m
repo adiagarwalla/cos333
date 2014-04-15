@@ -27,7 +27,6 @@
 
 
 - (void)configureView {
-    NSLog(@"Tried to configure View");
     if (self.detailItem &&
         [self.detailItem isKindOfClass:[Person class]]) {
         NSString *name = [NSString stringWithFormat:@"%@ %@",
@@ -37,7 +36,6 @@
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
-        NSLog(@"Configured View");
     }
     
 }
