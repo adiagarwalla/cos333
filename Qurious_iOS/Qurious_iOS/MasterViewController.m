@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 #import "QApiRequests.h"
 #import "Skill.h"
+#import "SWRevealViewController.h"
 
 @interface MasterViewController ()
 @end
@@ -75,6 +76,17 @@ void skillCallback(id arg) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Change button color
+    _sidebarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sidebarButton.target = self.revealViewController;
+    _sidebarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     

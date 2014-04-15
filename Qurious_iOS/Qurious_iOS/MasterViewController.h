@@ -11,6 +11,7 @@
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 
 @end
