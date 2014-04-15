@@ -27,6 +27,7 @@
 
 
 - (void)configureView {
+    NSLog(@"Tried to configure View");
     if (self.detailItem &&
         [self.detailItem isKindOfClass:[Person class]]) {
         NSString *name = [NSString stringWithFormat:@"%@ %@",
@@ -36,7 +37,7 @@
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
-        
+        NSLog(@"Configured View");
     }
     
 }
@@ -92,7 +93,6 @@ void saveSkillCallback (id arg) {
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
         [self configureView];
-        [self viewDidLoad];
     }
     if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
         SkillViewController *skillController = [segue sourceViewController];

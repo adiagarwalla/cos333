@@ -125,10 +125,15 @@ void callback(id arg) {
         [[segue destinationViewController] setDetailItem:friend];
     }
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
+        Person * me;
         for (Person * person in _objects) {
-            if (person.userID == (int) self.detailItem) [[segue destinationViewController] setDetailItem:person];
+            if (person.userID == (int) self.userID) {
+                NSLog(@"Found me!");
+                me = person;
+                break;
+            }
         }
-
+        [[segue destinationViewController] setDetailItem:me];
     }
 }
 

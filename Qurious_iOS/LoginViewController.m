@@ -19,6 +19,7 @@
 
 static UIViewController * me;
 static id myID;
+static UIActivityIndicatorView* spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,9 @@ static id myID;
     self.usernameField.delegate = self;
     self.pwField.delegate = self;
     me = self;
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spinner setCenter:CGPointMake(160.0f, 160.0f)];
+    [self.view addSubview:spinner]; // spinner is not visible until started
 }
 
 
@@ -56,6 +60,7 @@ void loginCallback (id arg) {
         [alert show];
     }
     else {
+        [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
         
@@ -68,7 +73,7 @@ void loginCallback (id arg) {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     
     if ([segue.identifier isEqualToString:@"loginSuccess"]) {
-        [[segue destinationViewController] setDetailItem:myID];
+        [[segue destinationViewController] setUserID: myID];
     }
 }
 
@@ -76,6 +81,7 @@ void loginCallback (id arg) {
 - (IBAction) loginButtonClicked {
     NSString *username = self.usernameField.text;
     NSString *pw = self.pwField.text;
+    [spinner startAnimating];
     [QApiRequests login: username andPassword: pw andCallback: &loginCallback];
     
 }
@@ -86,8 +92,7 @@ void loginCallback (id arg) {
 }
 
 void signupCallback(id arg) {
-    
-
+    [spinner stopAnimating];
     if (arg == NULL) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
                                                         message:@"Sorry there is something wrong with our system! Please try again"
@@ -120,6 +125,8 @@ void signupCallback(id arg) {
     SignupViewController *signupController = [segue sourceViewController];
     NSString * username = signupController.usernameField.text;
     NSString * pw = signupController.pwField.text;
+    [spinner startAnimating];
+
     [QApiRequests signUp: username andPassword: pw andEmail: @"" andCallback: &signupCallback];
     
 }

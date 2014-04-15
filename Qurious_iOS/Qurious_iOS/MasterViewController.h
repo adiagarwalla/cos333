@@ -10,7 +10,7 @@
 
 @interface MasterViewController : UITableViewController
 
-@property (strong, nonatomic) id detailItem;
 
+@property (strong, nonatomic) id userID;
 
 @end
