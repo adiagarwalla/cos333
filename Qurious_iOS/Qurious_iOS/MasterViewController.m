@@ -125,6 +125,9 @@ void skillCallback(id arg) {
 }
 
 
+void profileCallback(id arg) {
+    
+}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -136,6 +139,18 @@ void skillCallback(id arg) {
         [QApiRequests getAllSkills: [friend userID] andCallback: &skillCallback];
         [[segue destinationViewController] setDetailItem:friend];
     }
+//    if ([[segue identifier] isEqualToString:@"showProfile"]) {
+//        
+//        int myID;
+//        
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        [QApiRequests getProfiles: myID andCallback:&profileCallback];
+//        Person *me =;
+//        _skills = [[NSMutableArray alloc] init];
+//        [me setSkills: _skills];
+//        [QApiRequests getAllSkills: myID andCallback: &skillCallback];
+//        [[segue destinationViewController] setDetailItem:me];
+//    }
 }
 
 @end
