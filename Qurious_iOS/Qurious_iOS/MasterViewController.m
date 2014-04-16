@@ -39,19 +39,26 @@ void callback(id arg) {
         
         NSDictionary * results = arg;
         for (NSDictionary *jsonobject in results) {
-            NSDictionary *fields = jsonobject[@"fields"];
+            NSDictionary *fields = jsonobject[@"profile"][@"fields"];
             Person *friend = [[Person alloc] init];
             friend.firstName = fields[@"profile_first"];
             friend.lastName = fields[@"profile_last"];
             friend.email = fields[@"user_email"];
             friend.bio = fields[@"user_bio"];
-            friend.username = fields[@"profile_name"];
             friend.userID = [fields[@"user"] intValue];
+            NSDictionary *skills = jsonobject[@"skills"];
+            for (NSDictionary * skill in skills) {
+                Skill * mySkill = [[Skill alloc] init];
+                mySkill.desc = skill[@"fields"][@"name"];
+                mySkill.price = skill[@"fields"][@"price"];
+                if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+                else mySkill.isMarketable = NO;
+                [friend.skills insertObject:mySkill atIndex:0];
+            }
             [_objects insertObject:friend atIndex:0];
-            
         }
-        
         [view reloadData];
+
     }
 }
 
