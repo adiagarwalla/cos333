@@ -54,8 +54,16 @@ class ProfileIOSAllView(View):
     def get(self, request, *args, **kwargs):
         profiles = UserProfile.objects.filter()
 
-        data = serializers.serialize('json', profiles)
-        return HttpResponse(data, mimetype='application/json')
+        json = '['
+        for profile in profiles:
+            p = '{"profile":' + serializers.serialize('json', [profile]) + ',"skills":' + serializers.serialize('json', profile.skills.all()) + '}'
+            json = json + p + ','
+
+        json = json[0:len(json) -1]
+        json = json + ']'
+
+        #data = simplejson.dumps(json)
+        return HttpResponse(json, mimetype='application/json')
 
 class skillIOSView(View):
     """
