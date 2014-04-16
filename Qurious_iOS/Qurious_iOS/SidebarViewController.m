@@ -1,18 +1,18 @@
 //
-//  SidebarTableViewController.m
+//  SidebarViewController.m
 //  Qurious_iOS
 //
 //  Created by Aditya Agarwalla on 4/15/14.
 //  Copyright (c) 2014 Qurious. All rights reserved.
 //
 
-#import "SidebarTableViewController.h"
+#import "SidebarViewController.h"
 
-@interface SidebarTableViewController ()
+@interface SidebarViewController ()
 
 @end
 
-@implementation SidebarTableViewController
+@implementation SidebarViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
