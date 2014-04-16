@@ -108,7 +108,7 @@ static NSString* kSession = @"";
 
 }
 
-void callback (id arg) {
+void detail_callback (id arg) {
     // do nothing valuable
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
@@ -126,7 +126,7 @@ void callback (id arg) {
         NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
         ViewController *sessionController = [navigationControllers objectAtIndex:0];
         request_active = true;
-        [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&callback];
+        [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
         while(request_active) {
             // do nothing bitches.
         }

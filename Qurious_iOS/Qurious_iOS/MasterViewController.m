@@ -28,31 +28,43 @@ static Person * me;
 
 
 
-void callback(id arg) {
+void mastercallback(id arg) {
     
     // do nothing valuable
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
+    
     
     if (arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
         
         NSDictionary * results = arg;
         for (NSDictionary *jsonobject in results) {
-            NSDictionary *fields = jsonobject[@"fields"];
+            NSDictionary *fields = jsonobject[@"profile"][0][@"fields"];
             Person *friend = [[Person alloc] init];
             friend.firstName = fields[@"profile_first"];
             friend.lastName = fields[@"profile_last"];
             friend.email = fields[@"user_email"];
             friend.bio = fields[@"user_bio"];
-            friend.username = fields[@"profile_name"];
             friend.userID = [fields[@"user"] intValue];
+            friend.username = fields[@"profile_name"];
+            NSDictionary *skills = jsonobject[@"skills"];
+            NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
+            for (NSDictionary * skill in skills) {
+                Skill * mySkill = [[Skill alloc] init];
+                mySkill.desc = skill[@"fields"][@"name"];
+                mySkill.price = skill[@"fields"][@"price"];
+                if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+                else mySkill.isMarketable = NO;
+                [allmyskills insertObject:mySkill atIndex:0];
+            }
+            friend.skills = allmyskills; // not releasing old array uhhhh
             [_objects insertObject:friend atIndex:0];
-            
         }
-        
         [view reloadData];
+        
     }
+
 }
 
 
@@ -69,7 +81,7 @@ void callback(id arg) {
     
     view = (UITableView *)self.view;
     
-    [QApiRequests getAllProfiles:&callback];
+    [QApiRequests getAllProfiles:&mastercallback];
     
 }
 
