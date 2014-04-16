@@ -36,7 +36,7 @@ class CreateSessionView(View):
             json = simplejson.dumps({'session_id':sess.id})
             n = Notification(f=username, to=tutor, message='The user: ' + username + ' would like to have a session with you!', attachedjson=json)
 
-            data = simplejson.dumps({'return': True})
+            data = simplejson.dumps({'session_id': session_id})
             return HttpResponse(data, mimetype='application/json')
 
         return HttpResponse('', mimetype='application/json')
