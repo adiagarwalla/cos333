@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 #import "QApiRequests.h"
 #import "Skill.h"
+#import "SWRevealViewController.h"
 
 @interface MasterViewController ()
 @end
@@ -18,8 +19,8 @@
 @implementation MasterViewController
 
 static NSMutableArray *_objects;
-static NSMutableArray *_skills;
 static UITableView *view;
+static Person * me;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -33,45 +34,44 @@ void callback(id arg) {
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
     
-    _objects = [[NSMutableArray alloc] init];
-    
-    NSDictionary * results = arg;
-    for (NSDictionary *jsonobject in results) {
-        NSDictionary *fields = jsonobject[@"fields"];
-        Person *friend = [[Person alloc] init];
-        friend.firstName = fields[@"profile_first"];
-        friend.lastName = fields[@"profile_last"];
-        friend.email = fields[@"user_email"];
-        friend.bio = fields[@"user_bio"];
-        friend.userID = [fields[@"user"] intValue];
-        [_objects insertObject:friend atIndex:0];
+    if (arg != NULL) {
+        _objects = [[NSMutableArray alloc] init];
         
-    }
-
-    [view reloadData];
-}
-
-void skillCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
-    
-    for (NSDictionary * object in arg)
-    {
-        Skill * skill = [[Skill alloc] init];
-        NSDictionary *fields = object[@"fields"];
-        skill.desc = fields[@"name"];
-        if ([fields[@"is_marketable"]  isEqual: @"1"]) skill.isMarketable = YES;
-        skill.price = fields[@"price"];
-        skill.skillID = [object[@"pk"] intValue];
-        [_skills addObject: skill];
+        NSDictionary * results = arg;
+        for (NSDictionary *jsonobject in results) {
+            NSDictionary *fields = jsonobject[@"fields"];
+            Person *friend = [[Person alloc] init];
+            friend.firstName = fields[@"profile_first"];
+            friend.lastName = fields[@"profile_last"];
+            friend.email = fields[@"user_email"];
+            friend.bio = fields[@"user_bio"];
+            friend.username = fields[@"profile_name"];
+            friend.userID = [fields[@"user"] intValue];
+            [_objects insertObject:friend atIndex:0];
+            
+        }
+        
+        [view reloadData];
     }
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 	// Do any additional setup after loading the view, typically from a nib.
-    [self.navigationItem setHidesBackButton:YES animated:NO];
+    //[self.navigationItem setHidesBackButton:NO animated:NO];
     
     // test the server requests right here
     // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
@@ -114,8 +114,13 @@ void skillCallback(id arg) {
                              dequeueReusableCellWithIdentifier:@"Cell"
                              forIndexPath:indexPath];
     Person *friend = _objects[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
+    if ([friend.firstName isEqualToString: @""] && [friend.lastName isEqualToString: @""]) {
+        cell.textLabel.text = friend.username;
+    }
+    else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
                            friend.firstName, friend.lastName];
+    }
     return cell;
 }
 
@@ -125,32 +130,24 @@ void skillCallback(id arg) {
 }
 
 
-void profileCallback(id arg) {
-    
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Person *friend = _objects[indexPath.row];
-        _skills = [[NSMutableArray alloc] init];
-        [friend setSkills: _skills];
-        [QApiRequests getAllSkills: [friend userID] andCallback: &skillCallback];
         [[segue destinationViewController] setDetailItem:friend];
     }
-//    if ([[segue identifier] isEqualToString:@"showProfile"]) {
-//        
-//        int myID;
-//        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        [QApiRequests getProfiles: myID andCallback:&profileCallback];
-//        Person *me =;
-//        _skills = [[NSMutableArray alloc] init];
-//        [me setSkills: _skills];
-//        [QApiRequests getAllSkills: myID andCallback: &skillCallback];
-//        [[segue destinationViewController] setDetailItem:me];
-//    }
+    if ([[segue identifier] isEqualToString:@"showProfile"]) {
+        Person * me;
+        for (Person * person in _objects) {
+            if (person.userID == [self.userID intValue]) {
+                NSLog(@"Found me!");
+                me = person;
+                break;
+            }
+        }
+        [[segue destinationViewController] setDetailItem:me];
+    }
 }
 
 @end

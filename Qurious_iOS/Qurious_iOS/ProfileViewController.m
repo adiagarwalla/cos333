@@ -36,7 +36,6 @@
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
-        
     }
     
 }
@@ -56,7 +55,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"editDetail"]) {
+    if ([[segue identifier] isEqualToString:@"editProfile"]) {
         NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
         EditViewController *editViewController = [navigationControllers objectAtIndex:0];
         [editViewController setDetailItem:self.detailItem];
@@ -92,7 +91,6 @@ void saveSkillCallback (id arg) {
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
         [self configureView];
-        [self viewDidLoad];
     }
     if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
         SkillViewController *skillController = [segue sourceViewController];

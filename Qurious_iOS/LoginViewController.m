@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "QApiRequests.h"
 #import "SignupViewController.h"
+#import "MasterViewController.h"
 @interface LoginViewController ()
 @end
 
@@ -17,6 +18,8 @@
 @synthesize pwField = _pwField;
 
 static UIViewController * me;
+static id myID;
+static UIActivityIndicatorView* spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +37,10 @@ static UIViewController * me;
     self.usernameField.delegate = self;
     self.pwField.delegate = self;
     me = self;
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spinner setCenter:CGPointMake(160.0f, 188.0f)];
+    [self.view addSubview:spinner]; // spinner is not visible until started
+
 }
 
 
@@ -54,14 +61,29 @@ void loginCallback (id arg) {
         [alert show];
     }
     else {
+        [spinner stopAnimating];
+        myID = ((NSDictionary*) arg)[@"userid"];
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
         
     }
+    [spinner stopAnimating];
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepareForSegue: %@", segue.identifier);
+    
+    if ([segue.identifier isEqualToString:@"loginSuccess"]) {
+        [[segue destinationViewController] setUserID: myID];
+    }
+}
+
 
 - (IBAction) loginButtonClicked {
     NSString *username = self.usernameField.text;
     NSString *pw = self.pwField.text;
+    [spinner startAnimating];
     [QApiRequests login: username andPassword: pw andCallback: &loginCallback];
     
 }
@@ -72,8 +94,7 @@ void loginCallback (id arg) {
 }
 
 void signupCallback(id arg) {
-    
-
+    [spinner stopAnimating];
     if (arg == NULL) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
                                                         message:@"Sorry there is something wrong with our system! Please try again"
@@ -106,6 +127,8 @@ void signupCallback(id arg) {
     SignupViewController *signupController = [segue sourceViewController];
     NSString * username = signupController.usernameField.text;
     NSString * pw = signupController.pwField.text;
+    [spinner startAnimating];
+
     [QApiRequests signUp: username andPassword: pw andEmail: @"" andCallback: &signupCallback];
     
 }

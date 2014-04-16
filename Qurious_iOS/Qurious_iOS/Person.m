@@ -17,6 +17,7 @@
 @synthesize bio = _bio;
 @synthesize skills = _skills;
 @synthesize profPic = _profPic;
+@synthesize username = _username;
 
 - (id)init
 {
