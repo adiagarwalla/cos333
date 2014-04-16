@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class SWRevealViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong, nonatomic) SWRevealViewController *viewController;
 
 @property (strong, nonatomic) UIWindow *window;
 

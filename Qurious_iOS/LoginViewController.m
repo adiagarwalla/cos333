@@ -66,6 +66,7 @@ void loginCallback (id arg) {
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
         
     }
+    [spinner stopAnimating];
 }
 
 

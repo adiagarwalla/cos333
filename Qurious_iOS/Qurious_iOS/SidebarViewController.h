@@ -1,5 +1,5 @@
 //
-//  SidebarTableViewController.h
+//  SidebarViewController.h
 //  Qurious_iOS
 //
 //  Created by Aditya Agarwalla on 4/15/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SidebarTableViewController : UITableViewController
+@interface SidebarViewController : UITableViewController
 
 @end
