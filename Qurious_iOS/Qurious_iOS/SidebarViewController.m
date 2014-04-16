@@ -7,6 +7,7 @@
 //
 
 #import "SidebarViewController.h"
+#import "SWRevealViewController.h"
 
 @interface SidebarViewController ()
 

@@ -61,7 +61,7 @@ void callback(id arg) {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
-    [self.navigationItem setHidesBackButton:NO animated:NO];
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     
     // test the server requests right here
     // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
