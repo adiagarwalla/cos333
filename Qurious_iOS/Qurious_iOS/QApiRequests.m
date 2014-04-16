@@ -84,5 +84,17 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
++ (void) createSession:(NSString*)tutor_id andMinutes:(NSString*)minutes andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-session/create/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:tutor_id, @"teacher", minutes, @"time", nil];
+    [request startAsyncPost:callback andUrl:url andDict:dict];
+}
+
++ (void) getToken:(NSString*)session_token andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-session/gettoken/?session_token=%@", baseURL, session_token];
+    [request startAsync:callback andUrl:url];
+}
 
 @end

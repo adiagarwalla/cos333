@@ -19,6 +19,7 @@
 + (void) login:(NSString*)username andPassword:(NSString*)password andCallback:(void(*)(id))callback;
 + (void) logout:(void(*)(id))callback;
 + (void) signUp:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)userEmail andCallback:(void(*)(id))callback;
-
++ (void) createSession:(NSString*)tutor_id andMinutes:(NSString*)minutes andCallback:(void(*)(id))callback;
++ (void) getToken:(NSString*)session_token andCallback:(void(*)(id))callback;
 
 @end
