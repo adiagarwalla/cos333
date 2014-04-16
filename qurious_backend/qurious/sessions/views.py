@@ -25,7 +25,8 @@ class CreateSessionView(View):
             id_tutor = form.cleaned_data.get('teacher')
             minutes = form.cleaned_data.get('time')
             # get the UserProfile for these ids
-            tutor = UserProfile.objects.get(id=id_tutor)
+            tutor = User.objects.get(id=id_tutor)
+            tutor = tutor.userprofile
             user_O = User.objects.get(username=username)
             user = user_O.userprofile 
             session_id = create_session('True')
