@@ -71,13 +71,10 @@
 		66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D96918FB234300F4BF89 /* Opentok.framework */; };
 		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
 		66D7D99118FDAA1900F4BF89 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D99018FDAA1900F4BF89 /* menu.png */; };
-<<<<<<< HEAD
-		F918E4E518FDF09400BBB508 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E4E418FDF09400BBB508 /* ProfileViewController.m */; };
-=======
 		66D7D99C18FE102400F4BF89 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99B18FE102400F4BF89 /* ProfileViewController.m */; };
 		66D7D9A018FE187B00F4BF89 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */; };
 		66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */; };
->>>>>>> 9a1efc223dae47577e04a41a9e0b922a77164800
+		F918E4E518FDF09400BBB508 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E4E418FDF09400BBB508 /* ProfileViewController.m */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
@@ -229,17 +226,14 @@
 		66D7D96918FB234300F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
 		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		66D7D99018FDAA1900F4BF89 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		F918E4E318FDF09400BBB508 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		F918E4E418FDF09400BBB508 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-=======
 		66D7D99B18FE102400F4BF89 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		66D7D99D18FE102C00F4BF89 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		66D7D99E18FE187B00F4BF89 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		66D7D9A118FE1FFF00F4BF89 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
->>>>>>> 9a1efc223dae47577e04a41a9e0b922a77164800
+		F918E4E318FDF09400BBB508 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		F918E4E418FDF09400BBB508 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
@@ -897,8 +891,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 					"$(PROJECT_DIR)/opentok-ios-sdk",
@@ -928,8 +920,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 					"$(PROJECT_DIR)/opentok-ios-sdk",

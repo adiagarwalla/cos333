@@ -7,9 +7,13 @@
 //
 
 #import "DetailViewController.h"
+#import "ViewController.h"
 #import "Person.h"
 #import "Skill.h"
 #import "QApiRequests.h"
+
+static int request_active = false;
+static NSString* kSession = @"";
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -103,6 +107,33 @@
     [self loadButtons];
 
 }
+
+void callback (id arg) {
+    // do nothing valuable
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Hi");
+    
+    NSDictionary * results = arg;
+    for (NSDictionary *jsonobject in results) {
+        NSDictionary *fields = jsonobject[@"fields"];
+        kSession = fields[@"session"];
+    }
+    request_active = false;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"SessionSegue"]) {
+        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
+        ViewController *sessionController = [navigationControllers objectAtIndex:0];
+        request_active = true;
+        [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&callback];
+        while(request_active) {
+            // do nothing bitches.
+        }
+        [sessionController setSessionToken:kSession];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
