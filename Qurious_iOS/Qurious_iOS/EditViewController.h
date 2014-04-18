@@ -15,10 +15,10 @@
     IBOutlet UIImageView * selectedImage;
 }
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
-@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
-@property (weak, nonatomic) IBOutlet UITextView *bioField;
+@property (strong, nonatomic) IBOutlet UITextField *firstNameField;
+@property (strong, nonatomic) IBOutlet UITextField *lastNameField;
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextView *bioField;
 @property (nonatomic, retain) UIImageView * selectedImage;
 
 - (IBAction) buttonClicked;
