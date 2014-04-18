@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *pwField;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *pwField;
 - (IBAction) loginButtonClicked;
 - (IBAction)save:(UIStoryboardSegue *)sender;
 - (IBAction)cancel:(UIStoryboardSegue *)sender;
