@@ -12,8 +12,6 @@
 #import "Skill.h"
 #import "QApiRequests.h"
 
-static int request_active = false;
-static NSString* kSession = @"";
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -28,7 +26,8 @@ static NSString* kSession = @"";
 @synthesize bioLabel = _bioLabel;
 @synthesize imageView = _imageView;
 
-
+static UIActivityIndicatorView* detailSpinner;
+static UITableViewController * me;
 
 - (void)configureView {
     if (self.detailItem &&
@@ -105,6 +104,9 @@ static NSString* kSession = @"";
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [self loadButtons];
+    detailSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [detailSpinner setCenter:CGPointMake(160.0f, 188.0f)];
+    [self.view addSubview:detailSpinner];
 
 }
 
@@ -112,27 +114,20 @@ void detail_callback (id arg) {
     // do nothing valuable
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
-    
-    NSDictionary * results = arg;
-    for (NSDictionary *jsonobject in results) {
-        NSDictionary *fields = jsonobject[@"fields"];
-        kSession = fields[@"session"];
-    }
-    request_active = false;
+    NSString * kSession = ((NSDictionary*) arg)[@"session_id"];
+    [detailSpinner stopAnimating];
+    [ViewController setSessionToken: kSession];
+    [me performSegueWithIdentifier: @"SessionSegue" sender: me];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"SessionSegue"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        ViewController *sessionController = [navigationControllers objectAtIndex:0];
-        request_active = true;
-        [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
-        while(request_active) {
-            // do nothing bitches.
-        }
-        [sessionController setSessionToken:kSession];
-    }
+-(IBAction) sessionButtonClicked {
+    me = self;
+    [detailSpinner startAnimating];
+    [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
+    // set _segue here
 }
+
+
 
 
 - (void)didReceiveMemoryWarning

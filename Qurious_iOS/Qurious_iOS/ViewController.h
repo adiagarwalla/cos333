@@ -14,5 +14,5 @@
 - (void)doConnect;
 - (void)doPublish;
 - (void)showAlert:(NSString*)string;
-- (void) setSessionToken:(NSString*)token;
++ (void) setSessionToken:(NSString*)token;
 @end

@@ -19,7 +19,7 @@ static double widgetWidth = 320;
 
 static NSString* const kApiKey = @"44722692";    // Replace with your OpenTok API key
 static NSString* kSessionId = @"2_MX40NDcyMjY5Mn5-U2F0IEFwciAxMiAxOTo0MjowOSBQRFQgMjAxNH4wLjMxMjIyMjU0fn4"; // Replace with your generated session ID
-static NSString* kToken = @"T1==cGFydG5lcl9pZD00NDcyMjY5MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz0yMTNhNGM4NmJkNzNiYTZlZmY4MDRjYjdkMmFjNGRmMzgzMjk2MTVmOnJvbGU9c3Vic2NyaWJlciZzZXNzaW9uX2lkPTJfTVg0ME5EY3lNalk1TW41LVUyRjBJRUZ3Y2lBeE1pQXhPVG8wTWpvd09TQlFSRlFnTWpBeE5INHdMak14TWpJeU1qVTBmbjQmY3JlYXRlX3RpbWU9MTM5NzM1Njk1NiZub25jZT0wLjE0MzEzOTYxMTc2Nzk1NjEmZXhwaXJlX3RpbWU9MTM5NzM2MDUyMSZjb25uZWN0aW9uX2RhdGE9";     // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
+static NSString* kToken = @"";    // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
 static void* object;
 
 void sessioncallback(id arg) {
@@ -27,12 +27,7 @@ void sessioncallback(id arg) {
     // do nothing valuable
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
-
-    NSDictionary * results = arg;
-    for (NSDictionary *jsonobject in results) {
-        NSDictionary *fields = jsonobject[@"fields"];
-        kToken = fields[@"token"];
-    }
+    kToken = ((NSDictionary*) arg)[@"token"];
     [(__bridge ViewController*)object doConnect];
 }
 
@@ -55,8 +50,8 @@ static bool subscribeToSelf = YES; // Change to NO to subscribe to streams other
     return YES;
 }
 
-- (void) setSessionToken:(NSString*)token {
-    kSessionId = token;
++ (void) setSessionToken:(NSString*)sessionID {
+    kSessionId = sessionID;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
