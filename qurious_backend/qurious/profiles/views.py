@@ -10,6 +10,7 @@ from qurious.profiles.forms import SkillEditForm
 
 from qurious.profiles.models import Skill
 from qurious.profiles.models import UserProfile
+from qurious.profiles.models import ProfileImage
 
 class profileIOSDetailView(View):
     """
@@ -31,8 +32,7 @@ class profileIOSDetailView(View):
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
         if form.is_valid():
-#            username = request.user.username
-            username = 'sam'
+            username = request.user.username
             user = User.objects.get(username=username)
             user_prof = user.userprofile
             user_prof.profile_name = form.cleaned_data.get('profile_name')
@@ -46,6 +46,27 @@ class profileIOSDetailView(View):
             return HttpResponse(data, mimetype='application/json')
 
         return HttpResponse('', mimetype='application/json')
+
+class ImageView(View):
+    """
+    Uploads the image
+    """
+    def post(self, request, *args, **kwargs):
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            # QUESTIONABLE CODE, THIS NEEDS TO BE FUCKING CHANGED
+            id = request.POST.get('id')
+            user = User.objects.get(id=id)
+            userprof = user.userprofile
+            userprof.profile_pic = request.FILES['file']
+            userprof.save()
+
+            data = simplejson.dumps({'return': True})
+            return HttpResponse(data, mimetype='application/json')
+
+        return HttpResponse('', mimetype='application/json')
+
+
 
 class ProfileIOSAllView(View):
     """
@@ -89,7 +110,7 @@ class skillIOSView(View):
             if skill_id == 0:
                 skill = Skill(name=form.cleaned_data.get('name'), price=form.cleaned_data.get('price'), desc=form.cleaned_data.get('desc'), is_marketable=bool(form.cleaned_data.get('marketable')))
                 skill.save()
-                username = 'sam'
+                username = request.user.username
                 user = User.objects.get(username=username)
                 user.userprofile.skills.add(skill)
             else:
