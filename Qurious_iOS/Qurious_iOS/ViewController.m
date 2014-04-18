@@ -36,7 +36,7 @@ void sessioncallback(id arg) {
     [(__bridge ViewController*)object doConnect];
 }
 
-static bool subscribeToSelf = YES; // Change to NO to subscribe to streams other than your own.
+static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other than your own.
 
 #pragma mark - View lifecycle
 

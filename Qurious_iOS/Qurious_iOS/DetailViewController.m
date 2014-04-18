@@ -128,7 +128,7 @@ void detail_callback (id arg) {
         request_active = true;
         [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
         while(request_active) {
-            // do nothing bitches.
+            [NSThread sleepForTimeInterval:.5];
         }
         [sessionController setSessionToken:kSession];
     }
