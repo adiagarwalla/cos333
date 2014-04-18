@@ -71,6 +71,7 @@ class skillIOSView(View):
     with a skill (price, description, name, etc)
     """
     def get(self, request, *args, **kwargs):
+        import pdb; pdb.set_trace()
         try:
             id = request.GET.get('id')
             skill = Skill.objects.get(id=id)

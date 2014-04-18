@@ -9,7 +9,7 @@ import re
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth import authenticate, login
-
+from qurious.auth.views import QuriousLoginView
 from django.contrib.auth.models import User
 from qurious.profiles.models import UserProfile, Skill
 from django.core.urlresolvers import reverse
@@ -45,7 +45,8 @@ class ProfileViewTest(TestCase):
         given id.
         """
         client = Client()
-        user_dummy = User(username='sam', email='sam@sam.com', password='123')
+        user_dummy = User(username='sam', email='sam@sam.com')
+        user_dummy.set_password('123')
         user_dummy.save()
         user_dummy_profile = UserProfile(user=user_dummy, profile_name='cheng', user_email=user_dummy.email, user_bio='1234i love cheng')
 
@@ -175,4 +176,16 @@ class ProfileViewTest(TestCase):
         self.test_get_profile()
         c = Client()
         response = c.get(reverse('delete-skill') + '?id=-1')
+        self.assertTrue(response.content == '')
+
+    def test_who_am_I(self):
+        self.test_get_profile()
+        c = Client()
+        response = c.post(reverse('login'), {'username':'sam','password':'123'})
+        response = c.post(reverse('whoami'))
+        self.assertTrue(response.content != '')
+
+    def test_who_am_I_fail(self):
+        c = Client()
+        response = c.post(reverse('whoami') + '?id=5')
         self.assertTrue(response.content == '')
