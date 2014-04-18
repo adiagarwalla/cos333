@@ -35,6 +35,22 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
++ (void) uploadImage:(UIImageView*) imageView andId:(NSString*)user_id andCallback:(void(*)(id))callback {
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/uploadimage/", baseURL];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager alloc];
+    NSData *imageData = UIImageJPEGRepresentation(imageView.image, 0.5);
+    NSDictionary *parameters = @{@"id": user_id};
+    AFHTTPRequestOperation *op = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //do not put image inside parameters dictionary as I did, but append it!
+        [formData appendPartWithFileData:imageData name:@"files" fileName:[NSString stringWithFormat:@"profile_pic_%@", user_id] mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+    }];
+    [op start];
+}
+
 + (void) editSkill:(int)skill_id andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback {
     
     AsyncRequest* request = [AsyncRequest new];

@@ -189,7 +189,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "+editSkill:andPrice:andDesc:andForSale:andCallback:"
+            landmarkName = "+uploadImage:andId:andCallback:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -205,8 +205,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-            landmarkName = "@implementation QApiRequests"
-            landmarkType = "3">
+            landmarkName = "+uploadImage:andId:andCallback:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -221,8 +221,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "@implementation QApiRequests"
-            landmarkType = "3">
+            landmarkName = "+uploadImage:andId:andCallback:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
