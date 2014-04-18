@@ -12,10 +12,21 @@
 #import "SkillViewController.h"
 #import "Skill.h"
 #import "QApiRequests.h"
-
 @interface ProfileViewController ()
 
 @end
+
+void saveCallback (id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Saved a profile");
+}
+
+
+void saveSkillCallback (id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Saved a skill");
+}
+
 
 @implementation ProfileViewController
 @synthesize detailItem = _detailItem;
@@ -32,7 +43,8 @@
         NSString *name = [NSString stringWithFormat:@"%@ %@",
                           [self.detailItem firstName],
                           [self.detailItem lastName]];
-        self.nameLabel.text = name;
+        if ([name isEqualToString: @" "]) self.nameLabel.text = [self.detailItem username];
+        else self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
         self.imageView.image = [self.detailItem profPic];
@@ -66,17 +78,6 @@
         [skillViewController setDetailItem:self.detailItem];
     }
     
-}
-
-void saveCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a profile");
-}
-
-
-void saveSkillCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill");
 }
 
 - (IBAction)save:(UIStoryboardSegue *)segue {

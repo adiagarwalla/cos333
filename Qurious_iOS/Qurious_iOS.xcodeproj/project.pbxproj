@@ -75,6 +75,7 @@
 		66D7D9A018FE187B00F4BF89 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */; };
 		66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
+		F935963218FF23B100CC602D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F935963118FF23B100CC602D /* Opentok.framework */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
 		F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
@@ -231,8 +232,11 @@
 		66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		66D7D9A118FE1FFF00F4BF89 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		F918E4E318FDF09400BBB508 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		F918E4E418FDF09400BBB508 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		F935963118FF23B100CC602D /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
 		F942A07318F353EF00B8A2E4 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		F95E0FC418FB316200CC16E0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F935963218FF23B100CC602D /* Opentok.framework in Frameworks */,
 				66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */,
 				4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */,
 				66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */,
@@ -483,6 +488,7 @@
 		66D7D8CD18EA11E400F4BF89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F935963118FF23B100CC602D /* Opentok.framework */,
 				66D7D96918FB234300F4BF89 /* Opentok.framework */,
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
 				66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */,
@@ -535,6 +541,8 @@
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
+				F918E4E318FDF09400BBB508 /* ProfileViewController.h */,
+				F918E4E418FDF09400BBB508 /* ProfileViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D99D18FE102C00F4BF89 /* ProfileViewController.h */,
@@ -885,8 +893,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 					"$(PROJECT_DIR)/opentok-ios-sdk",
@@ -916,8 +922,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/abhinavkhanna/Downloads,
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 					"$(PROJECT_DIR)/opentok-ios-sdk",
