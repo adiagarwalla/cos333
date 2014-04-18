@@ -10,17 +10,17 @@
 #import "QApiRequests.h"
 
 @implementation ViewController {
-    OTSession* _session;
     OTPublisher* _publisher;
     OTSubscriber* _subscriber;
 }
-static double widgetHeight = 240;
-static double widgetWidth = 320;
+@synthesize session = _session;
 
 static NSString* const kApiKey = @"44722692";    // Replace with your OpenTok API key
 static NSString* kSessionId = @"2_MX40NDcyMjY5Mn5-U2F0IEFwciAxMiAxOTo0MjowOSBQRFQgMjAxNH4wLjMxMjIyMjU0fn4"; // Replace with your generated session ID
 static NSString* kToken = @"";    // Replace with your generated token (use the Dashboard or an OpenTok server-side library)
 static void* object;
+static double widgetHeight;
+static double widgetWidth;
 
 void sessioncallback(id arg) {
 
@@ -31,13 +31,18 @@ void sessioncallback(id arg) {
     [(__bridge ViewController*)object doConnect];
 }
 
-static bool subscribeToSelf = YES; // Change to NO to subscribe to streams other than your own.
+static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other than your own.
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    widgetHeight = screenRect.size.height;
+    widgetWidth = screenRect.size.width;
+    //[self.navigationItem setHidesBackButton:YES animated:NO];
+    //self.navigationController.navigationBar.hidden = YES;
     object = (__bridge void *)(self);
     _session = [[OTSession alloc] initWithSessionId:kSessionId
                                            delegate:self];
@@ -100,7 +105,7 @@ static bool subscribeToSelf = YES; // Change to NO to subscribe to streams other
 {
     NSString* alertMessage = [NSString stringWithFormat:@"Session disconnected: (%@)", session.sessionId];
     NSLog(@"sessionDidDisconnect (%@)", alertMessage);
-    [self showAlert:alertMessage];
+    //[self showAlert:alertMessage];
 }
 
 
@@ -161,6 +166,7 @@ static bool subscribeToSelf = YES; // Change to NO to subscribe to streams other
     NSLog(@"sessionDidFail");
     [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
 }
+
 
 
 - (void)showAlert:(NSString*)string {

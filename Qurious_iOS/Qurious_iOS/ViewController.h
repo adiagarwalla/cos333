@@ -15,4 +15,5 @@
 - (void)doPublish;
 - (void)showAlert:(NSString*)string;
 + (void) setSessionToken:(NSString*)token;
+@property (strong, nonatomic) OTSession* session;
 @end

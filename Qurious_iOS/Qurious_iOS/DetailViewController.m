@@ -124,9 +124,16 @@ void detail_callback (id arg) {
     me = self;
     [detailSpinner startAnimating];
     [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
-    // set _segue here
+
 }
 
+- (IBAction)cancel:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"SessionOver"]) {
+        ViewController *sessionController = [segue sourceViewController];
+        [sessionController.session disconnect];
+    }
+
+}
 
 
 

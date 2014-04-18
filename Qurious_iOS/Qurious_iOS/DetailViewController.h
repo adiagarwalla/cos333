@@ -18,6 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-
+- (IBAction)cancel:(UIStoryboardSegue *)segue;
 -(IBAction) sessionButtonClicked;
 @end
