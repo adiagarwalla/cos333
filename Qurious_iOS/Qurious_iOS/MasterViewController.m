@@ -67,13 +67,15 @@ void mastercallback(id arg) {
 
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
     // test the server requests right here
     // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!

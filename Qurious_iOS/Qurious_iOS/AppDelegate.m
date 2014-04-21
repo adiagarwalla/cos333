@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "QApiRequests.h"
 
 @implementation AppDelegate
 
@@ -18,7 +19,19 @@
     // Override point for customization after application launch.
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
+
     return YES;
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	// make the network call here...
+    [QApiRequests sendToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding]];
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
