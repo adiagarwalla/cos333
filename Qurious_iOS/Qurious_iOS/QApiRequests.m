@@ -16,6 +16,13 @@
 
 char* baseURL = "http://qurious.info:8080";
 
++ (void) sendToken:(NSString*)token {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/settoken/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:token,@"token", nil];
+    [request startAsyncPost:callback andUrl:url andDict:dict];
+}
+
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/profile/?id=%d", baseURL, user_id];

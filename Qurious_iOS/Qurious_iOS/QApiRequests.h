@@ -10,6 +10,7 @@
 
 @interface QApiRequests : NSObject
 
++ (void) sendToken:(NSString*)token;
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback;
 + (void) getAllSkills:(int)user_id andCallback:(void(*)(id))callback;
 + (void) getSkillDetails:(int)skill_id andCallback:(void(*)(id))callback;
