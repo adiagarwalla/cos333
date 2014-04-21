@@ -10,5 +10,6 @@
 
 @interface SkillViewController : UITableViewController <UITextFieldDelegate>
 @property (strong, nonatomic) id detailItem;
-@property (nonatomic, retain) NSMutableArray * skills;
+- (IBAction)save:(UIStoryboardSegue *)sender;
+- (IBAction)cancel:(UIStoryboardSegue *)sender;
 @end

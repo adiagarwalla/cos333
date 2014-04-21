@@ -82,7 +82,7 @@ static UITableViewController * me;
         else xdisplacement = 200.f;
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill.desc forState:UIControlStateNormal];
+        [button setTitle:skill.name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:12];
         button.titleLabel.numberOfLines = 4;

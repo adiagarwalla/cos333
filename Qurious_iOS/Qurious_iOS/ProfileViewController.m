@@ -27,6 +27,11 @@ void saveSkillCallback (id arg) {
     printf("%s", "Saved a skill");
 }
 
+void pictureCallback(id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Saved a picture");
+}
+
 
 @implementation ProfileViewController
 @synthesize detailItem = _detailItem;
@@ -72,13 +77,15 @@ void saveSkillCallback (id arg) {
         EditViewController *editViewController = [navigationControllers objectAtIndex:0];
         [editViewController setDetailItem:self.detailItem];
     }
-    if ([[segue identifier] isEqualToString:@"editSkills"]) {
+    if ([[segue identifier] isEqualToString:@"showSkillEdit"]) {
         NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
         SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
         [skillViewController setDetailItem:self.detailItem];
     }
     
 }
+
+
 
 - (IBAction)save:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"saveInput"]) {
@@ -91,20 +98,9 @@ void saveSkillCallback (id arg) {
         
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
-        [self configureView];
-    }
-    if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
-        SkillViewController *skillController = [segue sourceViewController];
-        [self.detailItem setSkills: skillController.skills];
-        
-        
-        for (Skill *skill in skillController.skills) {
-            if (skill.skillID == 0)
-                [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
-        }
+        [QApiRequests uploadImage:[self.detailItem profPic] andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
         
         [self configureView];
-        [self loadButtons];
     }
     
 }
@@ -135,7 +131,7 @@ void saveSkillCallback (id arg) {
         else xdisplacement = 200.f;
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill.desc forState:UIControlStateNormal];
+        [button setTitle:skill.name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:12];
         button.titleLabel.numberOfLines = 4;

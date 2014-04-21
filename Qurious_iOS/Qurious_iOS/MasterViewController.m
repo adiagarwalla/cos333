@@ -52,7 +52,8 @@ void mastercallback(id arg) {
             NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
             for (NSDictionary * skill in skills) {
                 Skill * mySkill = [[Skill alloc] init];
-                mySkill.desc = skill[@"fields"][@"name"];
+                mySkill.name = skill[@"fields"][@"name"];
+                mySkill.desc = skill[@"fields"][@"desc"];
                 mySkill.price = skill[@"fields"][@"price"];
                 if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
                 else mySkill.isMarketable = NO;

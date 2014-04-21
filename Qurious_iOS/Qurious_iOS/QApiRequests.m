@@ -35,10 +35,10 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
-+ (void) uploadImage:(UIImageView*) imageView andId:(NSString*)user_id andCallback:(void(*)(id))callback {
++ (void) uploadImage:(UIImage*) image andId:(NSString*)user_id andCallback:(void(*)(id))callback {
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/uploadimage/", baseURL];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager alloc];
-    NSData *imageData = UIImageJPEGRepresentation(imageView.image, 0.5);
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     NSDictionary *parameters = @{@"id": user_id};
     AFHTTPRequestOperation *op = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!

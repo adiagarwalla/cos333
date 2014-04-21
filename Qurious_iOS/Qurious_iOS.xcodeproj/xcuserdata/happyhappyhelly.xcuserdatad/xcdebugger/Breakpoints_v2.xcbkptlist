@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Qurious_iOS/Skill.h"
-            timestampString = "418600060.20717"
+            timestampString = "419813638.859573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "isMarketable"
             landmarkType = "19">
          </BreakpointContent>

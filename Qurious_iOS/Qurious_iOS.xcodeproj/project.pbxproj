@@ -87,6 +87,7 @@
 		F9C17F5818EC8E8E0095F92E /* img5.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5218EC8E8E0095F92E /* img5.png */; };
 		F9C17F5918EC8E8E0095F92E /* img6.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5318EC8E8E0095F92E /* img6.png */; };
 		F9D344D018EE8780008A4B35 /* SkillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D344CF18EE8780008A4B35 /* SkillViewController.m */; };
+		F9D400C31905D988000AA729 /* SkillEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D400C21905D988000AA729 /* SkillEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +252,8 @@
 		F9C17F5318EC8E8E0095F92E /* img6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img6.png; sourceTree = "<group>"; };
 		F9D344CE18EE8780008A4B35 /* SkillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillViewController.h; sourceTree = "<group>"; };
 		F9D344CF18EE8780008A4B35 /* SkillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillViewController.m; sourceTree = "<group>"; };
+		F9D400C11905D988000AA729 /* SkillEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillEditViewController.h; sourceTree = "<group>"; };
+		F9D400C21905D988000AA729 /* SkillEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,6 +536,8 @@
 				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
+				F9D400C11905D988000AA729 /* SkillEditViewController.h */,
+				F9D400C21905D988000AA729 /* SkillEditViewController.m */,
 				66D7D99018FDAA1900F4BF89 /* menu.png */,
 				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D95E18F7B0C500F4BF89 /* ViewController.m */,
@@ -723,6 +728,7 @@
 				F942A07418F353EF00B8A2E4 /* Skill.m in Sources */,
 				4830009F18F2F94D00A92467 /* AFHTTPRequestOperation.m in Sources */,
 				483000A118F2F94D00A92467 /* AFHTTPSessionManager.m in Sources */,
+				F9D400C31905D988000AA729 /* SkillEditViewController.m in Sources */,
 				483000AA18F2F94D00A92467 /* UIAlertView+AFNetworking.m in Sources */,
 				483000A518F2F94D00A92467 /* AFURLRequestSerialization.m in Sources */,
 				66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */,

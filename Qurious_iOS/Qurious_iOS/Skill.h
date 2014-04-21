@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Skill : NSObject
+@property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *desc;
 @property (copy, nonatomic) NSString *price;
 @property (nonatomic) BOOL isMarketable;
