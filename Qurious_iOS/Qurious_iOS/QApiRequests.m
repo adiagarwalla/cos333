@@ -66,6 +66,12 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
++ (void) deleteSkill:(int)skill_id andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/delete/?id=%d", baseURL, skill_id];
+    [request startAsync:callback andUrl:url];
+}
+
 + (void) getAllProfiles:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/allprofiles/", baseURL];
