@@ -11,6 +11,7 @@ from qurious.profiles.forms import SkillEditForm
 from qurious.profiles.models import Skill
 from qurious.profiles.models import UserProfile
 from qurious.profiles.models import ProfileImage
+from qurious.profiles.forms import UploadFileForm
 
 class profileIOSDetailView(View):
     """
