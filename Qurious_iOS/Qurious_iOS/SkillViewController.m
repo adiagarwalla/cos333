@@ -92,7 +92,7 @@ void getSkillsCallback(id arg) {
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NO;
+    return YES;
 }
 
 void deleteCallback(id arg){
@@ -100,15 +100,16 @@ void deleteCallback(id arg){
     printf("%s", "Deleted a skill!\n");
 }
 
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        int skillID = [[_skills objectAtIndex:indexPath.row] skillID];
-//        [_skills removeObjectAtIndex: indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        [QApiRequests deleteSkill: skillID andCallback: &deleteCallback];
-//    }
-//}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        _skills = [_skills mutableCopy];
+        int skillID = [[_skills objectAtIndex:indexPath.row] skillID];
+        [_skills removeObjectAtIndex: indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [QApiRequests deleteSkill: skillID andCallback: &deleteCallback];
+    }
+}
 
 
 void addSkillCallback(id arg){

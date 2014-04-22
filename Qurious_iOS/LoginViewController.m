@@ -74,6 +74,10 @@ void loginCallback (id arg) {
     else {
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger: [myID intValue] forKey:@"myID"];
+        [defaults synchronize];
+        NSLog(@"UserID saved");
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
         
     }
@@ -81,14 +85,14 @@ void loginCallback (id arg) {
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"prepareForSegue: %@", segue.identifier);
-    
-    if ([segue.identifier isEqualToString:@"loginSuccess"]) {
-        [[segue destinationViewController] setUserID: myID];
-    }
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    NSLog(@"prepareForSegue: %@", segue.identifier);
+//    
+//    if ([segue.identifier isEqualToString:@"loginSuccess"]) {
+//        [[segue destinationViewController] setUserID: myID];
+//    }
+//}
 
 
 - (IBAction) loginButtonClicked {

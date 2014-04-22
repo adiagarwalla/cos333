@@ -79,6 +79,7 @@
 		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
 		F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
 		F95E0FCD18FB6F1900CC16E0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */; };
+		F95E8FA51906E24A007DF7C4 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E8FA41906E24A007DF7C4 /* LandingViewController.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
 		F9C17F5518EC8E8E0095F92E /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4F18EC8E8E0095F92E /* img2.png */; };
 		F9C17F5618EC8E8E0095F92E /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5018EC8E8E0095F92E /* img3.png */; };
@@ -242,6 +243,8 @@
 		F95E0FC518FB316200CC16E0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = ../SignupViewController.h; sourceTree = "<group>"; };
 		F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = ../SignupViewController.m; sourceTree = "<group>"; };
+		F95E8FA31906E24A007DF7C4 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		F95E8FA41906E24A007DF7C4 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		F9C17F4E18EC8E8E0095F92E /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		F9C17F4F18EC8E8E0095F92E /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
 		F9C17F5018EC8E8E0095F92E /* img3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img3.png; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
 				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
 				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
+				F95E8FA31906E24A007DF7C4 /* LandingViewController.h */,
+				F95E8FA41906E24A007DF7C4 /* LandingViewController.m */,
 				F9D400C11905D988000AA729 /* SkillEditViewController.h */,
 				F9D400C21905D988000AA729 /* SkillEditViewController.m */,
 				66D7D99018FDAA1900F4BF89 /* menu.png */,
@@ -711,6 +716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */,
+				F95E8FA51906E24A007DF7C4 /* LandingViewController.m in Sources */,
 				483000A318F2F94D00A92467 /* AFSecurityPolicy.m in Sources */,
 				48512D9518F1D3CC0076D03E /* QApiRequests.m in Sources */,
 				483000A218F2F94D00A92467 /* AFNetworkReachabilityManager.m in Sources */,

@@ -21,7 +21,6 @@
 static NSMutableArray *_objects;
 static UITableView *view;
 static Person * me;
-static MasterViewController * _self;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -35,6 +34,8 @@ void mastercallback(id arg) {
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger myID = [defaults integerForKey:@"myID"];
     if (arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
         
@@ -47,7 +48,7 @@ void mastercallback(id arg) {
             friend.email = fields[@"user_email"];
             friend.bio = fields[@"user_bio"];
             friend.userID = [fields[@"user"] intValue];
-            if (friend.userID == [_self.userID intValue]) {
+            if (friend.userID == myID) {
                 me = friend;
             }
             friend.username = fields[@"profile_name"];
@@ -87,7 +88,6 @@ void mastercallback(id arg) {
     //[QApiRequests getProfiles:2 andCallback:&callback];
     
     view = (UITableView *)self.view;
-    _self = self;
     
     //[QApiRequests getAllProfiles:&mastercallback];
     
