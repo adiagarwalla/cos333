@@ -392,7 +392,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Jbe-Bk-g0F" kind="push" identifier="showSkillEdit" id="vzr-D3-bJG"/>
+                                                        <segue destination="Nlq-Nd-6Bn" kind="push" identifier="showSkillEdit" id="evi-Ty-l61"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -746,7 +746,7 @@
         <scene sceneID="GZD-u8-AMQ">
             <objects>
                 <tableViewController id="ZOL-Px-I9S" customClass="SkillEditViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3ZB-RH-X2M" customClass="SkillEditTableView">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3ZB-RH-X2M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -846,10 +846,6 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="ZOL-Px-I9S" id="TWW-Oc-ap0"/>
-                            <outlet property="delegate" destination="ZOL-Px-I9S" id="BXv-Ct-hah"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add/Edit A Skill" id="82g-ow-D1T">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZP7-mY-WSP">
@@ -874,22 +870,6 @@
                 <exit id="jL3-Wy-qv4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1857" y="-1295"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8BK-Ue-hgT">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="Jbe-Bk-g0F" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="URI-04-c8f"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yNo-1P-BrQ">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Nlq-Nd-6Bn" kind="relationship" relationship="rootViewController" id="s0S-gZ-7bs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="57h-Vi-XHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="454" y="-1295"/>
         </scene>
         <!--Navigation Controller - Log In-->
         <scene sceneID="0qE-TY-EU8">

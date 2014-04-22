@@ -78,9 +78,7 @@ void pictureCallback(id arg) {
         [editViewController setDetailItem:self.detailItem];
     }
     if ([[segue identifier] isEqualToString:@"showSkillEdit"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
-        [skillViewController setDetailItem:self.detailItem];
+        [[segue destinationViewController] setDetailItem:self.detailItem];
     }
     
 }

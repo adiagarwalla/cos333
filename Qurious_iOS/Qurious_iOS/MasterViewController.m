@@ -89,8 +89,7 @@ void mastercallback(id arg) {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    [view reloadData];
+    [self viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning

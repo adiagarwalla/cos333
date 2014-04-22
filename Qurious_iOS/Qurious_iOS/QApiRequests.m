@@ -16,11 +16,11 @@
 
 char* baseURL = "http://qurious.info:8080";
 
-+ (void) sendToken:(NSString*)token {
++ (void) sendToken:(NSString*)token andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/settoken/", baseURL];
     NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:token,@"token", nil];
-    [request startAsyncPost:callback andUrl:url andDict:dict];
+    [request startAsyncPost: callback andUrl:url andDict:dict];
 }
 
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback {
@@ -43,8 +43,8 @@ char* baseURL = "http://qurious.info:8080";
 }
 
 + (void) uploadImage:(UIImage*) image andId:(NSString*)user_id andCallback:(void(*)(id))callback {
-    NSString* url = [NSString stringWithFormat:@"%s/api-profile/uploadimage/", baseURL];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager alloc];
+    NSString* url = [NSString stringWithFormat:@"/api-profile/uploadimage/"];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat:@"%s",baseURL]]];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     NSDictionary *parameters = @{@"id": user_id};
     AFHTTPRequestOperation *op = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -58,11 +58,11 @@ char* baseURL = "http://qurious.info:8080";
     [op start];
 }
 
-+ (void) editSkill:(int)skill_id andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback {
++ (void) editSkill:(int)skill_id andName:(NSString*)name andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback {
     
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/skills/", baseURL];
-    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:price,@"price", desc, @"name",[NSString stringWithFormat:@"%i", isMarketable], @"marketable", [NSString stringWithFormat:@"%i", skill_id], @"skill_id", nil];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:price,@"price", name, @"name", desc, @"desc", [NSString stringWithFormat:@"%i", isMarketable], @"marketable", [NSString stringWithFormat:@"%i", skill_id], @"skill_id", nil];
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 

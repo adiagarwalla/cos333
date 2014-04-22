@@ -9,6 +9,8 @@
 #import "SkillViewController.h"
 #import "Person.h"
 #import "Skill.h"
+#import "SkillEditViewController.h"
+#import "QApiRequests.h"
 
 @interface SkillViewController () {
     NSMutableArray * _skills;
@@ -33,7 +35,6 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
-    [self.navigationItem setHidesBackButton:YES animated:NO];
     _skills = [_detailItem skills];
     
 }
@@ -61,7 +62,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:@"Cell"
+                             dequeueReusableCellWithIdentifier:@"skillCell"
                              forIndexPath:indexPath];
     Skill * skill = _skills[indexPath.row];
     cell.textLabel.text = skill.name;
@@ -73,7 +74,29 @@
     return NO;
 }
 
-- (IBAction)save:(UIStoryboardSegue *)sender{
+void addSkillCallback(id arg){
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Saved a skill!\n");
+}
+
+- (IBAction)save:(UIStoryboardSegue *)segue{
+    
+    if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
+        SkillEditViewController *skillEditController = [segue sourceViewController];
+//        [self.detailItem setFirstName:skillEditController.nameField.text];
+//        [self.detailItem setLastName:skillEditController.priceField.text];
+//        [self.detailItem setEmail:skillEditController.descField.text];
+        //  new skill
+        if (skillEditController.detailItem == NULL) {
+            NSString *name = skillEditController.nameField.text;
+            NSString *price = skillEditController.priceField.text;
+            if ([price isEqualToString:@""]) price = @"0";
+            [QApiRequests editSkill: 0 andName: name andPrice: price andDesc:skillEditController.descField.text andForSale:skillEditController.forSaleSwitch.on andCallback:addSkillCallback ];
+        }
+        else {
+            
+        }
+    }
     
 }
 - (IBAction)cancel:(UIStoryboardSegue *)sender{
@@ -83,10 +106,13 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"addSkill"]) {
+    if ([[segue identifier] isEqualToString:@"editSkill"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Skill * skill = _skills[indexPath.row];
-        [[segue destinationViewController] setDetailItem:skill];
+        [[segue destinationViewController] setDetailItem:skill]; // set ISNEW LATER
+    }
+    if ([[segue identifier] isEqualToString:@"addSkill"]) {
+
     }
 
 }
