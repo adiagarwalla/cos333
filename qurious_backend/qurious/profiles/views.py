@@ -11,6 +11,7 @@ from qurious.profiles.forms import SkillEditForm
 from qurious.profiles.models import Skill
 from qurious.profiles.models import UserProfile
 from qurious.profiles.models import ProfileImage
+from qurious.profiles.forms import UploadFileForm
 
 class profileIOSDetailView(View):
     """
@@ -54,7 +55,6 @@ class ImageView(View):
     def post(self, request, *args, **kwargs):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            # QUESTIONABLE CODE, THIS NEEDS TO BE FUCKING CHANGED
             id = request.POST.get('id')
             user = User.objects.get(id=id)
             userprof = user.userprofile
@@ -64,7 +64,8 @@ class ImageView(View):
             data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
-        return HttpResponse('', mimetype='application/json')
+        data = simplejson.dumps({'errors': form.errors})
+        return HttpResponse(data, mimetype='application/json')
 
 class ProfileIOSAllView(View):
     """
@@ -90,7 +91,6 @@ class skillIOSView(View):
     with a skill (price, description, name, etc)
     """
     def get(self, request, *args, **kwargs):
-        import pdb; pdb.set_trace()
         try:
             id = request.GET.get('id')
             skill = Skill.objects.get(id=id)
@@ -116,7 +116,7 @@ class skillIOSView(View):
                 skill.price = form.cleaned_data.get('price')
                 skill.desc = form.cleaned_data.get('desc')
                 skill.is_marketable = bool(form.cleaned_data.get('marketable'))
-
+                skill.save()
             data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
