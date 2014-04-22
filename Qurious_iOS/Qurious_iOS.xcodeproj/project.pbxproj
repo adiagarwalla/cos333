@@ -68,7 +68,6 @@
 		66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94B18F7B09A00F4BF89 /* Foundation.framework */; };
 		66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */; };
 		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
-		66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D96918FB234300F4BF89 /* Opentok.framework */; };
 		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
 		66D7D99118FDAA1900F4BF89 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D99018FDAA1900F4BF89 /* menu.png */; };
 		66D7D99C18FE102400F4BF89 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99B18FE102400F4BF89 /* ProfileViewController.m */; };
@@ -224,7 +223,6 @@
 		66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66D7D95E18F7B0C500F4BF89 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		66D7D96918FB234300F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
 		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		66D7D99018FDAA1900F4BF89 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		66D7D99B18FE102400F4BF89 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 				48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */,
 				66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */,
 				66D7D95418F7B09A00F4BF89 /* CoreAudio.framework in Frameworks */,
-				66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */,
 				66D7D95518F7B09A00F4BF89 /* CoreVideo.framework in Frameworks */,
 				66D7D95618F7B09A00F4BF89 /* OpenGLES.framework in Frameworks */,
 				48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */,
@@ -492,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				F935963118FF23B100CC602D /* Opentok.framework */,
-				66D7D96918FB234300F4BF89 /* Opentok.framework */,
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
 				66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */,
 				66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */,
@@ -912,6 +908,9 @@
 					"$(PROJECT_DIR)/Opentok.framework",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/Current",
+					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework",
+					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/A",
+					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/Current",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -941,6 +940,9 @@
 					"$(PROJECT_DIR)/Opentok.framework",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/Current",
+					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework",
+					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/A",
+					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/Current",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
