@@ -74,9 +74,26 @@
     return NO;
 }
 
+void deleteCallback(id arg){
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Deleted a skill!\n");
+}
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        int skillID = [[_skills objectAtIndex:indexPath.row] skillID];
+//        [_skills removeObjectAtIndex: indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [QApiRequests deleteSkill: skillID andCallback: &deleteCallback];
+//    }
+//}
+
+
 void addSkillCallback(id arg){
     NSLog(@"JSON: %@", arg);
     printf("%s", "Saved a skill!\n");
+
 }
 
 - (IBAction)save:(UIStoryboardSegue *)segue{
@@ -95,6 +112,7 @@ void addSkillCallback(id arg){
         NSString *price = skillEditController.priceField.text;
         if ([price isEqualToString:@""]) price = @"0";
         [QApiRequests editSkill: skillID andName: name andPrice: price andDesc:skillEditController.descField.text andForSale:skillEditController.forSaleSwitch.on andCallback:addSkillCallback ];
+        
     }
     
 }

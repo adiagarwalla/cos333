@@ -21,6 +21,7 @@
 static NSMutableArray *_objects;
 static UITableView *view;
 static Person * me;
+static MasterViewController * _self;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -47,6 +48,9 @@ void mastercallback(id arg) {
             friend.email = fields[@"user_email"];
             friend.bio = fields[@"user_bio"];
             friend.userID = [fields[@"user"] intValue];
+            if (friend.userID == [_self.userID intValue]) {
+                me = friend;
+            }
             friend.username = fields[@"profile_name"];
             NSDictionary *skills = jsonobject[@"skills"];
             NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
@@ -66,6 +70,7 @@ void mastercallback(id arg) {
         [view reloadData];
     }
 
+
 }
 
 - (void)viewDidLoad
@@ -83,6 +88,7 @@ void mastercallback(id arg) {
     //[QApiRequests getProfiles:2 andCallback:&callback];
     
     view = (UITableView *)self.view;
+    _self = self;
     
     //[QApiRequests getAllProfiles:&mastercallback];
     
@@ -142,14 +148,14 @@ void mastercallback(id arg) {
         [[segue destinationViewController] setDetailItem:friend];
     }
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
-        Person * me;
-        for (Person * person in _objects) {
-            if (person.userID == [self.userID intValue]) {
-                NSLog(@"Found me!");
-                me = person;
-                break;
-            }
-        }
+//        Person * me;
+//        for (Person * person in _objects) {
+//            if (person.userID == [self.userID intValue]) {
+//                NSLog(@"Found me!");
+//                me = person;
+//                break;
+//            }
+//        }
         [[segue destinationViewController] setDetailItem:me];
     }
 }
