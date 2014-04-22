@@ -83,19 +83,18 @@ void addSkillCallback(id arg){
     
     if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
         SkillEditViewController *skillEditController = [segue sourceViewController];
-//        [self.detailItem setFirstName:skillEditController.nameField.text];
-//        [self.detailItem setLastName:skillEditController.priceField.text];
-//        [self.detailItem setEmail:skillEditController.descField.text];
-        //  new skill
+
+        int skillID;
         if (skillEditController.detailItem == NULL) {
-            NSString *name = skillEditController.nameField.text;
-            NSString *price = skillEditController.priceField.text;
-            if ([price isEqualToString:@""]) price = @"0";
-            [QApiRequests editSkill: 0 andName: name andPrice: price andDesc:skillEditController.descField.text andForSale:skillEditController.forSaleSwitch.on andCallback:addSkillCallback ];
+            skillID = 0;
         }
         else {
-            
+            skillID = [skillEditController.detailItem skillID];
         }
+        NSString *name = skillEditController.nameField.text;
+        NSString *price = skillEditController.priceField.text;
+        if ([price isEqualToString:@""]) price = @"0";
+        [QApiRequests editSkill: skillID andName: name andPrice: price andDesc:skillEditController.descField.text andForSale:skillEditController.forSaleSwitch.on andCallback:addSkillCallback ];
     }
     
 }
@@ -109,9 +108,11 @@ void addSkillCallback(id arg){
     if ([[segue identifier] isEqualToString:@"editSkill"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Skill * skill = _skills[indexPath.row];
-        [[segue destinationViewController] setDetailItem:skill]; // set ISNEW LATER
+        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
+        SkillEditViewController *editViewController = [navigationControllers objectAtIndex:0];
+        [editViewController setDetailItem:skill];
     }
-    if ([[segue identifier] isEqualToString:@"addSkill"]) {
+    else if ([[segue identifier] isEqualToString:@"addSkill"]) {
 
     }
 

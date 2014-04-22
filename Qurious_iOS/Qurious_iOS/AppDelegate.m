@@ -30,7 +30,9 @@ void appDelegateCallback(id arg) {
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	// make the network call here...
-    [QApiRequests sendToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding] andCallback:&appDelegateCallback];
+    if (deviceToken != NULL) {
+        [QApiRequests sendToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding] andCallback:&appDelegateCallback];
+    }
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

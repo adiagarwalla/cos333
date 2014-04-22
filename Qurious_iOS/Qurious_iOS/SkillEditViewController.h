@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SkillEditViewController : UITableViewController
+@interface SkillEditViewController : UITableViewController <UITextFieldDelegate>
 @property (strong, nonatomic) id detailItem;
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *priceField;

@@ -7,7 +7,7 @@
 //
 
 #import "SkillEditViewController.h"
-
+#import "Skill.h"
 @interface SkillEditViewController ()
 
 @end
@@ -32,7 +32,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_descField.layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [_descField.layer setBorderWidth:1.0];
+    _descField.layer.cornerRadius = 5;
+    _descField.clipsToBounds = YES;
+    _nameField.delegate = self;
+    _priceField.delegate = self;
     
+    if (self.detailItem != NULL) {
+        _descField.text = [self.detailItem desc];
+        _nameField.text = [self.detailItem name];
+        _nameField.enabled = NO;
+        _nameField.textColor = [UIColor lightGrayColor];
+        _priceField.text = [NSString stringWithFormat:@"%@", [self.detailItem price]];
+        [_forSaleSwitch setOn:[self.detailItem isMarketable] animated:YES];
+    }
     
 }
 
@@ -41,6 +55,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString: @"saveSkillEdit"]) {
+        if ([_nameField.text isEqualToString: @""]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Skill Name"
+                                                            message:@"Please enter a valid nonempty skill name. Remember, this cannot be changed!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+    
+    return YES;
+    
+}
+
 
 #pragma mark - Table view data source
 

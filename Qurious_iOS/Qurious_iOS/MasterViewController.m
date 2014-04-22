@@ -55,6 +55,7 @@ void mastercallback(id arg) {
                 mySkill.name = skill[@"fields"][@"name"];
                 mySkill.desc = skill[@"fields"][@"desc"];
                 mySkill.price = skill[@"fields"][@"price"];
+                mySkill.skillID = [skill[@"pk"] intValue];
                 if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
                 else mySkill.isMarketable = NO;
                 [allmyskills insertObject:mySkill atIndex:0];
@@ -74,8 +75,8 @@ void mastercallback(id arg) {
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+//    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+//     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
     // test the server requests right here
     // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
@@ -83,13 +84,13 @@ void mastercallback(id arg) {
     
     view = (UITableView *)self.view;
     
-    [QApiRequests getAllProfiles:&mastercallback];
+    //[QApiRequests getAllProfiles:&mastercallback];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self viewDidLoad];
+    [QApiRequests getAllProfiles:&mastercallback];
 }
 
 - (void)didReceiveMemoryWarning

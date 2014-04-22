@@ -49,7 +49,7 @@ char* baseURL = "http://qurious.info:8080";
     NSDictionary *parameters = @{@"id": user_id};
     AFHTTPRequestOperation *op = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!
-        [formData appendPartWithFileData:imageData name:@"files" fileName:[NSString stringWithFormat:@"profile_pic_%@", user_id] mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"profile_pic_%@", user_id] mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
