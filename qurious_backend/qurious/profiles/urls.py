@@ -10,4 +10,5 @@ urlpatterns = patterns('',
         url(r'^uploadimage/$', views.ImageView.as_view(), name='upload-image'),
         url(r'^delete/$', views.DeleteSkillIOSView.as_view(), name='delete-skill'),
         url(r'^whoami/$', views.WhoAmIView.as_view(), name='whoami'),
+        url(r'^settoken/$', views.SetPushToken.as_view(), name='settoken'),
         )

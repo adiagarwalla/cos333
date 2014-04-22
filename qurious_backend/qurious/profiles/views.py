@@ -67,8 +67,6 @@ class ImageView(View):
 
         return HttpResponse('', mimetype='application/json')
 
-
-
 class ProfileIOSAllView(View):
     """
     This view returns all of the profiles in the db
@@ -93,6 +91,7 @@ class skillIOSView(View):
     with a skill (price, description, name, etc)
     """
     def get(self, request, *args, **kwargs):
+        import pdb; pdb.set_trace()
         try:
             id = request.GET.get('id')
             skill = Skill.objects.get(id=id)
@@ -166,3 +165,17 @@ class WhoAmIView(View):
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
+
+class SetPushToken(View):
+    """
+    Set phone token for push notifications
+    """
+    def post(self, request, *args, **kwargs):
+        username = request.user.username
+        user = User.objects.get(username=username)
+        user_profile = user.userprofile
+        user_profile.token = request.POST.get('token')
+        user_profile.save()
+        
+        data =  simplejson.dumps({'return': True})
+        return HttpResponse(data, mimetype='application/json')
