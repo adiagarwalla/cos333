@@ -35,7 +35,6 @@ void mastercallback(id arg) {
     NSLog(@"JSON: %@", arg);
     printf("%s", "Hi");
     
-    
     if (arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
         

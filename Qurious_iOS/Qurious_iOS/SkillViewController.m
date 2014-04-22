@@ -13,7 +13,7 @@
 #import "QApiRequests.h"
 
 @interface SkillViewController () {
-    NSMutableArray * _skills;
+
 }
 
 @end
@@ -22,22 +22,43 @@
 @implementation SkillViewController
 @synthesize detailItem = _detailItem;
 
+static NSMutableArray * _skills;
+static UITableView * view;
+static int _userID;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 }
 
-
+void getSkillsCallback(id arg) {
+    NSLog(@"JSON: %@", arg);
+    printf("%s", "Fetching skills");
+    _skills = [[NSMutableArray alloc]init]; // very poor garbage collection
+    for (NSDictionary * skill in (NSArray *)arg) {
+        Skill * mySkill = [[Skill alloc] init];
+        mySkill.name = skill[@"fields"][@"name"];
+        mySkill.desc = skill[@"fields"][@"desc"];
+        mySkill.price = skill[@"fields"][@"price"];
+        mySkill.skillID = [skill[@"pk"] intValue];
+        if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+        else mySkill.isMarketable = NO;
+        [_skills insertObject:mySkill atIndex:0];
+    }
+    [view reloadData];
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    view = (UITableView *)self.view;
+    _skills = [self.detailItem skills];
+    _userID = [self.detailItem userID];
 	// Do any additional setup after loading the view, typically from a nib.
-    _skills = [_detailItem skills];
+
     
 }
+
 
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +115,7 @@ void addSkillCallback(id arg){
     NSLog(@"JSON: %@", arg);
     printf("%s", "Saved a skill!\n");
 
+    [QApiRequests getAllSkills: _userID andCallback: &getSkillsCallback];
 }
 
 - (IBAction)save:(UIStoryboardSegue *)segue{
