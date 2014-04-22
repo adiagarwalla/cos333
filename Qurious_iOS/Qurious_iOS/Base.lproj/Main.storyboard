@@ -745,7 +745,7 @@
             </objects>
             <point key="canvasLocation" x="889" y="-1295"/>
         </scene>
-        <!--Skill Edit View Controller - Add/Edit A Skill-->
+        <!--Skill Edit View Controller-->
         <scene sceneID="GZD-u8-AMQ">
             <objects>
                 <tableViewController id="ZOL-Px-I9S" customClass="SkillEditViewController" sceneMemberID="viewController">
@@ -850,7 +850,7 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add/Edit A Skill" id="82g-ow-D1T">
+                    <navigationItem key="navigationItem" id="82g-ow-D1T">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZP7-mY-WSP">
                             <connections>
                                 <segue destination="jL3-Wy-qv4" kind="unwind" identifier="cancelSkillEdit" unwindAction="cancel:" id="3X1-qB-N6n"/>

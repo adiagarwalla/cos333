@@ -46,6 +46,10 @@
         _nameField.textColor = [UIColor lightGrayColor];
         _priceField.text = [NSString stringWithFormat:@"%@", [self.detailItem price]];
         [_forSaleSwitch setOn:[self.detailItem isMarketable] animated:YES];
+        self.navigationItem.title = @"Edit A Skill";
+    }
+    else {
+        self.navigationItem.title = @"Add A Skill";
     }
     
 }

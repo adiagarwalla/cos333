@@ -107,6 +107,8 @@ static UITableViewController * me;
     detailSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [detailSpinner setCenter:CGPointMake(160.0f, 188.0f)];
     [self.view addSubview:detailSpinner];
+    
+    self.navigationItem.title = self.nameLabel.text;
 
 }
 
