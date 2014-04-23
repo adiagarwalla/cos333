@@ -32,7 +32,7 @@ void appDelegateCallback(id arg) {
 	// make the network call here...
     if (deviceToken != NULL) {
         NSLog(@"Token: %@", deviceToken);
-        [QApiRequests sendToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding] andCallback:&appDelegateCallback];
+        [QApiRequests sendToken:[NSString stringWithFormat:@"%@", deviceToken] andCallback:&appDelegateCallback];
     }
 }
 
