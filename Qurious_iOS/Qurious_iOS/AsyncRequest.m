@@ -43,10 +43,10 @@ void(*f)(NSString*);
     NSDictionary *parameters = dict;
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         f(responseObject);
-        NSLog(@"JSON: %@", responseObject);
+        NSLog(@"ASYNCREQUEST JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         f(@"");
-        NSLog(@"Error: %@", error);
+        NSLog(@"ASYNCREQUEST JSON Error: %@", error);
     }];
 }
 @end

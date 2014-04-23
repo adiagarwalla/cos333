@@ -42,7 +42,7 @@
 }
 
 void logoutCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Log out JSON: %@", arg);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log out success!"
                                                     message:@""
                                                    delegate:nil

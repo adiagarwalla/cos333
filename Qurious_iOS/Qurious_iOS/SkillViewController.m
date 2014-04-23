@@ -33,7 +33,7 @@ static int _userID;
 }
 
 void getSkillsCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Get skills JSON: %@", arg);
     printf("%s", "Fetching skills");
     _skills = [[NSMutableArray alloc]init]; // very poor garbage collection
     for (NSDictionary * skill in (NSArray *)arg) {
@@ -109,7 +109,7 @@ void getSkillsCallback(id arg) {
 }
 
 void deleteCallback(id arg){
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Delete skill JSON: %@", arg);
     printf("%s", "Deleted a skill!\n");
 }
 
@@ -126,8 +126,8 @@ void deleteCallback(id arg){
 
 
 void addSkillCallback(id arg){
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill!\n");
+    NSLog(@"Add/edit skill JSON: %@", arg);
+    printf("%s", "Add/edited a skill!\n");
 
     [QApiRequests getAllSkills: _userID andCallback: &getSkillsCallback];
 }

@@ -25,8 +25,7 @@ static double widgetWidth;
 void sessioncallback(id arg) {
 
     // do nothing valuable
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
+    NSLog(@"Get Token JSON: %@", arg);
     kToken = ((NSDictionary*) arg)[@"token"];
     [(__bridge ViewController*)object doConnect];
 }

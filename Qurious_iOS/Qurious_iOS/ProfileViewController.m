@@ -19,18 +19,14 @@
 @end
 
 void saveCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Save profile JSON: %@", arg);
     printf("%s", "Saved a profile");
 }
 
 
-void saveSkillCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill");
-}
 
 void pictureCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Save picture JSON: %@", arg);
     printf("%s", "Saved a picture");
 }
 

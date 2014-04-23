@@ -31,8 +31,7 @@ static Person * me;
 void mastercallback(id arg) {
     
     // do nothing valuable
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
+    NSLog(@"Pulling all profiles JSON: %@", arg);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger myID = [defaults integerForKey:@"myID"];
