@@ -68,6 +68,7 @@
 		66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94B18F7B09A00F4BF89 /* Foundation.framework */; };
 		66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */; };
 		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
+<<<<<<< HEAD
 		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
 		66D7D99118FDAA1900F4BF89 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D99018FDAA1900F4BF89 /* menu.png */; };
 		66D7D99C18FE102400F4BF89 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99B18FE102400F4BF89 /* ProfileViewController.m */; };
@@ -75,11 +76,19 @@
 		66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F935963218FF23B100CC602D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F935963118FF23B100CC602D /* Opentok.framework */; };
+=======
+		66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D96918FB234300F4BF89 /* Opentok.framework */; };
+		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
+		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
+>>>>>>> server_release
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
 		F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
 		F95E0FCD18FB6F1900CC16E0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */; };
+<<<<<<< HEAD
 		F95E8FA51906E24A007DF7C4 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E8FA41906E24A007DF7C4 /* LandingViewController.m */; };
+=======
+>>>>>>> server_release
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
 		F9C17F5518EC8E8E0095F92E /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4F18EC8E8E0095F92E /* img2.png */; };
 		F9C17F5618EC8E8E0095F92E /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5018EC8E8E0095F92E /* img3.png */; };
@@ -87,7 +96,10 @@
 		F9C17F5818EC8E8E0095F92E /* img5.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5218EC8E8E0095F92E /* img5.png */; };
 		F9C17F5918EC8E8E0095F92E /* img6.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F5318EC8E8E0095F92E /* img6.png */; };
 		F9D344D018EE8780008A4B35 /* SkillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D344CF18EE8780008A4B35 /* SkillViewController.m */; };
+<<<<<<< HEAD
 		F9D400C31905D988000AA729 /* SkillEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D400C21905D988000AA729 /* SkillEditViewController.m */; };
+=======
+>>>>>>> server_release
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +236,7 @@
 		66D7D94C18F7B09A00F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66D7D95E18F7B0C500F4BF89 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		66D7D99018FDAA1900F4BF89 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		66D7D99B18FE102400F4BF89 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -237,14 +250,23 @@
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F935963118FF23B100CC602D /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
+=======
+		66D7D96918FB234300F4BF89 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
+		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
+		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+>>>>>>> server_release
 		F942A07218F353EF00B8A2E4 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
 		F942A07318F353EF00B8A2E4 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		F95E0FC418FB316200CC16E0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		F95E0FC518FB316200CC16E0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = ../SignupViewController.h; sourceTree = "<group>"; };
 		F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = ../SignupViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		F95E8FA31906E24A007DF7C4 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		F95E8FA41906E24A007DF7C4 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+=======
+>>>>>>> server_release
 		F9C17F4E18EC8E8E0095F92E /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		F9C17F4F18EC8E8E0095F92E /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
 		F9C17F5018EC8E8E0095F92E /* img3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img3.png; sourceTree = "<group>"; };
@@ -253,8 +275,11 @@
 		F9C17F5318EC8E8E0095F92E /* img6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img6.png; sourceTree = "<group>"; };
 		F9D344CE18EE8780008A4B35 /* SkillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillViewController.h; sourceTree = "<group>"; };
 		F9D344CF18EE8780008A4B35 /* SkillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		F9D400C11905D988000AA729 /* SkillEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillEditViewController.h; sourceTree = "<group>"; };
 		F9D400C21905D988000AA729 /* SkillEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillEditViewController.m; sourceTree = "<group>"; };
+=======
+>>>>>>> server_release
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,7 +287,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				F935963218FF23B100CC602D /* Opentok.framework in Frameworks */,
+=======
+>>>>>>> server_release
 				66D7D95D18F7B09A00F4BF89 /* CoreGraphics.framework in Frameworks */,
 				4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */,
 				66D7D95B18F7B09A00F4BF89 /* UIKit.framework in Frameworks */,
@@ -271,6 +299,10 @@
 				48512E1518F1D9F30076D03E /* libz.dylib in Frameworks */,
 				66D7D94D18F7B09A00F4BF89 /* CoreTelephony.framework in Frameworks */,
 				66D7D95418F7B09A00F4BF89 /* CoreAudio.framework in Frameworks */,
+<<<<<<< HEAD
+=======
+				66D7D96A18FB234300F4BF89 /* Opentok.framework in Frameworks */,
+>>>>>>> server_release
 				66D7D95518F7B09A00F4BF89 /* CoreVideo.framework in Frameworks */,
 				66D7D95618F7B09A00F4BF89 /* OpenGLES.framework in Frameworks */,
 				48512E1318F1D9E40076D03E /* MobileCoreServices.framework in Frameworks */,
@@ -491,7 +523,11 @@
 		66D7D8CD18EA11E400F4BF89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				F935963118FF23B100CC602D /* Opentok.framework */,
+=======
+				66D7D96918FB234300F4BF89 /* Opentok.framework */,
+>>>>>>> server_release
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
 				66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */,
 				66D7D93E18F7B09A00F4BF89 /* CFNetwork.framework */,
@@ -525,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */,
+<<<<<<< HEAD
 				66D7D9A118FE1FFF00F4BF89 /* SidebarViewController.h */,
 				66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */,
 				F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */,
@@ -540,6 +577,14 @@
 				F9D400C11905D988000AA729 /* SkillEditViewController.h */,
 				F9D400C21905D988000AA729 /* SkillEditViewController.m */,
 				66D7D99018FDAA1900F4BF89 /* menu.png */,
+=======
+				F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */,
+				F95E0FC418FB316200CC16E0 /* LoginViewController.h */,
+				F95E0FC518FB316200CC16E0 /* LoginViewController.m */,
+				66D7D8DD18EA11E400F4BF89 /* AppDelegate.h */,
+				66D7D8DE18EA11E400F4BF89 /* AppDelegate.m */,
+				66D7D8E018EA11E400F4BF89 /* Main.storyboard */,
+>>>>>>> server_release
 				66D7D96018F7B0D900F4BF89 /* ViewController.h */,
 				66D7D95E18F7B0C500F4BF89 /* ViewController.m */,
 				F9D344CE18EE8780008A4B35 /* SkillViewController.h */,
@@ -547,12 +592,17 @@
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
+<<<<<<< HEAD
 				F918E4E318FDF09400BBB508 /* ProfileViewController.h */,
 				F918E4E418FDF09400BBB508 /* ProfileViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D99D18FE102C00F4BF89 /* ProfileViewController.h */,
 				66D7D99B18FE102400F4BF89 /* ProfileViewController.m */,
+=======
+				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
+				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
+>>>>>>> server_release
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
 				66D7D96B18FB23A100F4BF89 /* opentok.bundle */,
 				66D7D90718EA12EF00F4BF89 /* Person.m */,
@@ -687,7 +737,10 @@
 				F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */,
 				4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				66D7D8EA18EA11E400F4BF89 /* Images.xcassets in Resources */,
+<<<<<<< HEAD
 				66D7D99118FDAA1900F4BF89 /* menu.png in Resources */,
+=======
+>>>>>>> server_release
 				F9C17F5418EC8E8E0095F92E /* img1.png in Resources */,
 				F9C17F5818EC8E8E0095F92E /* img5.png in Resources */,
 				66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */,
@@ -716,7 +769,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */,
+<<<<<<< HEAD
 				F95E8FA51906E24A007DF7C4 /* LandingViewController.m in Sources */,
+=======
+>>>>>>> server_release
 				483000A318F2F94D00A92467 /* AFSecurityPolicy.m in Sources */,
 				48512D9518F1D3CC0076D03E /* QApiRequests.m in Sources */,
 				483000A218F2F94D00A92467 /* AFNetworkReachabilityManager.m in Sources */,
@@ -724,21 +780,32 @@
 				483000A818F2F94D00A92467 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				483000AC18F2F94D00A92467 /* UIImageView+AFNetworking.m in Sources */,
 				483000A418F2F94D00A92467 /* AFURLConnectionOperation.m in Sources */,
+<<<<<<< HEAD
 				66D7D9A018FE187B00F4BF89 /* SWRevealViewController.m in Sources */,
+=======
+>>>>>>> server_release
 				483000A918F2F94D00A92467 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				483000AF18F2F94D00A92467 /* UIWebView+AFNetworking.m in Sources */,
 				F942A07418F353EF00B8A2E4 /* Skill.m in Sources */,
 				4830009F18F2F94D00A92467 /* AFHTTPRequestOperation.m in Sources */,
 				483000A118F2F94D00A92467 /* AFHTTPSessionManager.m in Sources */,
+<<<<<<< HEAD
 				F9D400C31905D988000AA729 /* SkillEditViewController.m in Sources */,
+=======
+>>>>>>> server_release
 				483000AA18F2F94D00A92467 /* UIAlertView+AFNetworking.m in Sources */,
 				483000A518F2F94D00A92467 /* AFURLRequestSerialization.m in Sources */,
 				66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */,
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
+<<<<<<< HEAD
 				66D7D99C18FE102400F4BF89 /* ProfileViewController.m in Sources */,
 				483000A718F2F94D00A92467 /* AFURLSessionManager.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
 				66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */,
+=======
+				483000A718F2F94D00A92467 /* AFURLSessionManager.m in Sources */,
+				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
+>>>>>>> server_release
 				483000A018F2F94D00A92467 /* AFHTTPRequestOperationManager.m in Sources */,
 				483000AD18F2F94D00A92467 /* UIProgressView+AFNetworking.m in Sources */,
 				66D7D8DB18EA11E400F4BF89 /* main.m in Sources */,
@@ -896,12 +963,20 @@
 		66D7D90118EA11E400F4BF89 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+<<<<<<< HEAD
 				ARCHS = "$(ARCHS_STANDARD)";
+=======
+>>>>>>> server_release
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+<<<<<<< HEAD
+=======
+					"$(inherited)",
+					/Users/abhinavkhanna/Downloads,
+>>>>>>> server_release
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 					"$(PROJECT_DIR)/opentok-ios-sdk",
@@ -909,12 +984,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
 				INFOPLIST_FILE = "Qurious_iOS/Qurious_iOS-Info.plist";
+<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+>>>>>>> server_release
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Opentok.framework",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/Current",
+<<<<<<< HEAD
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/Current",
@@ -924,6 +1004,12 @@
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
+=======
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+>>>>>>> server_release
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -931,12 +1017,20 @@
 		66D7D90218EA11E400F4BF89 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+<<<<<<< HEAD
 				ARCHS = "$(ARCHS_STANDARD)";
+=======
+>>>>>>> server_release
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+<<<<<<< HEAD
+=======
+					"$(inherited)",
+					/Users/abhinavkhanna/Downloads,
+>>>>>>> server_release
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/opentok-ios-sdk-webrtc",
 					"$(PROJECT_DIR)/opentok-ios-sdk",
@@ -944,12 +1038,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qurious_iOS/Qurious_iOS-Prefix.pch";
 				INFOPLIST_FILE = "Qurious_iOS/Qurious_iOS-Info.plist";
+<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+>>>>>>> server_release
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Opentok.framework",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/Opentok.framework/Versions/Current",
+<<<<<<< HEAD
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/Current",
@@ -959,6 +1058,12 @@
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
+=======
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+>>>>>>> server_release
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

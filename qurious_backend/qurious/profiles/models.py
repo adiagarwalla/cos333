@@ -13,11 +13,16 @@ class Skill(models.Model):
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User)
+    token = models.CharField(max_length=256)
     profile_first = models.CharField(max_length=256)
+    profile_pic = models.FileField(upload_to='files/')
     profile_last = models.CharField(max_length=256)
     profile_name = models.CharField(max_length=256)
     user_email = models.CharField(max_length=256)
     user_bio = models.CharField(max_length=200)
     skills = models.ManyToManyField(Skill, null=True)
 
+class ProfileImage(models.Model):
+
+    file = models.FileField(upload_to='files/')
 
