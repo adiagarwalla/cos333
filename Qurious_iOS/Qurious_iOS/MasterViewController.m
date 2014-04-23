@@ -93,13 +93,8 @@ void mastercallback(id arg) {
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 //     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-    // test the server requests right here
-    // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
-    //[QApiRequests getProfiles:2 andCallback:&callback];
-    
     view = (UITableView *)self.view;
-    
-    //[QApiRequests getAllProfiles:&mastercallback];
+
     
 }
 
@@ -157,14 +152,6 @@ void mastercallback(id arg) {
         [[segue destinationViewController] setDetailItem:friend];
     }
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
-//        Person * me;
-//        for (Person * person in _objects) {
-//            if (person.userID == [self.userID intValue]) {
-//                NSLog(@"Found me!");
-//                me = person;
-//                break;
-//            }
-//        }
         [[segue destinationViewController] setDetailItem:me];
     }
 }
