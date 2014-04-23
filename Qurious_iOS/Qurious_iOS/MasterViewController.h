@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MasterViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 
 
 @end

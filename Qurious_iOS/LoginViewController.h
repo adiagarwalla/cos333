@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *pwField;
 - (IBAction) loginButtonClicked;

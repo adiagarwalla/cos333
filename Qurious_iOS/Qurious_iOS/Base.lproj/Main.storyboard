@@ -53,12 +53,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome to Qurious" id="aZZ-XY-2JC">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="ajm-Ak-1jr"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Welcome to Qurious" id="aZZ-XY-2JC"/>
                     <connections>
                         <outlet property="pwField" destination="Yjw-4b-nLa" id="Qps-Qj-0dv"/>
-                        <outlet property="sideBarButton" destination="ajm-Ak-1jr" id="llv-Ig-rT6"/>
                         <outlet property="usernameField" destination="B9U-gG-N9I" id="cyT-st-L2n"/>
                         <segue destination="pGg-6v-bdr" kind="push" identifier="loginSuccess" id="aEb-ml-Mqe"/>
                     </connections>
@@ -186,12 +183,16 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
                     <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="Xbi-a0-Fyi"/>
                         <barButtonItem key="rightBarButtonItem" title="My Profile" id="cGG-OG-xPB">
                             <connections>
                                 <segue destination="aLW-EU-oU2" kind="push" identifier="showProfile" id="fhH-F7-sUn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sideBarButton" destination="Xbi-a0-Fyi" id="O6R-LZ-x0y"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,7 +315,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fk-qK-rvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Zyv-Ym-WwI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="889" y="-616"/>
+            <point key="canvasLocation" x="1645" y="-616"/>
         </scene>
         <!--Profile View Controller - My Profile-->
         <scene sceneID="qKq-HC-wmg">
@@ -423,7 +424,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9z-w9-w8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1395" y="-600"/>
+            <point key="canvasLocation" x="323" y="-624"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="Qbt-2D-fOr">
@@ -623,7 +624,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="myprofile" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0Mg-En-nFo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myprofile" id="0Mg-En-nFo">
                                 <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Mg-En-nFo" id="Zja-hd-4ti">
@@ -707,7 +708,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0S-i5-qof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="-616"/>
+            <point key="canvasLocation" x="1162" y="-608"/>
         </scene>
         <!--Skill View Controller - Edit Skills-->
         <scene sceneID="0LV-yc-jLk">
@@ -984,7 +985,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oK9-yV-yE8"/>
+        <segue reference="aEb-ml-Mqe"/>
         <segue reference="B4b-8Q-56a"/>
     </inferredMetricsTieBreakers>
 </document>
