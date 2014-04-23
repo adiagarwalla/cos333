@@ -12,23 +12,21 @@
 #import "SkillViewController.h"
 #import "Skill.h"
 #import "QApiRequests.h"
+#import "SWRevealViewController.h"
+
 @interface ProfileViewController ()
 
 @end
 
 void saveCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Save profile JSON: %@", arg);
     printf("%s", "Saved a profile");
 }
 
 
-void saveSkillCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill");
-}
 
 void pictureCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Save picture JSON: %@", arg);
     printf("%s", "Saved a picture");
 }
 
@@ -96,8 +94,9 @@ void pictureCallback(id arg) {
         
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
-        [QApiRequests uploadImage:[self.detailItem profPic] andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
-        
+        if (editController.hasNewImage == YES) {
+            [QApiRequests uploadImage:[self.detailItem profPic] andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
+        }
         [self configureView];
     }
     
@@ -148,6 +147,17 @@ void pictureCallback(id arg) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [self loadButtons];

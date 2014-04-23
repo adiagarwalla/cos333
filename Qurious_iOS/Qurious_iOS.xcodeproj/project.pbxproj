@@ -70,9 +70,9 @@
 		66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D95E18F7B0C500F4BF89 /* ViewController.m */; };
 		66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D96B18FB23A100F4BF89 /* opentok.bundle */; };
 		66D7D99118FDAA1900F4BF89 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D99018FDAA1900F4BF89 /* menu.png */; };
-		66D7D99C18FE102400F4BF89 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99B18FE102400F4BF89 /* ProfileViewController.m */; };
 		66D7D9A018FE187B00F4BF89 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */; };
 		66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */; };
+		F904572D1907661600F7BF06 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F904572C1907661600F7BF06 /* ProfileViewController.m */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F935963218FF23B100CC602D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F935963118FF23B100CC602D /* Opentok.framework */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
@@ -226,14 +226,12 @@
 		66D7D96018F7B0D900F4BF89 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		66D7D96B18FB23A100F4BF89 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		66D7D99018FDAA1900F4BF89 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
-		66D7D99B18FE102400F4BF89 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		66D7D99D18FE102C00F4BF89 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		66D7D99E18FE187B00F4BF89 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		66D7D9A118FE1FFF00F4BF89 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
-		F918E4E318FDF09400BBB508 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		F918E4E418FDF09400BBB508 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		F904572B1907661600F7BF06 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		F904572C1907661600F7BF06 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F935963118FF23B100CC602D /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
@@ -524,10 +522,12 @@
 		66D7D8D418EA11E400F4BF89 /* Qurious_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F904572C1907661600F7BF06 /* ProfileViewController.m */,
+				F904572B1907661600F7BF06 /* ProfileViewController.h */,
 				F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */,
+				F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */,
 				66D7D9A118FE1FFF00F4BF89 /* SidebarViewController.h */,
 				66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */,
-				F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */,
 				F95E0FC418FB316200CC16E0 /* LoginViewController.h */,
 				F95E0FC518FB316200CC16E0 /* LoginViewController.m */,
 				66D7D99E18FE187B00F4BF89 /* SWRevealViewController.h */,
@@ -547,12 +547,8 @@
 				66D7D90918EBC21600F4BF89 /* dogesmall.jpg */,
 				F921CB8818EA65C000121661 /* EditViewController.h */,
 				F921CB8918EA65C000121661 /* EditViewController.m */,
-				F918E4E318FDF09400BBB508 /* ProfileViewController.h */,
-				F918E4E418FDF09400BBB508 /* ProfileViewController.m */,
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
-				66D7D99D18FE102C00F4BF89 /* ProfileViewController.h */,
-				66D7D99B18FE102400F4BF89 /* ProfileViewController.m */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
 				66D7D96B18FB23A100F4BF89 /* opentok.bundle */,
 				66D7D90718EA12EF00F4BF89 /* Person.m */,
@@ -719,6 +715,7 @@
 				F95E8FA51906E24A007DF7C4 /* LandingViewController.m in Sources */,
 				483000A318F2F94D00A92467 /* AFSecurityPolicy.m in Sources */,
 				48512D9518F1D3CC0076D03E /* QApiRequests.m in Sources */,
+				F904572D1907661600F7BF06 /* ProfileViewController.m in Sources */,
 				483000A218F2F94D00A92467 /* AFNetworkReachabilityManager.m in Sources */,
 				66D7D8DF18EA11E400F4BF89 /* AppDelegate.m in Sources */,
 				483000A818F2F94D00A92467 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -735,7 +732,6 @@
 				483000A518F2F94D00A92467 /* AFURLRequestSerialization.m in Sources */,
 				66D7D95F18F7B0C500F4BF89 /* ViewController.m in Sources */,
 				66D7D8E518EA11E400F4BF89 /* MasterViewController.m in Sources */,
-				66D7D99C18FE102400F4BF89 /* ProfileViewController.m in Sources */,
 				483000A718F2F94D00A92467 /* AFURLSessionManager.m in Sources */,
 				66D7D90818EA12EF00F4BF89 /* Person.m in Sources */,
 				66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */,

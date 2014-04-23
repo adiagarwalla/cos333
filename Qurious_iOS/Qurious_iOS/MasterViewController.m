@@ -31,8 +31,7 @@ static Person * me;
 void mastercallback(id arg) {
     
     // do nothing valuable
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
+    NSLog(@"Pulling all profiles JSON: %@", arg);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger myID = [defaults integerForKey:@"myID"];
@@ -77,19 +76,24 @@ void mastercallback(id arg) {
 {
     [super viewDidLoad];
     
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-    // test the server requests right here
-    // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
-    //[QApiRequests getProfiles:2 andCallback:&callback];
-    
     view = (UITableView *)self.view;
-    
-    //[QApiRequests getAllProfiles:&mastercallback];
+
     
 }
 
@@ -147,14 +151,6 @@ void mastercallback(id arg) {
         [[segue destinationViewController] setDetailItem:friend];
     }
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
-//        Person * me;
-//        for (Person * person in _objects) {
-//            if (person.userID == [self.userID intValue]) {
-//                NSLog(@"Found me!");
-//                me = person;
-//                break;
-//            }
-//        }
         [[segue destinationViewController] setDetailItem:me];
     }
 }

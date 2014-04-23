@@ -20,7 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
 @property (strong, nonatomic) IBOutlet UITextView *bioField;
 @property (nonatomic, retain) UIImageView * selectedImage;
-
+@property BOOL hasNewImage;
 - (IBAction) buttonClicked;
 
 @end

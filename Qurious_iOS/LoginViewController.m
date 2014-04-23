@@ -35,15 +35,8 @@ static UIActivityIndicatorView* spinner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Change button color
-    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     
-    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    _sideBarButton.target = self.revealViewController;
-    _sideBarButton.action = @selector(revealToggle:);
-    
-    // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     // Do any additional setup after loading the view.
     self.usernameField.delegate = self;
     self.pwField.delegate = self;

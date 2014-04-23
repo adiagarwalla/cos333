@@ -11,6 +11,8 @@
 #import "Skill.h"
 #import "SkillEditViewController.h"
 #import "QApiRequests.h"
+#import "SWRevealViewController.h"
+
 
 @interface SkillViewController () {
 
@@ -31,7 +33,7 @@ static int _userID;
 }
 
 void getSkillsCallback(id arg) {
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Get skills JSON: %@", arg);
     printf("%s", "Fetching skills");
     _skills = [[NSMutableArray alloc]init]; // very poor garbage collection
     for (NSDictionary * skill in (NSArray *)arg) {
@@ -51,6 +53,17 @@ void getSkillsCallback(id arg) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+
     view = (UITableView *)self.view;
     _skills = [self.detailItem skills];
     _userID = [self.detailItem userID];
@@ -96,7 +109,7 @@ void getSkillsCallback(id arg) {
 }
 
 void deleteCallback(id arg){
-    NSLog(@"JSON: %@", arg);
+    NSLog(@"Delete skill JSON: %@", arg);
     printf("%s", "Deleted a skill!\n");
 }
 
@@ -113,8 +126,8 @@ void deleteCallback(id arg){
 
 
 void addSkillCallback(id arg){
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill!\n");
+    NSLog(@"Add/edit skill JSON: %@", arg);
+    printf("%s", "Add/edited a skill!\n");
 
     [QApiRequests getAllSkills: _userID andCallback: &getSkillsCallback];
 }
