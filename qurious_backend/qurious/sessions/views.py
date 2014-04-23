@@ -25,8 +25,7 @@ class CreateSessionView(View):
             id_tutor = form.cleaned_data.get('teacher')
             minutes = form.cleaned_data.get('time')
             # get the UserProfile for these ids
-            tutor = User.objects.get(id=id_tutor)
-            tutor = tutor.userprofile
+            tutor = UserProfile.objects.get(id=id_tutor)
             user_O = User.objects.get(username=username)
             user = user_O.userprofile 
             session_id = create_session('True')
@@ -37,7 +36,7 @@ class CreateSessionView(View):
             json = simplejson.dumps({'session_id':sess.id})
             n = Notification(f=username, to=tutor, message='The user: ' + username + ' would like to have a session with you!', attachedjson=json)
 
-            data = simplejson.dumps({'session_id': session_id})
+            data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
         return HttpResponse('', mimetype='application/json')

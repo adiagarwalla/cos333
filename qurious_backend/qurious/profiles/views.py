@@ -10,8 +10,6 @@ from qurious.profiles.forms import SkillEditForm
 
 from qurious.profiles.models import Skill
 from qurious.profiles.models import UserProfile
-from qurious.profiles.models import ProfileImage
-from qurious.profiles.forms import UploadFileForm
 
 class profileIOSDetailView(View):
     """
@@ -33,7 +31,8 @@ class profileIOSDetailView(View):
     def post(self, request, *args, **kwargs):
         form = ProfileEditForm(request.POST)
         if form.is_valid():
-            username = request.user.username
+#            username = request.user.username
+            username = 'sam'
             user = User.objects.get(username=username)
             user_prof = user.userprofile
             user_prof.profile_name = form.cleaned_data.get('profile_name')
@@ -48,25 +47,6 @@ class profileIOSDetailView(View):
 
         return HttpResponse('', mimetype='application/json')
 
-class ImageView(View):
-    """
-    Uploads the image
-    """
-    def post(self, request, *args, **kwargs):
-        form = UploadFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            id = request.POST.get('id')
-            user = User.objects.get(id=id)
-            userprof = user.userprofile
-            userprof.profile_pic = request.FILES['file']
-            userprof.save()
-
-            data = simplejson.dumps({'return': True})
-            return HttpResponse(data, mimetype='application/json')
-
-        data = simplejson.dumps({'errors': form.errors})
-        return HttpResponse(data, mimetype='application/json')
-
 class ProfileIOSAllView(View):
     """
     This view returns all of the profiles in the db
@@ -74,16 +54,8 @@ class ProfileIOSAllView(View):
     def get(self, request, *args, **kwargs):
         profiles = UserProfile.objects.filter()
 
-        json = '['
-        for profile in profiles:
-            p = '{"profile":' + serializers.serialize('json', [profile]) + ',"skills":' + serializers.serialize('json', profile.skills.all()) + '}'
-            json = json + p + ','
-
-        json = json[0:len(json) -1]
-        json = json + ']'
-
-        #data = simplejson.dumps(json)
-        return HttpResponse(json, mimetype='application/json')
+        data = serializers.serialize('json', profiles)
+        return HttpResponse(data, mimetype='application/json')
 
 class skillIOSView(View):
     """
@@ -108,7 +80,7 @@ class skillIOSView(View):
             if skill_id == 0:
                 skill = Skill(name=form.cleaned_data.get('name'), price=form.cleaned_data.get('price'), desc=form.cleaned_data.get('desc'), is_marketable=bool(form.cleaned_data.get('marketable')))
                 skill.save()
-                username = request.user.username
+                username = 'sam'
                 user = User.objects.get(username=username)
                 user.userprofile.skills.add(skill)
             else:
@@ -116,7 +88,7 @@ class skillIOSView(View):
                 skill.price = form.cleaned_data.get('price')
                 skill.desc = form.cleaned_data.get('desc')
                 skill.is_marketable = bool(form.cleaned_data.get('marketable'))
-                skill.save()
+
             data = simplejson.dumps({'return': True})
             return HttpResponse(data, mimetype='application/json')
 
@@ -164,17 +136,3 @@ class WhoAmIView(View):
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
-
-class SetPushToken(View):
-    """
-    Set phone token for push notifications
-    """
-    def post(self, request, *args, **kwargs):
-        username = request.user.username
-        user = User.objects.get(username=username)
-        user_profile = user.userprofile
-        user_profile.token = request.POST.get('token')
-        user_profile.save()
-        
-        data =  simplejson.dumps({'return': True})
-        return HttpResponse(data, mimetype='application/json')

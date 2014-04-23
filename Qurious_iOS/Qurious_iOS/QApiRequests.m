@@ -113,7 +113,6 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
-<<<<<<< HEAD
 + (void) createSession:(NSString*)tutor_id andMinutes:(NSString*)minutes andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-session/create/", baseURL];
@@ -127,6 +126,4 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsync:callback andUrl:url];
 }
 
-=======
->>>>>>> server_release
 @end

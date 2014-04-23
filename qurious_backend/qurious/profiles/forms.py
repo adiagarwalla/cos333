@@ -1,5 +1,4 @@
 from django import forms
-from qurious.profiles.models import ProfileImage
 
 class ProfileEditForm(forms.Form):
     """
@@ -20,8 +19,3 @@ class SkillEditForm(forms.Form):
     marketable = forms.CharField()
     desc = forms.CharField(required=False)
     skill_id = forms.IntegerField()
-
-class UploadFileForm(forms.ModelForm):
-
-    class Meta:
-        model = ProfileImage

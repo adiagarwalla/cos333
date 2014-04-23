@@ -48,7 +48,7 @@ class SessionTests(TestCase):
 
         c.post(reverse('login'), {'username': 'sam1', 'password':'123'})
         response = c.post(reverse('session-create'), {'time':15,'teacher':1})
-        self.assertTrue(response.content != '')
+        self.assertTrue(response.content == '{"return": true}')
 
     def test_generate_token(self):
         """

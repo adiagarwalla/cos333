@@ -40,6 +40,7 @@ class QuriousSignUpView(View):
     """
     def post(self, request, *args, **kwargs):
         form = ProfileSignUpForm(request.POST)
+        import pdb; pdb.set_trace()
         if form.is_valid():
             try:
                 user = User.objects.get(username=form.cleaned_data.get('username'))
