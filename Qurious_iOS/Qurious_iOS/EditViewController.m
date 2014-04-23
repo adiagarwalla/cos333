@@ -19,6 +19,7 @@
 @synthesize lastNameField = _lastNameField;
 @synthesize emailField = _emailField;
 @synthesize bioField = _bioField;
+@synthesize hasNewImage = _hasNewImage;
 @synthesize selectedImage;
 
 - (void)setDetailItem:(id)detailItem {
@@ -83,6 +84,7 @@
     selectedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     //[[Picker parentViewController] dismissModalViewControllerAnimated:YES];
     [[Picker presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    _hasNewImage = YES;
     //[Picker release];
 }
 

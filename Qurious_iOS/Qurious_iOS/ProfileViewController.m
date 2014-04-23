@@ -98,8 +98,9 @@ void pictureCallback(id arg) {
         
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
-        [QApiRequests uploadImage:[self.detailItem profPic] andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
-        
+        if (editController.hasNewImage == YES) {
+            [QApiRequests uploadImage:[self.detailItem profPic] andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
+        }
         [self configureView];
     }
     

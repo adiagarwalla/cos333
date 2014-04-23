@@ -8,13 +8,13 @@
 
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
-
+#import "QApiRequests.h"
 @interface SidebarViewController ()
 
 @end
 
 @implementation SidebarViewController{
-    NSArray *menuItems;
+
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -33,13 +33,23 @@
     //self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
-    menuItems = @[@"title", @"search", @"myprofile", @"editskills", @"logout"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+void logoutCallback(id arg) {
+    NSLog(@"JSON: %@", arg);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log out success!"
+                                                    message:@""
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,25 +60,7 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [menuItems count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -114,13 +106,22 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([[segue identifier] isEqualToString:@"logout"]) {
+        [QApiRequests logout:logoutCallback];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger: 0 forKey:@"myID"];
+        [defaults synchronize];
+        NSLog(@"User logged out");
+        
+
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.\
     // Set the title of navigation bar by using the menu items
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
-    
+//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
+//    destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
+//    
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         
