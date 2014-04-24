@@ -25,4 +25,5 @@
 + (void) getToken:(NSString*)session_token andCallback:(void(*)(id))callback;
 + (void) getNotification:(int)user_id andCallback:(void(*)(id))callback;
 + (void) uploadImage:(UIImage*) image andId:(NSString*)user_id andCallback:(void(*)(id))callback;
++ (void) whoAmI:(NSString*)username andCallback:(void(*)(id))callback;
 @end
