@@ -70,7 +70,7 @@ class NotificationsView(View):
             user_id = request.GET.get('id')
             user = User.objects.get(id=user_id)
 
-            data = simplejson.dumps(user.userprofile.notifications.all())
+            data = simplejson.dumps(user.userprofile.notification_set.all())
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
