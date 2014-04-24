@@ -35,15 +35,8 @@ static UIActivityIndicatorView* spinner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Change button color
-    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     
-    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    _sideBarButton.target = self.revealViewController;
-    _sideBarButton.action = @selector(revealToggle:);
-    
-    // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     // Do any additional setup after loading the view.
     self.usernameField.delegate = self;
     self.pwField.delegate = self;
@@ -74,6 +67,10 @@ void loginCallback (id arg) {
     else {
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger: [myID intValue] forKey:@"myID"];
+        [defaults synchronize];
+        NSLog(@"UserID saved");
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
         
     }
@@ -81,14 +78,14 @@ void loginCallback (id arg) {
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"prepareForSegue: %@", segue.identifier);
-    
-    if ([segue.identifier isEqualToString:@"loginSuccess"]) {
-        [[segue destinationViewController] setUserID: myID];
-    }
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    NSLog(@"prepareForSegue: %@", segue.identifier);
+//    
+//    if ([segue.identifier isEqualToString:@"loginSuccess"]) {
+//        [[segue destinationViewController] setUserID: myID];
+//    }
+//}
 
 
 - (IBAction) loginButtonClicked {

@@ -16,6 +16,13 @@
 
 char* baseURL = "http://qurious.info:8080";
 
++ (void) sendToken:(NSString*)token andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/settoken/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:token,@"token", nil];
+    [request startAsyncPost: callback andUrl:url andDict:dict];
+}
+
 + (void) getProfiles:(int)user_id andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/profile/?id=%d", baseURL, user_id];
@@ -35,12 +42,34 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsyncPost:callback andUrl:url andDict:dict];
 }
 
-+ (void) editSkill:(int)skill_id andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback {
++ (void) uploadImage:(UIImage*) image andId:(NSString*)user_id andCallback:(void(*)(id))callback {
+    NSString* url = [NSString stringWithFormat:@"/api-profile/uploadimage/"];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat:@"%s",baseURL]]];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    NSDictionary *parameters = @{@"id": user_id};
+    AFHTTPRequestOperation *op = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //do not put image inside parameters dictionary as I did, but append it!
+        [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"profile_pic_%@", user_id] mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+    }];
+    [op start];
+}
+
++ (void) editSkill:(int)skill_id andName:(NSString*)name andPrice:(NSString*)price andDesc:(NSString*)desc andForSale:(BOOL)isMarketable andCallback:(void(*)(id))callback {
     
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/skills/", baseURL];
-    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:price,@"price", desc, @"name",[NSString stringWithFormat:@"%i", isMarketable], @"marketable", [NSString stringWithFormat:@"%i", skill_id], @"skill_id", nil];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:price,@"price", name, @"name", desc, @"desc", [NSString stringWithFormat:@"%i", isMarketable], @"marketable", [NSString stringWithFormat:@"%i", skill_id], @"skill_id", nil];
     [request startAsyncPost:callback andUrl:url andDict:dict];
+}
+
++ (void) deleteSkill:(int)skill_id andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-profile/delete/?id=%d", baseURL, skill_id];
+    [request startAsync:callback andUrl:url];
 }
 
 + (void) getAllProfiles:(void(*)(id))callback {
@@ -94,6 +123,12 @@ char* baseURL = "http://qurious.info:8080";
 + (void) getToken:(NSString*)session_token andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-session/gettoken/?session_token=%@", baseURL, session_token];
+    [request startAsync:callback andUrl:url];
+}
+
++ (void) getNotification:(int)user_id andCallback:(void(*)(id))callback {
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-session/notifications/?user_id=%i", baseURL, user_id];
     [request startAsync:callback andUrl:url];
 }
 

@@ -10,6 +10,7 @@
 
 @implementation Skill
 @synthesize desc = _desc;
+@synthesize name = _name;
 @synthesize price = _price;
 @synthesize isMarketable = _isMarketable;
 @synthesize skillID = _skillID;
@@ -22,6 +23,7 @@
     {
         self.skillID = 0;
         self.desc = @"";
+        self.name = @"";
         self.price = @"0";
         self.isMarketable = NO;
         // superclass successfully initialized, further

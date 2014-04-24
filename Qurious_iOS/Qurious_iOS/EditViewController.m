@@ -19,6 +19,7 @@
 @synthesize lastNameField = _lastNameField;
 @synthesize emailField = _emailField;
 @synthesize bioField = _bioField;
+@synthesize hasNewImage = _hasNewImage;
 @synthesize selectedImage;
 
 - (void)setDetailItem:(id)detailItem {
@@ -34,7 +35,14 @@
         self.lastNameField.text = [self.detailItem lastName];
         self.emailField.text = [self.detailItem email];
         self.bioField.text = [self.detailItem bio];
-        self.selectedImage.image = [self.detailItem profPic];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                self.selectedImage.image = [UIImage imageWithData:imageData];
+            });
+        });
         
     }
 }
@@ -83,6 +91,7 @@
     selectedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     //[[Picker parentViewController] dismissModalViewControllerAnimated:YES];
     [[Picker presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    _hasNewImage = YES;
     //[Picker release];
 }
 

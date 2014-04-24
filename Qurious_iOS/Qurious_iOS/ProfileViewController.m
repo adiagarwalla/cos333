@@ -12,10 +12,24 @@
 #import "SkillViewController.h"
 #import "Skill.h"
 #import "QApiRequests.h"
+#import "SWRevealViewController.h"
 
 @interface ProfileViewController ()
 
 @end
+
+void saveCallback (id arg) {
+    NSLog(@"Save profile JSON: %@", arg);
+    printf("%s", "Saved a profile");
+}
+
+
+
+void pictureCallback(id arg) {
+    NSLog(@"Save picture JSON: %@", arg);
+    printf("%s", "Saved a picture");
+}
+
 
 @implementation ProfileViewController
 @synthesize detailItem = _detailItem;
@@ -32,11 +46,19 @@
         NSString *name = [NSString stringWithFormat:@"%@ %@",
                           [self.detailItem firstName],
                           [self.detailItem lastName]];
-        self.nameLabel.text = name;
+        if ([name isEqualToString: @" "]) self.nameLabel.text = [self.detailItem username];
+        else self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
-        self.imageView.image = [self.detailItem profPic];
-    }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                self.imageView.image = [UIImage imageWithData:imageData];
+            });
+        });    }
     
 }
 
@@ -60,24 +82,13 @@
         EditViewController *editViewController = [navigationControllers objectAtIndex:0];
         [editViewController setDetailItem:self.detailItem];
     }
-    if ([[segue identifier] isEqualToString:@"editSkills"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
-        [skillViewController setDetailItem:self.detailItem];
+    if ([[segue identifier] isEqualToString:@"showSkillEdit"]) {
+        [[segue destinationViewController] setDetailItem:self.detailItem];
     }
     
 }
 
-void saveCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a profile");
-}
 
-
-void saveSkillCallback (id arg) {
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Saved a skill");
-}
 
 - (IBAction)save:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"saveInput"]) {
@@ -86,24 +97,13 @@ void saveSkillCallback (id arg) {
         [self.detailItem setLastName:editController.lastNameField.text];
         [self.detailItem setEmail:editController.emailField.text];
         [self.detailItem setBio:editController.bioField.text];
-        [self.detailItem setProfPic:editController.selectedImage.image];
         
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
-        [self configureView];
-    }
-    if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
-        SkillViewController *skillController = [segue sourceViewController];
-        [self.detailItem setSkills: skillController.skills];
-        
-        
-        for (Skill *skill in skillController.skills) {
-            if (skill.skillID == 0)
-                [QApiRequests editSkill:skill.skillID andPrice:skill.price andDesc:skill.desc andForSale: skill.isMarketable andCallback: saveSkillCallback];
+        if (editController.hasNewImage == YES) {
+            [QApiRequests uploadImage:editController.selectedImage.image andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
         }
-        
         [self configureView];
-        [self loadButtons];
     }
     
 }
@@ -134,7 +134,7 @@ void saveSkillCallback (id arg) {
         else xdisplacement = 200.f;
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill.desc forState:UIControlStateNormal];
+        [button setTitle:skill.name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:12];
         button.titleLabel.numberOfLines = 4;
@@ -153,6 +153,17 @@ void saveSkillCallback (id arg) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [self loadButtons];

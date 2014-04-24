@@ -9,9 +9,13 @@
 #import "SkillViewController.h"
 #import "Person.h"
 #import "Skill.h"
+#import "SkillEditViewController.h"
+#import "QApiRequests.h"
+#import "SWRevealViewController.h"
+
 
 @interface SkillViewController () {
-    UITextField * skillField;
+
 }
 
 @end
@@ -19,42 +23,56 @@
 
 @implementation SkillViewController
 @synthesize detailItem = _detailItem;
-@synthesize skills = _skills;
 
-- (id)initWithStyle:(UITableViewStyle)style
+static NSMutableArray * _skills;
+static UITableView * view;
+static int _userID;
+- (void)awakeFromNib
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super awakeFromNib];
 }
 
-- (void)setDetailItem:(id)detailItem {
-    if (_detailItem != detailItem) {
-        _detailItem = detailItem;
-        [self configureView];
+void getSkillsCallback(id arg) {
+    NSLog(@"Get skills JSON: %@", arg);
+    printf("%s", "Fetching skills");
+    _skills = [[NSMutableArray alloc]init]; // very poor garbage collection
+    for (NSDictionary * skill in (NSArray *)arg) {
+        Skill * mySkill = [[Skill alloc] init];
+        mySkill.name = skill[@"fields"][@"name"];
+        mySkill.desc = skill[@"fields"][@"desc"];
+        mySkill.price = skill[@"fields"][@"price"];
+        mySkill.skillID = [skill[@"pk"] intValue];
+        if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+        else mySkill.isMarketable = NO;
+        [_skills insertObject:mySkill atIndex:0];
     }
+    [view reloadData];
 }
 
-- (void)configureView {
-    if (self.detailItem && [self.detailItem isKindOfClass:[Person class]]) {
-        _skills = [[self.detailItem skills] mutableCopy];
-        
-    }
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.editing = YES;
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+
+    view = (UITableView *)self.view;
+    _skills = [self.detailItem skills];
+    _userID = [self.detailItem userID];
+	// Do any additional setup after loading the view, typically from a nib.
+
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -62,129 +80,96 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+
+#pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
-
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if ([tableView isEditing])
-        return [_skills count] + 1;
-    else
-        return [_skills count];
+    return _skills.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"skillCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-
-    if (indexPath.row < [_skills count]) {
-        Skill *currentSkill =[_skills objectAtIndex:indexPath.row];
-        cell.textLabel.text = currentSkill.desc;
-    }
-    else {
-        CGRect frame = CGRectMake (15, 7, 200, 30);
-        skillField = [[UITextField alloc] initWithFrame:frame];
-        skillField.delegate = self;
-        [cell.contentView addSubview: skillField];
-        skillField.placeholder = @"add new skill";
-    }
-
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:@"skillCell"
+                             forIndexPath:indexPath];
+    Skill * skill = _skills[indexPath.row];
+    cell.textLabel.text = skill.name;
     return cell;
 }
 
-
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated
-{
-    [super setEditing:editing animated:animated];
-    
-    int index = 0;
-    if ([self.tableView numberOfRowsInSection:0] > 0) index = [self.tableView numberOfRowsInSection:0] - 1;
-    NSArray *paths = [NSArray arrayWithObject:
-                      [NSIndexPath indexPathForRow: index inSection:0]];
-    if (editing)
-    {
-        [[self tableView] insertRowsAtIndexPaths:paths
-                                withRowAnimation:UITableViewRowAnimationTop];
-    }
-    else {
-        [[self tableView] deleteRowsAtIndexPaths:paths
-                                withRowAnimation:UITableViewRowAnimationTop];
-    }
-
+void deleteCallback(id arg){
+    NSLog(@"Delete skill JSON: %@", arg);
+    printf("%s", "Deleted a skill!\n");
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == [_skills count])
-        return UITableViewCellEditingStyleInsert;
-    else
-        return UITableViewCellEditingStyleDelete;
-}
-
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [_skills removeObjectAtIndex:indexPath.row];
+        _skills = [_skills mutableCopy];
+        int skillID = [[_skills objectAtIndex:indexPath.row] skillID];
+        [_skills removeObjectAtIndex: indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        Skill *skill = [[Skill alloc] init];
-        skill.desc = skillField.text;
-        [_skills addObject: skill];
-        skillField.text = @"";
-        [tableView insertRowsAtIndexPaths: @[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [QApiRequests deleteSkill: skillID andCallback: &deleteCallback];
     }
 }
 
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return NO;
+void addSkillCallback(id arg){
+    NSLog(@"Add/edit skill JSON: %@", arg);
+    printf("%s", "Add/edited a skill!\n");
+
+    [QApiRequests getAllSkills: _userID andCallback: &getSkillsCallback];
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+- (IBAction)save:(UIStoryboardSegue *)segue{
+    
+    if ([[segue identifier] isEqualToString:@"saveSkillEdit"]) {
+        SkillEditViewController *skillEditController = [segue sourceViewController];
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+        int skillID;
+        if (skillEditController.detailItem == NULL) {
+            skillID = 0;
+        }
+        else {
+            skillID = [skillEditController.detailItem skillID];
+        }
+        NSString *name = skillEditController.nameField.text;
+        NSString *price = skillEditController.priceField.text;
+        if ([price isEqualToString:@""]) price = @"0";
+        [QApiRequests editSkill: skillID andName: name andPrice: price andDesc:skillEditController.descField.text andForSale:skillEditController.forSaleSwitch.on andCallback:addSkillCallback ];
+        
+    }
+    
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)cancel:(UIStoryboardSegue *)sender{
+    
 }
-*/
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"editSkill"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Skill * skill = _skills[indexPath.row];
+        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
+        SkillEditViewController *editViewController = [navigationControllers objectAtIndex:0];
+        [editViewController setDetailItem:skill];
+    }
+    else if ([[segue identifier] isEqualToString:@"addSkill"]) {
+
+    }
+
+}
 
 @end

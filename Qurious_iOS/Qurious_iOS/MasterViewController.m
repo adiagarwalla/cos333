@@ -19,6 +19,7 @@
 @implementation MasterViewController
 
 static NSMutableArray *_objects;
+static NSMutableArray *_searchObjects;
 static UITableView *view;
 static Person * me;
 - (void)awakeFromNib
@@ -28,55 +29,106 @@ static Person * me;
 
 
 
-void callback(id arg) {
+void mastercallback(id arg) {
     
     // do nothing valuable
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
+    NSLog(@"Pulling all profiles JSON: %@", arg);
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger myID = [defaults integerForKey:@"myID"];
     if (arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
+        _searchObjects = [[NSMutableArray alloc] init];
         
         NSDictionary * results = arg;
         for (NSDictionary *jsonobject in results) {
-            NSDictionary *fields = jsonobject[@"fields"];
+            NSDictionary *fields = jsonobject[@"profile"][0][@"fields"];
             Person *friend = [[Person alloc] init];
             friend.firstName = fields[@"profile_first"];
             friend.lastName = fields[@"profile_last"];
+            if (![fields[@"profile_pic"]  isEqual: @""]) {
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://qurious.info:8080/%@", fields[@"profile_pic"]]];
+                friend.profPic = url;
+            }
             friend.email = fields[@"user_email"];
             friend.bio = fields[@"user_bio"];
-            friend.username = fields[@"profile_name"];
             friend.userID = [fields[@"user"] intValue];
+            if (friend.userID == myID) {
+                me = friend;
+            }
+            friend.username = fields[@"profile_name"];
+            NSDictionary *skills = jsonobject[@"skills"];
+            NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
+            for (NSDictionary * skill in skills) {
+                Skill * mySkill = [[Skill alloc] init];
+                mySkill.name = skill[@"fields"][@"name"];
+                mySkill.desc = skill[@"fields"][@"desc"];
+                mySkill.price = skill[@"fields"][@"price"];
+                mySkill.skillID = [skill[@"pk"] intValue];
+                if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+                else mySkill.isMarketable = NO;
+                [allmyskills insertObject:mySkill atIndex:0];
+            }
+            friend.skills = allmyskills; // not releasing old array uhhhh
             [_objects insertObject:friend atIndex:0];
-            
+
         }
-        
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         [view reloadData];
     }
 }
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // Change button color
+    //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sideBarButton.target = self.revealViewController;
+    _sideBarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    // test the server requests right here
-    // THIS IS SUPPOSED TO JUST SHOW YOU HOW THIS WORKS!!!
-    //[QApiRequests getProfiles:2 andCallback:&callback];
+    
     
     view = (UITableView *)self.view;
+
     
-    [QApiRequests getAllProfiles:&callback];
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    for (Person* p in [_objects reverseObjectEnumerator]) {
+        if ([p.firstName rangeOfString:searchText].location == NSNotFound && [p.lastName rangeOfString:searchText].location == NSNotFound && [p.username rangeOfString:searchText].location == NSNotFound) {
+            // do nothing in this case
+            if ([_searchObjects containsObject:p]) {
+                [_searchObjects removeObject:p];
+            }
+        } else {
+            if (![_searchObjects containsObject:p]) {
+                [_searchObjects insertObject:p atIndex:0];
+            }
+        }
+    }
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    [view reloadData];
+    [QApiRequests getAllProfiles:&mastercallback];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,15 +147,35 @@ void callback(id arg) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return _searchObjects.count;
+        
+    } else {
+        return _objects.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:@"Cell"
-                             forIndexPath:indexPath];
-    Person *friend = _objects[indexPath.row];
+//    UITableViewCell *cell = [tableView
+//                             dequeueReusableCellWithIdentifier:@"Cell"
+//                             forIndexPath:indexPath];
+    
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    Person *friend = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        friend = [_searchObjects objectAtIndex:indexPath.row];
+    } else {
+        friend = [_objects objectAtIndex:indexPath.row];
+    }
+    
     if ([friend.firstName isEqualToString: @""] && [friend.lastName isEqualToString: @""]) {
         cell.textLabel.text = friend.username;
     }
@@ -120,22 +192,26 @@ void callback(id arg) {
 }
 
 
+- (Person*) findPersonForName:(NSString*)name {
+    for (Person* p in _objects) {
+        if ([p.firstName isEqualToString:name] || [p.lastName isEqualToString:name] || [p.username isEqualToString:name]) {
+            return p;
+        }
+    };
+        
+    return nil;
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//        Person* friend = [self findPersonForName:cell.textLabel.text];
         Person *friend = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:friend];
     }
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
-        Person * me;
-        for (Person * person in _objects) {
-            if (person.userID == [self.userID intValue]) {
-                NSLog(@"Found me!");
-                me = person;
-                break;
-            }
-        }
         [[segue destinationViewController] setDetailItem:me];
     }
 }

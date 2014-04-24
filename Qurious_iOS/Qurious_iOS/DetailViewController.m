@@ -12,8 +12,6 @@
 #import "Skill.h"
 #import "QApiRequests.h"
 
-static int request_active = false;
-static NSString* kSession = @"";
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -28,7 +26,8 @@ static NSString* kSession = @"";
 @synthesize bioLabel = _bioLabel;
 @synthesize imageView = _imageView;
 
-
+static UIActivityIndicatorView* detailSpinner;
+static UITableViewController * me;
 
 - (void)configureView {
     if (self.detailItem &&
@@ -40,7 +39,15 @@ static NSString* kSession = @"";
         else self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
-        self.imageView.image = [self.detailItem profPic];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                self.imageView.image = [UIImage imageWithData:imageData];
+            });
+        });
 
     }
     
@@ -83,7 +90,7 @@ static NSString* kSession = @"";
         else xdisplacement = 200.f;
         
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill.desc forState:UIControlStateNormal];
+        [button setTitle:skill.name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:12];
         button.titleLabel.numberOfLines = 4;
@@ -105,34 +112,38 @@ static NSString* kSession = @"";
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [self loadButtons];
+    detailSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [detailSpinner setCenter:CGPointMake(160.0f, 188.0f)];
+    [self.view addSubview:detailSpinner];
+    
+    self.navigationItem.title = self.nameLabel.text;
 
 }
 
 void detail_callback (id arg) {
     // do nothing valuable
-    NSLog(@"JSON: %@", arg);
-    printf("%s", "Hi");
-    
-    NSDictionary * results = arg;
-    for (NSDictionary *jsonobject in results) {
-        NSDictionary *fields = jsonobject[@"fields"];
-        kSession = fields[@"session"];
-    }
-    request_active = false;
+    NSLog(@"Starting session JSON: %@", arg);
+    NSString * kSession = ((NSDictionary*) arg)[@"session_id"];
+    [detailSpinner stopAnimating];
+    [ViewController setSessionToken: kSession];
+    [me performSegueWithIdentifier: @"SessionSegue" sender: me];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"SessionSegue"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        ViewController *sessionController = [navigationControllers objectAtIndex:0];
-        request_active = true;
-        [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
-        while(request_active) {
-            // do nothing bitches.
-        }
-        [sessionController setSessionToken:kSession];
-    }
+-(IBAction) sessionButtonClicked {
+    me = self;
+    [detailSpinner startAnimating];
+    [QApiRequests createSession:[NSString stringWithFormat:@"%i", [self.detailItem userID]] andMinutes:@"15" andCallback:&detail_callback];
+
 }
+
+- (IBAction)cancel:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"SessionOver"]) {
+        ViewController *sessionController = [segue sourceViewController];
+        [sessionController.session disconnect];
+    }
+
+}
+
 
 
 - (void)didReceiveMemoryWarning

@@ -25,7 +25,7 @@
     if (self)
     {
         self.skills = [[NSMutableArray alloc] init];
-        self.profPic = [UIImage imageNamed:@"dogesmall.jpg"];
+        self.profPic = [NSURL URLWithString:@"http://qurious.info:8080/files/profile_pic_2"];
     }
     return self;
 }

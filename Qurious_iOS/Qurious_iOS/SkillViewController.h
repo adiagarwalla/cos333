@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SkillViewController : UITableViewController <UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 @property (strong, nonatomic) id detailItem;
-@property (nonatomic, retain) NSMutableArray * skills;
+- (IBAction)save:(UIStoryboardSegue *)sender;
+- (IBAction)cancel:(UIStoryboardSegue *)sender;
 @end

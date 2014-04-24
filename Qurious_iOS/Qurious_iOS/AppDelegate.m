@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "QApiRequests.h"
 
 @implementation AppDelegate
 
@@ -18,7 +19,54 @@
     // Override point for customization after application launch.
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
+
     return YES;
+}
+
+void appDelegateCallback(id arg) {
+
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	// make the network call here...
+    if (deviceToken != NULL) {
+        NSLog(@"Token: %@", deviceToken);
+        [QApiRequests sendToken:[NSString stringWithFormat:@"%@", deviceToken] andCallback:&appDelegateCallback];
+    }
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
+
+//Your app receives push notification.
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    UIApplicationState state = [application applicationState];
+    
+    // If your app is running
+    if (state == UIApplicationStateActive)
+    {
+        
+        //You need to customize your alert by yourself for this situation. For ex,
+        NSString *cancelTitle = @"Close";
+        NSString *showTitle = @"Ok";
+        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:message
+                                                           delegate:self
+                                                  cancelButtonTitle:cancelTitle
+                                                  otherButtonTitles:showTitle, nil];
+        [alertView show];
+        
+    }
+    // If your app was in in active state
+    else if (state == UIApplicationStateInactive)
+    {
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
