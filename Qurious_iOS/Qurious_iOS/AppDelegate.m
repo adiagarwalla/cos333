@@ -41,6 +41,34 @@ void appDelegateCallback(id arg) {
 	NSLog(@"Failed to get token, error: %@", error);
 }
 
+//Your app receives push notification.
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    UIApplicationState state = [application applicationState];
+    
+    // If your app is running
+    if (state == UIApplicationStateActive)
+    {
+        
+        //You need to customize your alert by yourself for this situation. For ex,
+        NSString *cancelTitle = @"Close";
+        NSString *showTitle = @"Ok";
+        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:message
+                                                           delegate:self
+                                                  cancelButtonTitle:cancelTitle
+                                                  otherButtonTitles:showTitle, nil];
+        [alertView show];
+        
+    }
+    // If your app was in in active state
+    else if (state == UIApplicationStateInactive)
+    {
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

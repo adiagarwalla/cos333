@@ -39,7 +39,15 @@ static UITableViewController * me;
         else self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
-        self.imageView.image = [self.detailItem profPic];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                self.imageView.image = [UIImage imageWithData:imageData];
+            });
+        });
 
     }
     

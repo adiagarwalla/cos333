@@ -35,7 +35,14 @@
         self.lastNameField.text = [self.detailItem lastName];
         self.emailField.text = [self.detailItem email];
         self.bioField.text = [self.detailItem bio];
-        self.selectedImage.image = [self.detailItem profPic];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                self.selectedImage.image = [UIImage imageWithData:imageData];
+            });
+        });
         
     }
 }

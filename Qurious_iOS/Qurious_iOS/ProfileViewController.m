@@ -50,8 +50,15 @@ void pictureCallback(id arg) {
         else self.nameLabel.text = name;
         self.emailLabel.text = [self.detailItem email];
         self.bioLabel.text = [self.detailItem bio];
-        self.imageView.image = [self.detailItem profPic];
-    }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                self.imageView.image = [UIImage imageWithData:imageData];
+            });
+        });    }
     
 }
 
@@ -90,12 +97,11 @@ void pictureCallback(id arg) {
         [self.detailItem setLastName:editController.lastNameField.text];
         [self.detailItem setEmail:editController.emailField.text];
         [self.detailItem setBio:editController.bioField.text];
-        [self.detailItem setProfPic:editController.selectedImage.image];
         
         [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
         
         if (editController.hasNewImage == YES) {
-            [QApiRequests uploadImage:[self.detailItem profPic] andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
+            [QApiRequests uploadImage:editController.selectedImage.image andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
         }
         [self configureView];
     }
