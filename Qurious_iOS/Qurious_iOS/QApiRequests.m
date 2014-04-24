@@ -126,9 +126,9 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsync:callback andUrl:url];
 }
 
-+ (void) getNotification:(int)session_notification andCallback:(void(*)(id))callback {
++ (void) getNotification:(int)user_id andCallback:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
-    NSString* url = [NSString stringWithFormat:@"%s/api-session/notifications/?user_id=%i", baseURL, session_notification];
+    NSString* url = [NSString stringWithFormat:@"%s/api-session/notifications/?user_id=%i", baseURL, user_id];
     [request startAsync:callback andUrl:url];
 }
 

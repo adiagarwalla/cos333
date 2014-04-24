@@ -35,6 +35,7 @@
 		4880DBBB18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBA118FA3B98002BF93A /* Opentok */; };
 		4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBB118FA3B98002BF93A /* Opentok */; };
 		669B19BA1908BDCC0016E89A /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669B19B91908BDCC0016E89A /* NotificationViewController.m */; };
+		669B19BD1909B5690016E89A /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 669B19BC1909B5690016E89A /* Notification.m */; };
 		66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8CE18EA11E400F4BF89 /* Foundation.framework */; };
 		66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */; };
 		66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D218EA11E400F4BF89 /* UIKit.framework */; };
@@ -185,6 +186,8 @@
 		4880DBB618FA3B98002BF93A /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = opentok.bundle; sourceTree = "<group>"; };
 		669B19B81908BDCC0016E89A /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		669B19B91908BDCC0016E89A /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		669B19BB1909B5690016E89A /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		669B19BC1909B5690016E89A /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		66D7D8CB18EA11E400F4BF89 /* Qurious_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qurious_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D7D8CE18EA11E400F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -559,6 +562,8 @@
 				66D7D8E318EA11E400F4BF89 /* MasterViewController.h */,
 				66D7D8E418EA11E400F4BF89 /* MasterViewController.m */,
 				66D7D90618EA12EF00F4BF89 /* Person.h */,
+				669B19BB1909B5690016E89A /* Notification.h */,
+				669B19BC1909B5690016E89A /* Notification.m */,
 				66D7D96B18FB23A100F4BF89 /* opentok.bundle */,
 				66D7D90718EA12EF00F4BF89 /* Person.m */,
 				F942A07218F353EF00B8A2E4 /* Skill.h */,
@@ -728,6 +733,7 @@
 				669B19BA1908BDCC0016E89A /* NotificationViewController.m in Sources */,
 				483000A218F2F94D00A92467 /* AFNetworkReachabilityManager.m in Sources */,
 				66D7D8DF18EA11E400F4BF89 /* AppDelegate.m in Sources */,
+				669B19BD1909B5690016E89A /* Notification.m in Sources */,
 				483000A818F2F94D00A92467 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				483000AC18F2F94D00A92467 /* UIImageView+AFNetworking.m in Sources */,
 				483000A418F2F94D00A92467 /* AFURLConnectionOperation.m in Sources */,
