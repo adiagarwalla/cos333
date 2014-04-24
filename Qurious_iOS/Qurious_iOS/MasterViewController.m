@@ -89,8 +89,8 @@ void mastercallback(id arg) {
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+//    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+//     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
     view = (UITableView *)self.view;
 
