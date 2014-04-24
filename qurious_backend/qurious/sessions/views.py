@@ -43,10 +43,12 @@ class CreateSessionView(View):
             token = token.replace('<','')
             token = token.replace('>','')
             token = token.replace(' ', '')
-            device = APNSDevice.objects.get(registration_id=token)
-            if device == None:
+            device = APNSDevice.objects.filter(registration_id=token)
+            if len(device) == 0:
                 device = APNSDevice(registration_id=token)
                 device.save()
+            else:
+                device = device[0]
 
             device.send_message("Someone wants to have a session with you")
 
