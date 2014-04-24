@@ -21,9 +21,7 @@ DATABASES = {
     }
 }
 
-PYAPNS_CONFIG = {
 
-}
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -132,7 +130,12 @@ INSTALLED_APPS = (
     'qurious.auth',
     'qurious.sessions',
     'django_coverage',
+    'push_notifications',
 )
+
+PUSH_NOTIFICATIONS_SETTINGS = {
+        'APNS_CERTIFICATE': '/Users/abhinavkhanna/Desktop/apns-dev-cert.p12'
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -10,6 +10,7 @@ from qurious.profiles.models import UserProfile
 from qurious.sessions.models import QSession
 from django.contrib.auth.models import User
 from django.utils import simplejson
+from push_notifications.models import APNSDevice
 
 class CreateSessionView(View):
     """
@@ -34,8 +35,19 @@ class CreateSessionView(View):
             sess.save()
 
             # generate your lovely notification object
-            json = simplejson.dumps({'session_id':sess.id})
             n = Notification(f=username, to=tutor, message='The user: ' + username + ' would like to have a session with you!', attachedjson=json)
+            n.save()
+            token = tutor.token
+            # we need to be able to create one of these APNS device tokens if one doesn't exist and send a notif
+            token = token.replace('<','')
+            token = token.replace('>','')
+            token = token.replace(' ', '')
+            device = APNSDevice.objects.get(registration_id=token)
+            if device == None:
+                device = APNSDevice(registration_id=token)
+                device.save()
+
+            device.send_message("Someone wants to have a session with you")
 
             data = simplejson.dumps({'session_id': session_id})
             return HttpResponse(data, mimetype='application/json')
