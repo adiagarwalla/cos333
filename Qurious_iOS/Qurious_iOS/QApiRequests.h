@@ -23,6 +23,6 @@
 + (void) signUp:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)userEmail andCallback:(void(*)(id))callback;
 + (void) createSession:(NSString*)tutor_id andMinutes:(NSString*)minutes andCallback:(void(*)(id))callback;
 + (void) getToken:(NSString*)session_token andCallback:(void(*)(id))callback;
-+ (void) getNotification:(int)session_token andCallback:(void(*)(id))callback;
++ (void) getNotification:(int)user_id andCallback:(void(*)(id))callback;
 + (void) uploadImage:(UIImage*) image andId:(NSString*)user_id andCallback:(void(*)(id))callback;
 @end

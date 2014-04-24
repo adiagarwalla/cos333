@@ -8,13 +8,25 @@
 
 #import "NotificationViewController.h"
 #import "SWRevealViewController.h"
-
+#import "QApiRequests.h"
+#import "Person.h"
+#import "Notification.h"
 
 @interface NotificationViewController ()
 
 @end
 
 @implementation NotificationViewController
+@synthesize detailItem = _detailItem;
+
+static NSMutableArray * _notifications;
+static UITableView * view;
+static int _userID;
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,6 +37,19 @@
     return self;
 }
 
+void getNotificationsCallback(id arg){
+    NSLog(@"Get notifications JSON: %@", arg);
+    printf("%s", "Fetching notifications");
+    _notifications = [[NSMutableArray alloc]init];
+    for (NSDictionary * notification in (NSArray *)arg) {
+        Notification * myNotification = [[Notification alloc] init];
+        myNotification.session_token = notification[@"fields"][@"attachedjson"][@"session_id"];
+        myNotification.from = notification[@"f"];
+        myNotification.message = notification[@"fields"][@"message"];
+        [_notifications addObject:myNotification];
+    }
+    [view reloadData];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,6 +68,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    view = (UITableView *)self.view;
+    //_notifications = [self.detailItem notifications];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger myID = [defaults integerForKey:@"myID"];
+    _userID = myID;
+    NSLog(@"Get user id: %d", _userID);
+    
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSString *session_token = [defaults objectForKey:@"sessiontoken"];
+    [QApiRequests getNotification: _userID andCallback: &getNotificationsCallback];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,28 +93,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _notifications.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Notification * notification = _notifications[indexPath.row];
+    cell.textLabel.text = notification.message;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

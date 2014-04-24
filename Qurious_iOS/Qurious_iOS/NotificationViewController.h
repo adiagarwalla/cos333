@@ -10,5 +10,7 @@
 
 @interface NotificationViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
+@property (strong, nonatomic) id detailItem;
+
 
 @end
