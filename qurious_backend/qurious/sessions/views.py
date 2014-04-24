@@ -35,6 +35,7 @@ class CreateSessionView(View):
             sess.save()
 
             # generate your lovely notification object
+            json = simplejson.dumps({'session_id': session_id})
             n = Notification(f=username, to=tutor, message='The user: ' + username + ' would like to have a session with you!', attachedjson=json)
             n.save()
             token = tutor.token
