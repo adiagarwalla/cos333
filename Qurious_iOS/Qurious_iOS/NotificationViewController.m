@@ -17,6 +17,7 @@
 @end
 
 @implementation NotificationViewController
+@synthesize detailItem = _detailItem;
 
 static NSMutableArray * _notifications;
 static UITableView * view;
