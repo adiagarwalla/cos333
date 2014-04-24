@@ -67,6 +67,7 @@ class NotificationsView(View):
         This will get all the notifications for a given user
         """
         try:
+            import pdb; pdb.set_trace()
             user_id = request.GET.get('id')
             user = User.objects.get(id=user_id)
 
