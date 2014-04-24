@@ -15,5 +15,3 @@ class Notification(models.Model):
     to = models.ForeignKey(UserProfile)
     message = models.CharField(max_length=512)
     attachedjson = models.CharField(max_length=512)
-
-

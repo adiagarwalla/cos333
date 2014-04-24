@@ -131,7 +131,12 @@ INSTALLED_APPS = (
     'qurious.sessions',
     'django_coverage',
     'push_notifications',
+    'iphonepush',
 )
+
+IPHONE_SANDBOX_APN_PUSH_CERT = '/Users/abhinavkhanna/Desktop/apns-dev-cert.p12'
+IPHONE_SANDBOX_APN_HOST = 'gateway.sandbox.push.apple.com'
+IPHONE_SANDBOX_FEEDBACK_HOST = 'feedback.sandbox.push.apple.com'
 
 PUSH_NOTIFICATIONS_SETTINGS = {
         'APNS_CERTIFICATE': '/Users/abhinavkhanna/Desktop/apns-dev-cert.p12'

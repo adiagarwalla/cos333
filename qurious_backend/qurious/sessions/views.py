@@ -11,6 +11,7 @@ from qurious.sessions.models import QSession
 from django.contrib.auth.models import User
 from django.utils import simplejson
 from push_notifications.models import APNSDevice
+from iphonepush.models import iPhone
 
 class CreateSessionView(View):
     """
@@ -43,9 +44,9 @@ class CreateSessionView(View):
             token = token.replace('<','')
             token = token.replace('>','')
             token = token.replace(' ', '')
-            device = APNSDevice.objects.filter(registration_id=token)
+            device = iPhone.objects.filter(udid=token)
             if len(device) == 0:
-                device = APNSDevice(registration_id=token)
+                device = iPhone(udid=token)
                 device.save()
             else:
                 device = device[0]
