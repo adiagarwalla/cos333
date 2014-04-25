@@ -160,10 +160,10 @@ class WhoAmIView(View):
             username = request.user.username
             user_id = User.objects.get(username=username).id
 
-            data = serializers.serialize('json', {'user_id':user_id})
+            data = simplejson.dumps({'user_id':user_id})
             return HttpResponse(data, mimetype='application/json')
         except:
-            data = serializers.serialize('json', {'user_id':0})
+            data = simplejson.dumps({'user_id':0})
             return HttpResponse(data, mimetype='application/json')
 
 class SetPushToken(View):
