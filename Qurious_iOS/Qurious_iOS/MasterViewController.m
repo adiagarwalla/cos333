@@ -34,8 +34,8 @@ void mastercallback(id arg) {
     // do nothing valuable
     NSLog(@"Pulling all profiles JSON: %@", arg);
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger myID = [defaults integerForKey:@"myID"];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSInteger myID = [defaults integerForKey:@"myID"];
     if (arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
         _searchObjects = [[NSMutableArray alloc] init];
