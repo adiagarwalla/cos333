@@ -528,8 +528,8 @@
 		66D7D8D418EA11E400F4BF89 /* Qurious_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F904572C1907661600F7BF06 /* ProfileViewController.m */,
 				F904572B1907661600F7BF06 /* ProfileViewController.h */,
+				F904572C1907661600F7BF06 /* ProfileViewController.m */,
 				F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */,
 				F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */,
 				66D7D9A118FE1FFF00F4BF89 /* SidebarViewController.h */,

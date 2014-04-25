@@ -10,7 +10,6 @@
 
 @interface ProfileViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
-@property (strong, nonatomic) id detailItem;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 @property (strong, nonatomic) IBOutlet UILabel *bioLabel;
