@@ -549,7 +549,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnJ-Yf-Pzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="-608"/>
+            <point key="canvasLocation" x="2486" y="-432"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MBc-gM-VpA">
@@ -560,7 +560,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gB1-Ij-I6b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hes-Tx-ajO">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -576,7 +576,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql9-lK-tch" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NKP-TO-Zy1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="245" y="-823"/>
+            <point key="canvasLocation" x="1009" y="-1603"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="RhZ-br-2Ys">
@@ -967,7 +967,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxU-cj-k32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3033" y="-616"/>
+            <point key="canvasLocation" x="569" y="-1585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P9l-c2-7IX">
@@ -1022,7 +1022,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1MK-41-C6g" kind="push" id="V6d-dF-Ot7"/>
+                                    <segue destination="I4w-Oy-fdp" kind="modal" identifier="acceptSession" id="Dus-fO-te2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1055,10 +1055,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RrB-5V-dVd"/>
         <segue reference="Okm-gj-QJ6"/>
         <segue reference="9qD-dc-aaK"/>
+        <segue reference="RrB-5V-dVd"/>
+        <segue reference="Dus-fO-te2"/>
         <segue reference="dIY-hd-WW8"/>
-        <segue reference="V6d-dF-Ot7"/>
     </inferredMetricsTieBreakers>
 </document>
