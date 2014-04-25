@@ -205,10 +205,9 @@ void mastercallback(id arg) {
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-//        Person* friend = [self findPersonForName:cell.textLabel.text];
-        Person *friend = _objects[indexPath.row];
+        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        UITableViewCell* cell = [self.searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
+        Person* friend = [self findPersonForName:cell.textLabel.text];
         [[segue destinationViewController] setDetailItem:friend];
     }
     if ([[segue identifier] isEqualToString:@"showProfile"]) {
