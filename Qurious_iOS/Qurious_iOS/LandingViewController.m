@@ -7,10 +7,12 @@
 //
 
 #import "LandingViewController.h"
+#import "QApiRequests.h"
 
 @interface LandingViewController ()
 
 @end
+static UIViewController * _self;
 
 @implementation LandingViewController
 
@@ -23,20 +25,32 @@
     return self;
 }
 
+void authCallback (id arg) {
+    if (arg != NULL) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger myID = [((NSDictionary*) arg)[@"user_id"] intValue];
+        if (myID != 0){
+            [defaults setInteger:myID forKey: @"myID"];
+            [_self performSegueWithIdentifier: @"gotoMaster" sender: _self];
+        }
+        else {
+            [_self performSegueWithIdentifier: @"gotoLogin" sender: _self];
+        }
+    } else {
+    //  force login
+        [_self performSegueWithIdentifier: @"gotoLogin" sender: _self];
+    }
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     //self.navigationController.navigationBar.hidden = YES;
     // Do any additional setup after loading the view.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger myID = [defaults integerForKey: @"myID"];
-    if (myID == 0){
-        //  force login
-        [self performSegueWithIdentifier: @"gotoLogin" sender: self];
-    }
-    else {
-        [self performSegueWithIdentifier: @"gotoMaster" sender: self];
-    }
+    _self = self;
+    [QApiRequests whoAmI: &authCallback];
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -21,7 +21,7 @@
 static NSMutableArray *_objects;
 static NSMutableArray *_searchObjects;
 static UITableView *view;
-static Person * me;
+//static Person * me;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -53,9 +53,9 @@ void mastercallback(id arg) {
             friend.email = fields[@"user_email"];
             friend.bio = fields[@"user_bio"];
             friend.userID = [fields[@"user"] intValue];
-            if (friend.userID == myID) {
-                me = friend;
-            }
+//            if (friend.userID == myID) {
+//                me = friend;
+//            }
             friend.username = fields[@"profile_name"];
             NSDictionary *skills = jsonobject[@"skills"];
             NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
@@ -205,15 +205,12 @@ void mastercallback(id arg) {
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-//        Person* friend = [self findPersonForName:cell.textLabel.text];
-        Person *friend = _objects[indexPath.row];
+        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        UITableViewCell* cell = [self.searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
+        Person* friend = [self findPersonForName:cell.textLabel.text];
         [[segue destinationViewController] setDetailItem:friend];
     }
-    if ([[segue identifier] isEqualToString:@"showProfile"]) {
-        [[segue destinationViewController] setDetailItem:me];
-    }
+
 }
 
 @end

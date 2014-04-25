@@ -32,33 +32,32 @@ void pictureCallback(id arg) {
 
 
 @implementation ProfileViewController
-@synthesize detailItem = _detailItem;
 @synthesize nameLabel = _nameLabel;
 @synthesize emailLabel = _emailLabel;
 @synthesize bioLabel = _bioLabel;
 @synthesize imageView = _imageView;
 
-
-
+static Person* me;
+static ProfileViewController* _self;
 - (void)configureView {
-    if (self.detailItem &&
-        [self.detailItem isKindOfClass:[Person class]]) {
+    if (me && [me isKindOfClass:[Person class]]) {
         NSString *name = [NSString stringWithFormat:@"%@ %@",
-                          [self.detailItem firstName],
-                          [self.detailItem lastName]];
-        if ([name isEqualToString: @" "]) self.nameLabel.text = [self.detailItem username];
+                          [me firstName],
+                          [me lastName]];
+        if ([name isEqualToString: @" "]) self.nameLabel.text = [me username];
         else self.nameLabel.text = name;
-        self.emailLabel.text = [self.detailItem email];
-        self.bioLabel.text = [self.detailItem bio];
+        self.emailLabel.text = [me email];
+        self.bioLabel.text = [me bio];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            NSData *imageData = [NSData dataWithContentsOfURL:[me profPic]];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update the UI
                 self.imageView.image = [UIImage imageWithData:imageData];
             });
-        });    }
+        });
+    }
     
 }
 
@@ -66,24 +65,15 @@ void pictureCallback(id arg) {
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"editProfile"]) {
         NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
         EditViewController *editViewController = [navigationControllers objectAtIndex:0];
-        [editViewController setDetailItem:self.detailItem];
+        [editViewController setDetailItem:me];
     }
     if ([[segue identifier] isEqualToString:@"showSkillEdit"]) {
-        [[segue destinationViewController] setDetailItem:self.detailItem];
+        [[segue destinationViewController] setDetailItem:me];
     }
     
 }
@@ -93,15 +83,15 @@ void pictureCallback(id arg) {
 - (IBAction)save:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"saveInput"]) {
         EditViewController *editController = [segue sourceViewController];
-        [self.detailItem setFirstName:editController.firstNameField.text];
-        [self.detailItem setLastName:editController.lastNameField.text];
-        [self.detailItem setEmail:editController.emailField.text];
-        [self.detailItem setBio:editController.bioField.text];
+        [me setFirstName:editController.firstNameField.text];
+        [me setLastName:editController.lastNameField.text];
+        [me setEmail:editController.emailField.text];
+        [me setBio:editController.bioField.text];
         
-        [QApiRequests editProfile: [self.detailItem firstName] andLastName: [self.detailItem lastName] andBio:[self.detailItem bio] andEmail:[self.detailItem email] andProfile:[NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]] andCallback: saveCallback];
+        [QApiRequests editProfile: [me firstName] andLastName: [me lastName] andBio:[me bio] andEmail:[me email] andProfile:[NSString stringWithFormat:@"%@ %@", [me firstName], [me lastName]] andCallback: saveCallback];
         
         if (editController.hasNewImage == YES) {
-            [QApiRequests uploadImage:editController.selectedImage.image andId:[NSString stringWithFormat: @"%i",[self.detailItem userID]] andCallback:pictureCallback];
+            [QApiRequests uploadImage:editController.selectedImage.image andId:[NSString stringWithFormat: @"%i",[me userID]] andCallback:pictureCallback];
         }
         [self configureView];
     }
@@ -123,7 +113,7 @@ void pictureCallback(id arg) {
     }
     
     NSArray *buttonImg = @[@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", @"img6.png"];
-    NSMutableArray *skills = [self.detailItem skills];
+    NSMutableArray *skills = [me skills];
     int xposition = 20.0f;
     int yposition = 0;
     int count = 0;
@@ -150,6 +140,39 @@ void pictureCallback(id arg) {
     }
 }
 
+void profileCallback (id arg){
+    NSLog(@"My Profile JSON: %@", arg);
+    
+        NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
+        me = [[Person alloc] init];
+        me.firstName = fields[@"profile_first"];
+        me.lastName = fields[@"profile_last"];
+        if (![fields[@"profile_pic"]  isEqual: @""]) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://qurious.info:8080/%@", fields[@"profile_pic"]]];
+            me.profPic = url;
+        }
+        me.email = fields[@"user_email"];
+        me.bio = fields[@"user_bio"];
+        me.userID = [fields[@"user"] intValue];
+        me.username = fields[@"profile_name"];
+        NSDictionary *skills = arg[0][@"skills"];
+        NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
+        for (NSDictionary * skill in skills) {
+            Skill * mySkill = [[Skill alloc] init];
+            mySkill.name = skill[@"fields"][@"name"];
+            mySkill.desc = skill[@"fields"][@"desc"];
+            mySkill.price = skill[@"fields"][@"price"];
+            mySkill.skillID = [skill[@"pk"] intValue];
+            if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+            else mySkill.isMarketable = NO;
+            [allmyskills insertObject:mySkill atIndex:0];
+        }
+        me.skills = allmyskills;
+    
+    [_self configureView];
+    [_self loadButtons];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -163,10 +186,14 @@ void pictureCallback(id arg) {
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
+    _self = self;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger myID = [defaults integerForKey:@"myID"];
+    [QApiRequests getProfiles: myID andCallback: &profileCallback];
+    
 
 	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-    [self loadButtons];
+
     
 }
 
