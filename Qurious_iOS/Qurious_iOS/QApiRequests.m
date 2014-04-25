@@ -133,7 +133,7 @@ char* baseURL = "http://qurious.info:8080";
 }
 
 
-+ (void) whoAmI:(NSString*)username andCallback:(void(*)(id))callback {
++ (void) whoAmI:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/whoami/", baseURL];
     [request startAsync:callback andUrl:url];
