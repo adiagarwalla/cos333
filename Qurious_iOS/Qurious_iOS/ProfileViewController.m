@@ -40,8 +40,7 @@ void pictureCallback(id arg) {
 static Person* me;
 static ProfileViewController* _self;
 - (void)configureView {
-    if (me &&
-        [me isKindOfClass:[Person class]]) {
+    if (me && [me isKindOfClass:[Person class]]) {
         NSString *name = [NSString stringWithFormat:@"%@ %@",
                           [me firstName],
                           [me lastName]];
@@ -57,7 +56,8 @@ static ProfileViewController* _self;
                 // Update the UI
                 self.imageView.image = [UIImage imageWithData:imageData];
             });
-        });    }
+        });
+    }
     
 }
 
@@ -142,12 +142,32 @@ static ProfileViewController* _self;
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
-    me = [[Person alloc] init];
-    me.firstName = arg[0][@"fields"][@"profile_first"];
-    me.lastName = arg[0][@"fields"][@"profile_last"];
-    me.username = arg[0][@"fields"][@"profile_name"];
-    me.profPic = arg[0][@"fields"][@"profile_pic"];
-    // do my skills next
+    
+        NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
+        me = [[Person alloc] init];
+        me.firstName = fields[@"profile_first"];
+        me.lastName = fields[@"profile_last"];
+        if (![fields[@"profile_pic"]  isEqual: @""]) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://qurious.info:8080/%@", fields[@"profile_pic"]]];
+            me.profPic = url;
+        }
+        me.email = fields[@"user_email"];
+        me.bio = fields[@"user_bio"];
+        me.userID = [fields[@"user"] intValue];
+        me.username = fields[@"profile_name"];
+        NSDictionary *skills = arg[0][@"skills"];
+        NSMutableArray * allmyskills = [[NSMutableArray alloc] init];
+        for (NSDictionary * skill in skills) {
+            Skill * mySkill = [[Skill alloc] init];
+            mySkill.name = skill[@"fields"][@"name"];
+            mySkill.desc = skill[@"fields"][@"desc"];
+            mySkill.price = skill[@"fields"][@"price"];
+            mySkill.skillID = [skill[@"pk"] intValue];
+            if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+            else mySkill.isMarketable = NO;
+            [allmyskills insertObject:mySkill atIndex:0];
+        }
+        me.skills = allmyskills;
     
     [_self configureView];
     [_self loadButtons];
