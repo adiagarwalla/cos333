@@ -11,6 +11,7 @@
 #import "QApiRequests.h"
 #import "Person.h"
 #import "Notification.h"
+#import "ViewController.h"
 
 @interface NotificationViewController ()
 
@@ -43,7 +44,8 @@ void getNotificationsCallback(id arg){
     _notifications = [[NSMutableArray alloc]init];
     for (NSDictionary * notification in (NSArray *)arg) {
         Notification * myNotification = [[Notification alloc] init];
-        myNotification.session_token = notification[@"fields"][@"attachedjson"][@"session_id"];
+        NSString* tmp = notification[@"fields"][@"attachedjson"];
+        myNotification.session_token = [tmp substringWithRange:NSMakeRange(16, [tmp length] - 18)];
         myNotification.from = notification[@"f"];
         myNotification.message = notification[@"fields"][@"message"];
         [_notifications addObject:myNotification];
@@ -78,7 +80,7 @@ void getNotificationsCallback(id arg){
     
     //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     //NSString *session_token = [defaults objectForKey:@"sessiontoken"];
-    [QApiRequests getNotification: _userID andCallback: &getNotificationsCallback];
+    [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
     
     
 }
@@ -111,6 +113,8 @@ void getNotificationsCallback(id arg){
     // Configure the cell...
     Notification * notification = _notifications[indexPath.row];
     cell.textLabel.text = notification.message;
+    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     return cell;
 }
@@ -154,15 +158,23 @@ void getNotificationsCallback(id arg){
 }
 */
 
-/*
-#pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Notification * notification = _notifications[indexPath.row];
+    NSString* kSession = notification.session_token;
+    [ViewController setSessionToken: kSession];
 }
-*/
+
+- (IBAction)cancel:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"SessionOver"]) {
+        ViewController *sessionController = [segue sourceViewController];
+        [sessionController.session disconnect];
+    }
+    
+}
 
 @end

@@ -560,7 +560,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gB1-Ij-I6b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hes-Tx-ajO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -576,7 +576,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql9-lK-tch" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NKP-TO-Zy1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3559" y="-616"/>
+            <point key="canvasLocation" x="245" y="-823"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="RhZ-br-2Ys">
@@ -1009,18 +1009,21 @@
         <scene sceneID="41r-Eb-jNI">
             <objects>
                 <tableViewController id="wgg-1A-oJG" customClass="NotificationViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LpB-vt-IYE">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="LpB-vt-IYE">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6v1-FY-VP8">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notificationCell" rowHeight="53" id="6v1-FY-VP8">
+                                <rect key="frame" x="0.0" y="22" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6v1-FY-VP8" id="5gt-k0-f2v">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="52"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1MK-41-C6g" kind="push" id="V6d-dF-Ot7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1056,5 +1059,6 @@
         <segue reference="Okm-gj-QJ6"/>
         <segue reference="fhH-F7-sUn"/>
         <segue reference="dIY-hd-WW8"/>
+        <segue reference="V6d-dF-Ot7"/>
     </inferredMetricsTieBreakers>
 </document>

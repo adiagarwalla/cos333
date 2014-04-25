@@ -38,7 +38,7 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
 {
     [super viewDidLoad];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    widgetHeight = screenRect.size.height;
+    widgetHeight = screenRect.size.height / 2;
     widgetWidth = screenRect.size.width;
     //[self.navigationItem setHidesBackButton:YES animated:NO];
     //self.navigationController.navigationBar.hidden = YES;
