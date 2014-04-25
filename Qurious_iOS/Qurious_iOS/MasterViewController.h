@@ -10,6 +10,6 @@
 
 @interface MasterViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
-
+@property (retain, nonatomic) NSMutableArray *searchObjects;
 
 @end
