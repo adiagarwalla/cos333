@@ -17,9 +17,9 @@
 @end
 
 @implementation MasterViewController
+@synthesize searchObjects = _searchObjects;
 
 static NSMutableArray *_objects;
-static NSMutableArray *_searchObjects;
 static UITableView *view;
 //static Person * me;
 - (void)awakeFromNib
@@ -38,7 +38,6 @@ void mastercallback(id arg) {
 //    NSInteger myID = [defaults integerForKey:@"myID"];
     if (arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
-        _searchObjects = [[NSMutableArray alloc] init];
         
         NSDictionary * results = arg;
         for (NSDictionary *jsonobject in results) {
@@ -82,6 +81,7 @@ void mastercallback(id arg) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _searchObjects = [[NSMutableArray alloc] init];
     
     // Change button color
     //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
@@ -192,22 +192,30 @@ void mastercallback(id arg) {
 }
 
 
-- (Person*) findPersonForName:(NSString*)name {
-    for (Person* p in _objects) {
-        if ([p.firstName isEqualToString:name] || [p.lastName isEqualToString:name] || [p.username isEqualToString:name]) {
-            return p;
-        }
-    };
-        
-    return nil;
-}
+//- (Person*) findPersonForName:(NSString*)name {
+//    for (Person* p in _objects) {
+//        if ([p.firstName isEqualToString:name] || [p.lastName isEqualToString:name] || [p.username isEqualToString:name]) {
+//            return p;
+//        }
+//    };
+//        
+//    return nil;
+//}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        Person *friend;
+        if ([_searchObjects count] != 0) {
         NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        UITableViewCell* cell = [self.searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
-        Person* friend = [self findPersonForName:cell.textLabel.text];
+        friend = [_searchObjects objectAtIndex: indexPath.row];
+
+        }
+        else {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            friend = [_objects objectAtIndex: indexPath.row];
+
+        }
         [[segue destinationViewController] setDetailItem:friend];
     }
 
