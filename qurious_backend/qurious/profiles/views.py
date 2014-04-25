@@ -163,7 +163,8 @@ class WhoAmIView(View):
             data = serializers.serialize('json', {'user_id':user_id})
             return HttpResponse(data, mimetype='application/json')
         except:
-            return HttpResponse('', mimetype='application/json')
+            data = serializers.serialize('json', {'user_id':0})
+            return HttpResponse(data, mimetype='application/json')
 
 class SetPushToken(View):
     """
