@@ -13,9 +13,9 @@
 
 @end
 
-@implementation SidebarViewController{
-
-}
+@implementation SidebarViewController
+@synthesize notificationCountLabel;
+@synthesize count;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +32,7 @@
     //self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     //self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
+    notificationCountLabel.text = count;
     
     
     // Uncomment the following line to preserve selection between presentations.

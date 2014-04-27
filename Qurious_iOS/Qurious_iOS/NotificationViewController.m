@@ -12,6 +12,7 @@
 #import "Person.h"
 #import "Notification.h"
 #import "ViewController.h"
+#import "SidebarViewController.h"
 
 @interface NotificationViewController ()
 
@@ -63,7 +64,7 @@ void getNotificationsCallback(id arg){
     _sideBarButton.action = @selector(revealToggle:);
     
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -163,10 +164,22 @@ void getNotificationsCallback(id arg){
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"notification"]) {
+        NSLog(@"Lol");
+        SidebarViewController *destViewController = segue.destinationViewController;
+        destViewController.count = [NSString stringWithFormat:@"%.0lu", (unsigned long)_notifications.count];
+        NSLog(@"Get notifications JSON: %d", _notifications.count);
+    }
+    
+    
+    if ([segue.identifier isEqualToString:@"acceptSession"]) {
+        NSLog(@"Lol");
+
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Notification * notification = _notifications[indexPath.row];
     NSString* kSession = notification.session_token;
     [ViewController setSessionToken: kSession];
+    }
 }
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue {

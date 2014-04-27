@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SidebarViewController : UITableViewController
+@property (nonatomic, strong) IBOutlet UILabel *notificationCountLabel;
+@property (nonatomic, strong) NSString *count;
 
 @end
