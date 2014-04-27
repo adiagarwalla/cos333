@@ -106,7 +106,9 @@ void mastercallback(id arg) {
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     for (Person* p in [_objects reverseObjectEnumerator]) {
-        if ([p.firstName rangeOfString:searchText].location == NSNotFound && [p.lastName rangeOfString:searchText].location == NSNotFound && [p.username rangeOfString:searchText].location == NSNotFound) {
+        NSString * skillString;
+        skillString = [[p.skills valueForKey:@"name"] componentsJoinedByString: @" "];
+        if ([p.firstName rangeOfString:searchText options:NSCaseInsensitiveSearch].location == NSNotFound && [p.lastName rangeOfString:searchText options:NSCaseInsensitiveSearch].location == NSNotFound && [p.username rangeOfString:searchText options:NSCaseInsensitiveSearch].location == NSNotFound && [skillString rangeOfString:searchText options:NSCaseInsensitiveSearch].location == NSNotFound) {
             // do nothing in this case
             if ([_searchObjects containsObject:p]) {
                 [_searchObjects removeObject:p];
@@ -206,7 +208,7 @@ void mastercallback(id arg) {
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         Person *friend;
-        if ([_searchObjects count] != 0) {
+        if (self.searchDisplayController.active) {
         NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
         friend = [_searchObjects objectAtIndex: indexPath.row];
 
