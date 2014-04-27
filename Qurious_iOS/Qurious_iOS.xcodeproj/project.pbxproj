@@ -36,6 +36,7 @@
 		4880DBBF18FA3B98002BF93A /* Opentok in Frameworks */ = {isa = PBXBuildFile; fileRef = 4880DBB118FA3B98002BF93A /* Opentok */; };
 		669B19BA1908BDCC0016E89A /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669B19B91908BDCC0016E89A /* NotificationViewController.m */; };
 		669B19BD1909B5690016E89A /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 669B19BC1909B5690016E89A /* Notification.m */; };
+		669B1A15190C938D0016E89A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 669B1A14190C938D0016E89A /* login.png */; };
 		66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8CE18EA11E400F4BF89 /* Foundation.framework */; };
 		66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */; };
 		66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D218EA11E400F4BF89 /* UIKit.framework */; };
@@ -187,6 +188,7 @@
 		669B19B91908BDCC0016E89A /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		669B19BB1909B5690016E89A /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		669B19BC1909B5690016E89A /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		669B1A14190C938D0016E89A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		66D7D8CB18EA11E400F4BF89 /* Qurious_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qurious_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D7D8CE18EA11E400F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -528,6 +530,7 @@
 		66D7D8D418EA11E400F4BF89 /* Qurious_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				669B1A14190C938D0016E89A /* login.png */,
 				F904572B1907661600F7BF06 /* ProfileViewController.h */,
 				F904572C1907661600F7BF06 /* ProfileViewController.m */,
 				F95E0FCB18FB6F1900CC16E0 /* SignupViewController.h */,
@@ -703,6 +706,7 @@
 				F9C17F5918EC8E8E0095F92E /* img6.png in Resources */,
 				66D7D8D918EA11E400F4BF89 /* InfoPlist.strings in Resources */,
 				66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */,
+				669B1A15190C938D0016E89A /* login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
