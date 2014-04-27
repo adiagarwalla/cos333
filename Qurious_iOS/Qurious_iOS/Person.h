@@ -19,4 +19,5 @@
 @property (copy, nonatomic) NSMutableArray *skills;
 @property (copy, nonatomic) NSURL *profPic;
 
+- (BOOL)isEqual:(id)other;
 @end

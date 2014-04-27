@@ -30,6 +30,16 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)other {
+    if (other == self)
+        return YES;
+    if (!other || ![other isKindOfClass:[self class]])
+        return NO;
+    if ( self.userID != [other userID])
+        return NO;
+    return YES;
+}
+
 @end
 
 
