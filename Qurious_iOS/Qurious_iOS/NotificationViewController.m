@@ -48,7 +48,7 @@ void getNotificationsCallback(id arg){
         myNotification.session_token = [tmp substringWithRange:NSMakeRange(16, [tmp length] - 18)];
         myNotification.from = notification[@"f"];
         myNotification.message = notification[@"fields"][@"message"];
-        [_notifications addObject:myNotification];
+        [_notifications insertObject:myNotification atIndex:0];
     }
     [view reloadData];
 }
