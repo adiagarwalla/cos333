@@ -82,10 +82,9 @@ void mastercallback(id arg) {
 {
     [super viewDidLoad];
     _searchObjects = [[NSMutableArray alloc] init];
-    
     // Change button color
     //_sideBarButton.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
-    
+    self.navigationController.navigationBar.hidden = NO;
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sideBarButton.target = self.revealViewController;
     _sideBarButton.action = @selector(revealToggle:);

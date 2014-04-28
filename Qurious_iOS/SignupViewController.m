@@ -32,6 +32,7 @@ static UIViewController * me;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.hidden = NO;
     // Do any additional setup after loading the view.
     _usernameField.delegate = self;
     _pwField.delegate = self;

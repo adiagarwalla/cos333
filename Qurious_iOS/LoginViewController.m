@@ -37,6 +37,7 @@ static UIActivityIndicatorView* spinner;
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    self.navigationController.navigationBar.hidden = YES;
     // Do any additional setup after loading the view.
     self.usernameField.delegate = self;
     self.pwField.delegate = self;

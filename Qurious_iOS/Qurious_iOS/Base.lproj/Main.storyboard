@@ -205,7 +205,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
-                    <navigationItem key="navigationItem" id="tQt-TN-PWz">
+                    <navigationItem key="navigationItem" title="Welcome to Qurious" id="tQt-TN-PWz">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Xbi-a0-Fyi"/>
                         <barButtonItem key="rightBarButtonItem" id="cGG-OG-xPB">
                             <connections>
