@@ -205,7 +205,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
-                    <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz">
+                    <navigationItem key="navigationItem" id="tQt-TN-PWz">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Xbi-a0-Fyi"/>
                         <barButtonItem key="rightBarButtonItem" id="cGG-OG-xPB">
                             <connections>
@@ -1030,7 +1030,7 @@
             </objects>
             <point key="canvasLocation" x="-1911" y="242"/>
         </scene>
-        <!--Notification View Controller-->
+        <!--Notification View Controller - Notifications-->
         <scene sceneID="41r-Eb-jNI">
             <objects>
                 <tableViewController id="wgg-1A-oJG" customClass="NotificationViewController" sceneMemberID="viewController">
@@ -1056,7 +1056,7 @@
                             <outlet property="delegate" destination="wgg-1A-oJG" id="LXf-Bb-7pJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vV9-dg-hlI">
+                    <navigationItem key="navigationItem" title="Notifications" id="vV9-dg-hlI">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="eT7-TE-d1b">
                             <connections>
                                 <segue destination="82M-Ra-hil" kind="push" identifier="notification" id="Z2G-sG-3Jg"/>
@@ -1088,8 +1088,8 @@
         <segue reference="Dus-fO-te2"/>
         <segue reference="Z2G-sG-3Jg"/>
         <segue reference="Okm-gj-QJ6"/>
-        <segue reference="RrB-5V-dVd"/>
         <segue reference="9qD-dc-aaK"/>
+        <segue reference="fhH-F7-sUn"/>
         <segue reference="dIY-hd-WW8"/>
     </inferredMetricsTieBreakers>
 </document>
