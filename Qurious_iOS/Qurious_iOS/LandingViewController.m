@@ -48,6 +48,7 @@ void authCallback (id arg) {
     [super viewDidLoad];
     //self.navigationController.navigationBar.hidden = YES;
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.hidden = YES;
     _self = self;
     [QApiRequests whoAmI: &authCallback];
 
