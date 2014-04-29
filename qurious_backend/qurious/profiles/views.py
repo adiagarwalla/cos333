@@ -25,8 +25,8 @@ class profileIOSDetailView(View):
         id = request.GET.get('id')
         try:
             user = User.objects.get(id=id)
-            data = serializers.serialize('json', [user.userprofile])
-            return HttpResponse(data, mimetype='application/json')
+            json = '[{"profile":' + serializers.serialize('json', [user.userprofile]) + ',"skills":' + serializers.serialize('json', user.userprofile.skills.all()) + '}]'
+            return HttpResponse(json, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
 
