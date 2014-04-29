@@ -142,7 +142,7 @@ static ProfileViewController* _self;
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
-    if (![arg isEqualToString: @""]) {
+    if (![arg isKindOfClass: [NSString class]]) {
         NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
         me = [[Person alloc] init];
         me.firstName = fields[@"profile_first"];

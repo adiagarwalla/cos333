@@ -65,15 +65,7 @@ void loginCallback (id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if ([arg isEqualToString: @""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Down"
-                                                        message:@"Please try again later."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else {
+    else if (![arg isKindOfClass: [NSString class]]){
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -81,7 +73,14 @@ void loginCallback (id arg) {
         [defaults synchronize];
         NSLog(@"UserID saved");
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
-        
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Down"
+                                                        message:@"Please try again later."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
     [spinner stopAnimating];
 }
