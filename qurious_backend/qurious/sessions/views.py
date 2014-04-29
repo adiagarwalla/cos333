@@ -73,7 +73,7 @@ class DeleteNotification(View):
                 data = simplejson.dumps({'return':True})
                 return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({'return':False})
+        data = simplejson.dumps({'return':username})
         return HttpResponse(data, mimetype='application/json')
 
 class NotificationsView(View):
