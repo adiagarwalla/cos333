@@ -46,9 +46,11 @@ void getNotificationsCallback(id arg){
     for (NSDictionary * notification in (NSArray *)arg) {
         Notification * myNotification = [[Notification alloc] init];
         NSString* tmp = notification[@"fields"][@"attachedjson"];
+        myNotification.notificationID = [notification[@"pk"]intValue];
         myNotification.session_token = [tmp substringWithRange:NSMakeRange(16, [tmp length] - 18)];
         myNotification.from = notification[@"f"];
         myNotification.message = notification[@"fields"][@"message"];
+        //if ([notification[@"fields"][@"is_expired"] intValue] == 0) myNotification.isExpired = NO;
         [_notifications insertObject:myNotification atIndex:0];
     }
     [view reloadData];
@@ -66,24 +68,19 @@ void getNotificationsCallback(id arg){
     // Set the gesture
     //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     view = (UITableView *)self.view;
     //_notifications = [self.detailItem notifications];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger myID = [defaults integerForKey:@"myID"];
     _userID = myID;
     NSLog(@"Get user id: %d", _userID);
     
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //NSString *session_token = [defaults objectForKey:@"sessiontoken"];
     [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,6 +111,7 @@ void getNotificationsCallback(id arg){
     // Configure the cell...
     Notification * notification = _notifications[indexPath.row];
     cell.textLabel.text = notification.message;
+    if (notification.isExpired) cell.textLabel.textColor = [UIColor lightGrayColor];
     cell.textLabel.numberOfLines = 2;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
@@ -121,27 +119,29 @@ void getNotificationsCallback(id arg){
 }
 
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
+void deleteNotificationCallback (id arg){
+    NSLog(@"Delete notification callback %@", arg);
+}
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        _notifications = [_notifications mutableCopy];
+        int notificationID = [[_notifications objectAtIndex:indexPath.row] notificationID];
+        [_notifications removeObjectAtIndex: indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        [QApiRequests deleteNotification: notificationID andCallback: &deleteNotificationCallback];
+        
+
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

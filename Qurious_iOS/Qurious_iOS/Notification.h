@@ -13,5 +13,6 @@
 @property (copy, nonatomic) NSString *session_token;
 @property (copy, nonatomic) NSString *from;
 @property (copy, nonatomic) NSString *message;
-
+@property (nonatomic) int notificationID;
+@property (nonatomic) BOOL isExpired;
 @end

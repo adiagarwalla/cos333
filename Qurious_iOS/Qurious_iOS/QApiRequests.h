@@ -24,6 +24,7 @@
 + (void) createSession:(NSString*)tutor_id andMinutes:(NSString*)minutes andCallback:(void(*)(id))callback;
 + (void) getToken:(NSString*)session_token andCallback:(void(*)(id))callback;
 + (void) getNotification:(int)user_id andCallback:(void(*)(id))callback;
++ (void) deleteNotification:(int)notification_id andCallback:(void(*)(id))callback;
 + (void) uploadImage:(UIImage*) image andId:(NSString*)user_id andCallback:(void(*)(id))callback;
 + (void) whoAmI:(void(*)(id))callback;
 @end

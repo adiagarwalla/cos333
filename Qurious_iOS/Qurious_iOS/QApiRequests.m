@@ -132,6 +132,13 @@ char* baseURL = "http://qurious.info:8080";
     [request startAsync:callback andUrl:url];
 }
 
++ (void) deleteNotification:(int)notification_id andCallback:(void(*)(id))callback{
+    AsyncRequest* request = [AsyncRequest new];
+    NSString* url = [NSString stringWithFormat:@"%s/api-session/deletenotification/", baseURL];
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:notification_id], @"id", nil];
+    [request startAsyncPost:callback andUrl:url andDict:dict];
+}
+
 + (void) whoAmI:(void(*)(id))callback {
     AsyncRequest* request = [AsyncRequest new];
     NSString* url = [NSString stringWithFormat:@"%s/api-profile/whoami/", baseURL];
