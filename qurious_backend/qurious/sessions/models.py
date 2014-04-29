@@ -1,6 +1,7 @@
 from django.db import models
 from qurious.profiles.models import UserProfile
 from django.contrib.auth.models import User
+from iphonepush.models import iPhone
 
 # Create your models here.
 class QSession(models.Model):
