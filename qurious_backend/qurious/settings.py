@@ -21,6 +21,10 @@ DATABASES = {
     }
 }
 
+CRONJOBS = [
+            ('*/1 * * * *', 'qurious.sessions.cron.job')
+]
+
 
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False

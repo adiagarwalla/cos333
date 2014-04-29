@@ -58,6 +58,23 @@ class CreateSessionView(View):
 
         return HttpResponse('', mimetype='application/json')
 
+class DeleteNotification(View):
+    """
+    This View will delete the notification object, essentially removing the session
+    Although, the session will never actually be removed
+    """
+    def post(self, request, *args, **kwargs):
+        id = request.POST.get('id')
+        username = request.user.username
+        user = User.objects.get(username=username)
+        for n in user.userprofile.notification_set.all():
+            if n.id == id:
+                n.delete()
+                break
+
+        data = simplejson.dumps({'return':True})
+        return HttpResponse(data, mimetype='application/json')
+
 class NotificationsView(View):
     """
     this class will generate a notification to the given user
@@ -74,15 +91,6 @@ class NotificationsView(View):
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
-
-    def post(self, request, *args, **kwargs):
-        """
-        this will delete the notification of the given id.
-        """
-        id = request.POST.get('id')
-        notification = Notification.objects.get(id=id)
-        notification.delete()
-        return HttpResponse({'return': True})
 
 class GenerateToken(View):
     """
