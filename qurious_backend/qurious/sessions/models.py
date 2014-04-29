@@ -16,6 +16,7 @@ class Notification(models.Model):
     message = models.CharField(max_length=512)
     attachedjson = models.CharField(max_length=512)
     datetime_created = models.DateTimeField(auto_now_add=True)
+    is_expired = models.BooleanField()
 
     def delete(self):
         """

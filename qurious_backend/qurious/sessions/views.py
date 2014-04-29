@@ -70,9 +70,10 @@ class DeleteNotification(View):
         for n in user.userprofile.notification_set.all():
             if n.id == id:
                 n.delete()
-                break
+                data = simplejson.dumps({'return':True})
+                return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({'return':True})
+        data = simplejson.dumps({'return':False})
         return HttpResponse(data, mimetype='application/json')
 
 class NotificationsView(View):

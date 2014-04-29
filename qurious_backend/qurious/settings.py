@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'qurious.auth',
     'qurious.sessions',
     'django_coverage',
+    'django_crontab',
     'push_notifications',
     'iphonepush',
 )
