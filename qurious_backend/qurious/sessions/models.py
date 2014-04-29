@@ -1,5 +1,6 @@
 from django.db import models
 from qurious.profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 # Create your models here.
 class QSession(models.Model):
@@ -24,7 +25,8 @@ class Notification(models.Model):
         notification on delete
         """
         token_to = self.to.token
-        token_from = self.f.token
+        user = User.objects.get(username=self.f)
+        token_from = user.userprofile.token
 
         token_to = token_to.replace('<','')
         token_to = token_to.replace('>','')
