@@ -26,7 +26,7 @@ void sessioncallback(id arg) {
 
     // do nothing valuable
     NSLog(@"Get Token JSON: %@", arg);
-    if (![arg isKindOfClass: [NSString class]]) {
+    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
         kToken = ((NSDictionary*) arg)[@"token"];
         [(__bridge ViewController*)object doConnect];
     }

@@ -36,7 +36,7 @@ void mastercallback(id arg) {
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSInteger myID = [defaults integerForKey:@"myID"];
-    if (![arg isKindOfClass: [NSString class]]) {
+    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
         _objects = [[NSMutableArray alloc] init];
         
         NSDictionary * results = arg;

@@ -35,7 +35,7 @@ static int _userID;
 void getSkillsCallback(id arg) {
     NSLog(@"Get skills JSON: %@", arg);
     printf("%s", "Fetching skills");
-    if (![arg isKindOfClass: [NSString class]]) {
+    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
     _skills = [[NSMutableArray alloc]init]; // very poor garbage collection
         for (NSDictionary * skill in (NSArray *)arg) {
             Skill * mySkill = [[Skill alloc] init];

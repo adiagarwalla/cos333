@@ -65,7 +65,7 @@ void loginCallback (id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if (![arg isKindOfClass: [NSString class]]){
+    else if (![arg isKindOfClass: [NSString class]] && arg != NULL){
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
