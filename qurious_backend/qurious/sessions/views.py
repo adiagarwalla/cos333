@@ -1,6 +1,7 @@
 # Create your views here.
 # This is the view that allows you to create a session
 from django.views.generic import View
+from django.core import serializers
 from django.http import HttpResponse
 from qurious.sessions.forms import CreateSessionForm
 from qurious.sessions.opentok_utils import create_session
@@ -64,16 +65,16 @@ class DeleteNotification(View):
     Although, the session will never actually be removed
     """
     def post(self, request, *args, **kwargs):
-        id = request.POST.get('id')
+        n_id = request.POST.get('id')
         username = request.user.username
         user = User.objects.get(username=username)
         for n in user.userprofile.notification_set.all():
-            if n.id == id:
+            if n.id == int(n_id):
                 n.delete()
                 data = simplejson.dumps({'return':True})
                 return HttpResponse(data, mimetype='application/json')
 
-        data = simplejson.dumps({'return':username})
+        data = simplejson.dumps({'return':False})
         return HttpResponse(data, mimetype='application/json')
 
 class NotificationsView(View):
@@ -88,7 +89,7 @@ class NotificationsView(View):
             user_id = request.GET.get('id')
             user = User.objects.get(id=user_id)
 
-            data = simplejson.dumps(user.userprofile.notification_set.all())
+            data = serializers.serialize('json', user.userprofile.notification_set.all())
             return HttpResponse(data, mimetype='application/json')
         except:
             return HttpResponse('', mimetype='application/json')
