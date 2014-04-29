@@ -26,8 +26,10 @@ void sessioncallback(id arg) {
 
     // do nothing valuable
     NSLog(@"Get Token JSON: %@", arg);
-    kToken = ((NSDictionary*) arg)[@"token"];
-    [(__bridge ViewController*)object doConnect];
+    if (![arg isEqualToString: @""]) {
+        kToken = ((NSDictionary*) arg)[@"token"];
+        [(__bridge ViewController*)object doConnect];
+    }
 }
 
 static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other than your own.

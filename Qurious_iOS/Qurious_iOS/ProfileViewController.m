@@ -142,7 +142,7 @@ static ProfileViewController* _self;
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
-    
+    if (![arg isEqualToString: @""]) {
         NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
         me = [[Person alloc] init];
         me.firstName = fields[@"profile_first"];
@@ -168,7 +168,7 @@ void profileCallback (id arg){
             [allmyskills insertObject:mySkill atIndex:0];
         }
         me.skills = allmyskills;
-    
+    }
     [_self configureView];
     [_self loadButtons];
 }

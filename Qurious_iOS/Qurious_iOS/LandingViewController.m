@@ -26,7 +26,8 @@ static UIViewController * _self;
 }
 
 void authCallback (id arg) {
-    if (arg != NULL) {
+    NSLog(@"Check authorization JSON Callback %@", arg);
+    if (![arg isEqualToString: @""]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSInteger myID = [((NSDictionary*) arg)[@"user_id"] intValue];
         if (myID != 0){

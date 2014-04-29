@@ -35,16 +35,18 @@ static int _userID;
 void getSkillsCallback(id arg) {
     NSLog(@"Get skills JSON: %@", arg);
     printf("%s", "Fetching skills");
+    if (![arg isEqualToString: @""]) {
     _skills = [[NSMutableArray alloc]init]; // very poor garbage collection
-    for (NSDictionary * skill in (NSArray *)arg) {
-        Skill * mySkill = [[Skill alloc] init];
-        mySkill.name = skill[@"fields"][@"name"];
-        mySkill.desc = skill[@"fields"][@"desc"];
-        mySkill.price = skill[@"fields"][@"price"];
-        mySkill.skillID = [skill[@"pk"] intValue];
-        if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
-        else mySkill.isMarketable = NO;
-        [_skills insertObject:mySkill atIndex:0];
+        for (NSDictionary * skill in (NSArray *)arg) {
+            Skill * mySkill = [[Skill alloc] init];
+            mySkill.name = skill[@"fields"][@"name"];
+            mySkill.desc = skill[@"fields"][@"desc"];
+            mySkill.price = skill[@"fields"][@"price"];
+            mySkill.skillID = [skill[@"pk"] intValue];
+            if ([skill[@"fields"][@"is_marketable"] intValue] == 1) mySkill.isMarketable = YES;
+            else mySkill.isMarketable = NO;
+            [_skills insertObject:mySkill atIndex:0];
+        }
     }
     [view reloadData];
 }

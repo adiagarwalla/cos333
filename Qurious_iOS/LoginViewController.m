@@ -65,6 +65,14 @@ void loginCallback (id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
+    else if ([arg isEqualToString: @""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Down"
+                                                        message:@"Please try again later."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     else {
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];

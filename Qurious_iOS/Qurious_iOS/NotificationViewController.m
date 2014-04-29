@@ -43,17 +43,19 @@ void getNotificationsCallback(id arg){
     NSLog(@"Get notifications JSON: %@", arg);
     printf("%s", "Fetching notifications");
     _notifications = [[NSMutableArray alloc]init];
-    for (NSDictionary * notification in (NSArray *)arg) {
-        Notification * myNotification = [[Notification alloc] init];
-        NSString* tmp = notification[@"fields"][@"attachedjson"];
-        myNotification.notificationID = [notification[@"pk"]intValue];
-        myNotification.session_token = [tmp substringWithRange:NSMakeRange(16, [tmp length] - 18)];
-        myNotification.from = notification[@"f"];
-        myNotification.message = notification[@"fields"][@"message"];
-        //if ([notification[@"fields"][@"is_expired"] intValue] == 0) myNotification.isExpired = NO;
-        [_notifications insertObject:myNotification atIndex:0];
+    if (![arg isEqualToString: @""]) {
+        for (NSDictionary * notification in (NSArray *)arg) {
+            Notification * myNotification = [[Notification alloc] init];
+            NSString* tmp = notification[@"fields"][@"attachedjson"];
+            myNotification.notificationID = [notification[@"pk"]intValue];
+            myNotification.session_token = [tmp substringWithRange:NSMakeRange(16, [tmp length] - 18)];
+            myNotification.from = notification[@"f"];
+            myNotification.message = notification[@"fields"][@"message"];
+            //if ([notification[@"fields"][@"is_expired"] intValue] == 0) myNotification.isExpired = NO;
+            [_notifications insertObject:myNotification atIndex:0];
+        }
+        [view reloadData];
     }
-    [view reloadData];
 }
 - (void)viewDidLoad
 {
