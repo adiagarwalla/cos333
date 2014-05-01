@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "QApiRequests.h"
+#import "NotificationViewController.h"
 
 @implementation AppDelegate
 
@@ -44,6 +45,9 @@ void appDelegateCallback(id arg) {
 //Your app receives push notification.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+    UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+    NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
+    [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
     
     UIApplicationState state = [application applicationState];
     
