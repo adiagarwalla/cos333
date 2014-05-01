@@ -57,6 +57,18 @@ void getNotificationsCallback(id arg){
         [view reloadData];
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger myID = [defaults integerForKey:@"myID"];
+    _userID = myID;
+    NSLog(@"Get user id: %d", _userID);
+    
+    [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
+    [self.refreshControl endRefreshing];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -69,22 +81,20 @@ void getNotificationsCallback(id arg){
     
     // Set the gesture
     //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
     view = (UITableView *)self.view;
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self action:@selector(viewWillAppear:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    [self viewWillAppear:TRUE];
     //_notifications = [self.detailItem notifications];
     
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger myID = [defaults integerForKey:@"myID"];
-    _userID = myID;
-    NSLog(@"Get user id: %d", _userID);
+- (void)stopRefresh
+{
+    [self.refreshControl endRefreshing];
     
-    [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -144,7 +154,6 @@ void deleteNotificationCallback (id arg){
     }
 }
 
-
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -166,12 +175,12 @@ void deleteNotificationCallback (id arg){
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"notification"]) {
-        NSLog(@"Lol");
-        SidebarViewController *destViewController = segue.destinationViewController;
-        destViewController.count = [NSString stringWithFormat:@"%.0lu", (unsigned long)_notifications.count];
-        NSLog(@"Get notifications JSON: %d", _notifications.count);
-    }
+//    if ([segue.identifier isEqualToString:@"notification"]) {
+//        NSLog(@"Lol");
+//        SidebarViewController *destViewController = segue.destinationViewController;
+//        destViewController.count = [NSString stringWithFormat:@"%.0lu", (unsigned long)_notifications.count];
+//        NSLog(@"Get notifications JSON: %d", _notifications.count);
+//    }
     
     
     if ([segue.identifier isEqualToString:@"acceptSession"]) {
