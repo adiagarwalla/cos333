@@ -57,6 +57,18 @@ void getNotificationsCallback(id arg){
         [view reloadData];
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger myID = [defaults integerForKey:@"myID"];
+    _userID = myID;
+    NSLog(@"Get user id: %d", _userID);
+    
+    [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
+    [self.refreshControl endRefreshing];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -69,22 +81,20 @@ void getNotificationsCallback(id arg){
     
     // Set the gesture
     //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
     view = (UITableView *)self.view;
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self action:@selector(viewWillAppear:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    [self viewWillAppear:TRUE];
     //_notifications = [self.detailItem notifications];
     
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger myID = [defaults integerForKey:@"myID"];
-    _userID = myID;
-    NSLog(@"Get user id: %d", _userID);
+- (void)stopRefresh
+{
+    [self.refreshControl endRefreshing];
     
-    [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
