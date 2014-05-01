@@ -165,12 +165,12 @@ void deleteNotificationCallback (id arg){
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"notification"]) {
-        NSLog(@"Lol");
-        SidebarViewController *destViewController = segue.destinationViewController;
-        destViewController.count = [NSString stringWithFormat:@"%.0lu", (unsigned long)_notifications.count];
-        NSLog(@"Get notifications JSON: %d", _notifications.count);
-    }
+//    if ([segue.identifier isEqualToString:@"notification"]) {
+//        NSLog(@"Lol");
+//        SidebarViewController *destViewController = segue.destinationViewController;
+//        destViewController.count = [NSString stringWithFormat:@"%.0lu", (unsigned long)_notifications.count];
+//        NSLog(@"Get notifications JSON: %d", _notifications.count);
+//    }
     
     
     if ([segue.identifier isEqualToString:@"acceptSession"]) {
