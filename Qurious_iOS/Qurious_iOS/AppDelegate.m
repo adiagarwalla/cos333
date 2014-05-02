@@ -75,6 +75,8 @@ void appDelegateCallback(id arg) {
                                                   cancelButtonTitle:cancelTitle
                                                   otherButtonTitles:showTitle, nil];
         [alertView show];
+        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         
     }
     // If your app was in in active state
