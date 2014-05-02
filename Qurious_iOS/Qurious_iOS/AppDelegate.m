@@ -22,12 +22,15 @@
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
     NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
-    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    //NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
     
-    if(apsInfo) {
-        UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
+    if(userInfo) {
+        //UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        //NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
+        //[self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
+        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        return YES;
     }
 
     [Crittercism enableWithAppID: @"5362f12fb573f1182b000003"];
