@@ -136,13 +136,13 @@ void detail_callback (id arg) {
 
 }
 
-- (IBAction)cancel:(UIStoryboardSegue *)segue {
+/*- (IBAction)cancel:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"SessionOver"]) {
         ViewController *sessionController = [segue sourceViewController];
         [sessionController.session disconnect];
     }
 
-}
+}*/
 
 
 

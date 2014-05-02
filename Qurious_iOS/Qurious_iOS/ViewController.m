@@ -123,8 +123,8 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     endButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     [endButton setTitle:@"End" forState:UIControlStateNormal];
     endButton.frame = CGRectMake(80.0, 510.0, 160.0, 40.0);
-    [endButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [endButton setBackgroundColor:[UIColor clearColor]];
+    [endButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [endButton setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:endButton];
 }
 
@@ -189,8 +189,8 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     endButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     [endButton setTitle:@"End" forState:UIControlStateNormal];
     endButton.frame = CGRectMake(80.0, 510.0, 160.0, 40.0);
-    [endButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [endButton setBackgroundColor:[UIColor clearColor]];
+    [endButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [endButton setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:endButton];
 }
 
