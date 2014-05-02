@@ -61,4 +61,12 @@ class SessionTests(TestCase):
         self.assertTrue(response.status_code == 200)
         self.assertTrue(response.content != '')
 
-
+    def test_get_notification(self):
+        c = Client()
+        create_user('sam1')
+        create_user('sam')
+        
+        c.post(reverse('login'), {'username':'sam1', 'password':'123'})
+        response = c.get(reverse('notifications'))
+        self.assertTrue(response.status_code == 200)
+        self.assertTrue(response.content != '')

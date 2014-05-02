@@ -60,3 +60,9 @@ class TestRegistrationFeatures(TestCase):
         response = client.post(reverse('signup'), {'this should fail':'fail'})
 
         self.assertTrue(response.content == '')
+
+        response = client.post(reverse('signup'), {'username':'cheng', 'password':'123', 'user_email':'sam@cd'})
+        self.assertTrue(response.content != '')
+
+        response = client.post(reverse('signup'), {'username':'cheng', 'password':'123', 'user_email':'sam@cd'})
+        self.assertTrue(response.content == '')

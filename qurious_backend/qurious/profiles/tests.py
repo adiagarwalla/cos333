@@ -187,5 +187,5 @@ class ProfileViewTest(TestCase):
 
     def test_who_am_I_fail(self):
         c = Client()
-        response = c.post(reverse('whoami') + '?id=5')
-        self.assertTrue(response.content == '')
+        response = c.post(reverse('whoami'))
+        self.assertTrue(response.content == "{'userid':0}")
