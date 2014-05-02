@@ -78,6 +78,8 @@
 		66D7D9A018FE187B00F4BF89 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D99F18FE187B00F4BF89 /* SWRevealViewController.m */; };
 		66D7D9A318FE1FFF00F4BF89 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */; };
 		F904572D1907661600F7BF06 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F904572C1907661600F7BF06 /* ProfileViewController.m */; };
+		F920D66D19132ACC001F8B25 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = F920D66B19132ACC001F8B25 /* dsym_upload.sh */; };
+		F920D66E19132ACC001F8B25 /* libCrittercism_v4_3_3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F920D66C19132ACC001F8B25 /* libCrittercism_v4_3_3.a */; };
 		F921CB8A18EA65C000121661 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921CB8918EA65C000121661 /* EditViewController.m */; };
 		F935963218FF23B100CC602D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F935963118FF23B100CC602D /* Opentok.framework */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
@@ -244,6 +246,11 @@
 		66D7D9A218FE1FFF00F4BF89 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		F904572B1907661600F7BF06 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F904572C1907661600F7BF06 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		F920D66819132ACC001F8B25 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		F920D66919132ACC001F8B25 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		F920D66A19132ACC001F8B25 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		F920D66B19132ACC001F8B25 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		F920D66C19132ACC001F8B25 /* libCrittercism_v4_3_3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_3.a; sourceTree = "<group>"; };
 		F921CB8818EA65C000121661 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F921CB8918EA65C000121661 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F935963118FF23B100CC602D /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
@@ -291,6 +298,7 @@
 				66D7D95C18F7B09A00F4BF89 /* Foundation.framework in Frameworks */,
 				66D7D94F18F7B09A00F4BF89 /* CFNetwork.framework in Frameworks */,
 				66D7D95918F7B09A00F4BF89 /* QuartzCore.framework in Frameworks */,
+				F920D66E19132ACC001F8B25 /* libCrittercism_v4_3_3.a in Frameworks */,
 				66D7D95818F7B09A00F4BF89 /* libstdc++.dylib in Frameworks */,
 				48512E0F18F1D9CE0076D03E /* CFNetwork.framework in Frameworks */,
 				4880DBB718FA3B98002BF93A /* Opentok in Frameworks */,
@@ -501,6 +509,7 @@
 		66D7D8CD18EA11E400F4BF89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F920D66719132ACC001F8B25 /* CrittercismSDK */,
 				F935963118FF23B100CC602D /* Opentok.framework */,
 				66D7D93C18F7B09A00F4BF89 /* CoreTelephony.framework */,
 				66D7D93D18F7B09A00F4BF89 /* MobileCoreServices.framework */,
@@ -620,6 +629,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F920D66719132ACC001F8B25 /* CrittercismSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F920D66819132ACC001F8B25 /* CRFilter.h */,
+				F920D66919132ACC001F8B25 /* Crittercism.h */,
+				F920D66A19132ACC001F8B25 /* CrittercismDelegate.h */,
+				F920D66B19132ACC001F8B25 /* dsym_upload.sh */,
+				F920D66C19132ACC001F8B25 /* libCrittercism_v4_3_3.a */,
+			);
+			path = CrittercismSDK;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -630,6 +651,7 @@
 				66D7D8C718EA11E400F4BF89 /* Sources */,
 				66D7D8C818EA11E400F4BF89 /* Frameworks */,
 				66D7D8C918EA11E400F4BF89 /* Resources */,
+				F920D66F19132B55001F8B25 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -708,6 +730,7 @@
 				F9C17F5818EC8E8E0095F92E /* img5.png in Resources */,
 				66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */,
 				F9C17F5518EC8E8E0095F92E /* img2.png in Resources */,
+				F920D66D19132ACC001F8B25 /* dsym_upload.sh in Resources */,
 				F9C17F5618EC8E8E0095F92E /* img3.png in Resources */,
 				F9C17F5718EC8E8E0095F92E /* img4.png in Resources */,
 				F9C17F5918EC8E8E0095F92E /* img6.png in Resources */,
@@ -727,6 +750,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F920D66F19132B55001F8B25 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_ID=\"5362f12fb573f1182b000003\"\nAPI_KEY=\"one05xfdjuap6njzh3fdirmpegbwvilh\"\nsource ${SRCROOT}/CrittercismSDK/dsym_upload.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66D7D8C718EA11E400F4BF89 /* Sources */ = {
@@ -938,6 +977,7 @@
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/Current",
+					"$(PROJECT_DIR)/CrittercismSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -973,6 +1013,7 @@
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/A",
 					"$(PROJECT_DIR)/opentok-ios-sdk/Opentok.framework/Versions/Current",
+					"$(PROJECT_DIR)/CrittercismSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

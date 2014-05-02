@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "QApiRequests.h"
 #import "NotificationViewController.h"
+#import "Crittercism.h"
 
 @implementation AppDelegate
 
@@ -29,6 +30,7 @@
         [self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
     }
 
+    [Crittercism enableWithAppID: @"5362f12fb573f1182b000003"];
     return YES;
 }
 
