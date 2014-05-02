@@ -29,8 +29,12 @@
         //NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
         //[self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
         //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
-        NotificationViewController *vc = [[NotificationViewController alloc] init];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        //NotificationViewController *vc = [[NotificationViewController alloc] init];
+        //[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        UIViewController *vc = self.window.rootViewController;
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        NotificationViewController *pvc = [vc.storyboard instantiateViewControllerWithIdentifier:@"NotificationViewController"];
+        [vc presentViewController:pvc animated:YES completion:nil];
         return YES;
     }
 
@@ -76,8 +80,10 @@ void appDelegateCallback(id arg) {
                                                   cancelButtonTitle:cancelTitle
                                                   otherButtonTitles:showTitle, nil];
         [alertView show];
-        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        UIViewController *vc = self.window.rootViewController;
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        NotificationViewController *pvc = [vc.storyboard instantiateViewControllerWithIdentifier:@"NotificationViewController"];
+        [vc presentViewController:pvc animated:YES completion:nil];
         
     }
     // If your app was in in active state
