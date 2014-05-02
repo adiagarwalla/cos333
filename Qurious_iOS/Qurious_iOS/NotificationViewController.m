@@ -83,7 +83,7 @@ void getNotificationsCallback(id arg){
     //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     view = (UITableView *)self.view;
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    //refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [refresh addTarget:self action:@selector(viewWillAppear:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
     [self viewWillAppear:TRUE];
