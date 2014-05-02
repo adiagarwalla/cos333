@@ -618,7 +618,7 @@
         <!--Sidebar View Controller-->
         <scene sceneID="j2M-yk-nq5">
             <objects>
-                <tableViewController id="82M-Ra-hil" customClass="SidebarViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="notification" id="82M-Ra-hil" customClass="SidebarViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fuj-SQ-yiq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -20,6 +20,14 @@
     // Override point for customization after application launch.
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
+    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    
+    if(apsInfo) {
+        UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
+        [self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
+    }
 
     return YES;
 }
@@ -67,9 +75,9 @@ void appDelegateCallback(id arg) {
     // If your app was in in active state
     else if (state == UIApplicationStateInactive)
     {
-        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
-        NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
-        [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
+//        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+//        NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
+//        [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
     }
 }
 
