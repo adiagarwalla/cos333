@@ -82,8 +82,8 @@ void appDelegateCallback(id arg) {
     // If your app was in in active state
     else if (state == UIApplicationStateInactive)
     {
-        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+//        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+//        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 //        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
 //        NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
 //        [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
