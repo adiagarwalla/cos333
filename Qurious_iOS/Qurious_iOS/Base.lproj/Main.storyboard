@@ -345,7 +345,7 @@
             <objects>
                 <tableViewController id="aLW-EU-oU2" customClass="ProfileViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZCn-Bk-21z">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <scrollView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="L19-pz-HhN">
@@ -566,6 +566,13 @@
                     <view key="view" contentMode="scaleToFill" id="hes-Tx-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-4i-wcE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="MSg-k6-kaY">
@@ -576,6 +583,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navPopup" destination="Kkg-4i-wcE" id="jyx-lt-UvQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql9-lK-tch" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NKP-TO-Zy1" userLabel="Exit" sceneMemberID="exit"/>
@@ -748,7 +758,7 @@
             <objects>
                 <tableViewController id="Nlq-Nd-6Bn" customClass="SkillViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uKG-i8-Eu2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -966,7 +976,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ccd-nV-e5I">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I4w-Oy-fdp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="I4w-Oy-fdp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i5l-3o-xgM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1072,17 +1082,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="9qD-dc-aaK"/>
         <segue reference="sPz-Yh-zhD"/>
-        <segue reference="GjK-dF-KsC"/>
-        <segue reference="aEb-ml-Mqe"/>
-        <segue reference="fhH-F7-sUn"/>
-        <segue reference="dIY-hd-WW8"/>
-        <segue reference="doM-NW-Klw"/>
-        <segue reference="Dus-fO-te2"/>
-        <segue reference="Z2G-sG-3Jg"/>
         <segue reference="RrB-5V-dVd"/>
         <segue reference="Okm-gj-QJ6"/>
-        <segue reference="9qD-dc-aaK"/>
         <segue reference="dIY-hd-WW8"/>
-</inferredMetricsTieBreakers>
+        <segue reference="Dus-fO-te2"/>
+    </inferredMetricsTieBreakers>
 </document>
