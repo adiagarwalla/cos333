@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "QApiRequests.h"
 #import "NotificationViewController.h"
+#import "Crittercism.h"
 
 @implementation AppDelegate
 
@@ -21,6 +22,7 @@
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
 
+    [Crittercism enableWithAppID: @"5362f12fb573f1182b000003"];
     return YES;
 }
 
