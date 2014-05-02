@@ -28,7 +28,8 @@
         //UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         //NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
         //[self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
-        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        NotificationViewController *vc = [[NotificationViewController alloc] init];
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return YES;
     }
