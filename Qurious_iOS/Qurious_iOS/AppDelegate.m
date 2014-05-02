@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "QApiRequests.h"
 #import "NotificationViewController.h"
+#import "Crittercism.h"
 
 @implementation AppDelegate
 
@@ -20,7 +21,16 @@
     // Override point for customization after application launch.
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
+    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    
+    if(apsInfo) {
+        UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
+        [self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
+    }
 
+    [Crittercism enableWithAppID: @"5362f12fb573f1182b000003"];
     return YES;
 }
 
@@ -45,12 +55,7 @@ void appDelegateCallback(id arg) {
 //Your app receives push notification.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"linen3.jpg"] forBarMetrics:UIBarMetricsDefault];
-    
-    UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
-    NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
-    [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
-    
+    //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"linen3.jpg"] forBarMetrics:UIBarMetricsDefault];
     UIApplicationState state = [application applicationState];
     
     // If your app is running
@@ -72,6 +77,9 @@ void appDelegateCallback(id arg) {
     // If your app was in in active state
     else if (state == UIApplicationStateInactive)
     {
+//        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+//        NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
+//        [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
     }
 }
 
