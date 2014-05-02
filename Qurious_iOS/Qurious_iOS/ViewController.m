@@ -12,6 +12,7 @@
 @implementation ViewController {
     OTPublisher* _publisher;
     OTSubscriber* _subscriber;
+    __weak IBOutlet UIView *navPopup;
 }
 @synthesize session = _session;
 
@@ -48,8 +49,23 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     _session = [[OTSession alloc] initWithSessionId:kSessionId
                                            delegate:self];
     [QApiRequests getToken:kSessionId andCallback:&sessioncallback];
+    /*UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showHideNavbar:)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    [navPopup addGestureRecognizer:tapRecognizer];*/
     
 }
+/*
+-(void) showHideNavbar:(id) sender
+{
+    if (self.navigationController.navigationBar.hidden == NO)
+    {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    else if (self.navigationController.navigationBar.hidden == YES)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
+}*/
 
 - (BOOL)prefersStatusBarHidden
 {
@@ -80,6 +96,12 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     }
 }
 
+- (IBAction)endClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [_session disconnect]; // exit out of controller
+    
+}
+
 #pragma mark - OpenTok methods
 
 - (void)doConnect
@@ -94,6 +116,16 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     [_session publish:_publisher];
     [self.view addSubview:_publisher.view];
     [_publisher.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight)];
+    UIButton *endButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [endButton addTarget:self
+                  action:@selector(endClicked:)
+        forControlEvents:UIControlEventTouchUpInside];
+    endButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    [endButton setTitle:@"End" forState:UIControlStateNormal];
+    endButton.frame = CGRectMake(80.0, 510.0, 160.0, 40.0);
+    [endButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [endButton setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:endButton];
 }
 
 - (void)sessionDidConnect:(OTSession*)session
@@ -150,6 +182,16 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
     [subscriber.view setFrame:CGRectMake(0, widgetHeight, widgetWidth, widgetHeight)];
     [self.view addSubview:subscriber.view];
+    UIButton *endButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [endButton addTarget:self
+                  action:@selector(endClicked:)
+        forControlEvents:UIControlEventTouchUpInside];
+    endButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    [endButton setTitle:@"End" forState:UIControlStateNormal];
+    endButton.frame = CGRectMake(80.0, 510.0, 160.0, 40.0);
+    [endButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [endButton setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:endButton];
 }
 
 - (void)publisher:(OTPublisher*)publisher didFailWithError:(OTError*) error {
