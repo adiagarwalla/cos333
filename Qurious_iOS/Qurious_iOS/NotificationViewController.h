@@ -12,6 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 @property (strong, nonatomic) id detailItem;
 
-- (IBAction)cancel:(UIStoryboardSegue *)segue;
+//- (IBAction)cancel:(UIStoryboardSegue *)segue;
 
 @end
