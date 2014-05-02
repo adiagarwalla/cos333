@@ -22,12 +22,13 @@
 //    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    [self.window makeKeyAndVisible];
     NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
-    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    //NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
     
-    if(apsInfo) {
-        UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
+    if(userInfo) {
+        //[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        //[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        return YES;
     }
 
     [Crittercism enableWithAppID: @"5362f12fb573f1182b000003"];
@@ -72,11 +73,17 @@ void appDelegateCallback(id arg) {
                                                   cancelButtonTitle:cancelTitle
                                                   otherButtonTitles:showTitle, nil];
         [alertView show];
+        //UIViewController *vc = self.window.rootViewController;
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        //NotificationViewController *pvc = [vc.storyboard instantiateViewControllerWithIdentifier:@"NotificationViewController"];
+        //[vc presentViewController:pvc animated:YES completion:nil];
         
     }
     // If your app was in in active state
     else if (state == UIApplicationStateInactive)
     {
+        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 //        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
 //        NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
 //        [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];
