@@ -29,9 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    //self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     notificationCountLabel.text = count;
     
     
@@ -40,6 +40,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [cell setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+    
 }
 
 void logoutCallback(id arg) {
