@@ -18,6 +18,7 @@
 {
     UIImage *navBackgroundImage = [UIImage imageNamed:@"linen3.jpg"];
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    [[UITextField appearance] setTintColor:[UIColor blackColor]];
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 1);
