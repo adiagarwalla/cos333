@@ -39,6 +39,11 @@
 		669B19BD1909B5690016E89A /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 669B19BC1909B5690016E89A /* Notification.m */; };
 		669B1A15190C938D0016E89A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 669B1A14190C938D0016E89A /* login.png */; };
 		669B1A19190C9EB50016E89A /* linen3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 669B1A18190C9EB50016E89A /* linen3.jpg */; };
+		66AAE23F1915DE4B009B4703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
+		66AAE2431915E74E009B4703 /* cell_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AAE2401915E74E009B4703 /* cell_bottom.png */; };
+		66AAE2441915E74E009B4703 /* cell_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AAE2411915E74E009B4703 /* cell_middle.png */; };
+		66AAE2451915E74E009B4703 /* cell_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AAE2421915E74E009B4703 /* cell_top.png */; };
+		66AAE2471915E9B0009B4703 /* common_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AAE2461915E9B0009B4703 /* common_bg.png */; };
 		66D7D8CF18EA11E400F4BF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8CE18EA11E400F4BF89 /* Foundation.framework */; };
 		66D7D8D118EA11E400F4BF89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */; };
 		66D7D8D318EA11E400F4BF89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7D8D218EA11E400F4BF89 /* UIKit.framework */; };
@@ -84,7 +89,6 @@
 		F935963218FF23B100CC602D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F935963118FF23B100CC602D /* Opentok.framework */; };
 		F942A07418F353EF00B8A2E4 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = F942A07318F353EF00B8A2E4 /* Skill.m */; };
 		F95E0FC618FB316200CC16E0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FC518FB316200CC16E0 /* LoginViewController.m */; };
-		F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D7D8E018EA11E400F4BF89 /* Main.storyboard */; };
 		F95E0FCD18FB6F1900CC16E0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E0FCC18FB6F1900CC16E0 /* SignupViewController.m */; };
 		F95E8FA51906E24A007DF7C4 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95E8FA41906E24A007DF7C4 /* LandingViewController.m */; };
 		F9C17F5418EC8E8E0095F92E /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C17F4E18EC8E8E0095F92E /* img1.png */; };
@@ -195,6 +199,10 @@
 		669B19BC1909B5690016E89A /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		669B1A14190C938D0016E89A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		669B1A18190C9EB50016E89A /* linen3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = linen3.jpg; sourceTree = "<group>"; };
+		66AAE2401915E74E009B4703 /* cell_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_bottom.png; sourceTree = "<group>"; };
+		66AAE2411915E74E009B4703 /* cell_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_middle.png; sourceTree = "<group>"; };
+		66AAE2421915E74E009B4703 /* cell_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_top.png; sourceTree = "<group>"; };
+		66AAE2461915E9B0009B4703 /* common_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_bg.png; sourceTree = "<group>"; };
 		66D7D8CB18EA11E400F4BF89 /* Qurious_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qurious_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D7D8CE18EA11E400F4BF89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D7D8D018EA11E400F4BF89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -543,6 +551,10 @@
 		66D7D8D418EA11E400F4BF89 /* Qurious_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				66AAE2461915E9B0009B4703 /* common_bg.png */,
+				66AAE2401915E74E009B4703 /* cell_bottom.png */,
+				66AAE2411915E74E009B4703 /* cell_middle.png */,
+				66AAE2421915E74E009B4703 /* cell_top.png */,
 				669B1A18190C9EB50016E89A /* linen3.jpg */,
 				669B1A14190C938D0016E89A /* login.png */,
 				F904572B1907661600F7BF06 /* ProfileViewController.h */,
@@ -721,18 +733,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F95E0FC718FB561600CC16E0 /* Main.storyboard in Resources */,
 				4880DBB818FA3B98002BF93A /* InfoPlist.strings in Resources */,
 				669B1A19190C9EB50016E89A /* linen3.jpg in Resources */,
 				66D7D8EA18EA11E400F4BF89 /* Images.xcassets in Resources */,
 				66D7D99118FDAA1900F4BF89 /* menu.png in Resources */,
 				F9C17F5418EC8E8E0095F92E /* img1.png in Resources */,
 				F9C17F5818EC8E8E0095F92E /* img5.png in Resources */,
+				66AAE2431915E74E009B4703 /* cell_bottom.png in Resources */,
+				66AAE23F1915DE4B009B4703 /* Main.storyboard in Resources */,
+				66AAE2471915E9B0009B4703 /* common_bg.png in Resources */,
 				66D7D96C18FB23A100F4BF89 /* opentok.bundle in Resources */,
+				66AAE2451915E74E009B4703 /* cell_top.png in Resources */,
 				F9C17F5518EC8E8E0095F92E /* img2.png in Resources */,
 				F920D66D19132ACC001F8B25 /* dsym_upload.sh in Resources */,
 				F9C17F5618EC8E8E0095F92E /* img3.png in Resources */,
 				F9C17F5718EC8E8E0095F92E /* img4.png in Resources */,
+				66AAE2441915E74E009B4703 /* cell_middle.png in Resources */,
 				F9C17F5918EC8E8E0095F92E /* img6.png in Resources */,
 				66D7D8D918EA11E400F4BF89 /* InfoPlist.strings in Resources */,
 				66D7D90A18EBC21600F4BF89 /* dogesmall.jpg in Resources */,
