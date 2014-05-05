@@ -12,6 +12,7 @@
 #import "SkillViewController.h"
 #import "Skill.h"
 #import "QApiRequests.h"
+#import "PIctureNameButtonTableViewCell.h"
 #import "SWRevealViewController.h"
 
 @interface ProfileViewController ()
@@ -39,6 +40,8 @@ void pictureCallback(id arg) {
 
 static Person* me;
 static ProfileViewController* _self;
+
+/*
 - (void)configureView {
     if (me && [me isKindOfClass:[Person class]]) {
         NSString *name = [NSString stringWithFormat:@"%@ %@",
@@ -61,7 +64,7 @@ static ProfileViewController* _self;
     
 }
 
-
+*/
 
 #pragma mark - Managing the detail item
 
@@ -76,6 +79,68 @@ static ProfileViewController* _self;
         [[segue destinationViewController] setDetailItem:me];
     }
     
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [me skills].count + 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        return 369.0f;
+    }
+    // "Else"
+    return 63.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    UITableViewCell *cell = [tableView
+    //                             dequeueReusableCellWithIdentifier:@"Cell"
+    //                             forIndexPath:indexPath];
+    
+    static NSString *picIdentifier = @"PictureCell";
+    static NSString *bioIdentifier = @"BioCell";
+    static NSString *skillIdentifier = @"SkillCell";
+    if (indexPath.row == 0) {
+        PIctureNameButtonTableViewCell* cell = (PIctureNameButtonTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:picIdentifier];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[me profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                cell.picture.image = [UIImage imageWithData:imageData];
+            });
+        });
+        
+        NSString *name = [NSString stringWithFormat:@"%@ %@", [me firstName], [me lastName]];
+        if ([name isEqualToString: @" "]) cell.name.text = [me username];
+        else cell.name.text = name;
+        cell.email.text = [me email];
+        return cell;
+    } else if (indexPath.row == 1) {
+        UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:bioIdentifier];
+        UILabel* label = (UILabel *)[cell.contentView viewWithTag:100];
+        label.text = [me bio];
+        return cell;
+    } else {
+        UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:skillIdentifier];
+        int row = indexPath.row - 2;
+        UILabel* label = (UILabel *)[cell.contentView viewWithTag:10];
+        label.text = [[[me skills] objectAtIndex:row] name];
+        return cell;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
 }
 
 
@@ -93,7 +158,7 @@ static ProfileViewController* _self;
         if (editController.hasNewImage == YES) {
             [QApiRequests uploadImage:editController.selectedImage.image andId:[NSString stringWithFormat: @"%i",[me userID]] andCallback:pictureCallback];
         }
-        [self configureView];
+        //[self configureView];
     }
     
 }
@@ -102,7 +167,7 @@ static ProfileViewController* _self;
     
 }
 
-
+/*
 -(void) loadButtons {
     for(UIView *view in self.scrollView.subviews)
     {
@@ -139,6 +204,7 @@ static ProfileViewController* _self;
         [self.scrollView addSubview:button];
     }
 }
+*/
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
@@ -169,8 +235,8 @@ void profileCallback (id arg){
         }
         me.skills = allmyskills;
     }
-    [_self configureView];
-    [_self loadButtons];
+    //[_self configureView];
+    //[_self loadButtons];
 }
 
 - (void)viewDidLoad

@@ -11,24 +11,36 @@
 #import "Person.h"
 #import "Skill.h"
 #import "QApiRequests.h"
+#import "PIctureNameButtonTableViewCell.h"
 
 
 @interface DetailViewController ()
-- (void)configureView;
-- (void)loadButtons;
 
 @end
 
 @implementation DetailViewController
 @synthesize detailItem = _detailItem;
-@synthesize nameLabel = _nameLabel;
-@synthesize emailLabel = _emailLabel;
-@synthesize bioLabel = _bioLabel;
-@synthesize imageView = _imageView;
+//@synthesize nameLabel = _nameLabel;
+//@synthesize emailLabel = _emailLabel;
+//@synthesize imageView = _imageView;
+//@synthesize bioLabel = _bioLabel;
 
 static UIActivityIndicatorView* detailSpinner;
 static UITableViewController * me;
 
+#pragma mark - Managing the detail item
+
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        // Update the view.
+        //[self configureView];
+    }
+}
+
+/*
 - (void)configureView {
     if (self.detailItem &&
         [self.detailItem isKindOfClass:[Person class]]) {
@@ -48,75 +60,98 @@ static UITableViewController * me;
                 self.imageView.image = [UIImage imageWithData:imageData];
             });
         });
-
+        
     }
     
 }
-
-
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
-
-
 
 -(void) loadButtons {
-    for(UIView *view in self.scrollView.subviews)
-    {
-        if ([view isKindOfClass:[UIButton class]])
-        {
-            [view  removeFromSuperview];
-        }
-    }
-    
-    NSArray *buttonImg = @[@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", @"img6.png"];
     NSMutableArray *skills = [self.detailItem skills];
-    int xposition = 20.0f;
-    int yposition = 0;
-    int count = 0;
-    int xdisplacement;
     for (Skill *skill in skills) {
-        if (count%3 == 0) xdisplacement = 0;
-        else if (count%3 == 1) xdisplacement = 100.f;
-        else xdisplacement = 200.f;
-        
-        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill.name forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:12];
-        button.titleLabel.numberOfLines = 4;
-        button.titleLabel.textAlignment = NSTextAlignmentCenter;
-        
-        UIImage* image = [UIImage imageNamed:buttonImg[count%6]];
-        [button setBackgroundImage:image forState:UIControlStateNormal];
-        
-        button.frame = CGRectMake(xposition + xdisplacement, yposition, 75.0f, 75.0f);
-        if (count%3 == 2) yposition += 100.f;
-        count++;
-        [self.scrollView addSubview:button];
+        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SkillCell"];
+        cell.textLabel.text = skill.name;
+        [self.tableView addSubview:cell];
     }
 }
+*/
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.detailItem skills].count + 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        return 369.0f;
+    }
+    // "Else"
+    return 63.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    UITableViewCell *cell = [tableView
+    //                             dequeueReusableCellWithIdentifier:@"Cell"
+    //                             forIndexPath:indexPath];
+    
+    static NSString *picIdentifier = @"PictureCell";
+    static NSString *bioIdentifier = @"BioCell";
+    static NSString *skillIdentifier = @"SkillCell";
+    if (indexPath.row == 0) {
+        PIctureNameButtonTableViewCell* cell = (PIctureNameButtonTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:picIdentifier];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                cell.picture.image = [UIImage imageWithData:imageData];
+            });
+        });
+        
+        NSString *name = [NSString stringWithFormat:@"%@ %@",
+                          [self.detailItem firstName],
+                          [self.detailItem lastName]];
+        if ([name isEqualToString: @" "]) cell.name.text = [self.detailItem username];
+        else cell.name.text = name;
+        cell.email.text = [self.detailItem email];
+        return cell;
+    } else if (indexPath.row == 1) {
+        UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:bioIdentifier];
+        UILabel* label = (UILabel *)[cell.contentView viewWithTag:100];
+        label.text = [self.detailItem bio];
+        return cell;
+    } else {
+        UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:skillIdentifier];
+        int row = indexPath.row - 2;
+        UILabel* label = (UILabel *)[cell.contentView viewWithTag:10];
+        label.text = [[[self.detailItem skills] objectAtIndex:row] name];
+        return cell;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[self configureView];
+    //[self loadButtons];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-    [self loadButtons];
     detailSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [detailSpinner setCenter:CGPointMake(160.0f, 188.0f)];
     [self.view addSubview:detailSpinner];
     
-    self.navigationItem.title = self.nameLabel.text;
+    self.navigationItem.title = [[self.detailItem firstName] isEqualToString:@""] && [[self.detailItem lastName] isEqualToString:@""] ? [self.detailItem username] : [NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]];
 
 }
 

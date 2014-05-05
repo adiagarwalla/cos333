@@ -11,12 +11,11 @@
 @interface DetailViewController : UITableViewController
 
 @property (strong, nonatomic) id detailItem;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
-@property (strong, nonatomic) IBOutlet UILabel *bioLabel;
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+//@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+//@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
+//@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+//@property (strong, nonatomic) IBOutlet UIButton *enterSession;
+//@property (strong, nonatomic) IBOutlet UILabel *bioLabel;
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue;
 -(IBAction) sessionButtonClicked;
