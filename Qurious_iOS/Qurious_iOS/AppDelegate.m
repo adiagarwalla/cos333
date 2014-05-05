@@ -16,6 +16,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UIImage *navBackgroundImage = [UIImage imageNamed:@"linen3.jpg"];
+    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    [[UITextField appearance] setTintColor:[UIColor blackColor]];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName, nil]];
 //    self.window.rootViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -25,11 +34,9 @@
     //NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
     
     if(userInfo) {
-        //UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        //NotificationViewController* pvc = [mainstoryboard instantiateViewControllerWithIdentifier:@"notification"];
-        //[self.window.rootViewController presentViewController:pvc animated:YES completion:NULL];
-        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        //[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        //[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return YES;
     }
 
@@ -75,13 +82,17 @@ void appDelegateCallback(id arg) {
                                                   cancelButtonTitle:cancelTitle
                                                   otherButtonTitles:showTitle, nil];
         [alertView show];
-        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        //UIViewController *vc = self.window.rootViewController;
+        //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+        //NotificationViewController *pvc = [vc.storyboard instantiateViewControllerWithIdentifier:@"NotificationViewController"];
+        //[vc presentViewController:pvc animated:YES completion:nil];
         
     }
     // If your app was in in active state
     else if (state == UIApplicationStateInactive)
     {
+//        NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
+//        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 //        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
 //        NotificationViewController *notificationViewController = [[NotificationViewController alloc] init];
 //        [navController.visibleViewController.navigationController pushViewController:notificationViewController animated:YES];

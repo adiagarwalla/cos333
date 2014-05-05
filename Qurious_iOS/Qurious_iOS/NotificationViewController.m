@@ -22,8 +22,9 @@
 @synthesize detailItem = _detailItem;
 
 static NSMutableArray * _notifications;
-static UITableView * view;
+static UITableViewController * _self;
 static int _userID;
+static UIRefreshControl *refresh;
 
 - (void)awakeFromNib
 {
@@ -54,8 +55,9 @@ void getNotificationsCallback(id arg){
             if ([notification[@"fields"][@"is_expired"] intValue] == 0) myNotification.isExpired = NO;
             [_notifications insertObject:myNotification atIndex:0];
         }
-        [view reloadData];
     }
+    [_self.tableView reloadData];
+    [refresh endRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,7 +68,7 @@ void getNotificationsCallback(id arg){
     NSLog(@"Get user id: %d", _userID);
     
     [QApiRequests getNotification:_userID andCallback: &getNotificationsCallback];
-    [self.refreshControl endRefreshing];
+
 }
 
 - (void)viewDidLoad
@@ -81,9 +83,9 @@ void getNotificationsCallback(id arg){
     
     // Set the gesture
     //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    view = (UITableView *)self.view;
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    _self = self;
+    refresh = [[UIRefreshControl alloc] init];
+    //refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [refresh addTarget:self action:@selector(viewWillAppear:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
     [self viewWillAppear:TRUE];
@@ -124,9 +126,9 @@ void getNotificationsCallback(id arg){
     Notification * notification = _notifications[indexPath.row];
     cell.textLabel.text = notification.message;
     if (notification.isExpired) cell.textLabel.textColor = [UIColor lightGrayColor];
+    else cell.textLabel.textColor = [UIColor darkTextColor];
     cell.textLabel.numberOfLines = 2;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    
     return cell;
 }
 

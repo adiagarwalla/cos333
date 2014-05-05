@@ -17,6 +17,6 @@
 //@property (strong, nonatomic) IBOutlet UIButton *enterSession;
 //@property (strong, nonatomic) IBOutlet UILabel *bioLabel;
 
-- (IBAction)cancel:(UIStoryboardSegue *)segue;
+//- (IBAction)cancel:(UIStoryboardSegue *)segue;
 -(IBAction) sessionButtonClicked;
 @end

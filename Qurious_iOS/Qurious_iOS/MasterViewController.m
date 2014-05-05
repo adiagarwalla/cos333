@@ -98,8 +98,11 @@ void mastercallback(id arg) {
     
     
     view = (UITableView *)self.view;
-
-    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    //UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+    //self.tableView.contentInset = inset;
 }
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
@@ -156,18 +159,40 @@ void mastercallback(id arg) {
     }
 }
 
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
+    
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_top.png"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_bottom.png"];
+    } else {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    }
+    
+    return background;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    UITableViewCell *cell = [tableView
 //                             dequeueReusableCellWithIdentifier:@"Cell"
 //                             forIndexPath:indexPath];
+    // Assign our own background image for the cell
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
     
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     Person *friend = nil;
@@ -184,8 +209,27 @@ void mastercallback(id arg) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
                            friend.firstName, friend.lastName];
     }
+    cell.detailTextLabel.text = friend.bio;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:friend.profPic];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            cell.imageView.image = [UIImage imageWithData:imageData];
+        });
+    });
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row%2 == 0) {
+//        UIColor *altCellColor = [UIColor colorWithWhite:0.7 alpha:0.1];
+//        cell.backgroundColor = altCellColor;
+//    }
+//}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -220,6 +264,11 @@ void mastercallback(id arg) {
         [[segue destinationViewController] setDetailItem:friend];
     }
 
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 71;
 }
 
 @end

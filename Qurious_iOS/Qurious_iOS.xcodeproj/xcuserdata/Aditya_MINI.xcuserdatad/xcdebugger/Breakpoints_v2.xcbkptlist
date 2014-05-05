@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Qurious_iOS/SidebarViewController.m"
-            timestampString = "420268866.657954"
+            timestampString = "420848962.414045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "logoutCallback()"
             landmarkType = "7">
          </BreakpointContent>
