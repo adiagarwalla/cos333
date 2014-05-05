@@ -24,7 +24,7 @@
 static NSMutableArray * _notifications;
 static UITableViewController * _self;
 static int _userID;
-static UIRefreshControl *refresh;
+static UIRefreshControl *refresh1;
 
 - (void)awakeFromNib
 {
@@ -57,7 +57,7 @@ void getNotificationsCallback(id arg){
         }
     }
     [_self.tableView reloadData];
-    [refresh endRefreshing];
+    [refresh1 endRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,10 +84,10 @@ void getNotificationsCallback(id arg){
     // Set the gesture
     //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     _self = self;
-    refresh = [[UIRefreshControl alloc] init];
+    refresh1 = [[UIRefreshControl alloc] init];
     //refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    [refresh addTarget:self action:@selector(viewWillAppear:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
+    [refresh1 addTarget:self action:@selector(viewWillAppear:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh1;
     [self viewWillAppear:TRUE];
     //_notifications = [self.detailItem notifications];
     
