@@ -208,14 +208,14 @@ void mastercallback(id arg) {
                            friend.firstName, friend.lastName];
     }
     cell.detailTextLabel.text = friend.bio;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:friend.profPic];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            cell.imageView.image = [UIImage imageWithData:imageData];
-        });
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        NSData *imageData = [NSData dataWithContentsOfURL:friend.profPic];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // Update the UI
+//            cell.imageView.image = [UIImage imageWithData:imageData];
+//        });
+//    });
     cellBackgroundView.image = background;
     cell.backgroundView = cellBackgroundView;
     cell.backgroundColor = [UIColor clearColor];
