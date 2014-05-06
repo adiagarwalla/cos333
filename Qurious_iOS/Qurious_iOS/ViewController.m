@@ -115,7 +115,7 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
     [_publisher setName:[[UIDevice currentDevice] name]];
     [_session publish:_publisher];
     [self.view addSubview:_publisher.view];
-    [_publisher.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight)];
+    [_publisher.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight*2)];
     UIButton *endButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [endButton addTarget:self
                   action:@selector(endClicked:)
@@ -180,7 +180,7 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
 - (void)subscriberDidConnectToStream:(OTSubscriber*)subscriber
 {
     NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
-    [subscriber.view setFrame:CGRectMake(0, widgetHeight, widgetWidth, widgetHeight)];
+    [subscriber.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight*2)];
     [self.view addSubview:subscriber.view];
     UIButton *endButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [endButton addTarget:self
@@ -188,7 +188,7 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
         forControlEvents:UIControlEventTouchUpInside];
     endButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     [endButton setTitle:@"End" forState:UIControlStateNormal];
-    endButton.frame = CGRectMake(80.0, widgetHeight * 2 - 100, 160.0, 40.0);
+    endButton.frame = CGRectMake(widgetWidth/3, widgetHeight * 2 - 100, 2*widgetWidth/3, 40.0);
     [endButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [endButton setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:endButton];
