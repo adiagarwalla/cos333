@@ -158,7 +158,7 @@ static UITableViewController * me;
 void detail_callback (id arg) {
     // do nothing valuable
     NSLog(@"Starting session JSON: %@", arg);
-    if (![arg isKindOfClass: [NSString class]] && arg != NULL){
+    if ([arg isKindOfClass: [NSDictionary class]] &&  [arg objectForKey:@"session_id"] != nil){
         NSString * kSession = ((NSDictionary*) arg)[@"session_id"];
         [detailSpinner stopAnimating];
         [ViewController setSessionToken: kSession];

@@ -12,7 +12,9 @@
 #import "MasterViewController.h"
 #import "SWRevealViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () {
+    CGFloat kbSize;
+}
 @end
 
 @implementation LoginViewController
@@ -65,13 +67,15 @@ void loginCallback (id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if (![arg isKindOfClass: [NSString class]]){
+    else if ([arg isKindOfClass: [NSDictionary class]] &&  [arg objectForKey:@"userid"] != nil){
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setInteger: [myID intValue] forKey:@"myID"];
         [defaults synchronize];
         NSLog(@"UserID saved");
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
     }
     else {
@@ -111,7 +115,27 @@ void loginCallback (id arg) {
 
 void signupCallback(id arg) {
     [spinner stopAnimating];
-    if (arg == NULL) {
+    if ([arg isKindOfClass: [NSDictionary class]] &&  [arg objectForKey:@"return"] != nil) {
+        
+        if ([((NSDictionary*) arg)[@"return"] isEqualToString:@"0"]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username Taken"
+                                                            message:@"Please try again with a different username"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
+                                                            message:@"Sign up was a success! Please sign in!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
                                                         message:@"Sorry there is something wrong with our system! Please try again"
                                                        delegate:nil
@@ -119,24 +143,9 @@ void signupCallback(id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if ([((NSDictionary*) arg)[@"return"] isEqualToString:@"0"]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
-                                                        message:@"Please try again with a different username"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
-                                                        message:@"Sign up was a success! Please sign in!"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
     
 }
+
 
 - (IBAction)save:(UIStoryboardSegue *)segue
 {
@@ -155,9 +164,104 @@ void signupCallback(id arg) {
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-
     return YES;
 }
+
+
+
+-(void)keyboardWillShow :(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height*.8;
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+//    else if (self.view.frame.origin.y < 0)
+//    {
+//        [self setViewMovedUp:NO];
+//    }
+}
+
+-(void)keyboardWillHide :(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height*.8;
+//    if (self.view.frame.origin.y >= 0)
+//    {
+//        [self setViewMovedUp:YES];
+//    }
+//    else
+        if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)sender
+{
+
+        //move the main view, so that the keyboard does not hide it.
+        if  (self.view.frame.origin.y >= 0)
+        {
+            [self setViewMovedUp:YES];
+        }
+}
+
+//method to move the view up/down whenever the keyboard is shown/dismissed
+-(void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        rect.origin.y -= kbSize;
+        rect.size.height += kbSize;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kbSize;
+        rect.size.height -= kbSize;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+
 
 /*
 #pragma mark - Navigation

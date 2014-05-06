@@ -107,22 +107,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTO-VL-blh">
-                                <rect key="frame" x="0.0" y="227" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="281" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1JW-kA-gv4">
-                                <rect key="frame" x="0.0" y="180" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="226" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaC-vp-cR6">
-                                <rect key="frame" x="0.0" y="275" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="336" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Qurious" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKK-Sx-YvC">
-                                <rect key="frame" x="96" y="105" width="140" height="42"/>
+                                <rect key="frame" x="96" y="137" width="140" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.52012978830000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
@@ -130,25 +130,25 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gpr-3A-eWg">
-                                <rect key="frame" x="12" y="180" width="280" height="40"/>
+                                <rect key="frame" x="12" y="226" width="297" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-1U-riH">
-                                <rect key="frame" x="12" y="227" width="297" height="40"/>
+                                <rect key="frame" x="12" y="281" width="297" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Confirm Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lDJ-3Q-SRt">
-                                <rect key="frame" x="12" y="276" width="297" height="40"/>
+                                <rect key="frame" x="12" y="336" width="297" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-Y3-RNf">
-                                <rect key="frame" x="0.0" y="344" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="391" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3989100302419355" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -233,6 +233,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
                     <navigationItem key="navigationItem" title="Qurious" id="tQt-TN-PWz">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Xbi-a0-Fyi"/>
@@ -283,7 +284,7 @@
                                                     <rect key="frame" x="20" y="20" width="100" height="101"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aDx-71-PfF">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aDx-71-PfF">
                                                     <rect key="frame" x="140" y="15" width="164" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -292,7 +293,7 @@
                                                         <outlet property="delegate" destination="k13-hA-Guz" id="GDK-A8-ruJ"/>
                                                     </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qei-u2-zif">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qei-u2-zif">
                                                     <rect key="frame" x="140" y="55" width="164" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -315,6 +316,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <state key="normal" title="edit">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -341,7 +343,6 @@
                                                     <rect key="frame" x="20" y="0.0" width="31" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -355,6 +356,7 @@
                             <outlet property="delegate" destination="k13-hA-Guz" id="NOo-iB-YAr"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Edit" id="2US-e7-RB3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bad-YM-01B">
                             <connections>
@@ -494,6 +496,7 @@
                             <outlet property="delegate" destination="aLW-EU-oU2" id="4x0-mY-V5a"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="My Profile" id="IeJ-Gd-b3d">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="27p-1b-41l"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bKQ-Le-w0w">
@@ -551,16 +554,15 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClR-vB-8NW">
-                                                    <rect key="frame" x="184" y="32" width="135" height="30"/>
+                                                <button contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClR-vB-8NW">
+                                                    <rect key="frame" x="166" y="21" width="154" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="135" id="Aza-rw-7RK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Enter Session">
-                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="sessionButtonClicked" destination="ZV1-cm-Pd0" eventType="touchUpInside" id="ocL-uP-NeX"/>
@@ -663,6 +665,7 @@
                             <outlet property="delegate" destination="ZV1-cm-Pd0" id="gha-vh-lI5"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Detail" id="jvB-3T-8P0"/>
                     <connections>
                         <segue destination="I4w-Oy-fdp" kind="modal" identifier="SessionSegue" id="doM-NW-Klw"/>
@@ -859,6 +862,7 @@
         <scene sceneID="ESx-P5-MhF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uTH-Ro-o3i" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZUP-6j-Sfx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -899,6 +903,7 @@
                             <outlet property="delegate" destination="Nlq-Nd-6Bn" id="xcr-rI-Z5G"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Edit Skills" id="5N8-aT-DPa">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="3VZ-qc-XuN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ka2-iB-knx">
@@ -1020,6 +1025,7 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="82g-ow-D1T">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZP7-mY-WSP">
                             <connections>
@@ -1115,6 +1121,7 @@
         <scene sceneID="P9l-c2-7IX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O1G-8L-dog" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gFQ-dS-Bml">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1173,6 +1180,7 @@
                             <outlet property="delegate" destination="wgg-1A-oJG" id="LXf-Bb-7pJ"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Notifications" id="vV9-dg-hlI">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="eT7-TE-d1b">
                             <connections>
@@ -1205,9 +1213,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GjK-dF-KsC"/>
-        <segue reference="oK9-yV-yE8"/>
+        <segue reference="Z2G-sG-3Jg"/>
+        <segue reference="Okm-gj-QJ6"/>
+        <segue reference="9qD-dc-aaK"/>
         <segue reference="fhH-F7-sUn"/>
+        <segue reference="doM-NW-Klw"/>
         <segue reference="dIY-hd-WW8"/>
         <segue reference="doM-NW-Klw"/>
         <segue reference="Z2G-sG-3Jg"/>

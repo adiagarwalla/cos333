@@ -39,8 +39,8 @@ void mastercallback(id arg) {
     if (arg != NULL && ![arg isKindOfClass: [NSString class]] && [arg isKindOfClass:[NSArray class]]) {
         _objects = [[NSMutableArray alloc] init];
         
-        NSDictionary * results = arg;
-        for (NSDictionary *jsonobject in results) {
+        //NSDictionary * results = arg;
+        for (NSDictionary *jsonobject in arg) {
             NSDictionary *fields = jsonobject[@"profile"][0][@"fields"];
             Person *friend = [[Person alloc] init];
             friend.firstName = fields[@"profile_first"];
@@ -72,8 +72,6 @@ void mastercallback(id arg) {
             [_objects insertObject:friend atIndex:0];
 
         }
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         [view reloadData];
     }
 }
@@ -210,14 +208,14 @@ void mastercallback(id arg) {
                            friend.firstName, friend.lastName];
     }
     cell.detailTextLabel.text = friend.bio;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:friend.profPic];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            cell.imageView.image = [UIImage imageWithData:imageData];
-        });
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        NSData *imageData = [NSData dataWithContentsOfURL:friend.profPic];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // Update the UI
+//            cell.imageView.image = [UIImage imageWithData:imageData];
+//        });
+//    });
     cellBackgroundView.image = background;
     cell.backgroundView = cellBackgroundView;
     cell.backgroundColor = [UIColor clearColor];
