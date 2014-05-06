@@ -41,30 +41,30 @@ void pictureCallback(id arg) {
 static Person* me;
 static ProfileViewController* _self;
 
-/*
-- (void)configureView {
-    if (me && [me isKindOfClass:[Person class]]) {
-        NSString *name = [NSString stringWithFormat:@"%@ %@",
-                          [me firstName],
-                          [me lastName]];
-        if ([name isEqualToString: @" "]) self.nameLabel.text = [me username];
-        else self.nameLabel.text = name;
-        self.emailLabel.text = [me email];
-        self.bioLabel.text = [me bio];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[me profPic]];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update the UI
-                self.imageView.image = [UIImage imageWithData:imageData];
-            });
-        });
-    }
-    
-}
 
-*/
+//- (void)configureView {
+//    if (me && [me isKindOfClass:[Person class]]) {
+//        NSString *name = [NSString stringWithFormat:@"%@ %@",
+//                          [me firstName],
+//                          [me lastName]];
+//        if ([name isEqualToString: @" "]) self.nameLabel.text = [me username];
+//        else self.nameLabel.text = name;
+//        self.emailLabel.text = [me email];
+//        self.bioLabel.text = [me bio];
+//        
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//            NSData *imageData = [NSData dataWithContentsOfURL:[me profPic]];
+//            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                // Update the UI
+//                self.imageView.image = [UIImage imageWithData:imageData];
+//            });
+//        });
+//    }
+//    [self.tableView reloadData];
+//    
+//}
+
 
 #pragma mark - Managing the detail item
 
@@ -208,7 +208,7 @@ static ProfileViewController* _self;
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
-    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
+    if ([arg isKindOfClass: [NSArray class]] && [(NSArray*)arg count] > 0) {
         NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
         me = [[Person alloc] init];
         me.firstName = fields[@"profile_first"];
@@ -235,6 +235,7 @@ void profileCallback (id arg){
         }
         me.skills = allmyskills;
     }
+    [(UITableView*)_self.tableView reloadData];
     //[_self configureView];
     //[_self loadButtons];
 }

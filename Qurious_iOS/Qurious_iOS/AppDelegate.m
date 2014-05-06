@@ -19,6 +19,7 @@
     UIImage *navBackgroundImage = [UIImage imageNamed:@"linen3.jpg"];
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     [[UITextField appearance] setTintColor:[UIColor blackColor]];
+    [[UITextView appearance] setTintColor:[UIColor blackColor]];
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 1);
@@ -73,14 +74,13 @@ void appDelegateCallback(id arg) {
     {
         
         //You need to customize your alert by yourself for this situation. For ex,
-        NSString *cancelTitle = @"Close";
-        NSString *showTitle = @"Ok";
+        //NSString *cancelTitle = @"Close";
         NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
                                                             message:message
                                                            delegate:self
-                                                  cancelButtonTitle:cancelTitle
-                                                  otherButtonTitles:showTitle, nil];
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
         [alertView show];
         //UIViewController *vc = self.window.rootViewController;
         //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];
