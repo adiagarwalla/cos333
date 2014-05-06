@@ -23,11 +23,11 @@ static void* object;
 static double widgetHeight;
 static double widgetWidth;
 
-void sessioncallback(id arg) {
 
+void sessioncallback(id arg) {
     // do nothing valuable
     NSLog(@"Get Token JSON: %@", arg);
-    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
+    if ([arg isKindOfClass: [NSDictionary class]] &&  [arg objectForKey:@"token"] != nil) {
         kToken = ((NSDictionary*) arg)[@"token"];
         [(__bridge ViewController*)object doConnect];
     }
