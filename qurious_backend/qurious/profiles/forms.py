@@ -5,11 +5,11 @@ class ProfileEditForm(forms.Form):
     """
     Form for processing profile info
     """
-    profile_name = forms.CharField()
-    profile_first = forms.CharField()
-    profile_last = forms.CharField()
-    user_email = forms.CharField()
-    user_bio = forms.CharField()
+    profile_name = forms.CharField(required=False)
+    profile_first = forms.CharField(required=False)
+    profile_last = forms.CharField(required=False)
+    user_email = forms.CharField(required=False)
+    user_bio = forms.CharField(required=False)
 
 class SkillEditForm(forms.Form):
     """
