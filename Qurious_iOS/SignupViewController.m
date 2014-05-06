@@ -100,7 +100,7 @@ static UIViewController * me;
 
 -(void)keyboardWillShow :(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
-    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height*.55;
+    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height*.8;
     // Animate the current view out of the way
     if (self.view.frame.origin.y >= 0)
     {
@@ -114,7 +114,7 @@ static UIViewController * me;
 
 -(void)keyboardWillHide :(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
-    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height*.55;
+    kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height*.8;
     //    if (self.view.frame.origin.y >= 0)
     //    {
     //        [self setViewMovedUp:YES];
