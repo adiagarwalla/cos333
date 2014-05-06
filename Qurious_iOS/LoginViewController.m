@@ -67,13 +67,15 @@ void loginCallback (id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if (![arg isKindOfClass: [NSString class]]){
+    else if ([arg isKindOfClass: [NSDictionary class]] &&  [arg objectForKey:@"userid"] != nil){
         [spinner stopAnimating];
         myID = ((NSDictionary*) arg)[@"userid"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setInteger: [myID intValue] forKey:@"myID"];
         [defaults synchronize];
         NSLog(@"UserID saved");
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         [me performSegueWithIdentifier:@"loginSuccess" sender:me];
     }
     else {
@@ -113,7 +115,27 @@ void loginCallback (id arg) {
 
 void signupCallback(id arg) {
     [spinner stopAnimating];
-    if (arg == NULL) {
+    if ([arg isKindOfClass: [NSDictionary class]] &&  [arg objectForKey:@"return"] != nil) {
+        
+        if ([((NSDictionary*) arg)[@"return"] isEqualToString:@"0"]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username Taken"
+                                                            message:@"Please try again with a different username"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
+                                                            message:@"Sign up was a success! Please sign in!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
                                                         message:@"Sorry there is something wrong with our system! Please try again"
                                                        delegate:nil
@@ -121,24 +143,9 @@ void signupCallback(id arg) {
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if ([((NSDictionary*) arg)[@"return"] isEqualToString:@"0"]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unsuccessful Signup"
-                                                        message:@"Please try again with a different username"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
-                                                        message:@"Sign up was a success! Please sign in!"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
     
 }
+
 
 - (IBAction)save:(UIStoryboardSegue *)segue
 {

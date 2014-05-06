@@ -41,7 +41,7 @@ void pictureCallback(id arg) {
 static Person* me;
 static ProfileViewController* _self;
 
-/*
+
 - (void)configureView {
     if (me && [me isKindOfClass:[Person class]]) {
         NSString *name = [NSString stringWithFormat:@"%@ %@",
@@ -61,10 +61,10 @@ static ProfileViewController* _self;
             });
         });
     }
+    [self.tableView reloadData];
     
 }
 
-*/
 
 #pragma mark - Managing the detail item
 
@@ -208,7 +208,7 @@ static ProfileViewController* _self;
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
-    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
+    if ([arg isKindOfClass: [NSArray class]] && [(NSArray*)arg count] > 0) {
         NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
         me = [[Person alloc] init];
         me.firstName = fields[@"profile_first"];
@@ -235,7 +235,7 @@ void profileCallback (id arg){
         }
         me.skills = allmyskills;
     }
-    //[_self configureView];
+    [_self configureView];
     //[_self loadButtons];
 }
 

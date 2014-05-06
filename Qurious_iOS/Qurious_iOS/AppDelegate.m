@@ -73,14 +73,13 @@ void appDelegateCallback(id arg) {
     {
         
         //You need to customize your alert by yourself for this situation. For ex,
-        NSString *cancelTitle = @"Close";
-        NSString *showTitle = @"Ok";
+        //NSString *cancelTitle = @"Close";
         NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
                                                             message:message
                                                            delegate:self
-                                                  cancelButtonTitle:cancelTitle
-                                                  otherButtonTitles:showTitle, nil];
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
         [alertView show];
         //UIViewController *vc = self.window.rootViewController;
         //NotificationViewController *vc = [[NotificationViewController alloc] initWithNibName:@"NotificationViewController" bundle:nil];

@@ -36,11 +36,11 @@ void mastercallback(id arg) {
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSInteger myID = [defaults integerForKey:@"myID"];
-    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
+    if ([arg isKindOfClass: [NSArray class]]) {
         _objects = [[NSMutableArray alloc] init];
         
-        NSDictionary * results = arg;
-        for (NSDictionary *jsonobject in results) {
+        //NSDictionary * results = arg;
+        for (NSDictionary *jsonobject in arg) {
             NSDictionary *fields = jsonobject[@"profile"][0][@"fields"];
             Person *friend = [[Person alloc] init];
             friend.firstName = fields[@"profile_first"];
@@ -72,8 +72,6 @@ void mastercallback(id arg) {
             [_objects insertObject:friend atIndex:0];
 
         }
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         [view reloadData];
     }
 }
