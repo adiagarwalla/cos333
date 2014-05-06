@@ -44,7 +44,7 @@ void getNotificationsCallback(id arg){
     NSLog(@"Get notifications JSON: %@", arg);
     printf("%s", "Fetching notifications");
     _notifications = [[NSMutableArray alloc]init];
-    if (![arg isKindOfClass: [NSString class]] && arg != NULL) {
+    if (![arg isKindOfClass: [NSString class]] && [arg isKindOfClass:[NSArray class]] && arg != NULL) {
         for (NSDictionary * notification in (NSArray *)arg) {
             Notification * myNotification = [[Notification alloc] init];
             NSString* tmp = notification[@"fields"][@"attachedjson"];
