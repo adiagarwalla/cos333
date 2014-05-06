@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t80-7x-XbQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t80-7x-XbQ">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -233,6 +233,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Master" id="tYD-Gd-Bus"/>
                     <navigationItem key="navigationItem" title="Qurious" id="tQt-TN-PWz">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Xbi-a0-Fyi"/>
@@ -355,6 +356,7 @@
                             <outlet property="delegate" destination="k13-hA-Guz" id="NOo-iB-YAr"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Edit" id="2US-e7-RB3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bad-YM-01B">
                             <connections>
@@ -494,6 +496,7 @@
                             <outlet property="delegate" destination="aLW-EU-oU2" id="4x0-mY-V5a"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="My Profile" id="IeJ-Gd-b3d">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="27p-1b-41l"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bKQ-Le-w0w">
@@ -649,6 +652,7 @@
                             <outlet property="delegate" destination="ZV1-cm-Pd0" id="gha-vh-lI5"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Detail" id="jvB-3T-8P0"/>
                     <connections>
                         <segue destination="I4w-Oy-fdp" kind="modal" identifier="SessionSegue" id="doM-NW-Klw"/>
@@ -845,6 +849,7 @@
         <scene sceneID="ESx-P5-MhF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uTH-Ro-o3i" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZUP-6j-Sfx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -885,6 +890,7 @@
                             <outlet property="delegate" destination="Nlq-Nd-6Bn" id="xcr-rI-Z5G"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Edit Skills" id="5N8-aT-DPa">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="3VZ-qc-XuN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ka2-iB-knx">
@@ -1006,6 +1012,7 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="82g-ow-D1T">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZP7-mY-WSP">
                             <connections>
@@ -1101,6 +1108,7 @@
         <scene sceneID="P9l-c2-7IX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O1G-8L-dog" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gFQ-dS-Bml">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1159,6 +1167,7 @@
                             <outlet property="delegate" destination="wgg-1A-oJG" id="LXf-Bb-7pJ"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Notifications" id="vV9-dg-hlI">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="eT7-TE-d1b">
                             <connections>
@@ -1191,11 +1200,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="doM-NW-Klw"/>
-        <segue reference="aEb-ml-Mqe"/>
-        <segue reference="9qD-dc-aaK"/>
         <segue reference="Z2G-sG-3Jg"/>
+        <segue reference="Okm-gj-QJ6"/>
+        <segue reference="9qD-dc-aaK"/>
         <segue reference="fhH-F7-sUn"/>
+        <segue reference="doM-NW-Klw"/>
         <segue reference="dIY-hd-WW8"/>
     </inferredMetricsTieBreakers>
 </document>
