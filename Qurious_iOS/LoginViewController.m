@@ -157,7 +157,6 @@ void signupCallback(id arg) {
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    //[self setViewMovedUp:NO];
     return YES;
 }
 
