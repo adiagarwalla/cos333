@@ -84,6 +84,18 @@
             [alert show];
             return NO;
         }
+        
+        NSRange range = [_priceField.text rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]];
+        
+        if(range.location != NSNotFound) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Price"
+                                                            message:@"Please enter a valid numeric price."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
     }
     
     return YES;
