@@ -42,28 +42,6 @@ static Person* me;
 static ProfileViewController* _self;
 
 
-//- (void)configureView {
-//    if (me && [me isKindOfClass:[Person class]]) {
-//        NSString *name = [NSString stringWithFormat:@"%@ %@",
-//                          [me firstName],
-//                          [me lastName]];
-//        if ([name isEqualToString: @" "]) self.nameLabel.text = [me username];
-//        else self.nameLabel.text = name;
-//        self.emailLabel.text = [me email];
-//        self.bioLabel.text = [me bio];
-//        
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//            NSData *imageData = [NSData dataWithContentsOfURL:[me profPic]];
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                // Update the UI
-//                self.imageView.image = [UIImage imageWithData:imageData];
-//            });
-//        });
-//    }
-//    [self.tableView reloadData];
-//    
-//}
 
 
 #pragma mark - Managing the detail item
@@ -158,7 +136,7 @@ static ProfileViewController* _self;
         if (editController.hasNewImage == YES) {
             [QApiRequests uploadImage:editController.selectedImage.image andId:[NSString stringWithFormat: @"%i",[me userID]] andCallback:pictureCallback];
         }
-        //[self configureView];
+        [self.tableView reloadData];
     }
     
 }
@@ -167,44 +145,7 @@ static ProfileViewController* _self;
     
 }
 
-/*
--(void) loadButtons {
-    for(UIView *view in self.scrollView.subviews)
-    {
-        if ([view isKindOfClass:[UIButton class]])
-        {
-            [view  removeFromSuperview];
-        }
-    }
-    
-    NSArray *buttonImg = @[@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", @"img6.png"];
-    NSMutableArray *skills = [me skills];
-    int xposition = 20.0f;
-    int yposition = 0;
-    int count = 0;
-    int xdisplacement;
-    for (Skill *skill in skills) {
-        if (count%3 == 0) xdisplacement = 0;
-        else if (count%3 == 1) xdisplacement = 100.f;
-        else xdisplacement = 200.f;
-        
-        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:skill.name forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:12];
-        button.titleLabel.numberOfLines = 4;
-        button.titleLabel.textAlignment = NSTextAlignmentCenter;
-        
-        UIImage* image = [UIImage imageNamed:buttonImg[count%6]];
-        [button setBackgroundImage:image forState:UIControlStateNormal];
-        
-        button.frame = CGRectMake(xposition + xdisplacement, yposition, 75.0f, 75.0f);
-        if (count%3 == 2) yposition += 100.f;
-        count++;
-        [self.scrollView addSubview:button];
-    }
-}
-*/
+
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
@@ -257,12 +198,11 @@ void profileCallback (id arg){
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger myID = [defaults integerForKey:@"myID"];
     [QApiRequests getProfiles: myID andCallback: &profileCallback];
-    
-
-	// Do any additional setup after loading the view, typically from a nib.
 
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
