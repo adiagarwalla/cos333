@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t80-7x-XbQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t80-7x-XbQ">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -434,7 +434,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="R6a-fn-6NO" kind="modal" identifier="showSkillEdit" id="h3G-jU-5q8"/>
+                                                        <segue destination="Nlq-Nd-6Bn" kind="push" identifier="showSkillEdit" id="g7E-so-1qe"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -559,7 +559,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="357"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xT-yp-QFs">
+                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xT-yp-QFs">
                                             <rect key="frame" x="0.0" y="277" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
@@ -931,20 +931,16 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Edit Skills" id="5N8-aT-DPa">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="3VZ-qc-XuN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ka2-iB-knx">
                             <connections>
                                 <segue destination="O1G-8L-dog" kind="modal" identifier="addSkill" id="dIY-hd-WW8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="sideBarButton" destination="3VZ-qc-XuN" id="lXT-ix-7Pz"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWV-fi-N8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624" y="121"/>
+            <point key="canvasLocation" x="1070" y="95"/>
         </scene>
         <!--Skill Edit View Controller-->
         <scene sceneID="GZD-u8-AMQ">
@@ -1223,24 +1219,6 @@
             </objects>
             <point key="canvasLocation" x="-99" y="-1389"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="raO-pn-IzD">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R6a-fn-6NO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E8U-Fl-m26">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Nlq-Nd-6Bn" kind="relationship" relationship="rootViewController" id="Mb7-7f-Jfy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohq-AB-aqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1098" y="121"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Icon-76.png" width="76" height="76"/>
@@ -1257,11 +1235,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fhH-F7-sUn"/>
-        <segue reference="oK9-yV-yE8"/>
         <segue reference="GjK-dF-KsC"/>
+        <segue reference="oK9-yV-yE8"/>
+        <segue reference="fhH-F7-sUn"/>
+        <segue reference="B4b-8Q-56a"/>
         <segue reference="doM-NW-Klw"/>
-        <segue reference="dIY-hd-WW8"/>
         <segue reference="Z2G-sG-3Jg"/>
     </inferredMetricsTieBreakers>
 </document>
