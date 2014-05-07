@@ -14,12 +14,15 @@
 #import "PIctureNameButtonTableViewCell.h"
 
 
-@interface DetailViewController ()
+@interface DetailViewController () {
+    UIButton * enterSessionButton;
+}
 
 @end
 
 @implementation DetailViewController
 @synthesize detailItem = _detailItem;
+//@synthesize enterSession = _enterSessionButton;
 //@synthesize nameLabel = _nameLabel;
 //@synthesize emailLabel = _emailLabel;
 //@synthesize imageView = _imageView;
@@ -120,6 +123,12 @@ static UITableViewController * me;
         if ([name isEqualToString: @" "]) cell.name.text = [self.detailItem username];
         else cell.name.text = name;
         cell.email.text = [self.detailItem email];
+        enterSessionButton = cell.enterSessionButton;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger myID = [defaults integerForKey:@"myID"];
+        if (myID == [self.detailItem userID]) {
+            enterSessionButton.hidden = YES;
+        }
         return cell;
     } else if (indexPath.row == 1) {
         UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:bioIdentifier];
@@ -152,6 +161,7 @@ static UITableViewController * me;
     [self.view addSubview:detailSpinner];
     
     self.navigationItem.title = [[self.detailItem firstName] isEqualToString:@""] && [[self.detailItem lastName] isEqualToString:@""] ? [self.detailItem username] : [NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]];
+    
 
 }
 
