@@ -180,7 +180,7 @@ static bool subscribeToSelf = NO; // Change to NO to subscribe to streams other 
 - (void)subscriberDidConnectToStream:(OTSubscriber*)subscriber
 {
     NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
-    [subscriber.view setFrame:CGRectMake(0, 0, 3*widgetWidth/2, widgetHeight*2)];
+    [subscriber.view setFrame:CGRectMake(-widgetWidth/2, 0, 2*widgetWidth, widgetHeight*2)];
     [self.view addSubview:subscriber.view];
     UIButton *endButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [endButton addTarget:self
