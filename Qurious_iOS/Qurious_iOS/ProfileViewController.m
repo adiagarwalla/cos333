@@ -198,11 +198,14 @@ void profileCallback (id arg){
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     _self = self;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger myID = [defaults integerForKey:@"myID"];
     [QApiRequests getProfiles: myID andCallback: &profileCallback];
-
-    
 }
 
 
