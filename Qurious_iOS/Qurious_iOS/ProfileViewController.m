@@ -76,7 +76,9 @@ static ProfileViewController* _self;
         [editViewController setDetailItem:me];
     }
     if ([[segue identifier] isEqualToString:@"showSkillEdit"]) {
-        [[segue destinationViewController] setDetailItem:me];
+        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
+        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
+        [skillViewController setDetailItem:me];
     }
     
 }
