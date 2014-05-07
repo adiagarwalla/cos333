@@ -54,9 +54,10 @@ static ProfileViewController* _self;
         [editViewController setDetailItem:me];
     }
     if ([[segue identifier] isEqualToString:@"showSkillEdit"]) {
-        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
-        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
-        [skillViewController setDetailItem:me];
+        [[segue destinationViewController] setDetailItem:me];
+//        NSArray *navigationControllers = [[segue destinationViewController] viewControllers];
+//        SkillViewController *skillViewController = [navigationControllers objectAtIndex:0];
+//        [skillViewController setDetailItem:me];
     }
     
 }
@@ -197,11 +198,14 @@ void profileCallback (id arg){
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     _self = self;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger myID = [defaults integerForKey:@"myID"];
     [QApiRequests getProfiles: myID andCallback: &profileCallback];
-
-    
 }
 
 
