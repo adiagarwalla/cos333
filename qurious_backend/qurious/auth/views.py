@@ -51,7 +51,7 @@ class QuriousSignUpView(View):
                 user_dummy.save()
                 user_dummy_profile = UserProfile(user=user_dummy, profile_name=user_dummy.username, user_email=user_dummy.email, user_bio='')
             
-                s = Skill(name='learning', desc='I like to learn!', price=0, is_marketable=False)
+                s = Skill(name='Learning', desc='I like to learn!', price=0, is_marketable=False)
                 user_dummy_profile.save()
                 s.save()
                 user_dummy_profile.skills.add(s)
