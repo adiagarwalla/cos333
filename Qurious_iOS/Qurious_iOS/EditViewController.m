@@ -56,6 +56,22 @@
     return YES;
 }
 
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+//{
+//    return self.bioField.text.length + (text.length - range.length) <= 49;
+//}
+
+//- (void)textViewDidChange:(UITextView *)textView{
+//    
+//    NSInteger restrictedLength=49;
+//    
+//    NSString *temp=self.bioField.text;
+//    
+//    if([[textView text] length] > restrictedLength){
+//        self.bioField.text=[temp substringToIndex:[temp length]-1];
+//    }
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureView];
@@ -66,6 +82,22 @@
     _bioField.clipsToBounds = YES;
 
 }
+
+//#define MAX_LENGTH 49
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+//{
+//    NSUInteger newLength = (self.bioField.text.length - range.length) + text.length;
+//    if(newLength <= MAX_LENGTH)
+//    {
+//        return YES;
+//    } else {
+//        NSUInteger emptySpace = MAX_LENGTH - (self.bioField.text.length - range.length);
+//        textView.text = [[[self.bioField.text substringToIndex:range.location]
+//                          stringByAppendingString:[text substringToIndex:emptySpace]]
+//                         stringByAppendingString:[self.bioField.text substringFromIndex:(range.location + range.length)]];
+//        return NO;
+//    }
+//}
 
 -(IBAction) buttonClicked {
     picker = [[UIImagePickerController alloc] init];
