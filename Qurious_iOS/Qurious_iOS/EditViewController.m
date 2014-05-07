@@ -99,6 +99,11 @@
 //    }
 //}
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    int newLength = [textView.text length] + [text length] - range.length;
+    return (newLength > 39) ? NO : YES;
+}
+
 -(IBAction) buttonClicked {
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self; //ignore this warning

@@ -198,6 +198,7 @@ void profileCallback (id arg){
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     _self = self;
+    self.tableView.allowsSelection = NO;
     
 }
 

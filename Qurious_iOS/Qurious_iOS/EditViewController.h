@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EditViewController : UITableViewController
-<UITextFieldDelegate>
+<UITextFieldDelegate, UITextViewDelegate>
 {
     UIImagePickerController *picker;
     IBOutlet UIImageView * selectedImage;
