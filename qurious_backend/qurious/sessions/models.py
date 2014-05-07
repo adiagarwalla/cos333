@@ -50,5 +50,5 @@ class Notification(models.Model):
         else:
             device = device[0]
         if not self.is_expired:
-            device.send_message("Session request has been cancelled")
+            device.send_message("Session request with " + user.userprofile.profile_first + " has been cancelled")
         super(Notification, self).delete()
