@@ -38,7 +38,7 @@ class Notification(models.Model):
             device.save()
         else:
             device = device[0]
-        if !self.is_expired:
+        if not self.is_expired:
             device.send_message("Session request has been cancelled")
         token_from = token_from.replace('<', '')
         token_from = token_from.replace('>', '')
