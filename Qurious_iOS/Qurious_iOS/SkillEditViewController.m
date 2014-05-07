@@ -20,6 +20,12 @@
 @synthesize forSaleSwitch = _forSaleSwitch;
 
 
+- (void)setDetailItem:(id)detailItem {
+    if (_detailItem != detailItem) {
+        _detailItem = detailItem;
+    }
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
