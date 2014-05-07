@@ -37,46 +37,9 @@ static UITableViewController * me;
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
-        // Update the view.
-        //[self configureView];
-    }
-}
 
-/*
-- (void)configureView {
-    if (self.detailItem &&
-        [self.detailItem isKindOfClass:[Person class]]) {
-        NSString *name = [NSString stringWithFormat:@"%@ %@",
-                          [self.detailItem firstName],
-                          [self.detailItem lastName]];
-        if ([name isEqualToString: @" "]) self.nameLabel.text = [self.detailItem username];
-        else self.nameLabel.text = name;
-        self.emailLabel.text = [self.detailItem email];
-        self.bioLabel.text = [self.detailItem bio];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[self.detailItem profPic]];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update the UI
-                self.imageView.image = [UIImage imageWithData:imageData];
-            });
-        });
-        
-    }
-    
-}
-
--(void) loadButtons {
-    NSMutableArray *skills = [self.detailItem skills];
-    for (Skill *skill in skills) {
-        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SkillCell"];
-        cell.textLabel.text = skill.name;
-        [self.tableView addSubview:cell];
     }
 }
-*/
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -162,6 +125,7 @@ static UITableViewController * me;
     
     self.navigationItem.title = [[self.detailItem firstName] isEqualToString:@""] && [[self.detailItem lastName] isEqualToString:@""] ? [self.detailItem username] : [NSString stringWithFormat:@"%@ %@", [self.detailItem firstName], [self.detailItem lastName]];
     
+    self.tableView.allowsSelection = NO;
 
 }
 
