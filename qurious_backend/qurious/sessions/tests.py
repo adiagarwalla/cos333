@@ -12,6 +12,7 @@ from qurious.profiles.models import UserProfile
 from qurious.profiles.models import Skill
 from django.core.urlresolvers import reverse
 from qurious.sessions.opentok_utils import create_session
+from qurious.sessions.models import Notification
 
 def create_user(user_name):
     user_dummy = User(username=user_name, email='sam@sam.com')
@@ -87,7 +88,21 @@ class SessionTests(TestCase):
         response = self.client.post(reverse('session-create'), {'time':15,'teacher':1})
         response = self.client.get(reverse('notification-get-all') + '?id=1')
         response = self.client.post(reverse('delete-notif'), {'id':'1'})
-        self.assertTrue(response.content == "{'return':True}")
+        self.assertTrue(response.content == "{'return': true}")
 
         response = self.client.post(reverse('delete-notif'), {'id':'c'})
-        self.assertTrue(response.content == "{'return':False}")
+        self.assertTrue(response.content == "{'return': false}")
+
+    def delete_session(self):
+        create_user('sam1')
+        create_user('sam')
+
+        import pdb; pdb.set_trace()
+        self.client.login(username='sam1', password='123')
+        response = self.client.post(reverse('session-create'), {'time':15,'teacher':1})
+        n = Notification.objects.filter()
+        for a in n:
+            a.delete()
+        n = Notification.objects.filter()
+        self.assertTrue(len(n) == 0)
+
