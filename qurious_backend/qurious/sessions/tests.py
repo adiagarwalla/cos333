@@ -88,10 +88,10 @@ class SessionTests(TestCase):
         response = self.client.post(reverse('session-create'), {'time':15,'teacher':1})
         response = self.client.get(reverse('notification-get-all') + '?id=1')
         response = self.client.post(reverse('delete-notif'), {'id':'1'})
-        self.assertTrue(response.content == "{'return': true}")
+        self.assertTrue(response.content == '{"return": true}')
 
         response = self.client.post(reverse('delete-notif'), {'id':'c'})
-        self.assertTrue(response.content == "{'return': false}")
+        self.assertTrue(response.content == '{"return": false}')
 
     def delete_session(self):
         create_user('sam1')
