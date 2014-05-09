@@ -8,11 +8,11 @@ Replace this with more appropriate tests for your application.
 import re
 from django.test import TestCase
 from django.test.client import Client
-from django.contrib.auth import authenticate, login
 from qurious.auth.views import QuriousLoginView
 from django.contrib.auth.models import User
 from qurious.profiles.models import UserProfile, Skill
 from django.core.urlresolvers import reverse
+from qurious.profiles.test_utils import login
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):
@@ -22,6 +22,18 @@ class SimpleTest(TestCase):
         self.assertEqual(1 + 1, 2)
 
 class ProfileViewTest(TestCase):
+
+    def setUp(self):
+        user_dummy = User(username='tmp', email='sam@chengdynasties.srb.gov.onion')
+        user_dummy.set_password('123')
+        user_dummy.save()
+        user_dummy_profile = UserProfile(user=user_dummy, profile_name='cheng', user_email=user_dummy.email, user_bio ='Hello')
+        user_dummy_profile.save()
+        s = Skill(name='learning', desc='cheng', price=1, is_marketable=True)
+        s.save()
+        user_dummy_profile.skills.add(s)
+        user_dummy_profile.save()
+
 
     def test_character_id(self):
         """
@@ -44,22 +56,8 @@ class ProfileViewTest(TestCase):
         This method tests for getting back a complete profile for a 
         given id.
         """
-        client = Client()
-        user_dummy = User(username='sam', email='sam@sam.com')
-        user_dummy.set_password('123')
-        user_dummy.save()
-        user_dummy_profile = UserProfile(user=user_dummy, profile_name='cheng', user_email=user_dummy.email, user_bio='1234i love cheng')
-
-        # dummmy skill needs to be created
-        s = Skill(name='learning', desc='i love cheng desks', price=123445, is_marketable=True)
-
-        user_dummy_profile.save()
-        s.save()
-        user_dummy_profile.skills.add(s)
-        user_dummy_profile.save()
-
         # now that the dummy profile has been created, we need to test the item can be called back
-
+        client = Client()
         response = client.get(reverse('profile-detail') + '?id=1')
         self.assertTrue(response.content != '')
 
@@ -68,7 +66,6 @@ class ProfileViewTest(TestCase):
         This tests the all profiles endpoint with basic functionality
         """
         client = Client()
-        self.test_get_profile()
 
         response = client.get(reverse('all-profile'))
         self.assertTrue(response.content != '')
@@ -79,23 +76,22 @@ class ProfileViewTest(TestCase):
         Null case, test for test cases
         """
         client = Client()
-        response = client.get(reverse('profile-detail') + '?id=1')
+        response = client.get(reverse('profile-detail') + '?id=2')
         self.assertTrue(response.content == '')
 
     def test_simple_post_profile_changes(self):
         """
         This method will test our post profile endpoint that allows you to edit a profile in the system via a post!
         """
-        self.test_get_profile()
-        c = Client()
 
+        self.client.login(username='tmp', password='123')
         # This function assumes that every single thing is passed in that is needed by the function
-        response = c.post(reverse('profile-detail'), {'user':{'username':'sam'},'profile_name':'cheng_dynasties', 'user_bio':'Hi', 'user_email':'xxx-xxxx.onion.cheng', 'profile_first': 'sam', 'profile_last': 'cheng'})
+        response = self.client.post(reverse('profile-detail'), {'user':{'username':'tmp'},'profile_name':'cheng_dynasties', 'user_bio':'Hi', 'user_email':'xxx-xxxx.onion.cheng', 'profile_first': 'sam', 'profile_last': 'cheng'})
         self.assertTrue(response.status_code == 200)
         self.assertTrue(bool(response.content) == True)
 
         # check that the individual fields were actually changed.
-        cheng = User.objects.get(username='sam')
+        cheng = User.objects.get(username='tmp')
         self.assertTrue(cheng.userprofile.profile_name == 'cheng_dynasties')
         self.assertTrue(cheng.userprofile.user_bio == 'Hi')
         self.assertTrue(cheng.userprofile.user_email == 'xxx-xxxx.onion.cheng')
@@ -103,43 +99,37 @@ class ProfileViewTest(TestCase):
         self.assertTrue(cheng.userprofile.profile_first == 'sam')
 
     def test_failure_post_changes(self):
-        self.test_get_profile()
-        c = Client()
-        response = c.post(reverse('profile-detail'), {'user':{'failure':'fake post'}})
+        self.client.login(username='tmp', password='123')
+        response = self.client.post(reverse('profile-detail'), {'user':{'failure':'fake post'}})
         self.assertTrue(response.content == '')
 
     def test_skill_get(self):
         """
         This method will test getting a skill
         """
-        self.test_get_profile()
         c = Client()
         response = c.get(reverse('skill-view')+'?id=1')
-        
         self.assertTrue(response.content != '')
         self.assertTrue(re.search('learning', response.content))
-        
+
     def test_skill_null(self):
         c = Client()
-        response = c.get(reverse('skill-view')+'?id=1')
-        
+        response = c.get(reverse('skill-view')+'?id=2')
         self.assertTrue(response.content == '')
 
     def test_skill_get_all(self):
-        self.test_get_profile()
         c = Client()
         response = c.get(reverse('all-skills') + '?id=1')
         self.assertTrue(response.content != '')
 
-    def test_skill_get_all(self):
+    def test_skill_get_all_null(self):
         c = Client()
         response = c.get(reverse('all-skills') + '?id=5')
         self.assertTrue(response.content == '')
 
     def test_skill_edit_add(self):
-        self.test_get_profile()
-        c = Client()
-        response = c.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
+        self.client.login(username='tmp', password='123')
+        response = self.client.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
         self.assertTrue(response.status_code == 200)
         self.assertTrue(bool(response.content) == True)
 
@@ -150,22 +140,20 @@ class ProfileViewTest(TestCase):
         self.assertTrue(skill.desc == 'I am awesome')
 
     def test_skill_edit_failure(self):
-        self.test_get_profile()
-        c = Client()
-        response = c.post(reverse('skill-view'), {'skill_id': 10, 'failure':'fake'})
+        self.client.login(username='tmp', password='123')
+        response = self.client.post(reverse('skill-view'), {'skill_id': 10, 'failure':'fake'})
         self.assertTrue(response.content == '')
 
     def test_delete_skill(self):
         """
         This function tests deleting a skill
         """
-        self.test_get_profile()
-        c = Client()
-        response = c.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
+        self.client.login(username='tmp', password='123')
+        response = self.client.post(reverse('skill-view'), {'skill_id': 0, 'name':'abhi is awesome', 'price':1, 'marketable':True, 'desc':'I am awesome'})
         skill = Skill.objects.filter()
         length = len(skill)
 
-        response = c.get(reverse('delete-skill') + '?id=1')
+        response = self.client.get(reverse('delete-skill') + '?id=1')
         self.assertTrue(response.status_code == 200)
         self.assertTrue(bool(response.content) == True)
 
@@ -173,19 +161,16 @@ class ProfileViewTest(TestCase):
         self.assertTrue(len(skill) == length - 1)
 
     def test_delete_skill_fail(self):
-        self.test_get_profile()
-        c = Client()
-        response = c.get(reverse('delete-skill') + '?id=-1')
+        self.client.login(username='tmp', password='123')
+        response = self.client.get(reverse('delete-skill') + '?id=-1')
         self.assertTrue(response.content == '')
 
     def test_who_am_I(self):
-        self.test_get_profile()
-        c = Client()
-        response = c.post(reverse('login'), {'username':'sam','password':'123'})
-        response = c.post(reverse('whoami'))
+        self.client.login(username='tmp', password='123')
+        response = self.client.get(reverse('whoami'))
         self.assertTrue(response.content != '')
 
     def test_who_am_I_fail(self):
         c = Client()
-        response = c.post(reverse('whoami'))
-        self.assertTrue(response.content == "{'userid':0}")
+        response = c.get(reverse('whoami'))
+        self.assertTrue(response.content == '{"user_id": 0}')

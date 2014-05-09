@@ -39,10 +39,6 @@ class TestRegistrationFeatures(TestCase):
         response = client.post(reverse('login'), {'username':'xxxchengexterminator', 'password':'wrong'})
         self.assertTrue(response.content == '')
 
-        response = client.post(reverse('logout'))
-        self.assertTrue(response.content != '')
-        
-        
     def test_signup(self):
         client = Client()
         response = client.post(reverse('signup'), {'username':'cheng', 'password':'123', 'user_email':'sam@cd'})
@@ -65,4 +61,4 @@ class TestRegistrationFeatures(TestCase):
         self.assertTrue(response.content != '')
 
         response = client.post(reverse('signup'), {'username':'cheng', 'password':'123', 'user_email':'sam@cd'})
-        self.assertTrue(response.content == '')
+        self.assertTrue(response.content == '{"return": "0"}')
