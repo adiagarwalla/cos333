@@ -25,6 +25,7 @@
 static Person* me;
 static ProfileViewController* _self;
 static UIImage* myPicture;
+static BOOL _caching;
 
 void saveCallback (id arg) {
     NSLog(@"Save profile JSON: %@", arg);
@@ -113,6 +114,7 @@ void pictureCallback(id arg) {
 
 - (IBAction)save:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"saveInput"]) {
+        _caching = YES;
         EditViewController *editController = [segue sourceViewController];
         [me setFirstName:editController.firstNameField.text];
         [me setLastName:editController.lastNameField.text];
@@ -198,20 +200,24 @@ void profileCallback (id arg){
     
     _self = self;
     self.tableView.allowsSelection = NO;
+    _caching = NO;
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger myID = [defaults integerForKey:@"myID"];
-    [QApiRequests getProfiles: myID andCallback: &profileCallback];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSInteger myID = [defaults integerForKey:@"myID"];
+//    [QApiRequests getProfiles: myID andCallback: &profileCallback];
 
     
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSInteger myID = [defaults integerForKey:@"myID"];
-//    [QApiRequests getProfiles: myID andCallback: &profileCallback];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!_caching) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger myID = [defaults integerForKey:@"myID"];
+        [QApiRequests getProfiles: myID andCallback: &profileCallback];
+    }
+    _caching = NO;
+}
 
 
 
