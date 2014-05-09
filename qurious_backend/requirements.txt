@@ -1,0 +1,11 @@
+Django==1.5.1
+South==0.8.4
+django-background-task==0.1.6
+django-common-helpers==0.6.0
+django-coverage==1.2.4
+django-crontab==0.5.1
+django-iphone-push==1.0
+django-push-notifications==1.0.1
+django-uuidfield==0.5.0
+opentok==0.91.2
+wsgiref==0.1.2
