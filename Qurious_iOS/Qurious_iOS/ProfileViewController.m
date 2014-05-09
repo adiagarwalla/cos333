@@ -20,8 +20,6 @@
 @end
 
 
-
-
 @implementation ProfileViewController
 
 static Person* me;
@@ -32,7 +30,6 @@ void saveCallback (id arg) {
     NSLog(@"Save profile JSON: %@", arg);
     printf("%s", "Saved a profile");
 }
-
 
 
 void pictureCallback(id arg) {
@@ -84,19 +81,14 @@ void pictureCallback(id arg) {
     static NSString *skillIdentifier = @"SkillCell";
     if (indexPath.row == 0) {
         PIctureNameButtonTableViewCell* cell = (PIctureNameButtonTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:picIdentifier];
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//            NSData *imageData = [NSData dataWithContentsOfURL:[me profPic]];
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                // Update the UI
-//                cell.picture.image = [UIImage imageWithData:imageData];
-//            });
-//        });
         cell.picture.image = myPicture;
         
-        NSString *name = [NSString stringWithFormat:@"%@ %@", [me firstName], [me lastName]];
-        if ([name isEqualToString: @" "]) cell.name.text = [me username];
-        else cell.name.text = name;
+        // make sure no nulls show up before the callback comes lol
+        if ([me firstName] != nil) {
+            NSString *name = [NSString stringWithFormat:@"%@ %@", [me firstName], [me lastName]];
+            if ([[me firstName] isEqualToString: @""]) cell.name.text = [me username];
+            else cell.name.text = name;
+        }
         cell.email.text = [me email];
         return cell;
     } else if (indexPath.row == 1) {
@@ -152,7 +144,7 @@ void pictureCallback(id arg) {
 
 void profileCallback (id arg){
     NSLog(@"My Profile JSON: %@", arg);
-    if (![arg isKindOfClass: [NSString class]] && [arg isKindOfClass:[NSArray class]] && arg != NULL) {
+    if ([arg isKindOfClass:[NSArray class]] && [arg count] != 0) {
         NSDictionary *fields = arg[0][@"profile"][0][@"fields"];
         me = [[Person alloc] init];
         me.firstName = fields[@"profile_first"];
@@ -189,8 +181,6 @@ void profileCallback (id arg){
         });
     });
 
-    //[_self configureView];
-    //[_self loadButtons];
 }
 
 - (void)viewDidLoad
