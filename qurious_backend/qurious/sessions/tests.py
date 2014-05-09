@@ -74,7 +74,7 @@ class SessionTests(TestCase):
         
         self.client.login(username='sam1', password='123')
         response = self.client.post(reverse('session-create'), {'time':15,'teacher':1})
-        response = self.client.get(reverse('notification-get-all'))
+        response = self.client.get(reverse('notification-get-all') + '?id=1')
         self.assertTrue(response.status_code == 200)
         self.assertTrue(response.content != '')
 
@@ -82,8 +82,10 @@ class SessionTests(TestCase):
         create_user('sam1')
         create_user('sam')
 
+        import pdb; pdb.set_trace()
         self.client.login(username='sam1', password='123')
-        response = self.client.get(reverse('notifications-get-all'))
+        response = self.client.post(reverse('session-create'), {'time':15,'teacher':1})
+        response = self.client.get(reverse('notification-get-all') + '?id=1')
         response = self.client.post(reverse('delete-notif'), {'id':'1'})
         self.assertTrue(response.content == "{'return':True}")
 
