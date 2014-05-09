@@ -189,3 +189,26 @@ class ProfileViewTest(TestCase):
         c = Client()
         response = c.post(reverse('whoami'))
         self.assertTrue(response.content == "{'userid':0}")
+
+    def upload_image_fail(self):
+        self.test_get_profile()
+        c = Client()
+        self.client.login(username='sam1', password='123')
+        response = c.post(reverse('upload-image'), {'fail':'fail'})
+        self.assertTrue(response.content != "{'return':True}")
+
+    def upload_image(self):
+        self.test_get_profile()
+        c = Client()
+        self.client.login(username='sam1', password='123')
+        f = open('doge.jpg')
+        response = c.post(reverse('upload-image'), {'name':'doge','attachment':f})
+        f.close()
+        self.assertTrue(response.content == "{'return':True}")
+    
+    def test_set_push_token(self):
+        self.test_get_profile()
+        c = Client()
+        self.client.login(username='sam1', password='123')
+        response = c.post(reverse('settoken'), {'token':'123456789'})
+        self.assertTrue(response.content != '')

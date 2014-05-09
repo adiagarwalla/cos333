@@ -46,9 +46,13 @@ class SessionTests(TestCase):
         create_user('sam1')
         create_user('sam')
 
-        c.post(reverse('login'), {'username': 'sam1', 'password':'123'})
+        self.client.login(username='sam1', password='123')
         response = c.post(reverse('session-create'), {'time':15,'teacher':1})
         self.assertTrue(response.content != '')
+
+        # failure portion
+        response = c.post(reverse('session-create'), {'time':'fail','teacher':'c'})
+        self.assertTrue(response.content == '')
 
     def test_generate_token(self):
         """
@@ -61,12 +65,32 @@ class SessionTests(TestCase):
         self.assertTrue(response.status_code == 200)
         self.assertTrue(response.content != '')
 
+        # failure case
+        response = c.get(reverse('gen-token') + '?failure')
+        self.assertTrue(response.content == '')
+
     def test_get_notification(self):
         c = Client()
         create_user('sam1')
         create_user('sam')
         
+        response = c.get(reverse('notifications'))
+        self.assertTrue(response.content == '')
+
         c.post(reverse('login'), {'username':'sam1', 'password':'123'})
         response = c.get(reverse('notifications'))
         self.assertTrue(response.status_code == 200)
         self.assertTrue(response.content != '')
+
+    def test_notification_delete(self):
+        c = Client()
+        create_user('sam1')
+        create_user('sam')
+
+        self.client.login(username='sam1', password='123')
+        response = c.get(reverse('notifications'))
+        response = c.post(reverse('delete-notif'), {'id':'1'})
+        self.assertTrue(response.content == "{'return':True}")
+
+        rseponse = c.post(reverse('delete-notif'), {'id':'c'})
+        self.assertTrue(response.content == "{'return':False}")
