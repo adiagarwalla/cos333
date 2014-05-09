@@ -97,7 +97,6 @@ class SessionTests(TestCase):
         create_user('sam1')
         create_user('sam')
 
-        import pdb; pdb.set_trace()
         self.client.login(username='sam1', password='123')
         response = self.client.post(reverse('session-create'), {'time':15,'teacher':1})
         n = Notification.objects.filter()
