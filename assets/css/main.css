@@ -10,15 +10,12 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Titles */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
     font-weight: 300;
     color: #333;
 }
 
-
-/* Paragraph & Typographic */
 p {
     line-height: 28px;
     margin-bottom: 25px;
@@ -87,7 +84,7 @@ a:focus {
 
 #features {
 	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 }
 
 #features .ac a{
@@ -98,7 +95,6 @@ a:focus {
 
 #showcase {
 	display: block;
-	padding-top: 0.1px;
 	padding-bottom: 50px;
 }
 
